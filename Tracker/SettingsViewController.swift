@@ -20,7 +20,7 @@ class SettingsViewController: FXFormViewController {
     
     override func awakeFromNib() {
         
-        formController.form = settingsForm()
+        formController.form = SettingsForm()
     }
     
     override func viewWillAppear(animated: Bool) {

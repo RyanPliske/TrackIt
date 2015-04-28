@@ -8,14 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		EF52F2451A8735CF00315B35 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF52F2441A8735CF00315B35 /* SettingsViewController.swift */; };
+		EF7CE0101AF0204700C451B1 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE00F1AF0204700C451B1 /* TPKeyboardAvoidingScrollView.m */; };
+		EF7CE0131AF021C600C451B1 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE0121AF021C600C451B1 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
+		EF7CE0171AF0228600C451B1 /* HTPressableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE0161AF0228600C451B1 /* HTPressableButton.m */; };
+		EF7CE01A1AF0238800C451B1 /* FXForms.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE0191AF0238800C451B1 /* FXForms.m */; };
+		EF7CE01D1AF023B000C451B1 /* UIImage+HTButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE01C1AF023B000C451B1 /* UIImage+HTButton.m */; };
+		EF7CE0221AF023CC00C451B1 /* HTPressableButtonPrefs.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE01F1AF023CC00C451B1 /* HTPressableButtonPrefs.m */; };
+		EF7CE0231AF023CC00C451B1 /* UIColor+HTColor.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE0211AF023CC00C451B1 /* UIColor+HTColor.m */; };
 		EFE083F41A86A9B100AC9631 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE083F31A86A9B100AC9631 /* AppDelegate.swift */; };
-		EFE083F61A86A9B100AC9631 /* TrackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE083F51A86A9B100AC9631 /* TrackViewController.swift */; };
+		EFE083F61A86A9B100AC9631 /* TrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE083F51A86A9B100AC9631 /* TrackerViewController.swift */; };
 		EFE083F81A86A9B100AC9631 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE083F71A86A9B100AC9631 /* StatsViewController.swift */; };
 		EFE083FB1A86A9B100AC9631 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFE083F91A86A9B100AC9631 /* Main.storyboard */; };
 		EFE083FD1A86A9B100AC9631 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFE083FC1A86A9B100AC9631 /* Images.xcassets */; };
 		EFE0840C1A86A9B100AC9631 /* TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE0840B1A86A9B100AC9631 /* TrackerTests.swift */; };
-		EFF5E6041A885BCB00B59CD4 /* FXForms.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF5E6031A885BCB00B59CD4 /* FXForms.m */; };
-		EFF5E6061A8861BC00B59CD4 /* settingsForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF5E6051A8861BC00B59CD4 /* settingsForm.swift */; };
+		EFF5E6061A8861BC00B59CD4 /* SettingsForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF5E6051A8861BC00B59CD4 /* SettingsForm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,10 +36,24 @@
 
 /* Begin PBXFileReference section */
 		EF52F2441A8735CF00315B35 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		EF7CE00E1AF0204700C451B1 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
+		EF7CE00F1AF0204700C451B1 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
+		EF7CE0111AF021C600C451B1 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
+		EF7CE0121AF021C600C451B1 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
+		EF7CE0151AF0228600C451B1 /* HTPressableButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTPressableButton.h; sourceTree = "<group>"; };
+		EF7CE0161AF0228600C451B1 /* HTPressableButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTPressableButton.m; sourceTree = "<group>"; };
+		EF7CE0181AF0238800C451B1 /* FXForms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXForms.h; sourceTree = "<group>"; };
+		EF7CE0191AF0238800C451B1 /* FXForms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXForms.m; sourceTree = "<group>"; };
+		EF7CE01B1AF023B000C451B1 /* UIImage+HTButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+HTButton.h"; sourceTree = "<group>"; };
+		EF7CE01C1AF023B000C451B1 /* UIImage+HTButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+HTButton.m"; sourceTree = "<group>"; };
+		EF7CE01E1AF023CC00C451B1 /* HTPressableButtonPrefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTPressableButtonPrefs.h; sourceTree = "<group>"; };
+		EF7CE01F1AF023CC00C451B1 /* HTPressableButtonPrefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTPressableButtonPrefs.m; sourceTree = "<group>"; };
+		EF7CE0201AF023CC00C451B1 /* UIColor+HTColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HTColor.h"; sourceTree = "<group>"; };
+		EF7CE0211AF023CC00C451B1 /* UIColor+HTColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HTColor.m"; sourceTree = "<group>"; };
 		EFE083EE1A86A9B100AC9631 /* Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFE083F21A86A9B100AC9631 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EFE083F31A86A9B100AC9631 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EFE083F51A86A9B100AC9631 /* TrackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackViewController.swift; sourceTree = "<group>"; };
+		EFE083F51A86A9B100AC9631 /* TrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerViewController.swift; sourceTree = "<group>"; };
 		EFE083F71A86A9B100AC9631 /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		EFE083FA1A86A9B100AC9631 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EFE083FC1A86A9B100AC9631 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -41,9 +61,7 @@
 		EFE0840A1A86A9B100AC9631 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EFE0840B1A86A9B100AC9631 /* TrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerTests.swift; sourceTree = "<group>"; };
 		EFF5E6011A885BCB00B59CD4 /* Tracker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tracker-Bridging-Header.h"; sourceTree = "<group>"; };
-		EFF5E6021A885BCB00B59CD4 /* FXForms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXForms.h; sourceTree = "<group>"; };
-		EFF5E6031A885BCB00B59CD4 /* FXForms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXForms.m; sourceTree = "<group>"; };
-		EFF5E6051A8861BC00B59CD4 /* settingsForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingsForm.swift; sourceTree = "<group>"; };
+		EFF5E6051A8861BC00B59CD4 /* SettingsForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsForm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,10 +85,47 @@
 		EF7CE00A1AF0050300C451B1 /* FXForms */ = {
 			isa = PBXGroup;
 			children = (
-				EFF5E6021A885BCB00B59CD4 /* FXForms.h */,
-				EFF5E6031A885BCB00B59CD4 /* FXForms.m */,
+				EF7CE0181AF0238800C451B1 /* FXForms.h */,
+				EF7CE0191AF0238800C451B1 /* FXForms.m */,
 			);
 			name = FXForms;
+			sourceTree = "<group>";
+		};
+		EF7CE00C1AF0201700C451B1 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				EF7CE0141AF0227500C451B1 /* HTPressableButton */,
+				EF7CE00D1AF0202F00C451B1 /* TPKeyboardAvoiding */,
+				EF7CE00A1AF0050300C451B1 /* FXForms */,
+			);
+			name = Vendor;
+			path = Tracker;
+			sourceTree = "<group>";
+		};
+		EF7CE00D1AF0202F00C451B1 /* TPKeyboardAvoiding */ = {
+			isa = PBXGroup;
+			children = (
+				EF7CE00E1AF0204700C451B1 /* TPKeyboardAvoidingScrollView.h */,
+				EF7CE00F1AF0204700C451B1 /* TPKeyboardAvoidingScrollView.m */,
+				EF7CE0111AF021C600C451B1 /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
+				EF7CE0121AF021C600C451B1 /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
+			);
+			name = TPKeyboardAvoiding;
+			sourceTree = "<group>";
+		};
+		EF7CE0141AF0227500C451B1 /* HTPressableButton */ = {
+			isa = PBXGroup;
+			children = (
+				EF7CE0151AF0228600C451B1 /* HTPressableButton.h */,
+				EF7CE0161AF0228600C451B1 /* HTPressableButton.m */,
+				EF7CE01E1AF023CC00C451B1 /* HTPressableButtonPrefs.h */,
+				EF7CE01F1AF023CC00C451B1 /* HTPressableButtonPrefs.m */,
+				EF7CE0201AF023CC00C451B1 /* UIColor+HTColor.h */,
+				EF7CE0211AF023CC00C451B1 /* UIColor+HTColor.m */,
+				EF7CE01B1AF023B000C451B1 /* UIImage+HTButton.h */,
+				EF7CE01C1AF023B000C451B1 /* UIImage+HTButton.m */,
+			);
+			name = HTPressableButton;
 			sourceTree = "<group>";
 		};
 		EFE083E51A86A9B100AC9631 = {
@@ -79,6 +134,7 @@
 				EFE083F01A86A9B100AC9631 /* Tracker */,
 				EFE084081A86A9B100AC9631 /* TrackerTests */,
 				EFE083EF1A86A9B100AC9631 /* Products */,
+				EF7CE00C1AF0201700C451B1 /* Vendor */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,11 +150,10 @@
 		EFE083F01A86A9B100AC9631 /* Tracker */ = {
 			isa = PBXGroup;
 			children = (
-				EF7CE00A1AF0050300C451B1 /* FXForms */,
 				EFE083F31A86A9B100AC9631 /* AppDelegate.swift */,
-				EFE083F51A86A9B100AC9631 /* TrackViewController.swift */,
+				EFE083F51A86A9B100AC9631 /* TrackerViewController.swift */,
 				EF52F2441A8735CF00315B35 /* SettingsViewController.swift */,
-				EFF5E6051A8861BC00B59CD4 /* settingsForm.swift */,
+				EFF5E6051A8861BC00B59CD4 /* SettingsForm.swift */,
 				EFE083F71A86A9B100AC9631 /* StatsViewController.swift */,
 				EFE083F91A86A9B100AC9631 /* Main.storyboard */,
 				EFE083FC1A86A9B100AC9631 /* Images.xcassets */,
@@ -232,12 +287,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF7CE0171AF0228600C451B1 /* HTPressableButton.m in Sources */,
+				EF7CE01A1AF0238800C451B1 /* FXForms.m in Sources */,
+				EF7CE0221AF023CC00C451B1 /* HTPressableButtonPrefs.m in Sources */,
+				EF7CE0101AF0204700C451B1 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				EFE083F81A86A9B100AC9631 /* StatsViewController.swift in Sources */,
 				EFE083F41A86A9B100AC9631 /* AppDelegate.swift in Sources */,
-				EFF5E6061A8861BC00B59CD4 /* settingsForm.swift in Sources */,
-				EFF5E6041A885BCB00B59CD4 /* FXForms.m in Sources */,
-				EFE083F61A86A9B100AC9631 /* TrackViewController.swift in Sources */,
+				EF7CE01D1AF023B000C451B1 /* UIImage+HTButton.m in Sources */,
+				EFF5E6061A8861BC00B59CD4 /* SettingsForm.swift in Sources */,
+				EF7CE0131AF021C600C451B1 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
+				EFE083F61A86A9B100AC9631 /* TrackerViewController.swift in Sources */,
 				EF52F2451A8735CF00315B35 /* SettingsViewController.swift in Sources */,
+				EF7CE0231AF023CC00C451B1 /* UIColor+HTColor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,11 +416,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Tracker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Tracker/Tracker-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -368,10 +432,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Tracker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Tracker/Tracker-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
