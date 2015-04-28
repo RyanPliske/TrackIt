@@ -14,6 +14,8 @@
 		EFE083FB1A86A9B100AC9631 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFE083F91A86A9B100AC9631 /* Main.storyboard */; };
 		EFE083FD1A86A9B100AC9631 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFE083FC1A86A9B100AC9631 /* Images.xcassets */; };
 		EFE0840C1A86A9B100AC9631 /* TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE0840B1A86A9B100AC9631 /* TrackerTests.swift */; };
+		EFF5E6041A885BCB00B59CD4 /* FXForms.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF5E6031A885BCB00B59CD4 /* FXForms.m */; };
+		EFF5E6061A8861BC00B59CD4 /* settingsForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF5E6051A8861BC00B59CD4 /* settingsForm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,10 @@
 		EFE084051A86A9B100AC9631 /* TrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFE0840A1A86A9B100AC9631 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EFE0840B1A86A9B100AC9631 /* TrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerTests.swift; sourceTree = "<group>"; };
+		EFF5E6011A885BCB00B59CD4 /* Tracker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tracker-Bridging-Header.h"; sourceTree = "<group>"; };
+		EFF5E6021A885BCB00B59CD4 /* FXForms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXForms.h; sourceTree = "<group>"; };
+		EFF5E6031A885BCB00B59CD4 /* FXForms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXForms.m; sourceTree = "<group>"; };
+		EFF5E6051A8861BC00B59CD4 /* settingsForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingsForm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EF7CE00A1AF0050300C451B1 /* FXForms */ = {
+			isa = PBXGroup;
+			children = (
+				EFF5E6021A885BCB00B59CD4 /* FXForms.h */,
+				EFF5E6031A885BCB00B59CD4 /* FXForms.m */,
+			);
+			name = FXForms;
+			sourceTree = "<group>";
+		};
 		EFE083E51A86A9B100AC9631 = {
 			isa = PBXGroup;
 			children = (
@@ -79,13 +94,16 @@
 		EFE083F01A86A9B100AC9631 /* Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				EF7CE00A1AF0050300C451B1 /* FXForms */,
 				EFE083F31A86A9B100AC9631 /* AppDelegate.swift */,
 				EFE083F51A86A9B100AC9631 /* TrackViewController.swift */,
 				EF52F2441A8735CF00315B35 /* SettingsViewController.swift */,
+				EFF5E6051A8861BC00B59CD4 /* settingsForm.swift */,
 				EFE083F71A86A9B100AC9631 /* StatsViewController.swift */,
 				EFE083F91A86A9B100AC9631 /* Main.storyboard */,
 				EFE083FC1A86A9B100AC9631 /* Images.xcassets */,
 				EFE083F11A86A9B100AC9631 /* Supporting Files */,
+				EFF5E6011A885BCB00B59CD4 /* Tracker-Bridging-Header.h */,
 			);
 			path = Tracker;
 			sourceTree = "<group>";
@@ -216,6 +234,8 @@
 			files = (
 				EFE083F81A86A9B100AC9631 /* StatsViewController.swift in Sources */,
 				EFE083F41A86A9B100AC9631 /* AppDelegate.swift in Sources */,
+				EFF5E6061A8861BC00B59CD4 /* settingsForm.swift in Sources */,
+				EFF5E6041A885BCB00B59CD4 /* FXForms.m in Sources */,
 				EFE083F61A86A9B100AC9631 /* TrackViewController.swift in Sources */,
 				EF52F2451A8735CF00315B35 /* SettingsViewController.swift in Sources */,
 			);
@@ -334,9 +354,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Tracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Tracker/Tracker-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -344,9 +367,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Tracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Tracker/Tracker-Bridging-Header.h";
 			};
 			name = Release;
 		};
