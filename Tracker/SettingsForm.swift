@@ -1,5 +1,5 @@
 //
-//  settingsForm.swift
+//  SettingsForm.swift
 //  Tracker
 //
 //  Created by Ryan Pliske on 2/8/15.

@@ -2,9 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Tracker-->
@@ -20,53 +17,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hen-NF-7Nj" customClass="TPKeyboardAvoidingScrollView">
-                                <rect key="frame" x="16" y="40" width="343" height="578"/>
+                                <rect key="frame" x="0.0" y="40" width="375" height="578"/>
                                 <subviews>
                                     <view alpha="0.79999999999999982" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b09-XM-ycc" userLabel="TrackerView">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="425"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZa-G2-1vj" userLabel="SelectButton">
-                                                <rect key="frame" x="298" y="15" width="30" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="30" id="0uE-mp-LL7"/>
-                                                    <constraint firstAttribute="height" constant="30" id="ebz-AN-2nD"/>
-                                                </constraints>
-                                                <state key="normal" title="Button" image="plus-button">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fju-yj-JuR" userLabel="TrackUrgeButton">
-                                                <rect key="frame" x="172" y="128" width="74" height="30"/>
-                                                <state key="normal" title="Track Urge">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PHc-V6-eQQ" userLabel="TrackButton">
-                                                <rect key="frame" x="86" y="128" width="37" height="30"/>
-                                                <state key="normal" title="Track">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                            </button>
-                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hMF-dc-NyX">
-                                                <rect key="frame" x="67" y="263" width="240" height="162"/>
-                                            </pickerView>
-                                        </subviews>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="578"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="hMF-dc-NyX" firstAttribute="width" secondItem="b09-XM-ycc" secondAttribute="width" multiplier="0.7" id="2DV-OG-biK"/>
-                                            <constraint firstItem="Fju-yj-JuR" firstAttribute="leading" secondItem="b09-XM-ycc" secondAttribute="centerX" id="6Oc-9a-sN5"/>
-                                            <constraint firstItem="Fju-yj-JuR" firstAttribute="top" secondItem="b09-XM-ycc" secondAttribute="centerY" multiplier="0.6" id="Emm-1g-0bE"/>
-                                            <constraint firstItem="PHc-V6-eQQ" firstAttribute="top" secondItem="b09-XM-ycc" secondAttribute="centerY" multiplier="0.6" id="JIT-mp-tr6"/>
-                                            <constraint firstAttribute="bottom" secondItem="hMF-dc-NyX" secondAttribute="bottom" id="W63-CS-JDD"/>
-                                            <constraint firstItem="aZa-G2-1vj" firstAttribute="top" secondItem="b09-XM-ycc" secondAttribute="top" constant="15" id="aa2-Dp-TbD"/>
-                                            <constraint firstAttribute="centerX" secondItem="hMF-dc-NyX" secondAttribute="centerX" constant="-15.5" id="d0u-Ey-OgD"/>
-                                            <constraint firstItem="PHc-V6-eQQ" firstAttribute="leading" secondItem="b09-XM-ycc" secondAttribute="centerX" multiplier="0.5" id="fNw-3y-kPP"/>
-                                            <constraint firstAttribute="trailing" secondItem="aZa-G2-1vj" secondAttribute="trailing" constant="15" id="phY-Kc-Wc5"/>
                                             <constraint firstAttribute="height" constant="425" id="t6G-kz-c7Q"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="t6G-kz-c7Q"/>
+                                            </mask>
+                                        </variation>
                                     </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="b09-XM-ycc" firstAttribute="height" secondItem="Hen-NF-7Nj" secondAttribute="height" id="8MQ-cK-Ob8"/>
                                     <constraint firstItem="b09-XM-ycc" firstAttribute="top" secondItem="Hen-NF-7Nj" secondAttribute="top" id="Ncp-7V-Aqg"/>
                                     <constraint firstAttribute="bottom" secondItem="b09-XM-ycc" secondAttribute="bottom" id="Wbd-2G-cSM"/>
                                     <constraint firstAttribute="trailing" secondItem="b09-XM-ycc" secondAttribute="trailing" id="ZZZ-iI-RII"/>
@@ -78,12 +45,15 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="Hen-NF-7Nj" secondAttribute="bottom" id="LPS-AO-Yfb"/>
-                            <constraint firstItem="Hen-NF-7Nj" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="Pc5-L8-zPO"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Hen-NF-7Nj" secondAttribute="trailing" id="V6B-tc-9fe"/>
+                            <constraint firstItem="Hen-NF-7Nj" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="Pc5-L8-zPO"/>
+                            <constraint firstItem="Hen-NF-7Nj" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailing" id="V6B-tc-9fe"/>
                             <constraint firstItem="Hen-NF-7Nj" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="20" id="edm-fy-tsA"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Tracker" image="full__0000s_0106_note" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="trackerView" destination="b09-XM-ycc" id="IDt-dZ-Anz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -208,6 +178,5 @@
         <image name="full__0000s_0010_graph-3" width="25" height="23"/>
         <image name="full__0000s_0091_config" width="25" height="25"/>
         <image name="full__0000s_0106_note" width="23" height="23"/>
-        <image name="plus-button" width="512" height="512"/>
     </resources>
 </document>
