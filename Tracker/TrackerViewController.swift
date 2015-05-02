@@ -13,7 +13,7 @@ class TrackerViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     @IBOutlet weak var trackerView: UIView!
     
     var ItemPickerView = UIPickerView()
-    var hiddenPickerViewTextField : UITextField?
+    var hiddenPickerViewTextField = UITextField(frame: CGRectZero)
     var selectedItemOfFirstWheelColumn = 0 {
         didSet {
             ItemPickerView.selectRow(selectedItemOfFirstWheelColumn, inComponent: 0, animated: false)
@@ -37,23 +37,18 @@ class TrackerViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             if trackingType == .TrackAction {
                 selectedItemOfSecondWheelColumn = 0
             }
-            hiddenPickerViewTextField?.becomeFirstResponder()
+            hiddenPickerViewTextField.becomeFirstResponder()
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setNeedsStatusBarAppearanceUpdate()
-        // Setup for Picker Wheel
-        hiddenPickerViewTextField = UITextField(frame: CGRectZero)
-        if let hiddenTextField = hiddenPickerViewTextField {
-            trackerView.addSubview(hiddenTextField)
-        }
-
+        trackerView.addSubview(hiddenPickerViewTextField)
         ItemPickerView.dataSource = self; ItemPickerView.delegate = self
         ItemPickerView.backgroundColor = UIColor.blackColor()
         ItemPickerView.showsSelectionIndicator = true
-        self.hiddenPickerViewTextField!.inputView = ItemPickerView
+        self.hiddenPickerViewTextField.inputView = ItemPickerView
         setToolBarForPickerView()
         // Setup for Buttons
         trackButton.setButtonLayout(trackButton, theSuperView: trackerView)
@@ -61,9 +56,9 @@ class TrackerViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         trackButton.addTarget(self, action: "userWantsToTrackAction", forControlEvents: UIControlEvents.TouchUpInside)
         trackUrgeButton.addTarget(self, action: "userWantsToTrackUrge", forControlEvents: UIControlEvents.TouchUpInside)
         // Create NSLayout for text field so it raises when button is pressed
-        hiddenPickerViewTextField!.setTranslatesAutoresizingMaskIntoConstraints(false)
-        hiddenPickerViewTextField!.valueForKey("textInputTraits")?.setValue(UIColor.clearColor(), forKey: "insertionPointColor")
-        trackerView.addConstraint(NSLayoutConstraint(item: hiddenPickerViewTextField!, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: trackButton, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: 10))
+        hiddenPickerViewTextField.setTranslatesAutoresizingMaskIntoConstraints(false)
+        hiddenPickerViewTextField.valueForKey("textInputTraits")?.setValue(UIColor.clearColor(), forKey: "insertionPointColor")
+        trackerView.addConstraint(NSLayoutConstraint(item: hiddenPickerViewTextField, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: trackButton, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: 10))
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -76,7 +71,7 @@ class TrackerViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         var doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "userPicked:")
         var cancelButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "userCanceledPicking:")
         toolBar.setItems(NSArray(objects: cancelButton, UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil), doneButton ) as [AnyObject], animated: false)
-        hiddenPickerViewTextField?.inputAccessoryView = toolBar
+        hiddenPickerViewTextField.inputAccessoryView = toolBar
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -134,11 +129,11 @@ class TrackerViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
     
     func userCanceledPicking(sender: UIBarButtonItem){
-        hiddenPickerViewTextField?.resignFirstResponder()
+        hiddenPickerViewTextField.resignFirstResponder()
     }
     
     func userPicked(sender: UIBarButtonItem){
-        hiddenPickerViewTextField?.resignFirstResponder()
+        hiddenPickerViewTextField.resignFirstResponder()
     }
     
     func userWantsToTrackAction(){
