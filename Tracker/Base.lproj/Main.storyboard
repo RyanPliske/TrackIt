@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Tracker-->
@@ -21,8 +22,18 @@
                                 <subviews>
                                     <view alpha="0.79999999999999982" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b09-XM-ycc" userLabel="TrackerView">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="578"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="May 2, 2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hh4-c0-T3W">
+                                                <rect key="frame" x="127" y="73" width="120" height="27"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstItem="Hh4-c0-T3W" firstAttribute="centerY" secondItem="b09-XM-ycc" secondAttribute="centerY" multiplier="0.3" id="dSc-J7-kFp"/>
+                                            <constraint firstAttribute="centerX" secondItem="Hh4-c0-T3W" secondAttribute="centerX" constant="0.5" id="dt7-Ng-Eem"/>
                                             <constraint firstAttribute="height" constant="425" id="t6G-kz-c7Q"/>
                                         </constraints>
                                         <variation key="default">
