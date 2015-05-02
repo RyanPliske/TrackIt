@@ -27,7 +27,7 @@ class TrackerButton : HTPressableButton {
     /**
     The `setButtonLayout` function will set NSLayout Constraints and add it to the UIView in which you wish to have the button appear.
     
-    TODO: Have build-in styles : Create Button Center and Full Width. Create Two Buttons Half Width Side by Side
+    End Result: two Buttons Half Width Side by Side
     */
     func setButtonLayout(button : TrackerButton, theSuperView : UIView){
         theSuperView.addSubview(button)

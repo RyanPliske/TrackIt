@@ -47,7 +47,7 @@ class TrackerViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         // Setup for Picker Wheel
         hiddenPickerViewTextField = UITextField(frame: CGRectZero)
         if let hiddenTextField = hiddenPickerViewTextField {
-            self.view.addSubview(hiddenTextField)
+            trackerView.addSubview(hiddenTextField)
         }
 
         ItemPickerView.dataSource = self; ItemPickerView.delegate = self
@@ -60,6 +60,10 @@ class TrackerViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         trackUrgeButton.setButtonLayout(trackUrgeButton, theSuperView: trackerView)
         trackButton.addTarget(self, action: "userWantsToTrackAction", forControlEvents: UIControlEvents.TouchUpInside)
         trackUrgeButton.addTarget(self, action: "userWantsToTrackUrge", forControlEvents: UIControlEvents.TouchUpInside)
+        // Create NSLayout for text field so it raises when button is pressed
+        hiddenPickerViewTextField!.setTranslatesAutoresizingMaskIntoConstraints(false)
+        hiddenPickerViewTextField!.valueForKey("textInputTraits")?.setValue(UIColor.clearColor(), forKey: "insertionPointColor")
+        trackerView.addConstraint(NSLayoutConstraint(item: hiddenPickerViewTextField!, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: trackButton, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: 10))
     }
     
     override func viewWillAppear(animated: Bool) {
