@@ -8,9 +8,13 @@
 
 import Foundation
 
-struct TrackableItems {
+class TrackableItems {
     
-    static var regularItems = ["Workouts", "Protein", "Baby Kicks"]
-    static var sinfulItems = ["Drinks", "Cigarettes", "Money"]
-    static let ListOfQuantities = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Custom"]
+    var regularItems = ["Workouts", "Protein", "Baby Kicks"]
+    var sinfulItems  = ["Drinks", "Cigarettes", "Money"]
+    let ListOfQuantities = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Custom"]
+    
+    func getCountOfAllItems() -> Int {
+        return regularItems.count + sinfulItems.count
+    }
 }

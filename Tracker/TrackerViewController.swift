@@ -11,7 +11,8 @@ import UIKit
 class TrackerViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     @IBOutlet weak var trackerView: UIView!
-    
+
+    var trackableItems : TrackableItems!
     var ItemPickerView = UIPickerView()
     var hiddenPickerViewTextField = UITextField(frame: CGRectZero)
     var selectedItemOfFirstWheelColumn = 0 {
@@ -50,6 +51,16 @@ class TrackerViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         ItemPickerView.showsSelectionIndicator = true
         self.hiddenPickerViewTextField.inputView = ItemPickerView
         setToolBarForPickerView()
+        setuptheLayout()
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        trackableItems = appDelegate.getTheTrackableItems()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.tabBarController?.tabBar.tintColor = UIColor.greenColor()
+    }
+    
+    func setuptheLayout(){
         // Setup for Buttons
         trackButton.setButtonLayout(trackButton, theSuperView: trackerView)
         trackUrgeButton.setButtonLayout(trackUrgeButton, theSuperView: trackerView)
@@ -59,10 +70,6 @@ class TrackerViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         hiddenPickerViewTextField.setTranslatesAutoresizingMaskIntoConstraints(false)
         hiddenPickerViewTextField.valueForKey("textInputTraits")?.setValue(UIColor.clearColor(), forKey: "insertionPointColor")
         trackerView.addConstraint(NSLayoutConstraint(item: hiddenPickerViewTextField, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: trackButton, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: 10))
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        self.tabBarController?.tabBar.tintColor = UIColor.greenColor()
     }
     
     func setToolBarForPickerView(){
@@ -91,19 +98,19 @@ class TrackerViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         if component == 0 {
             switch trackingType {
                 case .TrackAction:
-                    return TrackableItems.sinfulItems.count + TrackableItems.regularItems.count
+                    return trackableItems.getCountOfAllItems()
                 case .TrackUrge:
-                    return TrackableItems.sinfulItems.count
+                    return trackableItems.sinfulItems.count
             }
         }
         else {
-            return TrackableItems.ListOfQuantities.count
+            return trackableItems.ListOfQuantities.count
         }
     }
     
     func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         if component == 0 {
-            var items = TrackableItems.sinfulItems + TrackableItems.regularItems
+            var items = trackableItems.sinfulItems + trackableItems.regularItems
             if row == selectedItemOfFirstWheelColumn {
               return NSAttributedString(string: items[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.greenColor()])
             }
@@ -111,9 +118,9 @@ class TrackerViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         }
         else {
             if row == selectedItemOfSecondWheelColumn {
-                return NSAttributedString(string: TrackableItems.ListOfQuantities[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.greenColor()])
+                return NSAttributedString(string: trackableItems.ListOfQuantities[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.greenColor()])
             }
-            return NSAttributedString(string: TrackableItems.ListOfQuantities[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.whiteColor()])
+            return NSAttributedString(string: trackableItems.ListOfQuantities[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.whiteColor()])
         }
     }
     
