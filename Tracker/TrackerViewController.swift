@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import QuartzCore
 
 class TrackerViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     @IBOutlet weak var trackerView: UIView!
+    @IBOutlet weak var dateTextField: UITextField!
 
+    
     var trackableItems : TrackableItems!
     var ItemPickerView = UIPickerView()
     var hiddenPickerViewTextField = UITextField(frame: CGRectZero)
@@ -41,6 +44,7 @@ class TrackerViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             hiddenPickerViewTextField.becomeFirstResponder()
         }
     }
+    var chooseableDates = ChooseableDates(month: CurrentDate.months[CurrentDate.thisMonth - 1], day: CurrentDate.days[0])
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,17 +71,28 @@ class TrackerViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         trackButton.addTarget(self, action: "userWantsToTrackAction", forControlEvents: UIControlEvents.TouchUpInside)
         trackUrgeButton.addTarget(self, action: "userWantsToTrackUrge", forControlEvents: UIControlEvents.TouchUpInside)
         // Create NSLayout for text field so it raises when button is pressed
-        hiddenPickerViewTextField.setTranslatesAutoresizingMaskIntoConstraints(false)
+        hiddenPickerViewTextField.translatesAutoresizingMaskIntoConstraints = false
         hiddenPickerViewTextField.valueForKey("textInputTraits")?.setValue(UIColor.clearColor(), forKey: "insertionPointColor")
         trackerView.addConstraint(NSLayoutConstraint(item: hiddenPickerViewTextField, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: trackButton, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: 10))
+        // Setup for Date Text Field
+        dateTextField.backgroundColor = UIColor.blackColor()
+        dateTextField.layer.borderColor = UIColor.whiteColor().CGColor
+        dateTextField.layer.borderWidth = 1.0
+        dateTextField.layer.cornerRadius = 8.0
+        dateTextField.layer.masksToBounds = true
+        dateTextField.text = chooseableDates.description
     }
     
     func setToolBarForPickerView(){
-        var toolBar = UIToolbar(frame: CGRectMake(0, 0, 320, 44))
+        let toolBar = UIToolbar(frame: CGRectMake(0, 0, 320, 44))
         toolBar.barStyle = UIBarStyle.Black
-        var doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "userPicked:")
-        var cancelButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "userCanceledPicking:")
-        toolBar.setItems(NSArray(objects: cancelButton, UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil), doneButton ) as [AnyObject], animated: false)
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "userPicked:")
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "userCanceledPicking:")
+        // toolBar.setItems(NSArray(objects: cancelButton, UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil), doneButton ) as [UIBarButtonItem]?, animated: false)
+        
+        toolBar.setItems([cancelButton, flexibleSpace, doneButton], animated: false)
+        
         hiddenPickerViewTextField.inputAccessoryView = toolBar
     }
     
@@ -91,6 +106,8 @@ class TrackerViewController: UIViewController, UIPickerViewDataSource, UIPickerV
                 return 2
             case .TrackUrge:
                 return 1
+            case .TrackOnThisDay:
+                return 1
         }
     }
 
@@ -101,6 +118,8 @@ class TrackerViewController: UIViewController, UIPickerViewDataSource, UIPickerV
                     return trackableItems.getCountOfAllItems()
                 case .TrackUrge:
                     return trackableItems.sinfulItems.count
+                case .TrackOnThisDay:
+                    return CurrentDate.days.count
             }
         }
         else {
@@ -150,6 +169,11 @@ class TrackerViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     func userWantsToTrackUrge(){
         trackingType = .TrackUrge
     }
+    
+    @IBAction func userClickedDateTextField(sender: AnyObject) {
+            trackingType = .TrackOnThisDay
+    }
+    
     
 }
 

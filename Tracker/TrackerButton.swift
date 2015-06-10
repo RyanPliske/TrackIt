@@ -31,7 +31,7 @@ class TrackerButton : HTPressableButton {
     */
     func setButtonLayout(button : TrackerButton, theSuperView : UIView){
         theSuperView.addSubview(button)
-        button.setTranslatesAutoresizingMaskIntoConstraints(false)
+        button.translatesAutoresizingMaskIntoConstraints = false
         var xCoordForButton, yCoordForButton, widthForButton, heightForButton : NSLayoutConstraint!
         yCoordForButton = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: theSuperView, attribute: NSLayoutAttribute.CenterY, multiplier: 1.0, constant: -30)
         widthForButton = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: theSuperView, attribute: NSLayoutAttribute.Width, multiplier: 0.44, constant: 0)
@@ -48,8 +48,9 @@ class TrackerButton : HTPressableButton {
         case .TrackUrge:
             button.setTitle("Track Urge", forState: UIControlState.Normal)
             xCoordForButton = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: theSuperView, attribute: NSLayoutAttribute.TrailingMargin, multiplier: 1.0, constant: 0)
+        case .TrackOnThisDay:
+            print("This should't happen") // Hopefully this gets ignored?! lol
         }
-        
         theSuperView.addConstraints([xCoordForButton, yCoordForButton, widthForButton, heightForButton])
     }
 }

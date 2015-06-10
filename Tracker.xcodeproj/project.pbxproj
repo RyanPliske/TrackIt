@@ -25,6 +25,8 @@
 		EFE083FD1A86A9B100AC9631 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFE083FC1A86A9B100AC9631 /* Images.xcassets */; };
 		EFE0840C1A86A9B100AC9631 /* TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE0840B1A86A9B100AC9631 /* TrackerTests.swift */; };
 		EFF5E6061A8861BC00B59CD4 /* SettingsForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF5E6051A8861BC00B59CD4 /* SettingsForm.swift */; };
+		EFFCF9DA1AFA9318004DEDB9 /* ChooseableDates.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCF9D91AFA9318004DEDB9 /* ChooseableDates.swift */; };
+		EFFCF9DC1AFA9C26004DEDB9 /* CurrentDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCF9DB1AFA9C26004DEDB9 /* CurrentDate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,8 @@
 		EFE0840B1A86A9B100AC9631 /* TrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerTests.swift; sourceTree = "<group>"; };
 		EFF5E6011A885BCB00B59CD4 /* Tracker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tracker-Bridging-Header.h"; sourceTree = "<group>"; };
 		EFF5E6051A8861BC00B59CD4 /* SettingsForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsForm.swift; sourceTree = "<group>"; };
+		EFFCF9D91AFA9318004DEDB9 /* ChooseableDates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseableDates.swift; sourceTree = "<group>"; };
+		EFFCF9DB1AFA9C26004DEDB9 /* CurrentDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentDate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +159,7 @@
 		EFCA44AC1AF2BCE30012AE52 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				EFFCF9DB1AFA9C26004DEDB9 /* CurrentDate.swift */,
 				EFF5E6051A8861BC00B59CD4 /* SettingsForm.swift */,
 				EFCA44AD1AF2BD430012AE52 /* TrackerButton.swift */,
 				EF35BA2F1AF3D29400456D38 /* TrackingType.swift */,
@@ -166,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				EF35BA2C1AF3CA9300456D38 /* TrackableItems.swift */,
+				EFFCF9D91AFA9318004DEDB9 /* ChooseableDates.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -272,7 +278,8 @@
 		EFE083E61A86A9B100AC9631 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Tracker;
 				TargetAttributes = {
 					EFE083ED1A86A9B100AC9631 = {
@@ -333,9 +340,11 @@
 				EF7CE0221AF023CC00C451B1 /* HTPressableButtonPrefs.m in Sources */,
 				EF7CE0101AF0204700C451B1 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				EFE083F81A86A9B100AC9631 /* StatsViewController.swift in Sources */,
+				EFFCF9DA1AFA9318004DEDB9 /* ChooseableDates.swift in Sources */,
 				EFE083F41A86A9B100AC9631 /* AppDelegate.swift in Sources */,
 				EF35BA2D1AF3CA9400456D38 /* TrackableItems.swift in Sources */,
 				EF7CE01D1AF023B000C451B1 /* UIImage+HTButton.m in Sources */,
+				EFFCF9DC1AFA9C26004DEDB9 /* CurrentDate.swift in Sources */,
 				EFF5E6061A8861BC00B59CD4 /* SettingsForm.swift in Sources */,
 				EF7CE0131AF021C600C451B1 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				EFE083F61A86A9B100AC9631 /* TrackerViewController.swift in Sources */,
@@ -395,6 +404,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -463,6 +473,7 @@
 				INFOPLIST_FILE = Tracker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Tracker/Tracker-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -479,6 +490,7 @@
 				INFOPLIST_FILE = Tracker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Tracker/Tracker-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -499,6 +511,7 @@
 				);
 				INFOPLIST_FILE = TrackerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tracker.app/Tracker";
 			};
@@ -514,6 +527,7 @@
 				);
 				INFOPLIST_FILE = TrackerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tracker.app/Tracker";
 			};

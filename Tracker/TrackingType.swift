@@ -9,4 +9,5 @@
 enum TrackingType {
     case TrackAction
     case TrackUrge
+    case TrackOnThisDay
 }

@@ -23,17 +23,21 @@
                                     <view alpha="0.79999999999999982" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b09-XM-ycc" userLabel="TrackerView">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="578"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="May 2, 2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hh4-c0-T3W">
-                                                <rect key="frame" x="127" y="73" width="120" height="27"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ybC-MX-Vhc">
+                                                <rect key="frame" x="75" y="72" width="225" height="30"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
+                                                <connections>
+                                                    <action selector="userClickedDateTextField:" destination="9pv-A4-QxB" eventType="editingDidEnd" id="P2z-bi-6dA"/>
+                                                </connections>
+                                            </textField>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="Hh4-c0-T3W" firstAttribute="centerY" secondItem="b09-XM-ycc" secondAttribute="centerY" multiplier="0.3" id="dSc-J7-kFp"/>
-                                            <constraint firstAttribute="centerX" secondItem="Hh4-c0-T3W" secondAttribute="centerX" constant="0.5" id="dt7-Ng-Eem"/>
+                                            <constraint firstAttribute="centerX" secondItem="ybC-MX-Vhc" secondAttribute="centerX" id="CyT-Op-0Dp"/>
+                                            <constraint firstItem="ybC-MX-Vhc" firstAttribute="width" secondItem="b09-XM-ycc" secondAttribute="width" multiplier="0.6" id="G9D-D0-c4H"/>
+                                            <constraint firstItem="ybC-MX-Vhc" firstAttribute="centerY" secondItem="b09-XM-ycc" secondAttribute="centerY" multiplier="0.3" id="cLy-FJ-ZAq"/>
                                             <constraint firstAttribute="height" constant="425" id="t6G-kz-c7Q"/>
                                         </constraints>
                                         <variation key="default">
@@ -63,6 +67,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Tracker" image="full__0000s_0106_note" id="acW-dT-cKf"/>
                     <connections>
+                        <outlet property="dateTextField" destination="ybC-MX-Vhc" id="4Yq-R9-HSU"/>
                         <outlet property="trackerView" destination="b09-XM-ycc" id="IDt-dZ-Anz"/>
                     </connections>
                 </viewController>
