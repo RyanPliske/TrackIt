@@ -17,6 +17,16 @@
 		EF7CE01D1AF023B000C451B1 /* UIImage+HTButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE01C1AF023B000C451B1 /* UIImage+HTButton.m */; };
 		EF7CE0221AF023CC00C451B1 /* HTPressableButtonPrefs.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE01F1AF023CC00C451B1 /* HTPressableButtonPrefs.m */; };
 		EF7CE0231AF023CC00C451B1 /* UIColor+HTColor.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE0211AF023CC00C451B1 /* UIColor+HTColor.m */; };
+		EF9FB0691B2A4D5800AD1164 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF9FB0671B2A4D5800AD1164 /* Interface.storyboard */; };
+		EF9FB06B1B2A4D5800AD1164 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF9FB06A1B2A4D5800AD1164 /* Assets.xcassets */; };
+		EF9FB0721B2A4D5800AD1164 /* TrackViaWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EF9FB0711B2A4D5800AD1164 /* TrackViaWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		EF9FB0791B2A4D5800AD1164 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9FB0781B2A4D5800AD1164 /* InterfaceController.swift */; };
+		EF9FB07B1B2A4D5800AD1164 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9FB07A1B2A4D5800AD1164 /* ExtensionDelegate.swift */; };
+		EF9FB07D1B2A4D5800AD1164 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9FB07C1B2A4D5800AD1164 /* NotificationController.swift */; };
+		EF9FB07F1B2A4D5800AD1164 /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9FB07E1B2A4D5800AD1164 /* GlanceController.swift */; };
+		EF9FB0811B2A4D5800AD1164 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9FB0801B2A4D5800AD1164 /* ComplicationController.swift */; };
+		EF9FB0831B2A4D5800AD1164 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF9FB0821B2A4D5800AD1164 /* Assets.xcassets */; };
+		EF9FB0871B2A4D5800AD1164 /* TrackViaWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = EF9FB0651B2A4D5800AD1164 /* TrackViaWatch.app */; };
 		EFCA44AE1AF2BD430012AE52 /* TrackerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA44AD1AF2BD430012AE52 /* TrackerButton.swift */; };
 		EFE083F41A86A9B100AC9631 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE083F31A86A9B100AC9631 /* AppDelegate.swift */; };
 		EFE083F61A86A9B100AC9631 /* TrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE083F51A86A9B100AC9631 /* TrackerViewController.swift */; };
@@ -30,6 +40,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		EF9FB0731B2A4D5800AD1164 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EFE083E61A86A9B100AC9631 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF9FB0701B2A4D5800AD1164;
+			remoteInfo = "TrackViaWatch Extension";
+		};
+		EF9FB0851B2A4D5800AD1164 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EFE083E61A86A9B100AC9631 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF9FB0641B2A4D5800AD1164;
+			remoteInfo = TrackViaWatch;
+		};
 		EFE084061A86A9B100AC9631 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EFE083E61A86A9B100AC9631 /* Project object */;
@@ -38,6 +62,31 @@
 			remoteInfo = Tracker;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EF9FB08D1B2A4D5800AD1164 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				EF9FB0721B2A4D5800AD1164 /* TrackViaWatch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF9FB08F1B2A4D5800AD1164 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				EF9FB0871B2A4D5800AD1164 /* TrackViaWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		EF35BA2C1AF3CA9300456D38 /* TrackableItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackableItems.swift; sourceTree = "<group>"; };
@@ -57,6 +106,19 @@
 		EF7CE01F1AF023CC00C451B1 /* HTPressableButtonPrefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTPressableButtonPrefs.m; sourceTree = "<group>"; };
 		EF7CE0201AF023CC00C451B1 /* UIColor+HTColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HTColor.h"; sourceTree = "<group>"; };
 		EF7CE0211AF023CC00C451B1 /* UIColor+HTColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HTColor.m"; sourceTree = "<group>"; };
+		EF9FB0651B2A4D5800AD1164 /* TrackViaWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackViaWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF9FB0681B2A4D5800AD1164 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		EF9FB06A1B2A4D5800AD1164 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EF9FB06C1B2A4D5800AD1164 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF9FB0711B2A4D5800AD1164 /* TrackViaWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "TrackViaWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF9FB0771B2A4D5800AD1164 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		EF9FB0781B2A4D5800AD1164 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		EF9FB07A1B2A4D5800AD1164 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		EF9FB07C1B2A4D5800AD1164 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		EF9FB07E1B2A4D5800AD1164 /* GlanceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
+		EF9FB0801B2A4D5800AD1164 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		EF9FB0821B2A4D5800AD1164 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EF9FB0841B2A4D5800AD1164 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EFCA44AD1AF2BD430012AE52 /* TrackerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerButton.swift; sourceTree = "<group>"; };
 		EFE083EE1A86A9B100AC9631 /* Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFE083F21A86A9B100AC9631 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -75,6 +137,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		EF9FB06E1B2A4D5800AD1164 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EFE083EB1A86A9B100AC9631 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -137,6 +206,39 @@
 			name = HTPressableButton;
 			sourceTree = "<group>";
 		};
+		EF9FB0661B2A4D5800AD1164 /* TrackViaWatch */ = {
+			isa = PBXGroup;
+			children = (
+				EF9FB0671B2A4D5800AD1164 /* Interface.storyboard */,
+				EF9FB06A1B2A4D5800AD1164 /* Assets.xcassets */,
+				EF9FB06C1B2A4D5800AD1164 /* Info.plist */,
+			);
+			path = TrackViaWatch;
+			sourceTree = "<group>";
+		};
+		EF9FB0751B2A4D5800AD1164 /* TrackViaWatch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				EF9FB0781B2A4D5800AD1164 /* InterfaceController.swift */,
+				EF9FB07A1B2A4D5800AD1164 /* ExtensionDelegate.swift */,
+				EF9FB07C1B2A4D5800AD1164 /* NotificationController.swift */,
+				EF9FB07E1B2A4D5800AD1164 /* GlanceController.swift */,
+				EF9FB0801B2A4D5800AD1164 /* ComplicationController.swift */,
+				EF9FB0821B2A4D5800AD1164 /* Assets.xcassets */,
+				EF9FB0841B2A4D5800AD1164 /* Info.plist */,
+				EF9FB0761B2A4D5800AD1164 /* Supporting Files */,
+			);
+			path = "TrackViaWatch Extension";
+			sourceTree = "<group>";
+		};
+		EF9FB0761B2A4D5800AD1164 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EF9FB0771B2A4D5800AD1164 /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		EFCA44A91AF2BC9F0012AE52 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +283,8 @@
 			children = (
 				EFE083F01A86A9B100AC9631 /* Tracker */,
 				EFE084081A86A9B100AC9631 /* TrackerTests */,
+				EF9FB0661B2A4D5800AD1164 /* TrackViaWatch */,
+				EF9FB0751B2A4D5800AD1164 /* TrackViaWatch Extension */,
 				EFE083EF1A86A9B100AC9631 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -190,6 +294,8 @@
 			children = (
 				EFE083EE1A86A9B100AC9631 /* Tracker.app */,
 				EFE084051A86A9B100AC9631 /* TrackerTests.xctest */,
+				EF9FB0651B2A4D5800AD1164 /* TrackViaWatch.app */,
+				EF9FB0711B2A4D5800AD1164 /* TrackViaWatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -237,6 +343,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		EF9FB0641B2A4D5800AD1164 /* TrackViaWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF9FB08E1B2A4D5800AD1164 /* Build configuration list for PBXNativeTarget "TrackViaWatch" */;
+			buildPhases = (
+				EF9FB0631B2A4D5800AD1164 /* Resources */,
+				EF9FB08D1B2A4D5800AD1164 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EF9FB0741B2A4D5800AD1164 /* PBXTargetDependency */,
+			);
+			name = TrackViaWatch;
+			productName = TrackViaWatch;
+			productReference = EF9FB0651B2A4D5800AD1164 /* TrackViaWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		EF9FB0701B2A4D5800AD1164 /* TrackViaWatch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF9FB08C1B2A4D5800AD1164 /* Build configuration list for PBXNativeTarget "TrackViaWatch Extension" */;
+			buildPhases = (
+				EF9FB06D1B2A4D5800AD1164 /* Sources */,
+				EF9FB06E1B2A4D5800AD1164 /* Frameworks */,
+				EF9FB06F1B2A4D5800AD1164 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TrackViaWatch Extension";
+			productName = "TrackViaWatch Extension";
+			productReference = EF9FB0711B2A4D5800AD1164 /* TrackViaWatch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		EFE083ED1A86A9B100AC9631 /* Tracker */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EFE0840F1A86A9B100AC9631 /* Build configuration list for PBXNativeTarget "Tracker" */;
@@ -244,10 +384,12 @@
 				EFE083EA1A86A9B100AC9631 /* Sources */,
 				EFE083EB1A86A9B100AC9631 /* Frameworks */,
 				EFE083EC1A86A9B100AC9631 /* Resources */,
+				EF9FB08F1B2A4D5800AD1164 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				EF9FB0861B2A4D5800AD1164 /* PBXTargetDependency */,
 			);
 			name = Tracker;
 			productName = Tracker;
@@ -282,6 +424,12 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Tracker;
 				TargetAttributes = {
+					EF9FB0641B2A4D5800AD1164 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					EF9FB0701B2A4D5800AD1164 = {
+						CreatedOnToolsVersion = 7.0;
+					};
 					EFE083ED1A86A9B100AC9631 = {
 						CreatedOnToolsVersion = 6.1.1;
 					};
@@ -306,11 +454,30 @@
 			targets = (
 				EFE083ED1A86A9B100AC9631 /* Tracker */,
 				EFE084041A86A9B100AC9631 /* TrackerTests */,
+				EF9FB0641B2A4D5800AD1164 /* TrackViaWatch */,
+				EF9FB0701B2A4D5800AD1164 /* TrackViaWatch Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		EF9FB0631B2A4D5800AD1164 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF9FB06B1B2A4D5800AD1164 /* Assets.xcassets in Resources */,
+				EF9FB0691B2A4D5800AD1164 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF9FB06F1B2A4D5800AD1164 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF9FB0831B2A4D5800AD1164 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EFE083EC1A86A9B100AC9631 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -330,6 +497,18 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		EF9FB06D1B2A4D5800AD1164 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF9FB07D1B2A4D5800AD1164 /* NotificationController.swift in Sources */,
+				EF9FB07B1B2A4D5800AD1164 /* ExtensionDelegate.swift in Sources */,
+				EF9FB0811B2A4D5800AD1164 /* ComplicationController.swift in Sources */,
+				EF9FB0791B2A4D5800AD1164 /* InterfaceController.swift in Sources */,
+				EF9FB07F1B2A4D5800AD1164 /* GlanceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EFE083EA1A86A9B100AC9631 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -365,6 +544,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		EF9FB0741B2A4D5800AD1164 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EF9FB0701B2A4D5800AD1164 /* TrackViaWatch Extension */;
+			targetProxy = EF9FB0731B2A4D5800AD1164 /* PBXContainerItemProxy */;
+		};
+		EF9FB0861B2A4D5800AD1164 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EF9FB0641B2A4D5800AD1164 /* TrackViaWatch */;
+			targetProxy = EF9FB0851B2A4D5800AD1164 /* PBXContainerItemProxy */;
+		};
 		EFE084071A86A9B100AC9631 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = EFE083ED1A86A9B100AC9631 /* Tracker */;
@@ -373,6 +562,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		EF9FB0671B2A4D5800AD1164 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EF9FB0681B2A4D5800AD1164 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		EFE083F91A86A9B100AC9631 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -384,6 +581,84 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		EF9FB0881B2A4D5800AD1164 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IBSC_MODULE = TrackViaWatch_Extension;
+				INFOPLIST_FILE = TrackViaWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Tracker.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		EF9FB0891B2A4D5800AD1164 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IBSC_MODULE = TrackViaWatch_Extension;
+				INFOPLIST_FILE = TrackViaWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Tracker.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		EF9FB08A1B2A4D5800AD1164 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "TrackViaWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Tracker.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		EF9FB08B1B2A4D5800AD1164 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "TrackViaWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Tracker.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
 		EFE0840D1A86A9B100AC9631 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -536,6 +811,22 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		EF9FB08C1B2A4D5800AD1164 /* Build configuration list for PBXNativeTarget "TrackViaWatch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF9FB08A1B2A4D5800AD1164 /* Debug */,
+				EF9FB08B1B2A4D5800AD1164 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		EF9FB08E1B2A4D5800AD1164 /* Build configuration list for PBXNativeTarget "TrackViaWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF9FB0881B2A4D5800AD1164 /* Debug */,
+				EF9FB0891B2A4D5800AD1164 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		EFE083E91A86A9B100AC9631 /* Build configuration list for PBXProject "Tracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
