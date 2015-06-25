@@ -5,13 +5,20 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="8066.14"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--Main Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="TrackViaWatch" customModuleProvider="target">
+                <controller id="AgC-eL-Hgc" customClass="MainInterfaceController" customModule="TrackViaWatch_Extension">
                     <items>
-                        <button width="1" alignment="left" title="Track" id="mi6-in-iVt"/>
+                        <button width="1" alignment="left" title="Track" id="mi6-in-iVt">
+                            <connections>
+                                <action selector="trackButtonWasPressed" destination="AgC-eL-Hgc" id="Q27-XQ-XGj"/>
+                            </connections>
+                        </button>
                     </items>
+                    <connections>
+                        <outlet property="trackButton" destination="mi6-in-iVt" id="0d0-mV-OeS"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="235" y="347"/>

@@ -10,6 +10,7 @@
 		EF35BA2D1AF3CA9400456D38 /* TrackableItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF35BA2C1AF3CA9300456D38 /* TrackableItems.swift */; };
 		EF35BA301AF3D29400456D38 /* TrackingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF35BA2F1AF3D29400456D38 /* TrackingType.swift */; };
 		EF52F2451A8735CF00315B35 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF52F2441A8735CF00315B35 /* SettingsViewController.swift */; };
+		EF776FB61B3B7F9000B64960 /* MainInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9FB0781B2A4D5800AD1164 /* MainInterfaceController.swift */; };
 		EF7CE0101AF0204700C451B1 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE00F1AF0204700C451B1 /* TPKeyboardAvoidingScrollView.m */; };
 		EF7CE0131AF021C600C451B1 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE0121AF021C600C451B1 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		EF7CE0171AF0228600C451B1 /* HTPressableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE0161AF0228600C451B1 /* HTPressableButton.m */; };
@@ -20,13 +21,15 @@
 		EF9FB0691B2A4D5800AD1164 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF9FB0671B2A4D5800AD1164 /* Interface.storyboard */; };
 		EF9FB06B1B2A4D5800AD1164 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF9FB06A1B2A4D5800AD1164 /* Assets.xcassets */; };
 		EF9FB0721B2A4D5800AD1164 /* TrackViaWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EF9FB0711B2A4D5800AD1164 /* TrackViaWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		EF9FB0791B2A4D5800AD1164 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9FB0781B2A4D5800AD1164 /* InterfaceController.swift */; };
+		EF9FB0791B2A4D5800AD1164 /* MainInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9FB0781B2A4D5800AD1164 /* MainInterfaceController.swift */; };
 		EF9FB07B1B2A4D5800AD1164 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9FB07A1B2A4D5800AD1164 /* ExtensionDelegate.swift */; };
 		EF9FB07D1B2A4D5800AD1164 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9FB07C1B2A4D5800AD1164 /* NotificationController.swift */; };
 		EF9FB07F1B2A4D5800AD1164 /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9FB07E1B2A4D5800AD1164 /* GlanceController.swift */; };
 		EF9FB0811B2A4D5800AD1164 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9FB0801B2A4D5800AD1164 /* ComplicationController.swift */; };
 		EF9FB0831B2A4D5800AD1164 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF9FB0821B2A4D5800AD1164 /* Assets.xcassets */; };
 		EF9FB0871B2A4D5800AD1164 /* TrackViaWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = EF9FB0651B2A4D5800AD1164 /* TrackViaWatch.app */; };
+		EFABDA1C1B2B299300FCF5A3 /* MainInterfacePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFABDA1B1B2B299300FCF5A3 /* MainInterfacePresenter.swift */; };
+		EFABDA1D1B2B299300FCF5A3 /* MainInterfacePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFABDA1B1B2B299300FCF5A3 /* MainInterfacePresenter.swift */; };
 		EFCA44AE1AF2BD430012AE52 /* TrackerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA44AD1AF2BD430012AE52 /* TrackerButton.swift */; };
 		EFE083F41A86A9B100AC9631 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE083F31A86A9B100AC9631 /* AppDelegate.swift */; };
 		EFE083F61A86A9B100AC9631 /* TrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE083F51A86A9B100AC9631 /* TrackerViewController.swift */; };
@@ -112,13 +115,14 @@
 		EF9FB06C1B2A4D5800AD1164 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF9FB0711B2A4D5800AD1164 /* TrackViaWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "TrackViaWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF9FB0771B2A4D5800AD1164 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		EF9FB0781B2A4D5800AD1164 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		EF9FB0781B2A4D5800AD1164 /* MainInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInterfaceController.swift; sourceTree = "<group>"; };
 		EF9FB07A1B2A4D5800AD1164 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		EF9FB07C1B2A4D5800AD1164 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		EF9FB07E1B2A4D5800AD1164 /* GlanceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
 		EF9FB0801B2A4D5800AD1164 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		EF9FB0821B2A4D5800AD1164 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF9FB0841B2A4D5800AD1164 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFABDA1B1B2B299300FCF5A3 /* MainInterfacePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainInterfacePresenter.swift; sourceTree = "<group>"; };
 		EFCA44AD1AF2BD430012AE52 /* TrackerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerButton.swift; sourceTree = "<group>"; };
 		EFE083EE1A86A9B100AC9631 /* Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFE083F21A86A9B100AC9631 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -219,7 +223,8 @@
 		EF9FB0751B2A4D5800AD1164 /* TrackViaWatch Extension */ = {
 			isa = PBXGroup;
 			children = (
-				EF9FB0781B2A4D5800AD1164 /* InterfaceController.swift */,
+				EF9FB0781B2A4D5800AD1164 /* MainInterfaceController.swift */,
+				EFABDA1B1B2B299300FCF5A3 /* MainInterfacePresenter.swift */,
 				EF9FB07A1B2A4D5800AD1164 /* ExtensionDelegate.swift */,
 				EF9FB07C1B2A4D5800AD1164 /* NotificationController.swift */,
 				EF9FB07E1B2A4D5800AD1164 /* GlanceController.swift */,
@@ -502,9 +507,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF9FB07D1B2A4D5800AD1164 /* NotificationController.swift in Sources */,
+				EFABDA1D1B2B299300FCF5A3 /* MainInterfacePresenter.swift in Sources */,
 				EF9FB07B1B2A4D5800AD1164 /* ExtensionDelegate.swift in Sources */,
 				EF9FB0811B2A4D5800AD1164 /* ComplicationController.swift in Sources */,
-				EF9FB0791B2A4D5800AD1164 /* InterfaceController.swift in Sources */,
+				EF9FB0791B2A4D5800AD1164 /* MainInterfaceController.swift in Sources */,
 				EF9FB07F1B2A4D5800AD1164 /* GlanceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -537,7 +543,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF776FB61B3B7F9000B64960 /* MainInterfaceController.swift in Sources */,
 				EFE0840C1A86A9B100AC9631 /* TrackerTests.swift in Sources */,
+				EFABDA1C1B2B299300FCF5A3 /* MainInterfacePresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -818,6 +826,7 @@
 				EF9FB08B1B2A4D5800AD1164 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EF9FB08E1B2A4D5800AD1164 /* Build configuration list for PBXNativeTarget "TrackViaWatch" */ = {
 			isa = XCConfigurationList;
@@ -826,6 +835,7 @@
 				EF9FB0891B2A4D5800AD1164 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EFE083E91A86A9B100AC9631 /* Build configuration list for PBXProject "Tracker" */ = {
 			isa = XCConfigurationList;

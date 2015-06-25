@@ -1,5 +1,5 @@
 //
-//  InterfaceController.swift
+//  MainInterfaceController.swift
 //  TrackViaWatch Extension
 //
 //  Created by Ryan Pliske on 6/11/15.
@@ -9,9 +9,11 @@
 import WatchKit
 import Foundation
 
+class MainInterfaceController: WKInterfaceController {
 
-class InterfaceController: WKInterfaceController {
-
+    @IBOutlet var trackButton: WKInterfaceButton!
+    var testInt = 0
+    
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
@@ -27,5 +29,11 @@ class InterfaceController: WKInterfaceController {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
+    
+    @IBAction func trackButtonWasPressed() {
+        print("Pressed")
+        testInt = 2
+    }
+    
 
 }
