@@ -9,6 +9,7 @@
 import WatchKit
 import Foundation
 
+@available(iOS 8.2, *)
 class MainInterfaceController: WKInterfaceController {
 
     @IBOutlet var trackButton: WKInterfaceButton!
