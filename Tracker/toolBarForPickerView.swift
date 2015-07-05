@@ -10,15 +10,24 @@ import Foundation
 
 class toolBarForPickerView : UIToolbar {
     
-    // let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "userPicked:")
-    let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
-    // let toolBarTitle = UILabel(frame: CGRectMake(0, 0, toolBar.bounds.size.width, toolBar.bounds.size.height))
     var toolBarTitle : UILabel?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.barStyle = UIBarStyle.Black
         self.toolBarTitle = UILabel(frame: CGRectMake(0, 0, frame.size.width, frame.size.height))
+    }
+    
+    func setTitleAttributes(){
+        if let title = self.toolBarTitle{
+            title.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 16)
+            title.textAlignment = NSTextAlignment.Center
+            title.textColor = UIColor.grayColor()
+        }
+    }
+    
+    func setItemLayout(){
+        
     }
 
     required init(coder aDecoder: NSCoder) {
