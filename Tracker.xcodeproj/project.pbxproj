@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF2F2A6B1B489AA6009C886E /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2F2A6A1B489AA6009C886E /* DatePicker.swift */; };
+		EF2F2A6F1B48B65E009C886E /* toolBarForPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2F2A6E1B48B65E009C886E /* toolBarForPickerView.swift */; };
 		EF35BA2D1AF3CA9400456D38 /* TrackableItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF35BA2C1AF3CA9300456D38 /* TrackableItems.swift */; };
 		EF35BA301AF3D29400456D38 /* TrackingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF35BA2F1AF3D29400456D38 /* TrackingType.swift */; };
 		EF52F2451A8735CF00315B35 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF52F2441A8735CF00315B35 /* SettingsViewController.swift */; };
@@ -94,6 +96,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		EF2F2A6A1B489AA6009C886E /* DatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
+		EF2F2A6E1B48B65E009C886E /* toolBarForPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = toolBarForPickerView.swift; sourceTree = "<group>"; };
 		EF35BA2C1AF3CA9300456D38 /* TrackableItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackableItems.swift; sourceTree = "<group>"; };
 		EF35BA2F1AF3D29400456D38 /* TrackingType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingType.swift; sourceTree = "<group>"; };
 		EF52F2441A8735CF00315B35 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -131,7 +135,7 @@
 		EFE083EE1A86A9B100AC9631 /* Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFE083F21A86A9B100AC9631 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EFE083F31A86A9B100AC9631 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EFE083F51A86A9B100AC9631 /* TrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerViewController.swift; sourceTree = "<group>"; };
+		EFE083F51A86A9B100AC9631 /* TrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		EFE083F71A86A9B100AC9631 /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		EFE083FA1A86A9B100AC9631 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EFE083FC1A86A9B100AC9631 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -254,6 +258,8 @@
 				EFE083F51A86A9B100AC9631 /* TrackerViewController.swift */,
 				EF6A8B4C1B3B91470012312E /* TrackerViewController+UIPickerViewDelegate.swift */,
 				EF6A8B4E1B3B91E60012312E /* TrackerViewController+UIPickerViewDataSource.swift */,
+				EF2F2A6E1B48B65E009C886E /* toolBarForPickerView.swift */,
+				EF2F2A6A1B489AA6009C886E /* DatePicker.swift */,
 				EF52F2441A8735CF00315B35 /* SettingsViewController.swift */,
 				EFE083F71A86A9B100AC9631 /* StatsViewController.swift */,
 			);
@@ -542,6 +548,8 @@
 				EF7CE0131AF021C600C451B1 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				EFE083F61A86A9B100AC9631 /* TrackerViewController.swift in Sources */,
 				EF52F2451A8735CF00315B35 /* SettingsViewController.swift in Sources */,
+				EF2F2A6B1B489AA6009C886E /* DatePicker.swift in Sources */,
+				EF2F2A6F1B48B65E009C886E /* toolBarForPickerView.swift in Sources */,
 				EF7CE0231AF023CC00C451B1 /* UIColor+HTColor.m in Sources */,
 				EFCA44AE1AF2BD430012AE52 /* TrackerButton.swift in Sources */,
 			);

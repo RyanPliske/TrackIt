@@ -16,16 +16,19 @@ class TrackerViewController: UIViewController {
 
     
     var trackableItems : TrackableItems!
-    var ItemPickerView = UIPickerView()
+    let itemPickerView = UIPickerView()
+    let datePickerView = UIPickerView()
+    let datePicker = DatePicker()
+    let toolBar = toolBarForPickerView(frame: CGRectMake(0, 0, 320, 44))
     var hiddenPickerViewTextField = UITextField(frame: CGRectZero)
     var selectedItemOfFirstWheelColumn = 0 {
         didSet {
-            ItemPickerView.selectRow(selectedItemOfFirstWheelColumn, inComponent: 0, animated: false)
+            itemPickerView.selectRow(selectedItemOfFirstWheelColumn, inComponent: 0, animated: false)
         }
     }
     var selectedItemOfSecondWheelColumn = 0 {
         didSet {
-           ItemPickerView.selectRow(selectedItemOfSecondWheelColumn, inComponent: 1, animated: false)
+           itemPickerView.selectRow(selectedItemOfSecondWheelColumn, inComponent: 1, animated: false)
         }
     }
     var trackButton = TrackerButton(frame: CGRectMake(30, 150, 260, 50), buttonStyle: HTPressableButtonStyle.Rounded, trackingType: .TrackAction)
@@ -36,7 +39,7 @@ class TrackerViewController: UIViewController {
     // and thus will Reset Clicker Wheel Elements
     var trackingType : TrackingType = .TrackAction {
         didSet {
-            ItemPickerView.reloadAllComponents()
+            itemPickerView.reloadAllComponents()
             selectedItemOfFirstWheelColumn = 0
             if trackingType == .TrackAction {
                 selectedItemOfSecondWheelColumn = 0
@@ -50,11 +53,17 @@ class TrackerViewController: UIViewController {
         super.viewDidLoad()
         self.setNeedsStatusBarAppearanceUpdate()
         trackerView.addSubview(hiddenPickerViewTextField)
-        ItemPickerView.dataSource = self; ItemPickerView.delegate = self
-        ItemPickerView.backgroundColor = UIColor.blackColor()
-        ItemPickerView.showsSelectionIndicator = true
-        self.hiddenPickerViewTextField.inputView = ItemPickerView
-        setToolBarForPickerView()
+        itemPickerView.dataSource = self; itemPickerView.delegate = self
+        itemPickerView.backgroundColor = UIColor.blackColor()
+        itemPickerView.showsSelectionIndicator = true
+        self.hiddenPickerViewTextField.inputView = itemPickerView
+        
+        datePickerView.dataSource = datePicker; datePickerView.delegate = datePicker
+        dateTextField.inputView = datePickerView
+        
+        
+        setToolBarForTrackingPickerView()
+        // setToolBarForDatePickerView()
         setuptheLayout()
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         trackableItems = appDelegate.getTheTrackableItems()
@@ -81,20 +90,37 @@ class TrackerViewController: UIViewController {
         dateTextField.layer.cornerRadius = 8.0
         dateTextField.layer.masksToBounds = true
         dateTextField.text = chooseableDates.description
+        dateTextField.valueForKey("textInputTraits")?.setValue(UIColor.clearColor(), forKey: "insertionPointColor")
     }
     
-    func setToolBarForPickerView(){
-        let toolBar = UIToolbar(frame: CGRectMake(0, 0, 320, 44))
+    func setToolBarForTrackingPickerView(){
+        
         toolBar.barStyle = UIBarStyle.Black
         let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "userPicked:")
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+        // let toolBarTitle = UILabel(frame: CGRectMake(0, 0, toolBar.bounds.size.width, toolBar.bounds.size.height))
+        toolBar.toolBarTitle!.text = "Track"
+        toolBar.toolBarTitle!.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 16)
+        toolBar.toolBarTitle!.textAlignment = NSTextAlignment.Center
+        toolBar.toolBarTitle!.textColor = UIColor.grayColor()
+        flexibleSpace.customView = toolBar.toolBarTitle
         let cancelButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "userCanceledPicking:")
-        // toolBar.setItems(NSArray(objects: cancelButton, UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil), doneButton ) as [UIBarButtonItem]?, animated: false)
         
         toolBar.setItems([cancelButton, flexibleSpace, doneButton], animated: false)
         
         hiddenPickerViewTextField.inputAccessoryView = toolBar
     }
+    
+//    func setToolBarForDatePickerView(){
+//        let toolBar = UIToolbar(frame: CGRectMake(0, 0, 320, 44))
+//        let dateLabelForPickerView = UILabel(frame: CGRectMake(0, 0, toolBar.bounds.size.width/3, toolBar.bounds.size.height))
+//        dateLabelForPickerView.text = "Choose Date:"
+//        let toolBarTitle = UIBarButtonItem(customView: dateLabelForPickerView)
+//        let emptySpaceLeft = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+//        let emptySpaceRight = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+//        toolBar.setItems([emptySpaceLeft, toolBarTitle, emptySpaceRight], animated: false)
+//        dateTextField.inputAccessoryView = toolBar
+//    }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent;
@@ -110,15 +136,15 @@ class TrackerViewController: UIViewController {
     
     func userWantsToTrackAction(){
         trackingType = .TrackAction
+        toolBar.toolBarTitle!.text = "Track"
     }
     
     func userWantsToTrackUrge(){
         trackingType = .TrackUrge
+        toolBar.toolBarTitle!.text = "Track Urge"
     }
     
     @IBAction func userClickedDateTextField(sender: AnyObject) {
-            trackingType = .TrackOnThisDay
+        
     }
-    
-    
 }

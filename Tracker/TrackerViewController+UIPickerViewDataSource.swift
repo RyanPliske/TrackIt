@@ -14,8 +14,6 @@ extension TrackerViewController: UIPickerViewDataSource {
             return 2
         case .TrackUrge:
             return 1
-        case .TrackOnThisDay:
-            return 1
         }
     }
     
@@ -26,8 +24,6 @@ extension TrackerViewController: UIPickerViewDataSource {
                 return trackableItems.getCountOfAllItems()
             case .TrackUrge:
                 return trackableItems.sinfulItems.count
-            case .TrackOnThisDay:
-                return CurrentDate.days.count
             }
         }
         else {

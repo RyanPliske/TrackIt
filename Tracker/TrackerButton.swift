@@ -48,8 +48,6 @@ class TrackerButton : HTPressableButton {
         case .TrackUrge:
             button.setTitle("Track Urge", forState: UIControlState.Normal)
             xCoordForButton = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: theSuperView, attribute: NSLayoutAttribute.TrailingMargin, multiplier: 1.0, constant: 0)
-        case .TrackOnThisDay:
-            print("This should't happen") // Hopefully this gets ignored?! lol
         }
         theSuperView.addConstraints([xCoordForButton, yCoordForButton, widthForButton, heightForButton])
     }

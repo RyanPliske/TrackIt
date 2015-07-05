@@ -14,10 +14,10 @@ struct CurrentDate {
         return NSCalendar.currentCalendar().component(NSCalendarUnit.Month, fromDate: NSDate())
     }
     
-    static var thisYear: Int {
-        print(NSCalendar.currentCalendar().component(NSCalendarUnit.Year, fromDate: NSDate()))
-        return NSCalendar.currentCalendar().component(NSCalendarUnit.Year, fromDate: NSDate())
-    }
+//    static var thisYear: Int {
+//        print(NSCalendar.currentCalendar().component(NSCalendarUnit.Year, fromDate: NSDate()))
+//        return NSCalendar.currentCalendar().component(NSCalendarUnit.Year, fromDate: NSDate())
+//    }
     
     static var thisDay: Int {
         print(NSCalendar.currentCalendar().component(NSCalendarUnit.Day, fromDate: NSDate()))
