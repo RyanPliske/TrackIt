@@ -1,12 +1,13 @@
 import UIKit
 import QuartzCore
 
-class TrackerViewController: UIViewController {
+class TRTrackerViewController: UIViewController {
     
-    @IBOutlet weak var trackerView: UIView!
-    @IBOutlet weak var dateTextField: UITextField!
-//    var dateTextField: UITextField!
-    var trackableItems : TrackableItems!
+    @IBOutlet weak var trackerView: TRTrackerView!
+    
+    var trackerPresenter: TRTrackerPresenter!
+    var trackerModel: TRTrackerModel!
+    var trackableItems: TrackableItems!
     var itemPickerView = UIPickerView()
     var datePickerView = UIPickerView()
     let datePicker = DatePicker()
@@ -36,16 +37,16 @@ class TrackerViewController: UIViewController {
             hiddenPickerViewTextField.becomeFirstResponder()
         }
     }
-    var chooseableDates = ChooseableDates(month: CurrentDate.months[CurrentDate.thisMonth - 1], day: CurrentDate.days[0])
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setNeedsStatusBarAppearanceUpdate()
+        trackerModel = TRTrackerModel()
+        trackerPresenter = TRTrackerPresenter(view: self.trackerView, model: self.trackerModel)
+        
+        self.trackerView.dateTextField.delegate = self
         
         self.view.addSubview(hiddenPickerViewTextField)
-//        dateTextField = UITextField()
-//        dateTextField.frame = 
-//        self.view.addSubview(self.dateTextField)
         
         itemPickerView.dataSource = self
         itemPickerView.delegate = self
@@ -76,14 +77,6 @@ class TrackerViewController: UIViewController {
         hiddenPickerViewTextField.translatesAutoresizingMaskIntoConstraints = false
         hiddenPickerViewTextField.valueForKey("textInputTraits")?.setValue(UIColor.clearColor(), forKey: "insertionPointColor")
 //        trackerView.addConstraint(NSLayoutConstraint(item: hiddenPickerViewTextField, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: trackButton, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: 10))
-        // Setup for Date Text Field
-        dateTextField.backgroundColor = UIColor.blackColor()
-        dateTextField.layer.borderColor = UIColor.whiteColor().CGColor
-        dateTextField.layer.borderWidth = 1.0
-        dateTextField.layer.cornerRadius = 8.0
-        dateTextField.layer.masksToBounds = true
-        dateTextField.text = chooseableDates.description
-        dateTextField.valueForKey("textInputTraits")?.setValue(UIColor.clearColor(), forKey: "insertionPointColor")
     }
     
     func setToolBarForTrackingPickerView(){
@@ -116,17 +109,5 @@ class TrackerViewController: UIViewController {
     func userWantsToTrackUrge(){
         trackingType = .TrackUrge
         toolBarForTracking.toolBarTitle?.text = "Track Urge"
-    }
-    
-    @IBAction func userClickedDateTextField(sender: AnyObject) {
-        let dateViewController = DateViewController()
-        dateViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
-        if let popOver : UIPopoverPresentationController = dateViewController.popoverPresentationController {
-            popOver.permittedArrowDirections = UIPopoverArrowDirection.Up
-            popOver.delegate = dateViewController
-            popOver.sourceView = self.view
-            popOver.sourceRect = self.dateTextField.frame
-            self.presentViewController(dateViewController, animated: true, completion: nil)
-        }
     }
 }

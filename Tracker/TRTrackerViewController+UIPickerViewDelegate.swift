@@ -1,4 +1,4 @@
-extension TrackerViewController: UIPickerViewDelegate {
+extension TRTrackerViewController: UIPickerViewDelegate {
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if component == 0 {

@@ -3,13 +3,12 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8142"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Tracker View Controller-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="TrackerViewController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="TRTrackerViewController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -21,24 +20,10 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hen-NF-7Nj" customClass="TPKeyboardAvoidingScrollView">
                                 <rect key="frame" x="0.0" y="84" width="375" height="534"/>
                                 <subviews>
-                                    <view alpha="0.79999999999999982" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b09-XM-ycc" userLabel="TrackerView">
+                                    <view alpha="0.79999999999999982" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b09-XM-ycc" userLabel="TrackerView" customClass="TRTrackerView" customModule="Tracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="534"/>
-                                        <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ybC-MX-Vhc">
-                                                <rect key="frame" x="75" y="65" width="225" height="30"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
-                                                <connections>
-                                                    <action selector="userClickedDateTextField:" destination="9pv-A4-QxB" eventType="editingDidEnd" id="P2z-bi-6dA"/>
-                                                </connections>
-                                            </textField>
-                                        </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="centerX" secondItem="ybC-MX-Vhc" secondAttribute="centerX" id="CyT-Op-0Dp"/>
-                                            <constraint firstItem="ybC-MX-Vhc" firstAttribute="width" secondItem="b09-XM-ycc" secondAttribute="width" multiplier="0.6" id="G9D-D0-c4H"/>
-                                            <constraint firstItem="ybC-MX-Vhc" firstAttribute="centerY" secondItem="b09-XM-ycc" secondAttribute="centerY" multiplier="0.3" id="cLy-FJ-ZAq"/>
                                             <constraint firstAttribute="height" constant="425" id="t6G-kz-c7Q"/>
                                         </constraints>
                                         <variation key="default">
@@ -68,7 +53,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="7fm-mJ-UdE"/>
                     <connections>
-                        <outlet property="dateTextField" destination="ybC-MX-Vhc" id="4Yq-R9-HSU"/>
                         <outlet property="trackerView" destination="b09-XM-ycc" id="IDt-dZ-Anz"/>
                     </connections>
                 </viewController>
@@ -193,7 +177,6 @@
         <!--Tracker-->
         <scene sceneID="0f0-CX-XLA">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nei-lo-jbe" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7uz-dj-Jzf" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Tracker" image="full__0000s_0106_note" id="acW-dT-cKf"/>
                     <toolbarItems/>
@@ -206,6 +189,7 @@
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="rootViewController" id="d6e-I6-2e7"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nei-lo-jbe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="211.5" y="485.5"/>
         </scene>

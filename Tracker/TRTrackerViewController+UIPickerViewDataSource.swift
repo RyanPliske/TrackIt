@@ -1,4 +1,4 @@
-extension TrackerViewController: UIPickerViewDataSource {
+extension TRTrackerViewController: UIPickerViewDataSource {
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         switch trackingType {
