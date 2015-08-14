@@ -64,7 +64,7 @@ class TRTrackerView: UIView {
         // Create NSLayout for text field so it raises when button is pressed
         hiddenPickerViewTextField.translatesAutoresizingMaskIntoConstraints = false
         hiddenPickerViewTextField.valueForKey("textInputTraits")?.setValue(UIColor.clearColor(), forKey: "insertionPointColor")
-        //        trackerView.addConstraint(NSLayoutConstraint(item: hiddenPickerViewTextField, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: trackButton, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: 10))
+        self.addConstraint(NSLayoutConstraint(item: hiddenPickerViewTextField, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: trackButton, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: 10))
     }
     
     func userCanceledPicking(sender: UIBarButtonItem){
