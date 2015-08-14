@@ -33,6 +33,7 @@
 		EF9FB0811B2A4D5800AD1164 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9FB0801B2A4D5800AD1164 /* ComplicationController.swift */; };
 		EF9FB0831B2A4D5800AD1164 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF9FB0821B2A4D5800AD1164 /* Assets.xcassets */; };
 		EF9FB0871B2A4D5800AD1164 /* TrackViaWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = EF9FB0651B2A4D5800AD1164 /* TrackViaWatch.app */; };
+		EFA9B5E61B7D6A5B00BAA839 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFA9B5E51B7D6A5B00BAA839 /* Info.plist */; };
 		EFABDA1C1B2B299300FCF5A3 /* MainInterfacePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFABDA1B1B2B299300FCF5A3 /* MainInterfacePresenter.swift */; };
 		EFABDA1D1B2B299300FCF5A3 /* MainInterfacePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFABDA1B1B2B299300FCF5A3 /* MainInterfacePresenter.swift */; };
 		EFC9CD691B7D3BEF00060D54 /* DateViewController+UIPopoverPresentationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC9CD681B7D3BEF00060D54 /* DateViewController+UIPopoverPresentationControllerDelegate.swift */; };
@@ -133,12 +134,12 @@
 		EF9FB0801B2A4D5800AD1164 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		EF9FB0821B2A4D5800AD1164 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF9FB0841B2A4D5800AD1164 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFA9B5E51B7D6A5B00BAA839 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EFABDA1B1B2B299300FCF5A3 /* MainInterfacePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainInterfacePresenter.swift; sourceTree = "<group>"; };
 		EFC9CD681B7D3BEF00060D54 /* DateViewController+UIPopoverPresentationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DateViewController+UIPopoverPresentationControllerDelegate.swift"; sourceTree = "<group>"; };
 		EFC9CD6A1B7D606800060D54 /* TRTrackerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRTrackerView.swift; sourceTree = "<group>"; };
 		EFCA44AD1AF2BD430012AE52 /* TrackerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerButton.swift; sourceTree = "<group>"; };
 		EFE083EE1A86A9B100AC9631 /* Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		EFE083F21A86A9B100AC9631 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EFE083F31A86A9B100AC9631 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFE083F51A86A9B100AC9631 /* TrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		EFE083F71A86A9B100AC9631 /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
@@ -349,7 +350,7 @@
 			isa = PBXGroup;
 			children = (
 				EFF5E6011A885BCB00B59CD4 /* Tracker-Bridging-Header.h */,
-				EFE083F21A86A9B100AC9631 /* Info.plist */,
+				EFA9B5E51B7D6A5B00BAA839 /* Info.plist */,
 				EFE083FC1A86A9B100AC9631 /* Images.xcassets */,
 			);
 			name = "Supporting Files";
@@ -515,6 +516,7 @@
 			files = (
 				EFE083FB1A86A9B100AC9631 /* Main.storyboard in Resources */,
 				EFE083FD1A86A9B100AC9631 /* Images.xcassets in Resources */,
+				EFA9B5E61B7D6A5B00BAA839 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
