@@ -13,8 +13,8 @@
 		EF35BA301AF3D29400456D38 /* TrackingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF35BA2F1AF3D29400456D38 /* TrackingType.swift */; };
 		EF52F2451A8735CF00315B35 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF52F2441A8735CF00315B35 /* SettingsViewController.swift */; };
 		EF649E421B54A10D004431C6 /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF649E411B54A10D004431C6 /* DateViewController.swift */; };
-		EF6A8B4D1B3B91470012312E /* TRTrackerViewController+UIPickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6A8B4C1B3B91470012312E /* TRTrackerViewController+UIPickerViewDelegate.swift */; };
-		EF6A8B4F1B3B91E60012312E /* TRTrackerViewController+UIPickerViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6A8B4E1B3B91E60012312E /* TRTrackerViewController+UIPickerViewDataSource.swift */; };
+		EF6A8B4D1B3B91470012312E /* TRTrackerPresenter+UIPickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6A8B4C1B3B91470012312E /* TRTrackerPresenter+UIPickerViewDelegate.swift */; };
+		EF6A8B4F1B3B91E60012312E /* TRTrackerPresenter+UIPickerViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6A8B4E1B3B91E60012312E /* TRTrackerPresenter+UIPickerViewDataSource.swift */; };
 		EF776FB61B3B7F9000B64960 /* MainInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9FB0781B2A4D5800AD1164 /* MainInterfaceController.swift */; };
 		EF7CE0101AF0204700C451B1 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE00F1AF0204700C451B1 /* TPKeyboardAvoidingScrollView.m */; };
 		EF7CE0131AF021C600C451B1 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE0121AF021C600C451B1 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
@@ -108,8 +108,8 @@
 		EF35BA2F1AF3D29400456D38 /* TrackingType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingType.swift; sourceTree = "<group>"; };
 		EF52F2441A8735CF00315B35 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		EF649E411B54A10D004431C6 /* DateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateViewController.swift; sourceTree = "<group>"; };
-		EF6A8B4C1B3B91470012312E /* TRTrackerViewController+UIPickerViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TRTrackerViewController+UIPickerViewDelegate.swift"; sourceTree = "<group>"; };
-		EF6A8B4E1B3B91E60012312E /* TRTrackerViewController+UIPickerViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TRTrackerViewController+UIPickerViewDataSource.swift"; sourceTree = "<group>"; };
+		EF6A8B4C1B3B91470012312E /* TRTrackerPresenter+UIPickerViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TRTrackerPresenter+UIPickerViewDelegate.swift"; sourceTree = "<group>"; };
+		EF6A8B4E1B3B91E60012312E /* TRTrackerPresenter+UIPickerViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TRTrackerPresenter+UIPickerViewDataSource.swift"; sourceTree = "<group>"; };
 		EF7CE00E1AF0204700C451B1 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
 		EF7CE00F1AF0204700C451B1 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
 		EF7CE0111AF021C600C451B1 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
@@ -268,10 +268,10 @@
 			children = (
 				EFC9CD6A1B7D606800060D54 /* TRTrackerView.swift */,
 				EFA9B5E71B7D7EBD00BAA839 /* TRTrackerPresenter.swift */,
+				EF6A8B4C1B3B91470012312E /* TRTrackerPresenter+UIPickerViewDelegate.swift */,
+				EF6A8B4E1B3B91E60012312E /* TRTrackerPresenter+UIPickerViewDataSource.swift */,
 				EFA9B5E91B7D811800BAA839 /* TRTrackerModel.swift */,
 				EFE083F51A86A9B100AC9631 /* TRTrackerViewController.swift */,
-				EF6A8B4C1B3B91470012312E /* TRTrackerViewController+UIPickerViewDelegate.swift */,
-				EF6A8B4E1B3B91E60012312E /* TRTrackerViewController+UIPickerViewDataSource.swift */,
 				EFA9B5EB1B7D857900BAA839 /* TRTrackerViewController+UITextFieldDelegate.swift */,
 				EFCA44AD1AF2BD430012AE52 /* TrackerButton.swift */,
 				EF35BA2F1AF3D29400456D38 /* TrackingType.swift */,
@@ -559,11 +559,11 @@
 				EF7CE0171AF0228600C451B1 /* HTPressableButton.m in Sources */,
 				EF7CE01A1AF0238800C451B1 /* FXForms.m in Sources */,
 				EF35BA301AF3D29400456D38 /* TrackingType.swift in Sources */,
-				EF6A8B4F1B3B91E60012312E /* TRTrackerViewController+UIPickerViewDataSource.swift in Sources */,
+				EF6A8B4F1B3B91E60012312E /* TRTrackerPresenter+UIPickerViewDataSource.swift in Sources */,
 				EF7CE0221AF023CC00C451B1 /* HTPressableButtonPrefs.m in Sources */,
 				EF7CE0101AF0204700C451B1 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				EF649E421B54A10D004431C6 /* DateViewController.swift in Sources */,
-				EF6A8B4D1B3B91470012312E /* TRTrackerViewController+UIPickerViewDelegate.swift in Sources */,
+				EF6A8B4D1B3B91470012312E /* TRTrackerPresenter+UIPickerViewDelegate.swift in Sources */,
 				EFE083F81A86A9B100AC9631 /* StatsViewController.swift in Sources */,
 				EFFCF9DA1AFA9318004DEDB9 /* ChooseableDates.swift in Sources */,
 				EFA9B5EA1B7D811800BAA839 /* TRTrackerModel.swift in Sources */,
