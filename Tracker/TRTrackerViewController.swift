@@ -59,8 +59,7 @@ class TRTrackerViewController: UIViewController {
         setToolBarForTrackingPickerView()
         setuptheLayout()
         
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        trackableItems = appDelegate.getTheTrackableItems()
+        trackableItems = TrackableItems()
     }
     
     override func viewWillAppear(animated: Bool) {
