@@ -1,11 +1,3 @@
-//
-//  SettingsForm.swift
-//  Tracker
-//
-//  Created by Ryan Pliske on 2/8/15.
-//  Copyright (c) 2015 Tracker. All rights reserved.
-//
-
 import UIKit
 
 class SettingsForm: NSObject, FXForm {

@@ -1,11 +1,3 @@
-//
-//  TrackerViewController.swift
-//  Tracker
-//
-//  Created by Ryan Pliske on 2/7/15.
-//  Copyright (c) 2015 Tracker. All rights reserved.
-//
-
 import UIKit
 import QuartzCore
 
@@ -13,15 +5,14 @@ class TrackerViewController: UIViewController {
     
     @IBOutlet weak var trackerView: UIView!
     @IBOutlet weak var dateTextField: UITextField!
-
-    
+//    var dateTextField: UITextField!
     var trackableItems : TrackableItems!
-    let itemPickerView = UIPickerView()
-    let datePickerView = UIPickerView()
+    var itemPickerView = UIPickerView()
+    var datePickerView = UIPickerView()
     let datePicker = DatePicker()
-    let toolBarForTracking = toolBarForPickerView(frame: CGRectMake(0, 0, 320, 44))
-    let toolBarForDate = toolBarForPickerView(frame: CGRectMake(0, 0, 320, 44))
+    let toolBarForTracking = ToolBarForPickerView(frame: CGRectMake(0, 0, 320, 44))
     var hiddenPickerViewTextField = UITextField(frame: CGRectZero)
+    
     var selectedItemOfFirstWheelColumn = 0 {
         didSet {
             itemPickerView.selectRow(selectedItemOfFirstWheelColumn, inComponent: 0, animated: false)
@@ -34,10 +25,7 @@ class TrackerViewController: UIViewController {
     }
     var trackButton = TrackerButton(frame: CGRectMake(30, 150, 260, 50), buttonStyle: HTPressableButtonStyle.Rounded, trackingType: .TrackAction)
     var trackUrgeButton = TrackerButton(frame: CGRectMake(30, 150, 260, 50), buttonStyle: HTPressableButtonStyle.Rounded, trackingType: .TrackUrge)
-    // Just setting this to an intial value to avoid Optionals
-    // When user selects to either "Track" or "Track Urge", I'm using the same UIPickerView to display a different list accordingly.
-    // This didSet gets called whenever trackingType changes (aka User clicked on a button)
-    // and thus will Reset Clicker Wheel Elements
+
     var trackingType : TrackingType = .TrackAction {
         didSet {
             itemPickerView.reloadAllComponents()
@@ -49,23 +37,27 @@ class TrackerViewController: UIViewController {
         }
     }
     var chooseableDates = ChooseableDates(month: CurrentDate.months[CurrentDate.thisMonth - 1], day: CurrentDate.days[0])
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setNeedsStatusBarAppearanceUpdate()
-        trackerView.addSubview(hiddenPickerViewTextField)
-        itemPickerView.dataSource = self; itemPickerView.delegate = self
-        itemPickerView.backgroundColor = UIColor.blackColor()
+        setNeedsStatusBarAppearanceUpdate()
+        
+        self.view.addSubview(hiddenPickerViewTextField)
+//        dateTextField = UITextField()
+//        dateTextField.frame = 
+//        self.view.addSubview(self.dateTextField)
+        
+        itemPickerView.dataSource = self
+        itemPickerView.delegate = self
+        itemPickerView.backgroundColor = UIColor.orangeColor()
         itemPickerView.showsSelectionIndicator = true
-        self.hiddenPickerViewTextField.inputView = itemPickerView
-        
-        datePickerView.dataSource = datePicker; datePickerView.delegate = datePicker
-        dateTextField.inputView = datePickerView
-        
-        
+        hiddenPickerViewTextField.inputView = itemPickerView
+        datePickerView.dataSource = datePicker
+        datePickerView.delegate = datePicker
+        datePickerView.backgroundColor = UIColor.blackColor()
         setToolBarForTrackingPickerView()
-        setToolBarForDatePickerView()
         setuptheLayout()
+        
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         trackableItems = appDelegate.getTheTrackableItems()
     }
@@ -83,7 +75,7 @@ class TrackerViewController: UIViewController {
         // Create NSLayout for text field so it raises when button is pressed
         hiddenPickerViewTextField.translatesAutoresizingMaskIntoConstraints = false
         hiddenPickerViewTextField.valueForKey("textInputTraits")?.setValue(UIColor.clearColor(), forKey: "insertionPointColor")
-        trackerView.addConstraint(NSLayoutConstraint(item: hiddenPickerViewTextField, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: trackButton, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: 10))
+//        trackerView.addConstraint(NSLayoutConstraint(item: hiddenPickerViewTextField, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: trackButton, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: 10))
         // Setup for Date Text Field
         dateTextField.backgroundColor = UIColor.blackColor()
         dateTextField.layer.borderColor = UIColor.whiteColor().CGColor
@@ -104,17 +96,6 @@ class TrackerViewController: UIViewController {
         hiddenPickerViewTextField.inputAccessoryView = toolBarForTracking
     }
     
-    func setToolBarForDatePickerView(){
-        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "userPickedDate:")
-        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
-        let cancelButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "userCanceledPickingDate:")
-        flexibleSpace.customView = toolBarForDate.toolBarTitle
-        toolBarForDate.toolBarTitle?.text = "Select Date"
-        toolBarForDate.setItems([cancelButton, flexibleSpace, doneButton], animated: false)
-        toolBarForDate.setTitleAttributes()
-        dateTextField.inputAccessoryView = toolBarForDate
-    }
-    
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent;
     }
@@ -125,14 +106,6 @@ class TrackerViewController: UIViewController {
     
     func userPicked(sender: UIBarButtonItem){
         hiddenPickerViewTextField.resignFirstResponder()
-    }
-    
-    func userCanceledPickingDate(sender: UIBarButtonItem){
-        dateTextField.resignFirstResponder()
-    }
-    
-    func userPickedDate(sender: UIBarButtonItem){
-        dateTextField.resignFirstResponder()
     }
     
     func userWantsToTrackAction(){
@@ -146,7 +119,14 @@ class TrackerViewController: UIViewController {
     }
     
     @IBAction func userClickedDateTextField(sender: AnyObject) {
-        toolBarForTracking.toolBarTitle?.text = "Select Date"
-        datePickerView.reloadAllComponents()
+        let dateViewController = DateViewController()
+        dateViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
+        if let popOver : UIPopoverPresentationController = dateViewController.popoverPresentationController {
+            popOver.permittedArrowDirections = UIPopoverArrowDirection.Up
+            popOver.delegate = dateViewController
+            popOver.sourceView = self.view
+            popOver.sourceRect = self.dateTextField.frame
+            self.presentViewController(dateViewController, animated: true, completion: nil)
+        }
     }
 }

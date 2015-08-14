@@ -1,14 +1,6 @@
-//
-//  toolBarForPickerView.swift
-//  Tracker
-//
-//  Created by Ryan Pliske on 7/4/15.
-//  Copyright © 2015 Tracker. All rights reserved.
-//
-
 import Foundation
 
-class toolBarForPickerView : UIToolbar {
+class ToolBarForPickerView : UIToolbar {
     
     var toolBarTitle : UILabel?
     

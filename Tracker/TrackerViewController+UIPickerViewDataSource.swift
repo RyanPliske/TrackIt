@@ -1,11 +1,3 @@
-//
-//  TrackerViewController+UIPickerViewDataSource.swift
-//  Tracker
-//
-//  Created by Ryan Pliske on 6/24/15.
-//  Copyright © 2015 Tracker. All rights reserved.
-//
-
 extension TrackerViewController: UIPickerViewDataSource {
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {

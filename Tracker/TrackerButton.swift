@@ -1,11 +1,3 @@
-//
-//  TrackerButton.swift
-//  Tracker
-//
-//  Created by Ryan Pliske on 4/30/15.
-//  Copyright (c) 2015 Tracker. All rights reserved.
-//
-
 import UIKit
 
 /**

@@ -1,11 +1,3 @@
-//
-//  DatePicker+UIPickerViewDelegate.swift
-//  Tracker
-//
-//  Created by Ryan Pliske on 7/4/15.
-//  Copyright © 2015 Tracker. All rights reserved.
-//
-
 import Foundation
 import UIKit
 
@@ -23,7 +15,7 @@ class DatePicker : NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
         return 7
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "July 4, 2015"
+    func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        return NSAttributedString(string: "July 5" as String, attributes: [NSForegroundColorAttributeName:UIColor.whiteColor()])
     }
 }
