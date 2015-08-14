@@ -1,6 +1,6 @@
 import Foundation
 
-class TRTrackerPresenter: NSObject, TRTrackerViewObserver {
+class TRTrackerPresenter: NSObject, TRTrackerViewDelegate {
     let trackerView : TRTrackerView
     let trackerModel : TRTrackerModel
     var trackableItems: TRTrackableItems
@@ -36,8 +36,8 @@ class TRTrackerPresenter: NSObject, TRTrackerViewObserver {
         trackableItems = TRTrackableItems()
         super.init()
         
-        self.trackerView.setDateTextFieldTextWith(chooseableDates.description)
-        self.trackerView.trackerViewObserver = self
+        self.trackerView.setTodaysDateLabelWith(chooseableDates.description)
+        self.trackerView.delegate = self
         
         self.trackerView.itemPickerView.dataSource = self
         self.trackerView.itemPickerView.delegate = self
@@ -52,4 +52,5 @@ class TRTrackerPresenter: NSObject, TRTrackerViewObserver {
         trackingType = .TrackUrge
         self.trackerView.setToolBarForTrackingTitle("Track Urge")
     }
+
 }

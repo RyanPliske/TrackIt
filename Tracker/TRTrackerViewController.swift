@@ -1,7 +1,7 @@
 import UIKit
 import QuartzCore
 
-class TRTrackerViewController: UIViewController {
+class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
     
     @IBOutlet weak var trackerView: TRTrackerView!
     var trackerPresenter: TRTrackerPresenter!
@@ -12,7 +12,7 @@ class TRTrackerViewController: UIViewController {
         setNeedsStatusBarAppearanceUpdate()
         trackerModel = TRTrackerModel()
         trackerPresenter = TRTrackerPresenter(view: self.trackerView, model: self.trackerModel)
-        self.trackerView.dateTextField.delegate = self
+        self.trackerView.observer = self
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -21,6 +21,18 @@ class TRTrackerViewController: UIViewController {
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent;
+    }
+    
+    func userWantsToSelectDate() {
+        let dateViewController = DateViewController()
+        dateViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
+        if let popOver : UIPopoverPresentationController = dateViewController.popoverPresentationController {
+            popOver.permittedArrowDirections = UIPopoverArrowDirection.Up
+            popOver.delegate = dateViewController
+            popOver.sourceView = self.trackerView
+            popOver.sourceRect = self.trackerView.todaysDateButton.frame
+            self.presentViewController(dateViewController, animated: true, completion: nil)
+        }
     }
     
 }

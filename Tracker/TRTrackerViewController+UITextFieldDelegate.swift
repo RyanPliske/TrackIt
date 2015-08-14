@@ -7,7 +7,7 @@ extension TRTrackerViewController: UITextFieldDelegate {
             popOver.permittedArrowDirections = UIPopoverArrowDirection.Up
             popOver.delegate = dateViewController
             popOver.sourceView = self.trackerView
-            popOver.sourceRect = self.trackerView.dateTextField.frame
+            popOver.sourceRect = self.trackerView.todaysDateButton.frame
             self.presentViewController(dateViewController, animated: true, completion: nil)
         }
     }
