@@ -1,6 +1,6 @@
 import Foundation
 
-class ToolBarForPickerView : UIToolbar {
+class TRToolBarForPickerView : UIToolbar {
     
     var toolBarTitle : UILabel?
     

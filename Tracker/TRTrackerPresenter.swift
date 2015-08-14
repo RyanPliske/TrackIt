@@ -3,7 +3,7 @@ import Foundation
 class TRTrackerPresenter: NSObject, TRTrackerViewObserver {
     let trackerView : TRTrackerView
     let trackerModel : TRTrackerModel
-    var trackableItems: TrackableItems!
+    var trackableItems: TRTrackableItems
     
     var chooseableDates = ChooseableDates(month: CurrentDate.months[CurrentDate.thisMonth - 1], day: CurrentDate.days[0])
     
@@ -19,7 +19,7 @@ class TRTrackerPresenter: NSObject, TRTrackerViewObserver {
         }
     }
     
-    var trackingType : TrackingType = .TrackAction {
+    var trackingType : TRTrackingType = .TrackAction {
         didSet {
             self.trackerView.itemPickerView.reloadAllComponents()
             selectedItemOfFirstWheelColumn = 0
@@ -33,7 +33,7 @@ class TRTrackerPresenter: NSObject, TRTrackerViewObserver {
     init(view: TRTrackerView, model: TRTrackerModel) {
         trackerView = view
         trackerModel = model
-        trackableItems = TrackableItems()
+        trackableItems = TRTrackableItems()
         super.init()
         
         self.trackerView.setDateTextFieldTextWith(chooseableDates.description)

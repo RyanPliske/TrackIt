@@ -10,9 +10,9 @@ class TRTrackerView: UIView {
     var hiddenPickerViewTextField: UITextField
     var itemPickerView = UIPickerView()
     
-    let toolBarForTracking = ToolBarForPickerView(frame: CGRectMake(0, 0, 320, 44))
-    var trackButton = TrackerButton(frame: CGRectMake(30, 150, 260, 50), buttonStyle: HTPressableButtonStyle.Rounded, trackingType: .TrackAction)
-    var trackUrgeButton = TrackerButton(frame: CGRectMake(30, 150, 260, 50), buttonStyle: HTPressableButtonStyle.Rounded, trackingType: .TrackUrge)
+    let toolBarForTracking = TRToolBarForPickerView(frame: CGRectMake(0, 0, 320, 44))
+    var trackButton = TRTrackerButton(frame: CGRectMake(30, 150, 260, 50), buttonStyle: HTPressableButtonStyle.Rounded, trackingType: .TrackAction)
+    var trackUrgeButton = TRTrackerButton(frame: CGRectMake(30, 150, 260, 50), buttonStyle: HTPressableButtonStyle.Rounded, trackingType: .TrackUrge)
     
     var trackerViewObserver : TRTrackerViewObserver?
     

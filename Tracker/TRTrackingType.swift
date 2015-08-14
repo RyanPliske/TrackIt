@@ -1,4 +1,4 @@
-enum TrackingType {
+enum TRTrackingType {
     case TrackAction
     case TrackUrge
 }
