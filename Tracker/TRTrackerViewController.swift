@@ -3,9 +3,9 @@ import QuartzCore
 
 class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
     
-    @IBOutlet weak var trackerView: TRTrackerView!
-    var trackerPresenter: TRTrackerPresenter!
-    var trackerModel: TRTrackerModel!
+    @IBOutlet private weak var trackerView: TRTrackerView!
+    private var trackerPresenter: TRTrackerPresenter!
+    private var trackerModel: TRTrackerModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
