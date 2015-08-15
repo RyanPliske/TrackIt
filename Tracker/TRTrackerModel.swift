@@ -8,4 +8,9 @@ class TRTrackerModel: NSObject {
         super.init()
     }
     
+    func userPickedItemAtRow(row: Int, quantityRow: Int) {
+        // Create a Record with Item and quantity
+        
+        // Save record to phone
+    }
 }

@@ -3,6 +3,7 @@ import UIKit
 protocol TRTrackerViewDelegate {
     func userWantsToTrackAction()
     func userWantsToTrackUrge()
+    func userPickedAnItemToTrack()
 }
 
 protocol TRTrackerViewObserver {
@@ -58,7 +59,7 @@ class TRTrackerView: UIView {
     }
     
     func setToolBarForTrackingPickerView() {
-        let doneButton = UIBarButtonItem(title: "Track", style: UIBarButtonItemStyle.Plain, target: self, action: "userPicked:")
+        let doneButton = UIBarButtonItem(title: "Track", style: UIBarButtonItemStyle.Plain, target: self, action: "userPickedAnItemToTrack:")
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
         let cancelButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "userCanceledPicking:")
 
@@ -84,8 +85,9 @@ class TRTrackerView: UIView {
         hiddenPickerViewTextField.resignFirstResponder()
     }
     
-    func userPicked(sender: UIBarButtonItem) {
+    func userPickedAnItemToTrack(sender: UIBarButtonItem) {
         hiddenPickerViewTextField.resignFirstResponder()
+        self.delegate?.userPickedAnItemToTrack()
     }
     
     func trackButtonTapped() {

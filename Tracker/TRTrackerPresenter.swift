@@ -6,24 +6,24 @@ class TRTrackerPresenter: NSObject, TRTrackerViewDelegate {
     
     var chooseableDates = ChooseableDates(month: CurrentDate.months[CurrentDate.thisMonth - 1], day: CurrentDate.days[0])
     
-    var selectedItemOfFirstWheelColumn = 0 {
+    var selectedItemOfFirstColumn = 0 {
         didSet {
-            self.trackerView.itemPickerView.selectRow(selectedItemOfFirstWheelColumn, inComponent: 0, animated: false)
+            self.trackerView.itemPickerView.selectRow(selectedItemOfFirstColumn, inComponent: 0, animated: false)
         }
     }
     
-    var selectedItemOfSecondWheelColumn = 0 {
+    var selectedItemOfSecondColumn = 0 {
         didSet {
-            self.trackerView.itemPickerView.selectRow(selectedItemOfSecondWheelColumn, inComponent: 1, animated: false)
+            self.trackerView.itemPickerView.selectRow(selectedItemOfSecondColumn, inComponent: 1, animated: false)
         }
     }
     
     var trackingType : TRTrackingType = .TrackAction {
         didSet {
             self.trackerView.itemPickerView.reloadAllComponents()
-            selectedItemOfFirstWheelColumn = 0
+            selectedItemOfFirstColumn = 0
             if trackingType == .TrackAction {
-                selectedItemOfSecondWheelColumn = 0
+                selectedItemOfSecondColumn = 0
             }
             self.trackerView.hiddenPickerViewTextField.becomeFirstResponder()
         }
@@ -50,5 +50,8 @@ class TRTrackerPresenter: NSObject, TRTrackerViewDelegate {
         trackingType = .TrackUrge
         self.trackerView.setToolBarForTrackingTitle("Track Urge")
     }
-
+    
+    func userPickedAnItemToTrack() {
+        self.trackerModel.userPickedItemAtRow(selectedItemOfFirstColumn, quantityRow: selectedItemOfSecondColumn)
+    }
 }
