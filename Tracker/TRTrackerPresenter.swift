@@ -3,7 +3,6 @@ import Foundation
 class TRTrackerPresenter: NSObject, TRTrackerViewDelegate {
     let trackerView : TRTrackerView
     let trackerModel : TRTrackerModel
-    var trackableItems: TRTrackableItems
     
     var chooseableDates = ChooseableDates(month: CurrentDate.months[CurrentDate.thisMonth - 1], day: CurrentDate.days[0])
     
@@ -33,7 +32,6 @@ class TRTrackerPresenter: NSObject, TRTrackerViewDelegate {
     init(view: TRTrackerView, model: TRTrackerModel) {
         trackerView = view
         trackerModel = model
-        trackableItems = TRTrackableItems()
         super.init()
         
         self.trackerView.setTodaysDateLabelWith(chooseableDates.description)

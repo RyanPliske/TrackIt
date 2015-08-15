@@ -13,19 +13,19 @@ extension TRTrackerPresenter: UIPickerViewDataSource {
         if component == 0 {
             switch trackingType {
             case .TrackAction:
-                return trackableItems.getCountOfAllItems()
+                return self.trackerModel.trackableItems.getCountOfAllItems()
             case .TrackUrge:
-                return trackableItems.sinfulItems.count
+                return self.trackerModel.trackableItems.sinfulItems.count
             }
         }
         else {
-            return trackableItems.ListOfQuantities.count
+            return self.trackerModel.trackableItems.ListOfQuantities.count
         }
     }
     
     func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         if component == 0 {
-            var items = trackableItems.sinfulItems + trackableItems.regularItems
+            var items = self.trackerModel.trackableItems.sinfulItems + self.trackerModel.trackableItems.regularItems
             if row == selectedItemOfFirstWheelColumn {
                 return NSAttributedString(string: items[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.greenColor()])
             }
@@ -33,9 +33,9 @@ extension TRTrackerPresenter: UIPickerViewDataSource {
         }
         else {
             if row == selectedItemOfSecondWheelColumn {
-                return NSAttributedString(string: trackableItems.ListOfQuantities[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.greenColor()])
+                return NSAttributedString(string: self.trackerModel.trackableItems.ListOfQuantities[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.greenColor()])
             }
-            return NSAttributedString(string: trackableItems.ListOfQuantities[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.whiteColor()])
+            return NSAttributedString(string: self.trackerModel.trackableItems.ListOfQuantities[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.whiteColor()])
         }
     }
 }
