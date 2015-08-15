@@ -13,7 +13,7 @@ extension TRTrackerPresenter: UIPickerViewDataSource {
         if component == 0 {
             switch trackingType {
             case .TrackAction:
-                return self.trackerModel.trackableItems.getCountOfAllItems()
+                return self.trackerModel.trackableItems.allItems.count
             case .TrackUrge:
                 return self.trackerModel.trackableItems.sinfulItems.count
             }
@@ -25,11 +25,10 @@ extension TRTrackerPresenter: UIPickerViewDataSource {
     
     func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         if component == 0 {
-            var items = self.trackerModel.trackableItems.sinfulItems + self.trackerModel.trackableItems.regularItems
             if row == selectedItemOfFirstColumn {
-                return NSAttributedString(string: items[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.greenColor()])
+                return NSAttributedString(string: self.trackerModel.trackableItems.allItems[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.greenColor()])
             }
-            return NSAttributedString(string: items[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.whiteColor()])
+            return NSAttributedString(string: self.trackerModel.trackableItems.allItems[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.whiteColor()])
         }
         else {
             if row == selectedItemOfSecondColumn {
