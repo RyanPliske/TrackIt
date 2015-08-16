@@ -52,6 +52,6 @@ class TRTrackerPresenter: NSObject, TRTrackerViewDelegate {
     }
     
     func userPickedAnItemToTrack() {
-        self.trackerModel.userPickedItemAtRow(selectedItemOfFirstColumn, quantityRow: selectedItemOfSecondColumn)
+        self.trackerModel.trackItemAtRow(selectedItemOfFirstColumn, quantityRow: selectedItemOfSecondColumn, type: trackingType)
     }
 }
