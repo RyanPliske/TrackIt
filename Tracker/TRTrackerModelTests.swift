@@ -1,10 +1,12 @@
 import XCTest
 
 class TRTrackerModelTests: XCTestCase {
-    let testObject = TRTrackerModel()
+    let recordService = TRRecordService()
+    var testObject: TRTrackerModel!
     
     override func setUp() {
         super.setUp()
+        testObject = TRTrackerModel(recordService: self.recordService)
     }
     
     func testWhenTrackItemAtRowIsCalled_WithTrackingTypeAction_ThenCorrectRecordIsCreated() {

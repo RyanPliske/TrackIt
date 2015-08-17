@@ -3,7 +3,12 @@ import Foundation
 class TRTrackerModel: NSObject {
     var trackableItems = TRTrackableItems()
     var records = [PFObject]()
-    var recordService = TRRecordService()
+    var recordService: TRRecordService
+    
+    init(recordService: TRRecordService) {
+        self.recordService = recordService
+        super.init()
+    }
     
     func trackItemAtRow(row: Int, quantityRow: Int, type: TRTrackingType) {
         var item: String
