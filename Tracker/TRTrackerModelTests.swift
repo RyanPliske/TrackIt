@@ -17,7 +17,7 @@ class TRTrackerModelTests: XCTestCase {
         
         XCTAssert(expectedRecord.objectForKey("item")!.isEqualToString(self.testObject.recordToTrack!.objectForKey("item") as! String))
         
-        XCTAssert(expectedRecord.objectForKey("quantity")!.isEqualToString(self.testObject.recordToTrack!.objectForKey("quantity") as! String))
+        XCTAssert(expectedRecord.objectForKey("quantity")!.isEqualToNumber(self.testObject.recordToTrack!.objectForKey("quantity") as! Int))
         
         XCTAssert(expectedRecord.objectForKey("type")!.isEqualToString(self.testObject.recordToTrack!.objectForKey("type") as! String))
         
