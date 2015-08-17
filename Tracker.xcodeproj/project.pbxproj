@@ -52,8 +52,8 @@
 		EFE083FB1A86A9B100AC9631 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFE083F91A86A9B100AC9631 /* Main.storyboard */; };
 		EFE083FD1A86A9B100AC9631 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFE083FC1A86A9B100AC9631 /* Images.xcassets */; };
 		EFF5E6061A8861BC00B59CD4 /* SettingsForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF5E6051A8861BC00B59CD4 /* SettingsForm.swift */; };
-		EFF85C6A1B8261FA00F766DB /* RecordServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF85C691B8261FA00F766DB /* RecordServices.swift */; };
-		EFF85C6B1B8261FA00F766DB /* RecordServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF85C691B8261FA00F766DB /* RecordServices.swift */; };
+		EFF85C6A1B8261FA00F766DB /* TRRecordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF85C691B8261FA00F766DB /* TRRecordService.swift */; };
+		EFF85C6B1B8261FA00F766DB /* TRRecordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF85C691B8261FA00F766DB /* TRRecordService.swift */; };
 		EFFCF9DA1AFA9318004DEDB9 /* ChooseableDates.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCF9D91AFA9318004DEDB9 /* ChooseableDates.swift */; };
 		EFFCF9DC1AFA9C26004DEDB9 /* CurrentDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCF9DB1AFA9C26004DEDB9 /* CurrentDate.swift */; };
 /* End PBXBuildFile section */
@@ -167,7 +167,7 @@
 		EFE0840A1A86A9B100AC9631 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EFF5E6011A885BCB00B59CD4 /* Tracker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tracker-Bridging-Header.h"; sourceTree = "<group>"; };
 		EFF5E6051A8861BC00B59CD4 /* SettingsForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsForm.swift; sourceTree = "<group>"; };
-		EFF85C691B8261FA00F766DB /* RecordServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecordServices.swift; path = ../RecordServices.swift; sourceTree = "<group>"; };
+		EFF85C691B8261FA00F766DB /* TRRecordService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TRRecordService.swift; path = ../TRRecordService.swift; sourceTree = "<group>"; };
 		EFFCF9D91AFA9318004DEDB9 /* ChooseableDates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseableDates.swift; sourceTree = "<group>"; };
 		EFFCF9DB1AFA9C26004DEDB9 /* CurrentDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentDate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -360,7 +360,7 @@
 				EF52F2441A8735CF00315B35 /* SettingsViewController.swift */,
 				EFE083F71A86A9B100AC9631 /* StatsViewController.swift */,
 				EFF5E6051A8861BC00B59CD4 /* SettingsForm.swift */,
-				EFF85C691B8261FA00F766DB /* RecordServices.swift */,
+				EFF85C691B8261FA00F766DB /* TRRecordService.swift */,
 				EFE083F91A86A9B100AC9631 /* Main.storyboard */,
 				EFCA44AB1AF2BCD40012AE52 /* Vendor Components */,
 				EFE083F11A86A9B100AC9631 /* Supporting Files */,
@@ -652,7 +652,7 @@
 				EFE083F41A86A9B100AC9631 /* AppDelegate.swift in Sources */,
 				EF35BA2D1AF3CA9400456D38 /* TRTrackableItems.swift in Sources */,
 				EF7CE01D1AF023B000C451B1 /* UIImage+HTButton.m in Sources */,
-				EFF85C6A1B8261FA00F766DB /* RecordServices.swift in Sources */,
+				EFF85C6A1B8261FA00F766DB /* TRRecordService.swift in Sources */,
 				EFFCF9DC1AFA9C26004DEDB9 /* CurrentDate.swift in Sources */,
 				EFF5E6061A8861BC00B59CD4 /* SettingsForm.swift in Sources */,
 				EFC9CD691B7D3BEF00060D54 /* DateViewController+UIPopoverPresentationControllerDelegate.swift in Sources */,
@@ -675,7 +675,7 @@
 				EF5AB9551B80011C0061286E /* TRTrackerModel.swift in Sources */,
 				EF5AB94F1B7FF91B0061286E /* TRTrackerModelTests.swift in Sources */,
 				EF5AB9511B7FF9C20061286E /* TRTrackableItems.swift in Sources */,
-				EFF85C6B1B8261FA00F766DB /* RecordServices.swift in Sources */,
+				EFF85C6B1B8261FA00F766DB /* TRRecordService.swift in Sources */,
 				EF5AB9561B8009050061286E /* TRTrackingType.swift in Sources */,
 				EFABDA1C1B2B299300FCF5A3 /* MainInterfacePresenter.swift in Sources */,
 			);

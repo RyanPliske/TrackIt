@@ -16,10 +16,11 @@ class TRTrackerModelTests: XCTestCase {
         
         self.testObject.trackItemAtRow(5, quantityRow: expectedQuantity - 1, type: TRTrackingType.TrackAction)
         
-        XCTAssert(expectedRecord.objectForKey("item")!.isEqualToString(self.testObject.recordToTrack!.objectForKey("item") as! String))
-        XCTAssert(expectedRecord.objectForKey("quantity")!.isEqualToNumber(self.testObject.recordToTrack!.objectForKey("quantity") as! Int))
-        XCTAssert(expectedRecord.objectForKey("type")!.isEqualToString(self.testObject.recordToTrack!.objectForKey("type") as! String))
-        XCTAssertNotNil(self.testObject.recordToTrack)
+        let returnedRecord = self.testObject.records[0]
+        XCTAssert(expectedRecord.objectForKey("item")!.isEqualToString(returnedRecord.objectForKey("item") as! String))
+        XCTAssert(expectedRecord.objectForKey("quantity")!.isEqualToNumber(returnedRecord.objectForKey("quantity") as! Int))
+        XCTAssert(expectedRecord.objectForKey("type")!.isEqualToString(returnedRecord.objectForKey("type") as! String))
+        XCTAssertNotNil(self.testObject.records)
     }
     
     func testWhenTrackItemAtRowIsCalled_WithTrackingTypeUrge_ThenCorrectRecordIsCreated() {
@@ -31,9 +32,10 @@ class TRTrackerModelTests: XCTestCase {
         
         self.testObject.trackItemAtRow(0, quantityRow: expectedQuantity - 1, type: TRTrackingType.TrackUrge)
         
-        XCTAssert(expectedRecord.objectForKey("item")!.isEqualToString(self.testObject.recordToTrack!.objectForKey("item") as! String))
-        XCTAssert(expectedRecord.objectForKey("quantity")!.isEqualToNumber(self.testObject.recordToTrack!.objectForKey("quantity") as! Int))
-        XCTAssert(expectedRecord.objectForKey("type")!.isEqualToString(self.testObject.recordToTrack!.objectForKey("type") as! String))
-        XCTAssertNotNil(self.testObject.recordToTrack)
+        let returnedRecord = self.testObject.records[0]
+        XCTAssert(expectedRecord.objectForKey("item")!.isEqualToString(returnedRecord.objectForKey("item") as! String))
+        XCTAssert(expectedRecord.objectForKey("quantity")!.isEqualToNumber(returnedRecord.objectForKey("quantity") as! Int))
+        XCTAssert(expectedRecord.objectForKey("type")!.isEqualToString(returnedRecord.objectForKey("type") as! String))
+        XCTAssertNotNil(self.testObject.records)
     }
 }
