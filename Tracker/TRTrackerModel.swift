@@ -3,9 +3,11 @@ import Foundation
 class TRTrackerModel: NSObject {
     var trackableItems: TRTrackableItems
     var recordToTrack: PFObject?
+    var recordServices: RecordServices
     
     override init() {
         trackableItems = TRTrackableItems()
+        recordServices = RecordServices()
         super.init()
     }
     
@@ -18,12 +20,9 @@ class TRTrackerModel: NSObject {
         }
         let itemQuantity = self.quantityForRow(quantityRow)
         recordToTrack = self.recordWithItem(item, quantity: itemQuantity, itemType: type)
-        
-        // TODO: save record to phone
     }
-    
-    // MARK: CRUD Records
-    
+
+    // MARK: Helper Methods
     private func recordWithItem(item: String, quantity: Int, itemType: TRTrackingType) -> PFObject {
         let record = PFObject(className: "record")
         record["item"] = item
@@ -32,8 +31,6 @@ class TRTrackerModel: NSObject {
         record["type"] = type
         return record
     }
-    
-    // MARK: Helper Methods
     
     private func quantityForRow(row: Int) -> Int {
         return row + 1
