@@ -7,7 +7,6 @@ end
 
 target 'TrackerTests' do
 pod 'Parse'
-pod 'OCMock'
 end
 
 target 'TrackViaWatch' do
