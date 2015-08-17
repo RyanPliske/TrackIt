@@ -15,7 +15,12 @@ class TRTrackerModelTests: XCTestCase {
         
         self.testObject.trackItemAtRow(0, quantityRow: 3, type: TRTrackingType.TrackAction)
         
-//        XCTAssertEqual(expectedRecord.objectForKey("item")!, self.testObject.recordToTrack!.objectForKey("item")!)
+        XCTAssert(expectedRecord.objectForKey("item")!.isEqualToString(self.testObject.recordToTrack!.objectForKey("item") as! String))
+        
+        XCTAssert(expectedRecord.objectForKey("quantity")!.isEqualToString(self.testObject.recordToTrack!.objectForKey("quantity") as! String))
+        
+        XCTAssert(expectedRecord.objectForKey("type")!.isEqualToString(self.testObject.recordToTrack!.objectForKey("type") as! String))
+        
         XCTAssertNotNil(self.testObject.recordToTrack)
     }
 }
