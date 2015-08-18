@@ -3,6 +3,8 @@ platform :ios, "8.0"
 
 target 'Tracker' do
     pod 'Parse'
+    pod 'Fabric'
+    pod 'Crashlytics'
 end
 
 target 'TrackerTests' do
