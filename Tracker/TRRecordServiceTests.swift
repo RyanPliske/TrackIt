@@ -32,4 +32,6 @@ class TRRecordServiceTests : XCTestCase {
         XCTAssert(expectedRecord.objectForKey("quantity")!.isEqualToNumber(returnedRecord.objectForKey("quantity") as! Int))
         XCTAssert(expectedRecord.objectForKey("type")!.isEqualToString(returnedRecord.objectForKey("type") as! String))
     }
+    
+    
 }
