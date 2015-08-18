@@ -51,6 +51,7 @@
 		EFE083F81A86A9B100AC9631 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE083F71A86A9B100AC9631 /* StatsViewController.swift */; };
 		EFE083FB1A86A9B100AC9631 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFE083F91A86A9B100AC9631 /* Main.storyboard */; };
 		EFE083FD1A86A9B100AC9631 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFE083FC1A86A9B100AC9631 /* Images.xcassets */; };
+		EFF07F3C1B8399A000ED6520 /* TRRecordServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF07F3A1B8399A000ED6520 /* TRRecordServiceTests.swift */; };
 		EFF5E6061A8861BC00B59CD4 /* SettingsForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF5E6051A8861BC00B59CD4 /* SettingsForm.swift */; };
 		EFF85C6A1B8261FA00F766DB /* TRRecordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF85C691B8261FA00F766DB /* TRRecordService.swift */; };
 		EFF85C6B1B8261FA00F766DB /* TRRecordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF85C691B8261FA00F766DB /* TRRecordService.swift */; };
@@ -165,6 +166,7 @@
 		EFE083FC1A86A9B100AC9631 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EFE084051A86A9B100AC9631 /* TrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFE0840A1A86A9B100AC9631 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFF07F3A1B8399A000ED6520 /* TRRecordServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRRecordServiceTests.swift; sourceTree = "<group>"; };
 		EFF5E6011A885BCB00B59CD4 /* Tracker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tracker-Bridging-Header.h"; sourceTree = "<group>"; };
 		EFF5E6051A8861BC00B59CD4 /* SettingsForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsForm.swift; sourceTree = "<group>"; };
 		EFF85C691B8261FA00F766DB /* TRRecordService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TRRecordService.swift; path = ../TRRecordService.swift; sourceTree = "<group>"; };
@@ -361,6 +363,7 @@
 				EFE083F71A86A9B100AC9631 /* StatsViewController.swift */,
 				EFF5E6051A8861BC00B59CD4 /* SettingsForm.swift */,
 				EFF85C691B8261FA00F766DB /* TRRecordService.swift */,
+				EFF07F3A1B8399A000ED6520 /* TRRecordServiceTests.swift */,
 				EFE083F91A86A9B100AC9631 /* Main.storyboard */,
 				EFCA44AB1AF2BCD40012AE52 /* Vendor Components */,
 				EFE083F11A86A9B100AC9631 /* Supporting Files */,
@@ -677,6 +680,7 @@
 				EF5AB9511B7FF9C20061286E /* TRTrackableItems.swift in Sources */,
 				EFF85C6B1B8261FA00F766DB /* TRRecordService.swift in Sources */,
 				EF5AB9561B8009050061286E /* TRTrackingType.swift in Sources */,
+				EFF07F3C1B8399A000ED6520 /* TRRecordServiceTests.swift in Sources */,
 				EFABDA1C1B2B299300FCF5A3 /* MainInterfacePresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
