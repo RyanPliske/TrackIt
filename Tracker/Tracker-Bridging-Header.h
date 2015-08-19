@@ -11,6 +11,8 @@
 // https://github.com/herinkc/HTPressableButton/releases/tag/1.3.2
 #import "HTPressableButton.h"
 #import "UIColor+HTColor.h"
+// CLCalendar
+#import "CLWeeklyCalendarView.h"
 // Parse and Bolts
 #import "Parse.h"
 #import "Bolts.h"

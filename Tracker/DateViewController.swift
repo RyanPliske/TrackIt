@@ -1,10 +1,8 @@
 import Foundation
 
 class DateViewController: UIViewController {
-    let datePickerView: UIPickerView
     
     init() {
-        datePickerView = UIPickerView()
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -18,5 +16,7 @@ class DateViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
+        self.view = CLWeeklyCalendarView(frame: CGRectMake(0, 0, self.view.bounds.size.width, 100))
+        self.preferredContentSize = CGSizeMake(self.view.bounds.width, 100)
     }
 }
