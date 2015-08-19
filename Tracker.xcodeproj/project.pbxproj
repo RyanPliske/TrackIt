@@ -488,15 +488,15 @@
 				TargetAttributes = {
 					EF9FB0641B2A4D5800AD1164 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = 7375283Q9W;
+						DevelopmentTeam = CZLFN85575;
 					};
 					EF9FB0701B2A4D5800AD1164 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = 7375283Q9W;
+						DevelopmentTeam = CZLFN85575;
 					};
 					EFE083ED1A86A9B100AC9631 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = 7375283Q9W;
+						DevelopmentTeam = CZLFN85575;
 					};
 					EFE084041A86A9B100AC9631 = {
 						CreatedOnToolsVersion = 6.1.1;
