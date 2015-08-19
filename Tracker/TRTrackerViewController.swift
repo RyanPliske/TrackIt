@@ -1,13 +1,14 @@
 import UIKit
 import QuartzCore
 
-class TRTrackerViewController: UIViewController, TRTrackerViewObserver, TRDateChooserObserver {
+class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
     
     @IBOutlet private weak var trackerView: TRTrackerView!
     private var trackerPresenter: TRTrackerPresenter!
     private var recordService = TRRecordService()
     private var trackerModel: TRTrackerModel!
     private let dateViewController = DateViewController()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,7 +17,7 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver, TRDateCh
         trackerPresenter = TRTrackerPresenter(view: self.trackerView, model: self.trackerModel)
         self.trackerView.observer = self
         dateViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
-        dateViewController.dateObserver = self
+        dateViewController.dateObserver = self.trackerPresenter
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -36,9 +37,4 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver, TRDateCh
             self.presentViewController(dateViewController, animated: true, completion: nil)
         }
     }
-    
-    func dateSelectedWithDate(date: NSDate) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
 }

@@ -106,7 +106,7 @@ class TRTrackerView: UIView {
         toolBarForTracking.items![2].title = text
     }
     
-    func setTodaysDateLabelWith(text: String) {
+    func setTodaysDateLabelWithText(text: String) {
         todaysDateButton.setTitle(text, forState: UIControlState.Normal)
     }
 }

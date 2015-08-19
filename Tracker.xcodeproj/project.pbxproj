@@ -51,7 +51,7 @@
 		EFF5E6061A8861BC00B59CD4 /* SettingsForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF5E6051A8861BC00B59CD4 /* SettingsForm.swift */; };
 		EFF85C6A1B8261FA00F766DB /* TRRecordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF85C691B8261FA00F766DB /* TRRecordService.swift */; };
 		EFF85C6B1B8261FA00F766DB /* TRRecordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF85C691B8261FA00F766DB /* TRRecordService.swift */; };
-		EFFCF9DA1AFA9318004DEDB9 /* ChooseableDates.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCF9D91AFA9318004DEDB9 /* ChooseableDates.swift */; };
+		EFFCF9DA1AFA9318004DEDB9 /* TRDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCF9D91AFA9318004DEDB9 /* TRDateFormatter.swift */; };
 		EFFCF9DC1AFA9C26004DEDB9 /* CurrentDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCF9DB1AFA9C26004DEDB9 /* CurrentDate.swift */; };
 /* End PBXBuildFile section */
 
@@ -153,7 +153,7 @@
 		EFF5E6011A885BCB00B59CD4 /* Tracker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tracker-Bridging-Header.h"; sourceTree = "<group>"; };
 		EFF5E6051A8861BC00B59CD4 /* SettingsForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsForm.swift; sourceTree = "<group>"; };
 		EFF85C691B8261FA00F766DB /* TRRecordService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TRRecordService.swift; path = ../TRRecordService.swift; sourceTree = "<group>"; };
-		EFFCF9D91AFA9318004DEDB9 /* ChooseableDates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseableDates.swift; sourceTree = "<group>"; };
+		EFFCF9D91AFA9318004DEDB9 /* TRDateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRDateFormatter.swift; sourceTree = "<group>"; };
 		EFFCF9DB1AFA9C26004DEDB9 /* CurrentDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentDate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -204,7 +204,7 @@
 				EFC9CD681B7D3BEF00060D54 /* DateViewController+UIPopoverPresentationControllerDelegate.swift */,
 				EF2F2A6A1B489AA6009C886E /* DatePicker.swift */,
 				EFFCF9DB1AFA9C26004DEDB9 /* CurrentDate.swift */,
-				EFFCF9D91AFA9318004DEDB9 /* ChooseableDates.swift */,
+				EFFCF9D91AFA9318004DEDB9 /* TRDateFormatter.swift */,
 			);
 			name = Date;
 			sourceTree = "<group>";
@@ -598,7 +598,7 @@
 				EF649E421B54A10D004431C6 /* DateViewController.swift in Sources */,
 				EF6A8B4D1B3B91470012312E /* TRTrackerPresenter+UIPickerViewDelegate.swift in Sources */,
 				EFE083F81A86A9B100AC9631 /* StatsViewController.swift in Sources */,
-				EFFCF9DA1AFA9318004DEDB9 /* ChooseableDates.swift in Sources */,
+				EFFCF9DA1AFA9318004DEDB9 /* TRDateFormatter.swift in Sources */,
 				EFA9B5EA1B7D811800BAA839 /* TRTrackerModel.swift in Sources */,
 				EFE083F41A86A9B100AC9631 /* AppDelegate.swift in Sources */,
 				EF35BA2D1AF3CA9400456D38 /* TRTrackableItems.swift in Sources */,

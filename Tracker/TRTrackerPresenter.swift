@@ -1,11 +1,10 @@
 import Foundation
 
-class TRTrackerPresenter: NSObject, TRTrackerViewDelegate {
+class TRTrackerPresenter: NSObject, TRTrackerViewDelegate, TRDateChooserObserver {
     let trackerView : TRTrackerView
     let trackerModel : TRTrackerModel
-    
-    var chooseableDates = ChooseableDates(month: CurrentDate.months[CurrentDate.thisMonth - 1], day: CurrentDate.days[0])
-    
+    var dateFormatter = TRDateFormatter()
+
     var selectedItemOfFirstColumn = 0 {
         didSet {
             self.trackerView.itemPickerView.selectRow(selectedItemOfFirstColumn, inComponent: 0, animated: false)
@@ -33,14 +32,12 @@ class TRTrackerPresenter: NSObject, TRTrackerViewDelegate {
         trackerView = view
         trackerModel = model
         super.init()
-        
-        self.trackerView.setTodaysDateLabelWith(chooseableDates.description)
         self.trackerView.delegate = self
-        
         self.trackerView.itemPickerView.dataSource = self
         self.trackerView.itemPickerView.delegate = self
+        self.trackerView.setTodaysDateLabelWithText(dateFormatter.descriptionForToday)
     }
-    
+    // MARK: TRTrackerViewDelegate
     func userWantsToTrackAction(){
         trackingType = .TrackAction
         self.trackerView.setToolBarForTrackingTitle("Track")
@@ -53,5 +50,9 @@ class TRTrackerPresenter: NSObject, TRTrackerViewDelegate {
     
     func userPickedAnItemToTrack() {
         self.trackerModel.trackItemAtRow(selectedItemOfFirstColumn, quantityRow: selectedItemOfSecondColumn, type: trackingType)
+    }
+    // MARK: TRDateChooserObserver
+    func dateSelectedWithDate(date: NSDate) {
+        self.trackerView.setTodaysDateLabelWithText(dateFormatter.descriptionForDate(date))
     }
 }

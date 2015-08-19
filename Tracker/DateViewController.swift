@@ -16,10 +16,6 @@ class DateViewController: UIViewController, CLWeeklyCalendarViewDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
-        self.view.backgroundColor = UIColor.greenColor()
-    }
-    
     override func loadView() {
         super.loadView()
         let calendarView = CLWeeklyCalendarView(frame: CGRectMake(0, 0, self.view.bounds.size.width, 100))
