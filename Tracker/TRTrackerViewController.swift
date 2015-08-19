@@ -1,19 +1,22 @@
 import UIKit
 import QuartzCore
 
-class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
+class TRTrackerViewController: UIViewController, TRTrackerViewObserver, TRDateChooserObserver {
     
     @IBOutlet private weak var trackerView: TRTrackerView!
     private var trackerPresenter: TRTrackerPresenter!
     private var recordService = TRRecordService()
     private var trackerModel: TRTrackerModel!
+    private let dateViewController = DateViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setNeedsStatusBarAppearanceUpdate()
-       trackerModel = TRTrackerModel(recordService: self.recordService)
+        trackerModel = TRTrackerModel(recordService: self.recordService)
         trackerPresenter = TRTrackerPresenter(view: self.trackerView, model: self.trackerModel)
         self.trackerView.observer = self
+        dateViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
+        dateViewController.dateObserver = self
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -24,9 +27,7 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
         return UIStatusBarStyle.LightContent;
     }
     
-    func userWantsToSelectDate() {
-        let dateViewController = DateViewController()
-        dateViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
+    func displayDateChooser() {
         if let popOver : UIPopoverPresentationController = dateViewController.popoverPresentationController {
             popOver.permittedArrowDirections = UIPopoverArrowDirection.Up
             popOver.delegate = dateViewController
@@ -34,6 +35,10 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
             popOver.sourceRect = self.trackerView.todaysDateButton.frame
             self.presentViewController(dateViewController, animated: true, completion: nil)
         }
+    }
+    
+    func dateSelectedWithDate(date: NSDate) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
 }

@@ -7,7 +7,7 @@ protocol TRTrackerViewDelegate {
 }
 
 protocol TRTrackerViewObserver {
-    func userWantsToSelectDate()
+    func displayDateChooser()
 }
 
 class TRTrackerView: UIView {
@@ -99,7 +99,7 @@ class TRTrackerView: UIView {
     }
     
     func todaysDateButtonPressed() {
-        self.observer?.userWantsToSelectDate()
+        self.observer?.displayDateChooser()
     }
     
     func setToolBarForTrackingTitle(text: String) {
