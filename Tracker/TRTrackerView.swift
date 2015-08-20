@@ -24,23 +24,23 @@ class TRTrackerView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
+        // todaysDateButton
         todaysDateButton.addTarget(self, action: "todaysDateButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
         setTodaysDateButtonLabelWithText(TRDateFormatter.descriptionForToday)
         addSubview(todaysDateButton)
         addConstraintsForTodaysDateButton()
-        
+        // trackButton
         trackButton.addTarget(self, action: "trackButtonTapped", forControlEvents: UIControlEvents.TouchUpInside)
         addSubview(trackButton)
         addConstraintsForTrackerButton(trackButton)
-        
+        // trackUrgeButton
         trackUrgeButton.addTarget(self, action: "trackUrgeButtonTapped", forControlEvents: UIControlEvents.TouchUpInside)
         addSubview(trackUrgeButton)
         addConstraintsForTrackerButton(trackUrgeButton)
-        
+        // editRecordsButton
         addSubview(editRecordsButton)
         addConstraintsForEditRecordsButton()
-        
+        // hiddenPickerViewTextField
         itemPickerView.backgroundColor = UIColor.blackColor()
         hiddenPickerViewTextField.inputView = itemPickerView
         hiddenPickerViewTextField.inputAccessoryView = TRToolbar(frame: CGRectMake(0.0, 0.0, 320.0, 44.0), parentView: self)
@@ -49,6 +49,7 @@ class TRTrackerView: UIView {
         addConstraintsForHiddenTextField()
     }
     
+    // MARK: User Interaction
     func userCanceledPicking(sender: UIBarButtonItem) {
         hiddenPickerViewTextField.resignFirstResponder()
     }
@@ -72,6 +73,7 @@ class TRTrackerView: UIView {
         self.observer?.displayDateChooser()
     }
     
+    // MARK: Setters
     func setToolBarForTrackingTitle(text: String) {
         let toolBar = hiddenPickerViewTextField.inputAccessoryView as! TRToolbar
         toolBar.items![2].title = text

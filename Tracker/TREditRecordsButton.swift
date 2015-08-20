@@ -14,15 +14,14 @@ class TREditRecordsButton: UIButton {
     
     func setup() {
         let editImage = UIImage(named: "pen-image")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
-        self.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
-        self.setImage(editImage, forState: UIControlState.Normal)
-        self.imageEdgeInsets = UIEdgeInsetsMake(20.0, -15.0, 20.0, 0.0)
-        self.setTitle("Edit Records", forState: UIControlState.Normal)
-        self.titleEdgeInsets = UIEdgeInsetsMake(1.0, -35.0, 1.0, 2.0)
-        self.tintColor = UIColor.whiteColor()
-        self.layer.cornerRadius = 3.0
-        self.layer.borderColor = UIColor.whiteColor().CGColor
-        self.layer.borderWidth = 1.0
-        self.titleLabel?.font = UIFont(name: "Avenir", size: 13.0)
+//        imageView?.contentMode = UIViewContentMode.ScaleAspectFit
+        setImage(editImage, forState: UIControlState.Normal)
+        setTitle("Edit Records", forState: UIControlState.Normal)
+        titleEdgeInsets = UIEdgeInsetsMake(1.0, -35.0, 1.0, 2.0)
+        tintColor = UIColor.whiteColor()
+        layer.cornerRadius = 3.0
+        layer.borderColor = UIColor.whiteColor().CGColor
+        layer.borderWidth = 1.0
+        titleLabel?.font = UIFont(name: "Avenir", size: 12.0)
     }
 }
