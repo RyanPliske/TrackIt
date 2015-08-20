@@ -7,7 +7,7 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
     private var trackerPresenter: TRTrackerPresenter!
     private var recordService = TRRecordService()
     private var trackerModel: TRTrackerModel!
-    private let dateViewController = DateViewController()
+    private let dateViewController = TRChooseableDateViewController()
     
     
     override func viewDidLoad() {

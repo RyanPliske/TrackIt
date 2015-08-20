@@ -18,7 +18,7 @@ class TRDateFormatter : NSObject {
     ]
     
     var descriptionForToday : String {
-        return self.months[CurrentDate.thisMonth] + " \(CurrentDate.thisDay), " + CurrentDate.thisYear
+        return self.months[TRCurrentDate.thisMonth] + " \(TRCurrentDate.thisDay), " + TRCurrentDate.thisYear
     }
     
     func descriptionForDate(date: NSDate) -> String {

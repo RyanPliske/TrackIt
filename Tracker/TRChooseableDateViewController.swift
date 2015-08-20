@@ -4,7 +4,7 @@ protocol TRDateChooserObserver {
     func dateSelectedWithDate(date: NSDate)
 }
 
-class DateViewController: UIViewController, CLWeeklyCalendarViewDelegate {
+class TRChooseableDateViewController: UIViewController, CLWeeklyCalendarViewDelegate, UIPopoverPresentationControllerDelegate {
     
     var dateObserver: TRDateChooserObserver?
     
@@ -29,5 +29,10 @@ class DateViewController: UIViewController, CLWeeklyCalendarViewDelegate {
         if let observer = dateObserver {
             observer.dateSelectedWithDate(date)
         }
+    }
+    
+    // MARK: UIPopoverPresentationControllerDelegate
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return UIModalPresentationStyle.None
     }
 }

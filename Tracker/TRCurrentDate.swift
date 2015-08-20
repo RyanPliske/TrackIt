@@ -1,6 +1,6 @@
 import Foundation
 
-struct CurrentDate {
+struct TRCurrentDate {
     static var thisMonth: Int {
         return NSCalendar.currentCalendar().component(NSCalendarUnit.Month, fromDate: NSDate()) - 1
     }
