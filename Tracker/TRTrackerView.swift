@@ -39,15 +39,13 @@ class TRTrackerView: UIView {
         addSubview(editRecordsButton)
         addConstraintsForEditRecordsButton()
         
-        setupTrackingButtons()
-    }
-    
-    func setupTrackingButtons() {
         trackButton.addTarget(self, action: "trackButtonTapped", forControlEvents: UIControlEvents.TouchUpInside)
-        trackButton.setButtonLayout(trackButton, theSuperView: self)
+        addSubview(trackButton)
+        addConstraintsForTrackerButton(trackButton)
         
         trackUrgeButton.addTarget(self, action: "trackUrgeButtonTapped", forControlEvents: UIControlEvents.TouchUpInside)
-        trackUrgeButton.setButtonLayout(trackUrgeButton, theSuperView: self)
+        addSubview(trackUrgeButton)
+        addConstraintsForTrackerButton(trackUrgeButton)
     }
     
     func userCanceledPicking(sender: UIBarButtonItem) {

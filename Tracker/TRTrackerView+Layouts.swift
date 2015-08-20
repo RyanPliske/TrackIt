@@ -20,4 +20,26 @@ extension TRTrackerView {
         let editButtonsRightAlignment = NSLayoutConstraint(item: editRecordsButton, attribute: .Right, relatedBy: .Equal, toItem: todaysDateButton, attribute: .Right, multiplier: 1.0, constant: 0.0)
         addConstraints([pintEditButtonToTopOfView, editButtonsRightAlignment])
     }
+    
+    func addConstraintsForTrackerButton(button: TRTrackerButton) {
+        button.translatesAutoresizingMaskIntoConstraints = false
+        var xCoordForButton, yCoordForButton, widthForButton, heightForButton : NSLayoutConstraint!
+        yCoordForButton = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.CenterY, multiplier: 1.0, constant: 80)
+        widthForButton = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Width, multiplier: 0.44, constant: 0)
+        heightForButton = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Height, multiplier: 0.1, constant: 0)
+        button.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+        button.buttonColor = UIColor.ht_mediumColor()
+        button.shadowColor = UIColor.ht_leadDarkColor()
+        
+        switch button.trackingType {
+        case .TrackAction:
+            button.setTitle("Track", forState: UIControlState.Normal)
+            xCoordForButton = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.LeadingMargin, multiplier: 1.0, constant: 0)
+            
+        case .TrackUrge:
+            button.setTitle("Track Urge", forState: UIControlState.Normal)
+            xCoordForButton = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.TrailingMargin, multiplier: 1.0, constant: 0)
+        }
+        addConstraints([xCoordForButton, yCoordForButton, widthForButton, heightForButton])
+    }
 }
