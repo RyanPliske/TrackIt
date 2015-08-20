@@ -3,9 +3,9 @@ import UIKit
 /**
 The `TrackerButton` class is designed to set NSLayout Constraints for an HTPressableButton with the ability of distinguishing two different types : 1. TrackAction 2. TrackUrge
 */
-class TRTrackerButton : HTPressableButton {
+class TRTrackerButton: HTPressableButton {
     
-    var trackingType : TRTrackingType
+    var trackingType: TRTrackingType
     
     init(frame: CGRect, buttonStyle: HTPressableButtonStyle, trackingType : TRTrackingType) {
         self.trackingType = trackingType
@@ -22,7 +22,7 @@ class TRTrackerButton : HTPressableButton {
     
     End Result: two Buttons Half Width Side by Side
     */
-    func setButtonLayout(button : TRTrackerButton, theSuperView : UIView){
+    func setButtonLayout(button: TRTrackerButton, theSuperView: UIView){
         theSuperView.addSubview(button)
         button.translatesAutoresizingMaskIntoConstraints = false
         var xCoordForButton, yCoordForButton, widthForButton, heightForButton : NSLayoutConstraint!

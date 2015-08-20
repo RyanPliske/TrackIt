@@ -11,74 +11,45 @@ protocol TRTrackerViewObserver {
 }
 
 class TRTrackerView: UIView {
-    var todaysDateButton: UIButton
-    var hiddenPickerViewTextField: UITextField
-    var itemPickerView = UIPickerView()
-    
-    let toolBarForTracking = UIToolbar(frame: CGRectMake(0, 0, 320, 44))
-    var trackButton = TRTrackerButton(frame: CGRectMake(30, 150, 260, 50), buttonStyle: HTPressableButtonStyle.Rounded, trackingType: .TrackAction)
-    var trackUrgeButton = TRTrackerButton(frame: CGRectMake(30, 150, 260, 50), buttonStyle: HTPressableButtonStyle.Rounded, trackingType: .TrackUrge)
+    let todaysDateButton = TRTodaysDateButton(frame: CGRectMake(0, 50, 300, 50))
+    let hiddenPickerViewTextField = UITextField(frame: CGRectZero)
+    let itemPickerView = UIPickerView()
+    var toolBarForTracking: TRToolbar?
+    let editRecordsButton = TREditRecordsButton(frame: CGRectMake(0.0, 0.0, 100.0, 30.0))
+    var trackButton = TRTrackerButton(frame: CGRectMake(30.0, 150.0, 260.0, 50.0), buttonStyle: HTPressableButtonStyle.Rounded, trackingType: .TrackAction)
+    var trackUrgeButton = TRTrackerButton(frame: CGRectMake(30.0, 150.0, 260.0, 50.0), buttonStyle: HTPressableButtonStyle.Rounded, trackingType: .TrackUrge)
     
     var delegate: TRTrackerViewDelegate?
     var observer: TRTrackerViewObserver?
     
     
     required init?(coder aDecoder: NSCoder) {
-        
-        todaysDateButton = UIButton(frame: CGRectMake(0, 50, 300, 50))
-        hiddenPickerViewTextField = UITextField(frame: CGRectZero)
         super.init(coder: aDecoder)
-        setUpTodaysDateButton()
-        self.addSubview(self.hiddenPickerViewTextField)
         
-        self.itemPickerView.backgroundColor = UIColor.blackColor()
-        self.hiddenPickerViewTextField.inputView = self.itemPickerView
-        
-        setToolBarForTrackingPickerView()
-        setupTrackingButtons()
-        setHiddenTextFieldConstraints()
-    }
-    
-    func setUpTodaysDateButton() {
         todaysDateButton.addTarget(self, action: "todaysDateButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
-        todaysDateButton.layer.borderColor = UIColor.whiteColor().CGColor
-        todaysDateButton.layer.borderWidth = 1.0
-        todaysDateButton.layer.cornerRadius = 8.0
+        addConstraintsForTodaysDateButton()
+        addSubview(todaysDateButton)
         
-        if let todaysDateLabel = todaysDateButton.titleLabel {
-            todaysDateLabel.font = UIFont(name: "Helvetica", size: 20)
-            todaysDateLabel.textColor = UIColor.whiteColor()
-            todaysDateLabel.textAlignment = NSTextAlignment.Center
-        }
-        let centerTodaysDateButtonToCenterX = NSLayoutConstraint(item: todaysDateButton, attribute: NSLayoutAttribute.CenterX, relatedBy: .Equal, toItem: self, attribute:NSLayoutAttribute.CenterX, multiplier: 1.0, constant: 0.0)
-        let todaysDateButtonWidth = NSLayoutConstraint(item: todaysDateButton, attribute: .Width, relatedBy: .Equal, toItem: self, attribute: .Width, multiplier: 0.85, constant: 0.0)
-        let todaysDateButtonHeightToSuperView = NSLayoutConstraint(item: todaysDateButton, attribute: NSLayoutAttribute.Bottom, relatedBy: .Equal, toItem: self, attribute: .CenterY, multiplier: 1.0, constant: -70)
-        todaysDateButton.translatesAutoresizingMaskIntoConstraints = false
-        self.addConstraints([centerTodaysDateButtonToCenterX, todaysDateButtonWidth, todaysDateButtonHeightToSuperView])
-        self.addSubview(self.todaysDateButton)
-    }
-    
-    func setToolBarForTrackingPickerView() {
-        let doneButton = UIBarButtonItem(title: "Track", style: UIBarButtonItemStyle.Plain, target: self, action: "userPickedAnItemToTrack:")
-        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
-        let cancelButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "userCanceledPicking:")
-
-        toolBarForTracking.setItems([cancelButton, flexibleSpace, doneButton], animated: false)
-        toolBarForTracking.barStyle = UIBarStyle.Black
+        itemPickerView.backgroundColor = UIColor.blackColor()
+        hiddenPickerViewTextField.inputView = itemPickerView
+        toolBarForTracking = TRToolbar(frame: CGRectMake(0.0, 0.0, 320.0, 44.0), parentView: self)
         hiddenPickerViewTextField.inputAccessoryView = toolBarForTracking
+        hiddenPickerViewTextField.valueForKey("textInputTraits")?.setValue(UIColor.clearColor(), forKey: "insertionPointColor")
+        addConstraintsForHiddenTextField()
+        addSubview(hiddenPickerViewTextField)
+        
+        addConstraintsForEditRecordsButton()
+        addSubview(editRecordsButton)
+        
+        setupTrackingButtons()
     }
     
     func setupTrackingButtons() {
-        trackButton.setButtonLayout(trackButton, theSuperView: self)
-        trackUrgeButton.setButtonLayout(trackUrgeButton, theSuperView: self)
         trackButton.addTarget(self, action: "trackButtonTapped", forControlEvents: UIControlEvents.TouchUpInside)
+        trackButton.setButtonLayout(trackButton, theSuperView: self)
+        
         trackUrgeButton.addTarget(self, action: "trackUrgeButtonTapped", forControlEvents: UIControlEvents.TouchUpInside)
-    }
-    
-    func setHiddenTextFieldConstraints() {
-        hiddenPickerViewTextField.translatesAutoresizingMaskIntoConstraints = false
-        hiddenPickerViewTextField.valueForKey("textInputTraits")?.setValue(UIColor.clearColor(), forKey: "insertionPointColor")
-        self.addConstraint(NSLayoutConstraint(item: hiddenPickerViewTextField, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: trackButton, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: 10))
+        trackUrgeButton.setButtonLayout(trackUrgeButton, theSuperView: self)
     }
     
     func userCanceledPicking(sender: UIBarButtonItem) {
@@ -103,7 +74,7 @@ class TRTrackerView: UIView {
     }
     
     func setToolBarForTrackingTitle(text: String) {
-        toolBarForTracking.items![2].title = text
+        toolBarForTracking?.items![2].title = text
     }
     
     func setTodaysDateLabelWithText(text: String) {
