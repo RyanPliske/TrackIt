@@ -1,9 +1,10 @@
 import Foundation
-
+/**
+The `TRTrackerPresenter` class is designed to act as the mediator between the TRTrackerView and TRTrackerModel.
+*/
 class TRTrackerPresenter: NSObject, TRTrackerViewDelegate {
     let trackerView : TRTrackerView
     let trackerModel : TRTrackerModel
-    var dateFormatter = TRDateFormatter()
     var datetoTrack = NSDate()
 
     var selectedItemOfFirstColumn = 0 {
@@ -36,18 +37,15 @@ class TRTrackerPresenter: NSObject, TRTrackerViewDelegate {
         self.trackerView.delegate = self
         self.trackerView.itemPickerView.dataSource = self
         self.trackerView.itemPickerView.delegate = self
-        self.trackerView.setTodaysDateLabelWithText(dateFormatter.descriptionForToday)
     }
     
     // MARK: TRTrackerViewDelegate
     func userWantsToTrackAction(){
         trackingType = .TrackAction
-        self.trackerView.setToolBarForTrackingTitle("Track")
     }
     
     func userWantsToTrackUrge(){
         trackingType = .TrackUrge
-        self.trackerView.setToolBarForTrackingTitle("Track Urge")
     }
     
     func userPickedAnItemToTrack() {

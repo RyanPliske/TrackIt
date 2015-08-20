@@ -26,6 +26,7 @@ class TRTrackerView: UIView {
         super.init(coder: aDecoder)
         
         todaysDateButton.addTarget(self, action: "todaysDateButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
+        setTodaysDateButtonLabelWithText(TRDateFormatter.descriptionForToday)
         addSubview(todaysDateButton)
         addConstraintsForTodaysDateButton()
         
@@ -59,10 +60,12 @@ class TRTrackerView: UIView {
     
     func trackButtonTapped() {
         self.delegate?.userWantsToTrackAction()
+        setToolBarForTrackingTitle("Track")
     }
     
     func trackUrgeButtonTapped() {
         self.delegate?.userWantsToTrackUrge()
+        setToolBarForTrackingTitle("Track Urge")
     }
     
     func todaysDateButtonPressed() {
@@ -74,7 +77,7 @@ class TRTrackerView: UIView {
         toolBar.items![2].title = text
     }
     
-    func setTodaysDateLabelWithText(text: String) {
+    func setTodaysDateButtonLabelWithText(text: String) {
         todaysDateButton.setTitle(text, forState: UIControlState.Normal)
     }
 }
