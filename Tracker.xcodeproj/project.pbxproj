@@ -18,7 +18,7 @@
 		EF3D9FB91B850E8E009042CA /* NSDictionary+CL.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3D9FB01B850E8E009042CA /* NSDictionary+CL.m */; };
 		EF3D9FBA1B850E8E009042CA /* UIColor+CL.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3D9FB21B850E8E009042CA /* UIColor+CL.m */; };
 		EF3D9FBB1B850E8E009042CA /* UIImage+CL.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3D9FB41B850E8E009042CA /* UIImage+CL.m */; };
-		EF3D9FBD1B85146F009042CA /* TRTrackerPresenter+CLWeeklyCalendarViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D9FBC1B85146F009042CA /* TRTrackerPresenter+CLWeeklyCalendarViewDelegate.swift */; };
+		EF3D9FBD1B85146F009042CA /* TRTrackerPresenter+TRDateChooserObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D9FBC1B85146F009042CA /* TRTrackerPresenter+TRDateChooserObserver.swift */; };
 		EF52F2451A8735CF00315B35 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF52F2441A8735CF00315B35 /* SettingsViewController.swift */; };
 		EF53D05C1B862CC0007873B4 /* TREditRecordsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53D05B1B862CC0007873B4 /* TREditRecordsButton.swift */; };
 		EF53D05E1B866019007873B4 /* TRTrackerView+Layouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53D05D1B866019007873B4 /* TRTrackerView+Layouts.swift */; };
@@ -103,7 +103,7 @@
 		EF3D9FB21B850E8E009042CA /* UIColor+CL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CL.m"; sourceTree = "<group>"; };
 		EF3D9FB31B850E8E009042CA /* UIImage+CL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CL.h"; sourceTree = "<group>"; };
 		EF3D9FB41B850E8E009042CA /* UIImage+CL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CL.m"; sourceTree = "<group>"; };
-		EF3D9FBC1B85146F009042CA /* TRTrackerPresenter+CLWeeklyCalendarViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TRTrackerPresenter+CLWeeklyCalendarViewDelegate.swift"; sourceTree = "<group>"; };
+		EF3D9FBC1B85146F009042CA /* TRTrackerPresenter+TRDateChooserObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TRTrackerPresenter+TRDateChooserObserver.swift"; sourceTree = "<group>"; };
 		EF52F2441A8735CF00315B35 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		EF53D05B1B862CC0007873B4 /* TREditRecordsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREditRecordsButton.swift; sourceTree = "<group>"; };
 		EF53D05D1B866019007873B4 /* TRTrackerView+Layouts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TRTrackerView+Layouts.swift"; sourceTree = "<group>"; };
@@ -257,7 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				EFA9B5E71B7D7EBD00BAA839 /* TRTrackerPresenter.swift */,
-				EF3D9FBC1B85146F009042CA /* TRTrackerPresenter+CLWeeklyCalendarViewDelegate.swift */,
+				EF3D9FBC1B85146F009042CA /* TRTrackerPresenter+TRDateChooserObserver.swift */,
 				EF6A8B4C1B3B91470012312E /* TRTrackerPresenter+UIPickerViewDelegate.swift */,
 				EF6A8B4E1B3B91E60012312E /* TRTrackerPresenter+UIPickerViewDataSource.swift */,
 			);
@@ -620,7 +620,7 @@
 				EF3D9FB81B850E8E009042CA /* NSDate+CL.m in Sources */,
 				EF7CE01A1AF0238800C451B1 /* FXForms.m in Sources */,
 				EF35BA301AF3D29400456D38 /* TRTrackingType.swift in Sources */,
-				EF3D9FBD1B85146F009042CA /* TRTrackerPresenter+CLWeeklyCalendarViewDelegate.swift in Sources */,
+				EF3D9FBD1B85146F009042CA /* TRTrackerPresenter+TRDateChooserObserver.swift in Sources */,
 				EF6A8B4F1B3B91E60012312E /* TRTrackerPresenter+UIPickerViewDataSource.swift in Sources */,
 				EF7CE0221AF023CC00C451B1 /* HTPressableButtonPrefs.m in Sources */,
 				EF7CE0101AF0204700C451B1 /* TPKeyboardAvoidingScrollView.m in Sources */,

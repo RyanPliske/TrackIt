@@ -28,6 +28,7 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
         return UIStatusBarStyle.LightContent;
     }
     
+    // MARK: TRTrackerViewObserver
     func displayDateChooser() {
         if let popOver : UIPopoverPresentationController = dateViewController.popoverPresentationController {
             popOver.permittedArrowDirections = UIPopoverArrowDirection.Up

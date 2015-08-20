@@ -1,6 +1,6 @@
 import Foundation
 
-class TRTrackerPresenter: NSObject, TRTrackerViewDelegate, TRDateChooserObserver {
+class TRTrackerPresenter: NSObject, TRTrackerViewDelegate {
     let trackerView : TRTrackerView
     let trackerModel : TRTrackerModel
     var dateFormatter = TRDateFormatter()
@@ -38,6 +38,7 @@ class TRTrackerPresenter: NSObject, TRTrackerViewDelegate, TRDateChooserObserver
         self.trackerView.itemPickerView.delegate = self
         self.trackerView.setTodaysDateLabelWithText(dateFormatter.descriptionForToday)
     }
+    
     // MARK: TRTrackerViewDelegate
     func userWantsToTrackAction(){
         trackingType = .TrackAction
@@ -51,10 +52,5 @@ class TRTrackerPresenter: NSObject, TRTrackerViewDelegate, TRDateChooserObserver
     
     func userPickedAnItemToTrack() {
         self.trackerModel.trackItemAtRow(selectedItemOfFirstColumn, quantityRow: selectedItemOfSecondColumn, type: trackingType, date: self.datetoTrack)
-    }
-    // MARK: TRDateChooserObserver
-    func dateSelectedWithDate(date: NSDate) {
-        self.trackerView.setTodaysDateLabelWithText(dateFormatter.descriptionForDate(date))
-        self.datetoTrack = date
     }
 }
