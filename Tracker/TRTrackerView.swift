@@ -52,7 +52,7 @@ class TRTrackerView: UIView {
         }
         let centerTodaysDateButtonToCenterX = NSLayoutConstraint(item: todaysDateButton, attribute: NSLayoutAttribute.CenterX, relatedBy: .Equal, toItem: self, attribute:NSLayoutAttribute.CenterX, multiplier: 1.0, constant: 0.0)
         let todaysDateButtonWidth = NSLayoutConstraint(item: todaysDateButton, attribute: .Width, relatedBy: .Equal, toItem: self, attribute: .Width, multiplier: 0.85, constant: 0.0)
-        let todaysDateButtonHeightToSuperView = NSLayoutConstraint(item: todaysDateButton, attribute: NSLayoutAttribute.Top, relatedBy: .Equal, toItem: self, attribute: .Top, multiplier: 1.0, constant: 30)
+        let todaysDateButtonHeightToSuperView = NSLayoutConstraint(item: todaysDateButton, attribute: NSLayoutAttribute.Bottom, relatedBy: .Equal, toItem: self, attribute: .CenterY, multiplier: 1.0, constant: -70)
         todaysDateButton.translatesAutoresizingMaskIntoConstraints = false
         self.addConstraints([centerTodaysDateButtonToCenterX, todaysDateButtonWidth, todaysDateButtonHeightToSuperView])
         self.addSubview(self.todaysDateButton)

@@ -26,7 +26,7 @@ class TRTrackerButton : HTPressableButton {
         theSuperView.addSubview(button)
         button.translatesAutoresizingMaskIntoConstraints = false
         var xCoordForButton, yCoordForButton, widthForButton, heightForButton : NSLayoutConstraint!
-        yCoordForButton = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: theSuperView, attribute: NSLayoutAttribute.CenterY, multiplier: 1.0, constant: -30)
+        yCoordForButton = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: theSuperView, attribute: NSLayoutAttribute.CenterY, multiplier: 1.0, constant: 80)
         widthForButton = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: theSuperView, attribute: NSLayoutAttribute.Width, multiplier: 0.44, constant: 0)
         heightForButton = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: theSuperView, attribute: NSLayoutAttribute.Height, multiplier: 0.1, constant: 0)
         button.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
