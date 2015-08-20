@@ -26,18 +26,18 @@ class TRTrackerView: UIView {
         super.init(coder: aDecoder)
         
         todaysDateButton.addTarget(self, action: "todaysDateButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
-        addConstraintsForTodaysDateButton()
         addSubview(todaysDateButton)
+        addConstraintsForTodaysDateButton()
         
         itemPickerView.backgroundColor = UIColor.blackColor()
         hiddenPickerViewTextField.inputView = itemPickerView
         hiddenPickerViewTextField.inputAccessoryView = TRToolbar(frame: CGRectMake(0.0, 0.0, 320.0, 44.0), parentView: self)
         hiddenPickerViewTextField.valueForKey("textInputTraits")?.setValue(UIColor.clearColor(), forKey: "insertionPointColor")
-        addConstraintsForHiddenTextField()
         addSubview(hiddenPickerViewTextField)
+        addConstraintsForHiddenTextField()
         
-        addConstraintsForEditRecordsButton()
         addSubview(editRecordsButton)
+        addConstraintsForEditRecordsButton()
         
         setupTrackingButtons()
     }
