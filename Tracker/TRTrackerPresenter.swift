@@ -4,6 +4,7 @@ class TRTrackerPresenter: NSObject, TRTrackerViewDelegate, TRDateChooserObserver
     let trackerView : TRTrackerView
     let trackerModel : TRTrackerModel
     var dateFormatter = TRDateFormatter()
+    var datetoTrack = NSDate()
 
     var selectedItemOfFirstColumn = 0 {
         didSet {
@@ -49,10 +50,11 @@ class TRTrackerPresenter: NSObject, TRTrackerViewDelegate, TRDateChooserObserver
     }
     
     func userPickedAnItemToTrack() {
-        self.trackerModel.trackItemAtRow(selectedItemOfFirstColumn, quantityRow: selectedItemOfSecondColumn, type: trackingType)
+        self.trackerModel.trackItemAtRow(selectedItemOfFirstColumn, quantityRow: selectedItemOfSecondColumn, type: trackingType, date: self.datetoTrack)
     }
     // MARK: TRDateChooserObserver
     func dateSelectedWithDate(date: NSDate) {
         self.trackerView.setTodaysDateLabelWithText(dateFormatter.descriptionForDate(date))
+        self.datetoTrack = date
     }
 }

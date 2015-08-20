@@ -3,12 +3,14 @@ import Foundation
 class TRRecordService : NSObject {
     
     // MARK: CRUD Records
-    func createRecordWithItem(item: String, quantity: Int, itemType: TRTrackingType) -> PFObject {
+    
+    func createRecordWithItem(item: String, quantity: Int, itemType: TRTrackingType, date: NSDate) -> PFObject {
         let record = PFObject(className: "record")
         record["item"] = item
         record["quantity"] = quantity
         let type = (itemType == TRTrackingType.TrackAction) ? "action" : "urge"
         record["type"] = type
+        record["date"] = date
         
         self.saveRecordToPhoneWithRecord(record)
         
