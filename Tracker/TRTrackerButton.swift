@@ -10,6 +10,16 @@ class TRTrackerButton: HTPressableButton {
     init(frame: CGRect, buttonStyle: HTPressableButtonStyle, trackingType : TRTrackingType) {
         self.trackingType = trackingType
         super.init(frame: frame, buttonStyle: buttonStyle)
+        
+        switch trackingType {
+        case .TrackAction:
+            setTitle("Track", forState: UIControlState.Normal)
+        case .TrackUrge:
+            setTitle("Track Urge", forState: UIControlState.Normal)
+        }
+        setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+        buttonColor = UIColor.ht_mediumColor()
+        shadowColor = UIColor.ht_leadDarkColor()
     }
     
     // This is required. Will implement if I ever need it.
