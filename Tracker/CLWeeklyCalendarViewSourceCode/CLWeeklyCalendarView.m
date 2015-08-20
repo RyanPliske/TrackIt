@@ -118,7 +118,7 @@ static float const CLCalendarSelectedDatePrintFontSizeDefault = 13.f;
         _dailyInfoSubViewContainer = [[UIView alloc] initWithFrame:CGRectMake(0, DATE_TITLE_MARGIN_TOP+DAY_TITLE_VIEW_HEIGHT + DATE_VIEW_HEIGHT + DATE_VIEW_MARGIN * 2, self.bounds.size.width, DATE_LABEL_INFO_HEIGHT)];
         _dailyInfoSubViewContainer.userInteractionEnabled = YES;
         [_dailyInfoSubViewContainer addSubview:self.weatherIcon];
-        [_dailyInfoSubViewContainer addSubview:self.dateInfoLabel];
+//        [_dailyInfoSubViewContainer addSubview:self.dateInfoLabel];
         
         
         UITapGestureRecognizer *singleFingerTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dailyInfoViewDidClick:)];
