@@ -1,4 +1,5 @@
 import UIKit
+import Parse
 
 protocol TREditTracksObserver {
     func dismissEditTracks()
@@ -6,9 +7,14 @@ protocol TREditTracksObserver {
 
 class TREditTracksTableViewController: UITableViewController {
     var editTracksObserver: TREditTracksObserver?
+    var trackerModel: TRTrackerModel
+    var reuseIdentifier = "EditCell"
     
-    override init(style: UITableViewStyle) {
-        super.init(style: style)
+    init(_trackerModel: TRTrackerModel) {
+        trackerModel = _trackerModel
+        super.init(style: UITableViewStyle.Plain)
+        tableView = TREditTracksTableView(frame: self.view.frame)
+        tableView.registerClass(TREditTracksTableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -23,6 +29,7 @@ class TREditTracksTableViewController: UITableViewController {
     }
     
     // MARK: editTracksObserver
+    
     func dismissEditTracks() {
         editTracksObserver?.dismissEditTracks()
     }
@@ -30,24 +37,19 @@ class TREditTracksTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return trackerModel.records.count
     }
 
-    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
+        let cell: TREditTracksTableViewCell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier) as! TREditTracksTableViewCell
+        cell.textLabel?.text = trackerModel.records[indexPath.row].objectForKey("item") as? String
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.

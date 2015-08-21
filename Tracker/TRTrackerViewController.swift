@@ -40,7 +40,7 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver, TREditTr
     }
     
     func displayEditableTracks() {
-        let editTracksViewController = TREditTracksTableViewController(style: UITableViewStyle.Plain)
+        let editTracksViewController = TREditTracksTableViewController(_trackerModel: trackerModel)
         editTracksViewController.editTracksObserver = self
         let navController = UINavigationController(rootViewController: editTracksViewController)
         self.presentViewController(navController, animated: true, completion: nil)
