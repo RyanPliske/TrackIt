@@ -8,13 +8,14 @@ protocol TRTrackerViewDelegate {
 
 protocol TRTrackerViewObserver {
     func displayDateChooser()
+    func displayEditableTracks()
 }
 
 class TRTrackerView: UIView {
     let todaysDateButton = TRTodaysDateButton(frame: CGRectMake(0, 50, 300, 50))
     let hiddenPickerViewTextField = UITextField(frame: CGRectZero)
     let itemPickerView = UIPickerView()
-    let editRecordsButton = TREditRecordsButton(frame: CGRectMake(0.0, 0.0, 100.0, 30.0))
+    let editRecordsButton = TREditTracksButton(frame: CGRectMake(0.0, 0.0, 100.0, 30.0))
     var trackButton = TRTrackerButton(frame: CGRectMake(30.0, 150.0, 260.0, 50.0), buttonStyle: HTPressableButtonStyle.Rounded, trackingType: .TrackAction)
     var trackUrgeButton = TRTrackerButton(frame: CGRectMake(30.0, 150.0, 260.0, 50.0), buttonStyle: HTPressableButtonStyle.Rounded, trackingType: .TrackUrge)
     
@@ -38,6 +39,7 @@ class TRTrackerView: UIView {
         addSubview(trackUrgeButton)
         addConstraintsForTrackerButton(trackUrgeButton)
         // editRecordsButton
+        editRecordsButton.addTarget(self, action: "editTracksButtonTapped", forControlEvents: UIControlEvents.TouchUpInside)
         addSubview(editRecordsButton)
         addConstraintsForEditRecordsButton()
         // hiddenPickerViewTextField
@@ -71,6 +73,10 @@ class TRTrackerView: UIView {
     
     func todaysDateButtonPressed() {
         self.observer?.displayDateChooser()
+    }
+    
+    func editTracksButtonTapped() {
+        self.observer?.displayEditableTracks()
     }
     
     // MARK: Setters

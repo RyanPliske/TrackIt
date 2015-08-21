@@ -1,7 +1,7 @@
 import UIKit
 import QuartzCore
 
-class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
+class TRTrackerViewController: UIViewController, TRTrackerViewObserver, TREditTracksObserver {
     
     @IBOutlet private weak var trackerView: TRTrackerView!
     private var trackerPresenter: TRTrackerPresenter!
@@ -37,5 +37,17 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
             popOver.sourceRect = self.trackerView.todaysDateButton.frame
             self.presentViewController(dateViewController, animated: true, completion: nil)
         }
+    }
+    
+    func displayEditableTracks() {
+        let editTracksViewController = TREditTracksTableViewController()
+        editTracksViewController.editTracksObserver = self
+        let navController = UINavigationController(rootViewController: editTracksViewController)
+        self.presentViewController(navController, animated: true, completion: nil)
+    }
+    
+    // MARK: TREditTracksObserver
+    func dismissEditTracks() {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }
