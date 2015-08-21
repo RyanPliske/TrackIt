@@ -1,4 +1,5 @@
 import XCTest
+import Parse
 
 class MockRecordService: TRRecordService {
     override func createRecordWithItem(item: String, quantity: Int, itemType: TRTrackingType, date: NSDate) -> PFObject {

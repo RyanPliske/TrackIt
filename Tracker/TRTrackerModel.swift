@@ -1,4 +1,5 @@
 import Foundation
+import Parse
 
 class TRTrackerModel: NSObject {
     var trackableItems = TRTrackableItems()

@@ -13,6 +13,3 @@
 #import "UIColor+HTColor.h"
 // CLCalendar
 #import "CLWeeklyCalendarView.h"
-// Parse and Bolts
-#import "Parse.h"
-#import "Bolts.h"
