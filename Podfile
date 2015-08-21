@@ -1,5 +1,5 @@
 platform :ios, "8.0"
-#use_frameworks! uncomment this line if lib is written in swift
+use_frameworks!
 
 target 'Tracker' do
     pod 'Parse'
@@ -11,11 +11,11 @@ target 'TrackerTests' do
     pod 'Parse'
 end
 
-target 'TrackViaWatch' do
-
-end
-
-target 'TrackViaWatch Extension' do
-
-end
+#target 'TrackViaWatch' do
+#
+#end
+#
+#target 'TrackViaWatch Extension' do
+#
+#end
 
