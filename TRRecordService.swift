@@ -4,17 +4,12 @@ import Parse
 class TRRecordService : NSObject {
     
     // MARK: CRUD Records
-    
-    func createRecordWithItem(item: String, quantity: Int, itemType: TRTrackingType, date: NSDate) -> PFObject {
-        let record = PFObject(className: "record")
-        record["item"] = item
-        record["quantity"] = quantity
-        let type = (itemType == TRTrackingType.TrackAction) ? "action" : "urge"
-        record["type"] = type
-        record["date"] = date
-        
-        self.saveRecordToPhoneWithRecord(record)
-        
+    func createRecordWithItem(item: String, quantity: Int, itemType: TRTrackingType, date: NSDate) -> TRRecord {
+        let record = TRRecord(className: "record")
+        record.itemName = item
+        record.itemQuantity = quantity
+        record.itemType = TRRecord.itemTypeFrom(itemType)
+        record.itemDate = date
         return record
     }
     

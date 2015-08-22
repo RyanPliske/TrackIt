@@ -3,12 +3,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8142"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Track-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="TRTrackerViewController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="currentContext" id="9pv-A4-QxB" customClass="TRTrackerViewController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -61,6 +62,87 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="211.5" y="518.5"/>
+        </scene>
+        <!--Edit Tracks View Controller-->
+        <scene sceneID="629-IF-L5U">
+            <objects>
+                <viewController storyboardIdentifier="EditTracksViewController" id="7Tx-Ke-KiD" customClass="TREditTracksViewController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wxM-WD-TxK"/>
+                        <viewControllerLayoutGuide type="bottom" id="2LJ-LW-NBh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uh5-dv-4Vr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="yY0-5y-3hh">
+                                <rect key="frame" x="63" y="39" width="248" height="29"/>
+                                <segments>
+                                    <segment title="Tracks"/>
+                                    <segment title="Urges"/>
+                                </segments>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FwJ-qE-Jh7" customClass="TREditTracksTableView" customModule="Tracker" customModuleProvider="target">
+                                <rect key="frame" x="16" y="72" width="343" height="595"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="editTracks" rowHeight="90" id="tP0-48-Ogl" customClass="TREditTracksTableViewCell" customModule="Tracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tP0-48-Ogl" id="XYT-Sd-BQo">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="90"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lLl-GN-W6i">
+                                                    <rect key="frame" x="90" y="15" width="25" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Item:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkU-gH-DUb">
+                                                    <rect key="frame" x="15" y="15" width="73" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXx-09-si4">
+                                                    <rect key="frame" x="15" y="52" width="111" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="countLabel" destination="lLl-GN-W6i" id="Ti4-9Z-Zgd"/>
+                                            <outlet property="dateLabel" destination="uXx-09-si4" id="8M8-mq-qAv"/>
+                                            <outlet property="itemLabel" destination="fkU-gH-DUb" id="fTP-1Z-Dbx"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="yY0-5y-3hh" secondAttribute="trailing" constant="48" id="5Qx-3c-wRK"/>
+                            <constraint firstItem="yY0-5y-3hh" firstAttribute="leading" secondItem="uh5-dv-4Vr" secondAttribute="leadingMargin" constant="47" id="971-pV-TXU"/>
+                            <constraint firstItem="FwJ-qE-Jh7" firstAttribute="top" secondItem="yY0-5y-3hh" secondAttribute="bottom" constant="5" id="Bqx-Nj-MPu"/>
+                            <constraint firstItem="FwJ-qE-Jh7" firstAttribute="bottom" secondItem="2LJ-LW-NBh" secondAttribute="top" id="H7t-jg-47M"/>
+                            <constraint firstItem="FwJ-qE-Jh7" firstAttribute="leading" secondItem="uh5-dv-4Vr" secondAttribute="leadingMargin" id="Hzk-6x-ZmS"/>
+                            <constraint firstItem="FwJ-qE-Jh7" firstAttribute="trailing" secondItem="uh5-dv-4Vr" secondAttribute="trailingMargin" id="K3B-aa-O7C"/>
+                            <constraint firstItem="yY0-5y-3hh" firstAttribute="top" secondItem="wxM-WD-TxK" secondAttribute="bottom" constant="19" id="t2w-5D-pkV"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="editTracksTableView" destination="FwJ-qE-Jh7" id="fQ7-G9-cF9"/>
+                        <outlet property="itemTypeSegmentedControl" destination="yY0-5y-3hh" id="5f8-3t-Deo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wm5-K6-5hj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="666.5" y="518.5"/>
         </scene>
         <!--Stats-->
         <scene sceneID="wg7-f3-ORb">

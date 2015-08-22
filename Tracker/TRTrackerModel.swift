@@ -3,7 +3,7 @@ import Parse
 
 class TRTrackerModel: NSObject {
     var trackableItems = TRTrackableItems()
-    var records = [PFObject]()
+    var records = [TRRecord]()
     var recordService: TRRecordService
     
     init(recordService: TRRecordService) {

@@ -2,13 +2,13 @@ import XCTest
 import Parse
 
 class MockRecordService: TRRecordService {
-    override func createRecordWithItem(item: String, quantity: Int, itemType: TRTrackingType, date: NSDate) -> PFObject {
+    override func createRecordWithItem(item: String, quantity: Int, itemType: TRTrackingType, date: NSDate) -> TRRecord {
         let expectedQuantity = 4
-        let expectedRecord = PFObject(className: "record")
-        expectedRecord["item"] = "Baby Kicks"
-        expectedRecord["quantity"] = expectedQuantity
-        expectedRecord["type"] = "action"
-        expectedRecord["date"] = date
+        let expectedRecord = TRRecord(className: "record")
+        expectedRecord.itemName = "Baby Kicks"
+        expectedRecord.itemQuantity = expectedQuantity
+        expectedRecord.itemType = "action"
+        expectedRecord.itemDate = date
         return expectedRecord
     }
 }
