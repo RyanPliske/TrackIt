@@ -9,6 +9,7 @@ class TRTrackerModel: NSObject {
     init(recordService: TRRecordService) {
         self.recordService = recordService
         super.init()
+        self.grabRecords()
     }
     
     func trackItemAtRow(row: Int, quantityRow: Int, type: TRTrackingType, date: NSDate) {
@@ -19,8 +20,20 @@ class TRTrackerModel: NSObject {
             item = self.trackableItems.allItems[row]
         }
         let itemQuantity = self.quantityForRow(quantityRow)
-        let record = self.recordService.createRecordWithItem(item, quantity: itemQuantity, itemType: type, date: date)
-        records.append(record)
+        self.recordService.createRecordWithItem(item, quantity: itemQuantity, itemType: type, date: date)
+    }
+    
+    func grabRecords() -> [TRRecord]? {
+        weak var weakSelf = self
+        let RecordsRetrievalCompletion: PFArrayResultBlock = {
+            (objects: [AnyObject]?, error: NSError?) in
+            if let records = objects as? [TRRecord] {
+                weakSelf?.records = records
+            }
+        }
+        
+        self.recordService.readRecordsFromPhone(RecordsRetrievalCompletion)
+        return self.records
     }
     
     private func quantityForRow(row: Int) -> Int {
