@@ -1,6 +1,8 @@
 import UIKit
+#if RELEASE
 import Fabric
 import Crashlytics
+#endif
 import Parse
 
 @UIApplicationMain

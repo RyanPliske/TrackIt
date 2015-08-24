@@ -1,21 +1,13 @@
 PODS:
   - Bolts/Tasks (1.2.0)
-  - Crashlytics (3.1.0)
-  - Fabric (1.2.8):
-    - Fabric/Base (= 1.2.8)
-  - Fabric/Base (1.2.8)
   - Parse (1.8.0):
     - Bolts/Tasks (>= 1.2.0)
 
 DEPENDENCIES:
-  - Crashlytics
-  - Fabric
   - Parse
 
 SPEC CHECKSUMS:
   Bolts: d176cb1e0012175589e389a9db49b85e27787576
-  Crashlytics: 93e2f86363d53c002c6366a9d87e41f2eaee87c3
-  Fabric: a9eabe53915e9f1db55a84dd2838737928675878
   Parse: 6ea05adb378fbfd6f8726ab67ef74330d96fc903
 
 COCOAPODS: 0.38.2
