@@ -28,7 +28,7 @@ public class TRRecordService : NSObject {
         record.saveEventually(nil)
     }
     
-    public func readRecordsFromPhone(completion: PFArrayResultBlock) {
+    public func readTodaysRecordsFromPhone(completion: PFArrayResultBlock) {
         let BackgroundRetrievalCompletion: PFArrayResultBlock = {
             (objects: [AnyObject]?, error: NSError?) in
                 completion(objects, error)

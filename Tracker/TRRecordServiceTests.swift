@@ -5,6 +5,10 @@ import Tracker
 class TRRecordServiceTests : XCTestCase {
     let testObject = TRRecordService()
     
+    override func setUp() {
+        testObject.deleteAllRecordsFromPhone()
+    }
+    
     func testWhenCreatingRecord_WithActionType_ThenCorrectRecordIsCreated() {
         let expectedQuantity = 4
         let expectedItem = "Baby Kicks"
@@ -45,21 +49,20 @@ class TRRecordServiceTests : XCTestCase {
         XCTAssertEqual(expectedRecord.itemDate, returnedRecord.itemDate!)
     }
     
-    func testWhenReadingRecordsFromDevice_TheCorrectRecordsAreReturned() {
+    func testWhenDeletingRecordsFromDevice_ThenZeroRecordsReturnedFromReading() {
         let expectation = expectationWithDescription("Grab Records")
 
         let RecordsRetrievalCompletion: PFArrayResultBlock = {
             (objects: [AnyObject]?, error: NSError?) in
             if let records = objects as? [TRRecord] {
                 print(records)
-            } else {
-                print(error)
+                XCTAssertEqual(records.count, 0)
             }
             expectation.fulfill()
         }
         
         testObject.deleteAllRecordsFromPhone()
-        testObject.readRecordsFromPhone(RecordsRetrievalCompletion)
+        testObject.readTodaysRecordsFromPhone(RecordsRetrievalCompletion)
         
         waitForExpectationsWithTimeout(15) { (error: NSError?) -> Void in
             if (error != nil) {
@@ -68,5 +71,26 @@ class TRRecordServiceTests : XCTestCase {
         }
     }
     
-    
+    func testWhenCreadingARecord_ThenReadingRecordsFromDeviceReturnsOneRecord() {
+        testObject.deleteAllRecordsFromPhone()
+        testObject.createRecordWithItem("", quantity: 1, itemType: TRTrackingType.TrackUrge, date: NSDate(), completion: nil)
+        let expectation = expectationWithDescription("Grab Records")
+        
+        let RecordsRetrievalCompletion: PFArrayResultBlock = {
+            (objects: [AnyObject]?, error: NSError?) in
+            if let records = objects as? [TRRecord] {
+                print(records)
+                XCTAssertEqual(records.count, 1)
+            }
+            expectation.fulfill()
+        }
+        
+        testObject.readTodaysRecordsFromPhone(RecordsRetrievalCompletion)
+        
+        waitForExpectationsWithTimeout(15) { (error: NSError?) -> Void in
+            if (error != nil) {
+                print("Error: \(error?.localizedDescription)")
+            }
+        }
+    }
 }

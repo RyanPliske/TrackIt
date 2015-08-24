@@ -11,7 +11,7 @@ public class TRTrackerModel: NSObject {
     public init(recordService: TRRecordService) {
         self.recordService = recordService
         super.init()
-        self.grabAllRecords()
+        self.grabAllOfTodaysRecords()
     }
     
     func trackItemAtRow(row: Int, quantityRow: Int, type: TRTrackingType, date: NSDate) {
@@ -24,14 +24,15 @@ public class TRTrackerModel: NSObject {
         let itemQuantity = self.quantityForRow(quantityRow)
         
         let blockCompletion: TRCreateRecordCompletion = {
-            self.grabAllRecords()
+            self.grabAllOfTodaysRecords()
         }
         
         self.recordService.createRecordWithItem(item, quantity: itemQuantity, itemType: type, date: date, completion: blockCompletion)
     }
     
-    func grabAllRecords() {
+    private func grabAllOfTodaysRecords() {
         weak var weakSelf = self
+        
         let RecordsRetrievalCompletion: PFArrayResultBlock = {
             (objects: [AnyObject]?, error: NSError?) in
             if let records = objects as? [TRRecord] {
@@ -41,7 +42,7 @@ public class TRTrackerModel: NSObject {
             }
         }
         
-        self.recordService.readRecordsFromPhone(RecordsRetrievalCompletion)
+        self.recordService.readTodaysRecordsFromPhone(RecordsRetrievalCompletion)
     }
     
     private func quantityForRow(row: Int) -> Int {
