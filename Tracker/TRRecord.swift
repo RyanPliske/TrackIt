@@ -2,7 +2,7 @@ import Foundation
 import Parse
 
 public class TRRecord: PFObject, PFSubclassing {
-    
+    // MARK: Parse Setup
     override public class func initialize() {
         struct Static {
             static var onceToken: dispatch_once_t = 0;
@@ -15,7 +15,7 @@ public class TRRecord: PFObject, PFSubclassing {
     public class func parseClassName() -> String {
         return "record"
     }
-    
+    // MARK: Properties
     public var itemName: String? {
         get {
             return self["item"] as? String

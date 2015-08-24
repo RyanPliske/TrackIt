@@ -3,7 +3,6 @@ import Parse
 
 public class TRRecordService : NSObject {
     
-    // MARK: CRUD Records
     public func createRecordWithItem(item: String, quantity: Int, itemType: TRTrackingType, date: NSDate) -> TRRecord {
         let record = TRRecord(className: "record")
         record.itemName = item
@@ -36,4 +35,8 @@ public class TRRecordService : NSObject {
         query.whereKey("date", equalTo: date)
         query.findObjectsInBackgroundWithBlock(BackgroundRetrievalCompletion)
     }
+    
+//    public func deleteAllRecordsFromPhone() {
+//        
+//    }
 }
