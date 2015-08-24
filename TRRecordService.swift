@@ -1,18 +1,15 @@
 import Foundation
 import Parse
 
-class TRRecordService : NSObject {
+public class TRRecordService : NSObject {
     
     // MARK: CRUD Records
-    func createRecordWithItem(item: String, quantity: Int, itemType: TRTrackingType, var date: NSDate) -> TRRecord {
+    public func createRecordWithItem(item: String, quantity: Int, itemType: TRTrackingType, date: NSDate) -> TRRecord {
         let record = TRRecord(className: "record")
         record.itemName = item
         record.itemQuantity = quantity
         record.itemType = TRRecord.itemTypeFrom(itemType)
-        let calendar = NSCalendar.currentCalendar()
-        let day = calendar.components(NSCalendarUnit.Day, fromDate: date)
-        date = calendar.dateFromComponents(day)!
-        record.itemDate = date
+        record.itemDate = TRDateFormatter.descriptionForDate(date)
         saveRecordToPhoneWithRecord(record)
         return record
     }
@@ -28,17 +25,14 @@ class TRRecordService : NSObject {
         record.saveEventually(BackgroundSaveCompletion)
     }
     
-    func readRecordsFromPhone(completion: PFArrayResultBlock) {
+    public func readRecordsFromPhone(completion: PFArrayResultBlock) {
         let BackgroundRetrievalCompletion: PFArrayResultBlock = {
             (objects: [AnyObject]?, error: NSError?) in
                 completion(objects, error)
         }
         let query = PFQuery(className: "record")
         query.fromLocalDatastore()
-        var date = NSDate()
-        let calendar = NSCalendar.currentCalendar()
-        let day = calendar.components(NSCalendarUnit.Day, fromDate: date)
-        date = calendar.dateFromComponents(day)!
+        let date = TRDateFormatter.descriptionForDate(NSDate())
         query.whereKey("date", equalTo: date)
         query.findObjectsInBackgroundWithBlock(BackgroundRetrievalCompletion)
     }

@@ -1,5 +1,6 @@
 import XCTest
 import Parse
+import Tracker
 
 class TRRecordServiceTests : XCTestCase {
     let testObject = TRRecordService()

@@ -1,5 +1,6 @@
 import XCTest
 import Parse
+import Tracker
 
 class MockRecordService: TRRecordService {
     override func createRecordWithItem(item: String, quantity: Int, itemType: TRTrackingType, date: NSDate) -> TRRecord {
@@ -8,7 +9,7 @@ class MockRecordService: TRRecordService {
         expectedRecord.itemName = "Baby Kicks"
         expectedRecord.itemQuantity = expectedQuantity
         expectedRecord.itemType = "action"
-        expectedRecord.itemDate = date
+        expectedRecord.itemDate = TRDateFormatter.descriptionForDate(date)
         return expectedRecord
     }
 }
@@ -26,9 +27,4 @@ class TRTrackerModelTests: XCTestCase {
         XCTAssertTrue(testObject.records.isEmpty)
     }
     
-    func testWhenTrackItemAtRowIsCalled_ARecordIsCreatedInRecordsArray() {
-        self.testObject.trackItemAtRow(5, quantityRow: 4, type: TRTrackingType.TrackAction, date: NSDate())
-        XCTAssertFalse(testObject.records.isEmpty)
-        XCTAssertEqual(testObject.records.count, 1)
-    }
 }

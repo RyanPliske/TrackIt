@@ -1,12 +1,12 @@
 import Foundation
 import Parse
 
-class TRTrackerModel: NSObject {
+public class TRTrackerModel: NSObject {
     var trackableItems = TRTrackableItems()
-    var records = [TRRecord]()
+    public var records = [TRRecord]()
     var recordService: TRRecordService
     
-    init(recordService: TRRecordService) {
+    public init(recordService: TRRecordService) {
         self.recordService = recordService
         super.init()
         self.grabRecords()
@@ -29,6 +29,8 @@ class TRTrackerModel: NSObject {
             (objects: [AnyObject]?, error: NSError?) in
             if let records = objects as? [TRRecord] {
                 weakSelf?.records = records
+            } else {
+                print(error)
             }
         }
         

@@ -1,9 +1,9 @@
 import Foundation
 import Parse
 
-class TRRecord: PFObject, PFSubclassing {
+public class TRRecord: PFObject, PFSubclassing {
     
-    override class func initialize() {
+    override public class func initialize() {
         struct Static {
             static var onceToken: dispatch_once_t = 0;
         }
@@ -12,11 +12,11 @@ class TRRecord: PFObject, PFSubclassing {
         }
     }
     
-    class func parseClassName() -> String {
+    public class func parseClassName() -> String {
         return "record"
     }
     
-    var itemName: String? {
+    public var itemName: String? {
         get {
             return self["item"] as? String
         }
@@ -25,7 +25,7 @@ class TRRecord: PFObject, PFSubclassing {
         }
     }
     
-    var itemQuantity: Int? {
+    public var itemQuantity: Int? {
         get {
             return self["quantity"] as? Int
         }
@@ -34,7 +34,7 @@ class TRRecord: PFObject, PFSubclassing {
         }
     }
     
-    var itemType: String? {
+    public var itemType: String? {
         get {
             return self["type"] as? String
         }
@@ -43,9 +43,9 @@ class TRRecord: PFObject, PFSubclassing {
         }
     }
     
-    var itemDate: NSDate? {
+    public var itemDate: String? {
         get {
-            return self["date"] as? NSDate
+            return self["date"] as? String
         }
         set(newValue) {
             self["date"] = newValue
@@ -53,7 +53,7 @@ class TRRecord: PFObject, PFSubclassing {
     }
     
     // MARK: Helper
-    static func itemTypeFrom(type: TRTrackingType) -> String {
+    public static func itemTypeFrom(type: TRTrackingType) -> String {
         return (type == TRTrackingType.TrackAction) ? "action" : "urge"
     }
     

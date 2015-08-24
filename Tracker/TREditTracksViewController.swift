@@ -43,7 +43,7 @@ class TREditTracksViewController: UIViewController, UITableViewDataSource {
             let count = model.records[indexPath.row].itemQuantity
             cell.setCountLabelTextWith((count?.description)!)
             let date = model.records[indexPath.row].itemDate
-            cell.setDateLabelTextWith(TRDateFormatter.descriptionForDate(date!))
+            cell.setDateLabelTextWith(date!)
         }
         return cell
     }
