@@ -17,7 +17,7 @@ class TRRecordServiceTests : XCTestCase {
         expectedRecord.itemType = expectedType
         expectedRecord.itemDate = expectedDate
         
-        let returnedRecord = testObject.createRecordWithItem(expectedItem, quantity: expectedQuantity, itemType: TRTrackingType.TrackAction, date: NSDate())
+        let returnedRecord = testObject.createRecordWithItem(expectedItem, quantity: expectedQuantity, itemType: TRTrackingType.TrackAction, date: NSDate(), completion: nil)
         
         XCTAssertEqual(expectedRecord.itemName!, returnedRecord.itemName!)
         XCTAssertEqual(expectedRecord.itemQuantity!, returnedRecord.itemQuantity!)
@@ -37,12 +37,35 @@ class TRRecordServiceTests : XCTestCase {
         expectedRecord.itemType = expectedType
         expectedRecord.itemDate = expectedDate
         
-        let returnedRecord = testObject.createRecordWithItem(expectedItem, quantity: expectedQuantity, itemType: TRTrackingType.TrackUrge, date: NSDate())
+        let returnedRecord = testObject.createRecordWithItem(expectedItem, quantity: expectedQuantity, itemType: TRTrackingType.TrackUrge, date: NSDate(), completion: nil)
         
         XCTAssertEqual(expectedRecord.itemName!, returnedRecord.itemName!)
         XCTAssertEqual(expectedRecord.itemQuantity!, returnedRecord.itemQuantity!)
         XCTAssertEqual(expectedRecord.itemType!, returnedRecord.itemType!)
         XCTAssertEqual(expectedRecord.itemDate, returnedRecord.itemDate!)
+    }
+    
+    func testWhenReadingRecordsFromDevice_TheCorrectRecordsAreReturned() {
+        let expectation = expectationWithDescription("Grab Records")
+
+        let RecordsRetrievalCompletion: PFArrayResultBlock = {
+            (objects: [AnyObject]?, error: NSError?) in
+            if let records = objects as? [TRRecord] {
+                print(records)
+            } else {
+                print(error)
+            }
+            expectation.fulfill()
+        }
+        
+        testObject.deleteAllRecordsFromPhone()
+        testObject.readRecordsFromPhone(RecordsRetrievalCompletion)
+        
+        waitForExpectationsWithTimeout(15) { (error: NSError?) -> Void in
+            if (error != nil) {
+                print("Error: \(error?.localizedDescription)")
+            }
+        }
     }
     
     

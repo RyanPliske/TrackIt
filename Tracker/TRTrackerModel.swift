@@ -1,6 +1,8 @@
 import Foundation
 import Parse
 
+public typealias TRCreateRecordCompletion = () -> Void
+
 public class TRTrackerModel: NSObject {
     var trackableItems = TRTrackableItems()
     public var records = [TRRecord]()
@@ -9,7 +11,7 @@ public class TRTrackerModel: NSObject {
     public init(recordService: TRRecordService) {
         self.recordService = recordService
         super.init()
-        self.grabRecords()
+        self.grabAllRecords()
     }
     
     func trackItemAtRow(row: Int, quantityRow: Int, type: TRTrackingType, date: NSDate) {
@@ -20,10 +22,15 @@ public class TRTrackerModel: NSObject {
             item = self.trackableItems.allItems[row]
         }
         let itemQuantity = self.quantityForRow(quantityRow)
-        self.recordService.createRecordWithItem(item, quantity: itemQuantity, itemType: type, date: date)
+        
+        let blockCompletion: TRCreateRecordCompletion = {
+            self.grabAllRecords()
+        }
+        
+        self.recordService.createRecordWithItem(item, quantity: itemQuantity, itemType: type, date: date, completion: blockCompletion)
     }
     
-    func grabRecords() -> [TRRecord]? {
+    func grabAllRecords() {
         weak var weakSelf = self
         let RecordsRetrievalCompletion: PFArrayResultBlock = {
             (objects: [AnyObject]?, error: NSError?) in
@@ -35,7 +42,6 @@ public class TRTrackerModel: NSObject {
         }
         
         self.recordService.readRecordsFromPhone(RecordsRetrievalCompletion)
-        return self.records
     }
     
     private func quantityForRow(row: Int) -> Int {

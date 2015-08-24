@@ -3,7 +3,7 @@ import Parse
 import Tracker
 
 class MockRecordService: TRRecordService {
-    override func createRecordWithItem(item: String, quantity: Int, itemType: TRTrackingType, date: NSDate) -> TRRecord {
+    override func createRecordWithItem(item: String, quantity: Int, itemType: TRTrackingType, date: NSDate, completion: TRCreateRecordCompletion?) -> TRRecord {
         let expectedQuantity = 4
         let expectedRecord = TRRecord(className: "record")
         expectedRecord.itemName = "Baby Kicks"

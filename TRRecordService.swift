@@ -3,25 +3,29 @@ import Parse
 
 public class TRRecordService : NSObject {
     
-    public func createRecordWithItem(item: String, quantity: Int, itemType: TRTrackingType, date: NSDate) -> TRRecord {
+    public func createRecordWithItem(item: String, quantity: Int, itemType: TRTrackingType, date: NSDate, completion: TRCreateRecordCompletion?) -> TRRecord {
         let record = TRRecord(className: "record")
         record.itemName = item
         record.itemQuantity = quantity
         record.itemType = TRRecord.itemTypeFrom(itemType)
         record.itemDate = TRDateFormatter.descriptionForDate(date)
-        saveRecordToPhoneWithRecord(record)
+        saveRecordToPhoneWithRecord(record, completion: completion)
         return record
     }
     
-    private func saveRecordToPhoneWithRecord(record: TRRecord) {
+    private func saveRecordToPhoneWithRecord(record: TRRecord, completion: TRCreateRecordCompletion?) {
         let BackgroundSaveCompletion: PFBooleanResultBlock = {
             (success, error) in
-            if (error == nil) {
+            if (error == nil && completion != nil) {
                 print("Record saved.")
+                completion!()
             }
         }
         record.pinInBackgroundWithBlock(BackgroundSaveCompletion)
-        record.saveEventually(BackgroundSaveCompletion)
+    }
+    
+    private func saveRecordToParseDatabase(record: TRRecord) {
+        record.saveEventually(nil)
     }
     
     public func readRecordsFromPhone(completion: PFArrayResultBlock) {
@@ -36,7 +40,7 @@ public class TRRecordService : NSObject {
         query.findObjectsInBackgroundWithBlock(BackgroundRetrievalCompletion)
     }
     
-//    public func deleteAllRecordsFromPhone() {
-//        
-//    }
+    public func deleteAllRecordsFromPhone() {
+        TRRecord.unpinAllObjects()
+    }
 }
