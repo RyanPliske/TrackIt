@@ -1,6 +1,6 @@
 import Foundation
 
-struct TRTrackableItems {
+public struct TRTrackableItems {
     var regularItems = ["Workouts", "Protein", "Baby Kicks"]
     var sinfulItems  = ["Drinks", "Cigarettes", "Money"]
     var allItems : [String] {

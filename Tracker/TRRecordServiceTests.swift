@@ -73,9 +73,7 @@ class TRRecordServiceTests : XCTestCase {
     
     func testWhenCreadingARecord_ThenReadingRecordsFromDeviceReturnsOneRecord() {
         testObject.deleteAllRecordsFromPhone()
-        testObject.createRecordWithItem("", quantity: 1, itemType: TRTrackingType.TrackUrge, date: NSDate(), completion: nil)
         let expectation = expectationWithDescription("Grab Records")
-        
         let RecordsRetrievalCompletion: PFArrayResultBlock = {
             (objects: [AnyObject]?, error: NSError?) in
             if let records = objects as? [TRRecord] {
@@ -85,7 +83,9 @@ class TRRecordServiceTests : XCTestCase {
             expectation.fulfill()
         }
         
-        testObject.readTodaysRecordsFromPhone(RecordsRetrievalCompletion)
+        testObject.createRecordWithItem("AnyItem", quantity: 1, itemType: TRTrackingType.TrackUrge, date: NSDate(), completion: {
+            self.testObject.readTodaysRecordsFromPhone(RecordsRetrievalCompletion)
+        })
         
         waitForExpectationsWithTimeout(15) { (error: NSError?) -> Void in
             if (error != nil) {

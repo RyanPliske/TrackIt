@@ -34,18 +34,18 @@ class TREditTracksViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return trackerModel!.records.count
+        return trackerModel!.itemsManager.tracks.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // Note: reuseIdentifier is from Storyboard
         let cell: TREditTracksTableViewCell = tableView.dequeueReusableCellWithIdentifier("editTracks") as! TREditTracksTableViewCell
         if let model = trackerModel {
-            let item = model.records[indexPath.row].itemName
+            let item = model.itemsManager.tracks[indexPath.row].itemName
             cell.setItemLabelTextWith(item!)
-            let count = model.records[indexPath.row].itemQuantity
+            let count = model.itemsManager.tracks[indexPath.row].itemQuantity
             cell.setCountLabelTextWith((count?.description)!)
-            let date = model.records[indexPath.row].itemDate
+            let date = model.itemsManager.tracks[indexPath.row].itemDate
             cell.setDateLabelTextWith(date!)
         }
         return cell

@@ -24,7 +24,7 @@ class TRTrackerModelTests: XCTestCase {
     }
     
     func testRecordsArrayIsEmpty() {
-        XCTAssertTrue(testObject.records.isEmpty)
+        XCTAssertTrue(testObject.itemsManager.tracks.isEmpty)
     }
     
     
