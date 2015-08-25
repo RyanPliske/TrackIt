@@ -16,6 +16,9 @@ class TREditTracksViewController: UIViewController, UITableViewDataSource {
         title = "Edit"
         navigationItem.rightBarButtonItem = self.editButtonItem()
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Done, target: self, action: "dismissEditTracks")
+        navigationController?.navigationBar.barTintColor = UIColor.clearColor()
+        navigationController?.navigationBar.barStyle = UIBarStyle.BlackTranslucent
+
     }
     
     // MARK: editTracksObserver
