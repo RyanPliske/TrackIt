@@ -2,14 +2,14 @@ import Foundation
 import Parse
 
 public class TRItemsManager : NSObject {
-    var sortType: TRTrackingType
+    var itemType: TRTrackingType
     var trackableItems = TRTrackableItems()
     private var recordService: TRRecordService
     public var tracks = [TRRecord]()
     var urges = [TRRecord]()
     
     init(sortType: TRTrackingType, recordService: TRRecordService) {
-        self.sortType = sortType
+        self.itemType = sortType
         self.recordService = recordService
         super.init()
         grabTodaysTracks()
@@ -17,6 +17,14 @@ public class TRItemsManager : NSObject {
     }
     
     func grabTodaysTracks() {
+        grabTodaysRecordsWithSortType(TRRecord.stringFromSortType(TRTrackingType.TrackAction))
+    }
+    
+    func grabTodaysUrges() {
+        grabTodaysRecordsWithSortType(TRRecord.stringFromSortType(TRTrackingType.TrackUrge))
+    }
+    
+    private func grabTodaysRecordsWithSortType(sortType: String) {
         weak var weakSelf = self
         
         let RecordsRetrievalCompletion: PFArrayResultBlock = {
@@ -28,10 +36,6 @@ public class TRItemsManager : NSObject {
             }
         }
         
-        self.recordService.readTodaysRecordsFromPhone(RecordsRetrievalCompletion)
-    }
-    
-    func grabTodaysUrges() {
-        
+        self.recordService.readTodaysRecordsFromPhoneWithSortType(sortType, completion: RecordsRetrievalCompletion)
     }
 }

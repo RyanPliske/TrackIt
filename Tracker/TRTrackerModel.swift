@@ -36,7 +36,7 @@ public class TRTrackerModel: NSObject {
     }
     
     func setSortType(sortType: TRTrackingType) {
-        itemsManager.sortType = sortType
+        itemsManager.itemType = sortType
     }
 
     private func quantityForRow(row: Int) -> Int {

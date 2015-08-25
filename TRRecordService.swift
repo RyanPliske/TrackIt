@@ -7,7 +7,7 @@ public class TRRecordService : NSObject {
         let record = TRRecord(className: "record")
         record.itemName = item
         record.itemQuantity = quantity
-        record.itemType = TRRecord.itemTypeFrom(itemType)
+        record.itemType = TRRecord.stringFromSortType(itemType)
         record.itemDate = TRDateFormatter.descriptionForDate(date)
         saveRecordToPhoneWithRecord(record, completion: completion)
         return record
@@ -28,7 +28,7 @@ public class TRRecordService : NSObject {
         record.saveEventually(nil)
     }
     
-    public func readTodaysRecordsFromPhone(completion: PFArrayResultBlock) {
+    public func readTodaysRecordsFromPhoneWithSortType(sortType: String, completion: PFArrayResultBlock) {
         let BackgroundRetrievalCompletion: PFArrayResultBlock = {
             (objects: [AnyObject]?, error: NSError?) in
                 completion(objects, error)
@@ -37,6 +37,7 @@ public class TRRecordService : NSObject {
         query.fromLocalDatastore()
         let date = TRDateFormatter.descriptionForDate(NSDate())
         query.whereKey("date", equalTo: date)
+        query.whereKey("type", equalTo: sortType)
         query.findObjectsInBackgroundWithBlock(BackgroundRetrievalCompletion)
     }
     
