@@ -10,17 +10,12 @@ class TREditTracksViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var editTracksTableView: TREditTracksTableView!
     @IBOutlet weak var itemTypeSegmentedControl: UISegmentedControl!
     
-    // MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         editTracksTableView.dataSource = self
         title = "Edit"
         navigationItem.rightBarButtonItem = self.editButtonItem()
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Done, target: self, action: "dismissEditTracks")
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.translucent = true
-        navigationController?.navigationBar.barStyle = UIBarStyle.BlackTranslucent
     }
     
     // MARK: editTracksObserver
@@ -73,7 +68,6 @@ class TREditTracksViewController: UIViewController, UITableViewDataSource {
     }
     */
     
-    // MARK: View Controller Methods
     override func setEditing(editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         self.editTracksTableView.setEditing(editing, animated: animated)
