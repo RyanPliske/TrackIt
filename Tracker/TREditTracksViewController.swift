@@ -49,7 +49,7 @@ class TREditTracksViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return trackerModel!.itemsManager.tracks.count
+        return TREditTracksTableViewCellDecorator.numberOfRows(trackerModel)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

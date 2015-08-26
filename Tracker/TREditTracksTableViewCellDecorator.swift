@@ -23,4 +23,17 @@ class TREditTracksTableViewCellDecorator: NSObject {
         }
         return cell
     }
+    
+    class func numberOfRows(trackerModel: TRTrackerModel?) -> Int {
+        if let model = trackerModel {
+            switch (model.itemsManager.itemSortType) {
+                case .TrackAction:
+                    return model.itemsManager.tracks.count
+                case .TrackUrge:
+                    return model.itemsManager.urges.count
+            }
+        } else {
+            return 0
+        }
+    }
 }
