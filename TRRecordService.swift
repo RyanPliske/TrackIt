@@ -28,15 +28,13 @@ public class TRRecordService : NSObject {
         record.saveEventually(nil)
     }
     
-    public func readTodaysRecordsFromPhoneWithSortType(sortType: TRTrackingType, completion: PFArrayResultBlock) {
+    public func readAllRecordsFromPhoneWithSortType(sortType: TRTrackingType, completion: PFArrayResultBlock) {
         let BackgroundRetrievalCompletion: PFArrayResultBlock = {
             (objects: [AnyObject]?, error: NSError?) in
                 completion(objects, error)
         }
         let query = PFQuery(className: "record")
         query.fromLocalDatastore()
-        let date = TRDateFormatter.descriptionForDate(NSDate())
-        query.whereKey("date", equalTo: date)
         query.whereKey("type", equalTo: TRRecord.stringFromSortType(sortType))
         query.findObjectsInBackgroundWithBlock(BackgroundRetrievalCompletion)
     }

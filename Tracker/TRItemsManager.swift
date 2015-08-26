@@ -39,6 +39,6 @@ public class TRItemsManager : NSObject {
             }
         }
         
-        self.recordService.readTodaysRecordsFromPhoneWithSortType(sortType, completion: RecordsRetrievalCompletion)
+        self.recordService.readAllRecordsFromPhoneWithSortType(sortType, completion: RecordsRetrievalCompletion)
     }
 }

@@ -63,7 +63,7 @@ class TRRecordServiceTests : XCTestCase {
         }
         
         testObject.deleteAllRecordsFromPhone()
-        testObject.readTodaysRecordsFromPhoneWithSortType(track, completion: RecordsRetrievalCompletion)
+        testObject.readAllRecordsFromPhoneWithSortType(track, completion: RecordsRetrievalCompletion)
         
         waitForExpectationsWithTimeout(15) { (error: NSError?) -> Void in
             if (error != nil) {
@@ -89,7 +89,7 @@ class TRRecordServiceTests : XCTestCase {
         }
         
         testObject.createRecordWithItem("AnyItem", quantity: 1, itemType: expectedType, date: NSDate(), completion: {
-            self.testObject.readTodaysRecordsFromPhoneWithSortType(expectedType, completion: RecordsRetrievalCompletion)
+            self.testObject.readAllRecordsFromPhoneWithSortType(expectedType, completion: RecordsRetrievalCompletion)
         })
         
         waitForExpectationsWithTimeout(15) { (error: NSError?) -> Void in
@@ -116,7 +116,7 @@ class TRRecordServiceTests : XCTestCase {
         }
         
         testObject.createRecordWithItem("AnyItem", quantity: 1, itemType: expectedType, date: NSDate(), completion: {
-            self.testObject.readTodaysRecordsFromPhoneWithSortType(expectedType, completion: RecordsRetrievalCompletion)
+            self.testObject.readAllRecordsFromPhoneWithSortType(expectedType, completion: RecordsRetrievalCompletion)
         })
         
         waitForExpectationsWithTimeout(15) { (error: NSError?) -> Void in
