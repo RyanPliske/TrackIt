@@ -8,7 +8,7 @@ class TREditTracksTableViewCell: UITableViewCell {
     
     func setItemLabelTextWith(text: String) {
         if let item = itemLabel {
-            item.text = text + ":"
+            item.text = text
         }
     }
     

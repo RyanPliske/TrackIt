@@ -7,7 +7,7 @@ class TREditTracksTableViewCellDecorator: NSObject {
             switch (model.itemsManager.itemSortType) {
             case .TrackAction:
                 let item = model.itemsManager.tracks[indexPath.row].itemName
-                cell.setItemLabelTextWith(item!)
+                cell.setItemLabelTextWith(item! + ":")
                 let count = model.itemsManager.tracks[indexPath.row].itemQuantity
                 cell.setCountLabelTextWith((count?.description)!)
                 let date = model.itemsManager.tracks[indexPath.row].itemDate
@@ -15,8 +15,7 @@ class TREditTracksTableViewCellDecorator: NSObject {
             case .TrackUrge:
                 let item = model.itemsManager.urges[indexPath.row].itemName
                 cell.setItemLabelTextWith(item!)
-                let count = model.itemsManager.urges[indexPath.row].itemQuantity
-                cell.setCountLabelTextWith((count?.description)!)
+                cell.setCountLabelTextWith("")
                 let date = model.itemsManager.urges[indexPath.row].itemDate
                 cell.setDateLabelTextWith(date!)
             }
