@@ -1,18 +1,23 @@
 import UIKit
 import QuartzCore
 
-class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
+class TRTrackerViewController: UIViewController, TRTrackerViewObserver, TREditTracksObserver {
     
     @IBOutlet private weak var trackerView: TRTrackerView!
     private var trackerPresenter: TRTrackerPresenter!
+    private var recordService = TRRecordService()
     private var trackerModel: TRTrackerModel!
+    private let dateViewController = TRChooseableDateViewController()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setNeedsStatusBarAppearanceUpdate()
-        trackerModel = TRTrackerModel()
+        trackerModel = TRTrackerModel(recordService: self.recordService)
         trackerPresenter = TRTrackerPresenter(view: self.trackerView, model: self.trackerModel)
         self.trackerView.observer = self
+        dateViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
+        dateViewController.dateObserver = self.trackerPresenter
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -23,9 +28,8 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
         return UIStatusBarStyle.LightContent;
     }
     
-    func userWantsToSelectDate() {
-        let dateViewController = DateViewController()
-        dateViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
+    // MARK: TRTrackerViewObserver
+    func displayDateChooser() {
         if let popOver : UIPopoverPresentationController = dateViewController.popoverPresentationController {
             popOver.permittedArrowDirections = UIPopoverArrowDirection.Up
             popOver.delegate = dateViewController
@@ -35,4 +39,16 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
         }
     }
     
+    func displayEditableTracks() {
+        let editTracksViewController = self.storyboard?.instantiateViewControllerWithIdentifier("EditTracksViewController") as! TREditTracksViewController
+        editTracksViewController.editTracksObserver = self
+        editTracksViewController.trackerModel = trackerModel
+        let navController = UINavigationController(rootViewController: editTracksViewController)
+        self.presentViewController(navController, animated: true, completion: nil)
+    }
+    
+    // MARK: TREditTracksObserver
+    func dismissEditTracks() {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 }

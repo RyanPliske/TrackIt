@@ -7,16 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4A0A786766A42C6B211101EF /* libPods-TrackerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 474811F5DE360FBB812F02B3 /* libPods-TrackerTests.a */; };
-		CC6F31B9C4BA8757C6C59CF6 /* libPods-Tracker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C994BBE35FA7ED2C0412771 /* libPods-Tracker.a */; };
-		EF2F2A6B1B489AA6009C886E /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2F2A6A1B489AA6009C886E /* DatePicker.swift */; };
+		376645703CED1E2EEE66B377 /* Pods_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14D533F76E1CF4A5F5873397 /* Pods_Tracker.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		54BD8E3791E761869C71B91B /* Pods_TrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43B672E98257AADA6A21AB52 /* Pods_TrackerTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		EF35BA2D1AF3CA9400456D38 /* TRTrackableItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF35BA2C1AF3CA9300456D38 /* TRTrackableItems.swift */; };
 		EF35BA301AF3D29400456D38 /* TRTrackingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF35BA2F1AF3D29400456D38 /* TRTrackingType.swift */; };
+		EF378F571B891CFA00235464 /* TRRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF378F561B891CFA00235464 /* TRRecord.swift */; };
+		EF3D9FB51B850E8E009042CA /* CLWeeklyCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3D9FA71B850E8E009042CA /* CLWeeklyCalendarView.m */; };
+		EF3D9FB61B850E8E009042CA /* DailyCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3D9FA91B850E8E009042CA /* DailyCalendarView.m */; };
+		EF3D9FB71B850E8E009042CA /* DayTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3D9FAB1B850E8E009042CA /* DayTitleLabel.m */; };
+		EF3D9FB81B850E8E009042CA /* NSDate+CL.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3D9FAE1B850E8E009042CA /* NSDate+CL.m */; };
+		EF3D9FB91B850E8E009042CA /* NSDictionary+CL.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3D9FB01B850E8E009042CA /* NSDictionary+CL.m */; };
+		EF3D9FBA1B850E8E009042CA /* UIColor+CL.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3D9FB21B850E8E009042CA /* UIColor+CL.m */; };
+		EF3D9FBB1B850E8E009042CA /* UIImage+CL.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3D9FB41B850E8E009042CA /* UIImage+CL.m */; };
+		EF3D9FBD1B85146F009042CA /* TRTrackerPresenter+TRDateChooserObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D9FBC1B85146F009042CA /* TRTrackerPresenter+TRDateChooserObserver.swift */; };
+		EF44E7C51B87E64F0088242C /* TREditTracksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF44E7C41B87E64F0088242C /* TREditTracksViewController.swift */; };
 		EF52F2451A8735CF00315B35 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF52F2441A8735CF00315B35 /* SettingsViewController.swift */; };
-		EF649E421B54A10D004431C6 /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF649E411B54A10D004431C6 /* DateViewController.swift */; };
+		EF53D05C1B862CC0007873B4 /* TREditTracksButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53D05B1B862CC0007873B4 /* TREditTracksButton.swift */; };
+		EF53D05E1B866019007873B4 /* TRTrackerView+Layouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53D05D1B866019007873B4 /* TRTrackerView+Layouts.swift */; };
+		EF53D0611B8663BB007873B4 /* TRTodaysDateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53D0601B8663BB007873B4 /* TRTodaysDateButton.swift */; };
+		EF53D0631B866616007873B4 /* TRToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53D0621B866616007873B4 /* TRToolbar.swift */; };
+		EF649E421B54A10D004431C6 /* TRChooseableDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF649E411B54A10D004431C6 /* TRChooseableDateViewController.swift */; };
 		EF6A8B4D1B3B91470012312E /* TRTrackerPresenter+UIPickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6A8B4C1B3B91470012312E /* TRTrackerPresenter+UIPickerViewDelegate.swift */; };
 		EF6A8B4F1B3B91E60012312E /* TRTrackerPresenter+UIPickerViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6A8B4E1B3B91E60012312E /* TRTrackerPresenter+UIPickerViewDataSource.swift */; };
-		EF776FB61B3B7F9000B64960 /* MainInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9FB0781B2A4D5800AD1164 /* MainInterfaceController.swift */; };
+		EF70DE271B8D147E00CDAFC5 /* TRItemsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF70DE261B8D147E00CDAFC5 /* TRItemsManager.swift */; };
+		EF70DE291B8D300C00CDAFC5 /* TRItemsManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF70DE281B8D300C00CDAFC5 /* TRItemsManagerTests.swift */; };
+		EF70DE2B1B8D3DBA00CDAFC5 /* MockRecordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF70DE2A1B8D3DBA00CDAFC5 /* MockRecordService.swift */; };
+		EF70DE2D1B8D480D00CDAFC5 /* TREditTracksTableViewCellDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF70DE2C1B8D480D00CDAFC5 /* TREditTracksTableViewCellDecorator.swift */; };
 		EF7CE0101AF0204700C451B1 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE00F1AF0204700C451B1 /* TPKeyboardAvoidingScrollView.m */; };
 		EF7CE0131AF021C600C451B1 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE0121AF021C600C451B1 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		EF7CE0171AF0228600C451B1 /* HTPressableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE0161AF0228600C451B1 /* HTPressableButton.m */; };
@@ -24,49 +40,26 @@
 		EF7CE01D1AF023B000C451B1 /* UIImage+HTButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE01C1AF023B000C451B1 /* UIImage+HTButton.m */; };
 		EF7CE0221AF023CC00C451B1 /* HTPressableButtonPrefs.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE01F1AF023CC00C451B1 /* HTPressableButtonPrefs.m */; };
 		EF7CE0231AF023CC00C451B1 /* UIColor+HTColor.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE0211AF023CC00C451B1 /* UIColor+HTColor.m */; };
-		EF9FB0691B2A4D5800AD1164 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF9FB0671B2A4D5800AD1164 /* Interface.storyboard */; };
-		EF9FB06B1B2A4D5800AD1164 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF9FB06A1B2A4D5800AD1164 /* Assets.xcassets */; };
-		EF9FB0721B2A4D5800AD1164 /* TrackViaWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EF9FB0711B2A4D5800AD1164 /* TrackViaWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		EF9FB0791B2A4D5800AD1164 /* MainInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9FB0781B2A4D5800AD1164 /* MainInterfaceController.swift */; };
-		EF9FB07B1B2A4D5800AD1164 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9FB07A1B2A4D5800AD1164 /* ExtensionDelegate.swift */; };
-		EF9FB07D1B2A4D5800AD1164 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9FB07C1B2A4D5800AD1164 /* NotificationController.swift */; };
-		EF9FB07F1B2A4D5800AD1164 /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9FB07E1B2A4D5800AD1164 /* GlanceController.swift */; };
-		EF9FB0811B2A4D5800AD1164 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9FB0801B2A4D5800AD1164 /* ComplicationController.swift */; };
-		EF9FB0831B2A4D5800AD1164 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF9FB0821B2A4D5800AD1164 /* Assets.xcassets */; };
-		EF9FB0871B2A4D5800AD1164 /* TrackViaWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = EF9FB0651B2A4D5800AD1164 /* TrackViaWatch.app */; };
-		EFA9B5E61B7D6A5B00BAA839 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFA9B5E51B7D6A5B00BAA839 /* Info.plist */; };
+		EF802E151B8A9A1900C51C33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFE083F91A86A9B100AC9631 /* Main.storyboard */; };
 		EFA9B5E81B7D7EBD00BAA839 /* TRTrackerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA9B5E71B7D7EBD00BAA839 /* TRTrackerPresenter.swift */; };
 		EFA9B5EA1B7D811800BAA839 /* TRTrackerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA9B5E91B7D811800BAA839 /* TRTrackerModel.swift */; };
-		EFABDA1C1B2B299300FCF5A3 /* MainInterfacePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFABDA1B1B2B299300FCF5A3 /* MainInterfacePresenter.swift */; };
-		EFABDA1D1B2B299300FCF5A3 /* MainInterfacePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFABDA1B1B2B299300FCF5A3 /* MainInterfacePresenter.swift */; };
-		EFC9CD691B7D3BEF00060D54 /* DateViewController+UIPopoverPresentationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC9CD681B7D3BEF00060D54 /* DateViewController+UIPopoverPresentationControllerDelegate.swift */; };
 		EFC9CD6B1B7D606800060D54 /* TRTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC9CD6A1B7D606800060D54 /* TRTrackerView.swift */; };
 		EFCA44AE1AF2BD430012AE52 /* TRTrackerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA44AD1AF2BD430012AE52 /* TRTrackerButton.swift */; };
 		EFE083F41A86A9B100AC9631 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE083F31A86A9B100AC9631 /* AppDelegate.swift */; };
 		EFE083F61A86A9B100AC9631 /* TRTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE083F51A86A9B100AC9631 /* TRTrackerViewController.swift */; };
 		EFE083F81A86A9B100AC9631 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE083F71A86A9B100AC9631 /* StatsViewController.swift */; };
-		EFE083FB1A86A9B100AC9631 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFE083F91A86A9B100AC9631 /* Main.storyboard */; };
 		EFE083FD1A86A9B100AC9631 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFE083FC1A86A9B100AC9631 /* Images.xcassets */; };
+		EFF328DB1B87C218001B9E84 /* TREditTracksTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF328DA1B87C218001B9E84 /* TREditTracksTableView.swift */; };
+		EFF328DD1B87C5C6001B9E84 /* TREditTracksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF328DC1B87C5C6001B9E84 /* TREditTracksTableViewCell.swift */; };
 		EFF5E6061A8861BC00B59CD4 /* SettingsForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF5E6051A8861BC00B59CD4 /* SettingsForm.swift */; };
-		EFFCF9DA1AFA9318004DEDB9 /* ChooseableDates.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCF9D91AFA9318004DEDB9 /* ChooseableDates.swift */; };
-		EFFCF9DC1AFA9C26004DEDB9 /* CurrentDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCF9DB1AFA9C26004DEDB9 /* CurrentDate.swift */; };
+		EFF85C6A1B8261FA00F766DB /* TRRecordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF85C691B8261FA00F766DB /* TRRecordService.swift */; };
+		EFFCF9DA1AFA9318004DEDB9 /* TRDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCF9D91AFA9318004DEDB9 /* TRDateFormatter.swift */; };
+		EFFCF9DC1AFA9C26004DEDB9 /* TRCurrentDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCF9DB1AFA9C26004DEDB9 /* TRCurrentDate.swift */; };
+		EFFDD9641B8BB9090062FFCE /* TRTrackerModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5AB94E1B7FF91B0061286E /* TRTrackerModelTests.swift */; };
+		EFFDD9651B8BB9090062FFCE /* TRRecordServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF07F3A1B8399A000ED6520 /* TRRecordServiceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		EF9FB0731B2A4D5800AD1164 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EFE083E61A86A9B100AC9631 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EF9FB0701B2A4D5800AD1164;
-			remoteInfo = "TrackViaWatch Extension";
-		};
-		EF9FB0851B2A4D5800AD1164 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EFE083E61A86A9B100AC9631 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EF9FB0641B2A4D5800AD1164;
-			remoteInfo = TrackViaWatch;
-		};
 		EFE084061A86A9B100AC9631 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EFE083E61A86A9B100AC9631 /* Project object */;
@@ -77,24 +70,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		EF9FB08D1B2A4D5800AD1164 /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				EF9FB0721B2A4D5800AD1164 /* TrackViaWatch Extension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		EF9FB08F1B2A4D5800AD1164 /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				EF9FB0871B2A4D5800AD1164 /* TrackViaWatch.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -103,18 +84,44 @@
 
 /* Begin PBXFileReference section */
 		0E93EFF4A5C6B4902C182392 /* Pods-TrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrackerTests/Pods-TrackerTests.release.xcconfig"; sourceTree = "<group>"; };
-		474811F5DE360FBB812F02B3 /* libPods-TrackerTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TrackerTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		14D533F76E1CF4A5F5873397 /* Pods_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		43B672E98257AADA6A21AB52 /* Pods_TrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		54B27EDACAD8A87277A70789 /* Pods-Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tracker/Pods-Tracker.debug.xcconfig"; sourceTree = "<group>"; };
 		552D0FBFF161A60D313AA58F /* Pods-Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tracker/Pods-Tracker.release.xcconfig"; sourceTree = "<group>"; };
 		615DD27FE14861EAB6D516F8 /* Pods-TrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrackerTests/Pods-TrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
-		9C994BBE35FA7ED2C0412771 /* libPods-Tracker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tracker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EF2F2A6A1B489AA6009C886E /* DatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
 		EF35BA2C1AF3CA9300456D38 /* TRTrackableItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRTrackableItems.swift; sourceTree = "<group>"; };
 		EF35BA2F1AF3D29400456D38 /* TRTrackingType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRTrackingType.swift; sourceTree = "<group>"; };
+		EF378F561B891CFA00235464 /* TRRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRRecord.swift; sourceTree = "<group>"; };
+		EF3D9FA61B850E8E009042CA /* CLWeeklyCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLWeeklyCalendarView.h; sourceTree = "<group>"; };
+		EF3D9FA71B850E8E009042CA /* CLWeeklyCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLWeeklyCalendarView.m; sourceTree = "<group>"; };
+		EF3D9FA81B850E8E009042CA /* DailyCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyCalendarView.h; sourceTree = "<group>"; };
+		EF3D9FA91B850E8E009042CA /* DailyCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyCalendarView.m; sourceTree = "<group>"; };
+		EF3D9FAA1B850E8E009042CA /* DayTitleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayTitleLabel.h; sourceTree = "<group>"; };
+		EF3D9FAB1B850E8E009042CA /* DayTitleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayTitleLabel.m; sourceTree = "<group>"; };
+		EF3D9FAD1B850E8E009042CA /* NSDate+CL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+CL.h"; sourceTree = "<group>"; };
+		EF3D9FAE1B850E8E009042CA /* NSDate+CL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+CL.m"; sourceTree = "<group>"; };
+		EF3D9FAF1B850E8E009042CA /* NSDictionary+CL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+CL.h"; sourceTree = "<group>"; };
+		EF3D9FB01B850E8E009042CA /* NSDictionary+CL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+CL.m"; sourceTree = "<group>"; };
+		EF3D9FB11B850E8E009042CA /* UIColor+CL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+CL.h"; sourceTree = "<group>"; };
+		EF3D9FB21B850E8E009042CA /* UIColor+CL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CL.m"; sourceTree = "<group>"; };
+		EF3D9FB31B850E8E009042CA /* UIImage+CL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CL.h"; sourceTree = "<group>"; };
+		EF3D9FB41B850E8E009042CA /* UIImage+CL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CL.m"; sourceTree = "<group>"; };
+		EF3D9FBC1B85146F009042CA /* TRTrackerPresenter+TRDateChooserObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TRTrackerPresenter+TRDateChooserObserver.swift"; sourceTree = "<group>"; };
+		EF44E7C41B87E64F0088242C /* TREditTracksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREditTracksViewController.swift; sourceTree = "<group>"; };
 		EF52F2441A8735CF00315B35 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		EF649E411B54A10D004431C6 /* DateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateViewController.swift; sourceTree = "<group>"; };
+		EF53D05B1B862CC0007873B4 /* TREditTracksButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREditTracksButton.swift; sourceTree = "<group>"; };
+		EF53D05D1B866019007873B4 /* TRTrackerView+Layouts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TRTrackerView+Layouts.swift"; sourceTree = "<group>"; };
+		EF53D0601B8663BB007873B4 /* TRTodaysDateButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRTodaysDateButton.swift; sourceTree = "<group>"; };
+		EF53D0621B866616007873B4 /* TRToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRToolbar.swift; sourceTree = "<group>"; };
+		EF5AB94E1B7FF91B0061286E /* TRTrackerModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRTrackerModelTests.swift; sourceTree = "<group>"; };
+		EF5AB9531B7FFDEE0061286E /* Tracker-Unit-Test-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Tracker-Unit-Test-Bridging-Header.h"; sourceTree = "<group>"; };
+		EF649E411B54A10D004431C6 /* TRChooseableDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRChooseableDateViewController.swift; sourceTree = "<group>"; };
 		EF6A8B4C1B3B91470012312E /* TRTrackerPresenter+UIPickerViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TRTrackerPresenter+UIPickerViewDelegate.swift"; sourceTree = "<group>"; };
 		EF6A8B4E1B3B91E60012312E /* TRTrackerPresenter+UIPickerViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TRTrackerPresenter+UIPickerViewDataSource.swift"; sourceTree = "<group>"; };
+		EF70DE261B8D147E00CDAFC5 /* TRItemsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRItemsManager.swift; sourceTree = "<group>"; };
+		EF70DE281B8D300C00CDAFC5 /* TRItemsManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRItemsManagerTests.swift; sourceTree = "<group>"; };
+		EF70DE2A1B8D3DBA00CDAFC5 /* MockRecordService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockRecordService.swift; sourceTree = "<group>"; };
+		EF70DE2C1B8D480D00CDAFC5 /* TREditTracksTableViewCellDecorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREditTracksTableViewCellDecorator.swift; sourceTree = "<group>"; };
 		EF7CE00E1AF0204700C451B1 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
 		EF7CE00F1AF0204700C451B1 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
 		EF7CE0111AF021C600C451B1 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
@@ -129,11 +136,9 @@
 		EF7CE01F1AF023CC00C451B1 /* HTPressableButtonPrefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTPressableButtonPrefs.m; sourceTree = "<group>"; };
 		EF7CE0201AF023CC00C451B1 /* UIColor+HTColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HTColor.h"; sourceTree = "<group>"; };
 		EF7CE0211AF023CC00C451B1 /* UIColor+HTColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HTColor.m"; sourceTree = "<group>"; };
-		EF9FB0651B2A4D5800AD1164 /* TrackViaWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackViaWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF9FB0681B2A4D5800AD1164 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		EF9FB06A1B2A4D5800AD1164 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF9FB06C1B2A4D5800AD1164 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EF9FB0711B2A4D5800AD1164 /* TrackViaWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "TrackViaWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF9FB0771B2A4D5800AD1164 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		EF9FB0781B2A4D5800AD1164 /* MainInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInterfaceController.swift; sourceTree = "<group>"; };
 		EF9FB07A1B2A4D5800AD1164 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
@@ -146,7 +151,6 @@
 		EFA9B5E71B7D7EBD00BAA839 /* TRTrackerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRTrackerPresenter.swift; sourceTree = "<group>"; };
 		EFA9B5E91B7D811800BAA839 /* TRTrackerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRTrackerModel.swift; sourceTree = "<group>"; };
 		EFABDA1B1B2B299300FCF5A3 /* MainInterfacePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainInterfacePresenter.swift; sourceTree = "<group>"; };
-		EFC9CD681B7D3BEF00060D54 /* DateViewController+UIPopoverPresentationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DateViewController+UIPopoverPresentationControllerDelegate.swift"; sourceTree = "<group>"; };
 		EFC9CD6A1B7D606800060D54 /* TRTrackerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRTrackerView.swift; sourceTree = "<group>"; };
 		EFCA44AD1AF2BD430012AE52 /* TRTrackerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRTrackerButton.swift; sourceTree = "<group>"; };
 		EFE083EE1A86A9B100AC9631 /* Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,25 +161,22 @@
 		EFE083FC1A86A9B100AC9631 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EFE084051A86A9B100AC9631 /* TrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFE0840A1A86A9B100AC9631 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFF07F3A1B8399A000ED6520 /* TRRecordServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRRecordServiceTests.swift; sourceTree = "<group>"; };
+		EFF328DA1B87C218001B9E84 /* TREditTracksTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREditTracksTableView.swift; sourceTree = "<group>"; };
+		EFF328DC1B87C5C6001B9E84 /* TREditTracksTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREditTracksTableViewCell.swift; sourceTree = "<group>"; };
 		EFF5E6011A885BCB00B59CD4 /* Tracker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tracker-Bridging-Header.h"; sourceTree = "<group>"; };
 		EFF5E6051A8861BC00B59CD4 /* SettingsForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsForm.swift; sourceTree = "<group>"; };
-		EFFCF9D91AFA9318004DEDB9 /* ChooseableDates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseableDates.swift; sourceTree = "<group>"; };
-		EFFCF9DB1AFA9C26004DEDB9 /* CurrentDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentDate.swift; sourceTree = "<group>"; };
+		EFF85C691B8261FA00F766DB /* TRRecordService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TRRecordService.swift; path = ../TRRecordService.swift; sourceTree = "<group>"; };
+		EFFCF9D91AFA9318004DEDB9 /* TRDateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRDateFormatter.swift; sourceTree = "<group>"; };
+		EFFCF9DB1AFA9C26004DEDB9 /* TRCurrentDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCurrentDate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		EF9FB06E1B2A4D5800AD1164 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		EFE083EB1A86A9B100AC9631 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC6F31B9C4BA8757C6C59CF6 /* libPods-Tracker.a in Frameworks */,
+				376645703CED1E2EEE66B377 /* Pods_Tracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,7 +184,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A0A786766A42C6B211101EF /* libPods-TrackerTests.a in Frameworks */,
+				54BD8E3791E761869C71B91B /* Pods_TrackerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,22 +205,88 @@
 		33C030457BE33A8141EB5F7D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9C994BBE35FA7ED2C0412771 /* libPods-Tracker.a */,
-				474811F5DE360FBB812F02B3 /* libPods-TrackerTests.a */,
+				14D533F76E1CF4A5F5873397 /* Pods_Tracker.framework */,
+				43B672E98257AADA6A21AB52 /* Pods_TrackerTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		EF1FA9461B7E64ED00AC9095 /* Date */ = {
+		EF1FA9461B7E64ED00AC9095 /* TRChooseableDate */ = {
 			isa = PBXGroup;
 			children = (
-				EF649E411B54A10D004431C6 /* DateViewController.swift */,
-				EFC9CD681B7D3BEF00060D54 /* DateViewController+UIPopoverPresentationControllerDelegate.swift */,
-				EF2F2A6A1B489AA6009C886E /* DatePicker.swift */,
-				EFFCF9DB1AFA9C26004DEDB9 /* CurrentDate.swift */,
-				EFFCF9D91AFA9318004DEDB9 /* ChooseableDates.swift */,
+				EF649E411B54A10D004431C6 /* TRChooseableDateViewController.swift */,
+				EFFCF9DB1AFA9C26004DEDB9 /* TRCurrentDate.swift */,
+				EFFCF9D91AFA9318004DEDB9 /* TRDateFormatter.swift */,
 			);
-			name = Date;
+			name = TRChooseableDate;
+			sourceTree = "<group>";
+		};
+		EF3D9FA51B850E8E009042CA /* CLWeeklyCalendarViewSourceCode */ = {
+			isa = PBXGroup;
+			children = (
+				EF3D9FA61B850E8E009042CA /* CLWeeklyCalendarView.h */,
+				EF3D9FA71B850E8E009042CA /* CLWeeklyCalendarView.m */,
+				EF3D9FA81B850E8E009042CA /* DailyCalendarView.h */,
+				EF3D9FA91B850E8E009042CA /* DailyCalendarView.m */,
+				EF3D9FAA1B850E8E009042CA /* DayTitleLabel.h */,
+				EF3D9FAB1B850E8E009042CA /* DayTitleLabel.m */,
+				EF3D9FAC1B850E8E009042CA /* Misc */,
+			);
+			path = CLWeeklyCalendarViewSourceCode;
+			sourceTree = "<group>";
+		};
+		EF3D9FAC1B850E8E009042CA /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				EF3D9FAD1B850E8E009042CA /* NSDate+CL.h */,
+				EF3D9FAE1B850E8E009042CA /* NSDate+CL.m */,
+				EF3D9FAF1B850E8E009042CA /* NSDictionary+CL.h */,
+				EF3D9FB01B850E8E009042CA /* NSDictionary+CL.m */,
+				EF3D9FB11B850E8E009042CA /* UIColor+CL.h */,
+				EF3D9FB21B850E8E009042CA /* UIColor+CL.m */,
+				EF3D9FB31B850E8E009042CA /* UIImage+CL.h */,
+				EF3D9FB41B850E8E009042CA /* UIImage+CL.m */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		EF53D05F1B86637B007873B4 /* TRTrackerView */ = {
+			isa = PBXGroup;
+			children = (
+				EFC9CD6A1B7D606800060D54 /* TRTrackerView.swift */,
+				EF53D05D1B866019007873B4 /* TRTrackerView+Layouts.swift */,
+				EF53D05B1B862CC0007873B4 /* TREditTracksButton.swift */,
+				EFCA44AD1AF2BD430012AE52 /* TRTrackerButton.swift */,
+				EF53D0601B8663BB007873B4 /* TRTodaysDateButton.swift */,
+				EF53D0621B866616007873B4 /* TRToolbar.swift */,
+			);
+			name = TRTrackerView;
+			sourceTree = "<group>";
+		};
+		EF53D0641B8677E2007873B4 /* TRTrackerPresenter */ = {
+			isa = PBXGroup;
+			children = (
+				EFA9B5E71B7D7EBD00BAA839 /* TRTrackerPresenter.swift */,
+				EF3D9FBC1B85146F009042CA /* TRTrackerPresenter+TRDateChooserObserver.swift */,
+				EF6A8B4C1B3B91470012312E /* TRTrackerPresenter+UIPickerViewDelegate.swift */,
+				EF6A8B4E1B3B91E60012312E /* TRTrackerPresenter+UIPickerViewDataSource.swift */,
+			);
+			name = TRTrackerPresenter;
+			sourceTree = "<group>";
+		};
+		EF53D0651B867811007873B4 /* TRTrackerModel */ = {
+			isa = PBXGroup;
+			children = (
+				EF70DE261B8D147E00CDAFC5 /* TRItemsManager.swift */,
+				EF70DE281B8D300C00CDAFC5 /* TRItemsManagerTests.swift */,
+				EFA9B5E91B7D811800BAA839 /* TRTrackerModel.swift */,
+				EF5AB94E1B7FF91B0061286E /* TRTrackerModelTests.swift */,
+				EF378F561B891CFA00235464 /* TRRecord.swift */,
+				EFF85C691B8261FA00F766DB /* TRRecordService.swift */,
+				EFF07F3A1B8399A000ED6520 /* TRRecordServiceTests.swift */,
+				EF35BA2C1AF3CA9300456D38 /* TRTrackableItems.swift */,
+			);
+			name = TRTrackerModel;
 			sourceTree = "<group>";
 		};
 		EF7CE00A1AF0050300C451B1 /* FXForms */ = {
@@ -291,26 +358,22 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		EFC9CD671B7D249B00060D54 /* Track */ = {
+		EFC9CD671B7D249B00060D54 /* TRTracker */ = {
 			isa = PBXGroup;
 			children = (
-				EF1FA9461B7E64ED00AC9095 /* Date */,
-				EFA9B5E71B7D7EBD00BAA839 /* TRTrackerPresenter.swift */,
-				EF6A8B4C1B3B91470012312E /* TRTrackerPresenter+UIPickerViewDelegate.swift */,
-				EF6A8B4E1B3B91E60012312E /* TRTrackerPresenter+UIPickerViewDataSource.swift */,
-				EFA9B5E91B7D811800BAA839 /* TRTrackerModel.swift */,
-				EFE083F51A86A9B100AC9631 /* TRTrackerViewController.swift */,
-				EFC9CD6A1B7D606800060D54 /* TRTrackerView.swift */,
-				EFCA44AD1AF2BD430012AE52 /* TRTrackerButton.swift */,
 				EF35BA2F1AF3D29400456D38 /* TRTrackingType.swift */,
-				EF35BA2C1AF3CA9300456D38 /* TRTrackableItems.swift */,
+				EFE083F51A86A9B100AC9631 /* TRTrackerViewController.swift */,
+				EF53D0651B867811007873B4 /* TRTrackerModel */,
+				EF53D0641B8677E2007873B4 /* TRTrackerPresenter */,
+				EF53D05F1B86637B007873B4 /* TRTrackerView */,
 			);
-			name = Track;
+			name = TRTracker;
 			sourceTree = "<group>";
 		};
 		EFCA44AB1AF2BCD40012AE52 /* Vendor Components */ = {
 			isa = PBXGroup;
 			children = (
+				EF3D9FA51B850E8E009042CA /* CLWeeklyCalendarViewSourceCode */,
 				EF7CE0141AF0227500C451B1 /* HTPressableButton */,
 				EF7CE00D1AF0202F00C451B1 /* TPKeyboardAvoiding */,
 				EF7CE00A1AF0050300C451B1 /* FXForms */,
@@ -336,8 +399,6 @@
 			children = (
 				EFE083EE1A86A9B100AC9631 /* Tracker.app */,
 				EFE084051A86A9B100AC9631 /* TrackerTests.xctest */,
-				EF9FB0651B2A4D5800AD1164 /* TrackViaWatch.app */,
-				EF9FB0711B2A4D5800AD1164 /* TrackViaWatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -345,7 +406,9 @@
 		EFE083F01A86A9B100AC9631 /* Tracker */ = {
 			isa = PBXGroup;
 			children = (
-				EFC9CD671B7D249B00060D54 /* Track */,
+				EFF328D91B87C1F5001B9E84 /* TREditTracks */,
+				EF1FA9461B7E64ED00AC9095 /* TRChooseableDate */,
+				EFC9CD671B7D249B00060D54 /* TRTracker */,
 				EFE083F31A86A9B100AC9631 /* AppDelegate.swift */,
 				EF52F2441A8735CF00315B35 /* SettingsViewController.swift */,
 				EFE083F71A86A9B100AC9631 /* StatsViewController.swift */,
@@ -371,6 +434,7 @@
 			isa = PBXGroup;
 			children = (
 				EFE084091A86A9B100AC9631 /* Supporting Files */,
+				EF70DE2A1B8D3DBA00CDAFC5 /* MockRecordService.swift */,
 			);
 			path = TrackerTests;
 			sourceTree = "<group>";
@@ -379,47 +443,25 @@
 			isa = PBXGroup;
 			children = (
 				EFE0840A1A86A9B100AC9631 /* Info.plist */,
+				EF5AB9531B7FFDEE0061286E /* Tracker-Unit-Test-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EFF328D91B87C1F5001B9E84 /* TREditTracks */ = {
+			isa = PBXGroup;
+			children = (
+				EF44E7C41B87E64F0088242C /* TREditTracksViewController.swift */,
+				EFF328DA1B87C218001B9E84 /* TREditTracksTableView.swift */,
+				EFF328DC1B87C5C6001B9E84 /* TREditTracksTableViewCell.swift */,
+				EF70DE2C1B8D480D00CDAFC5 /* TREditTracksTableViewCellDecorator.swift */,
+			);
+			name = TREditTracks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EF9FB0641B2A4D5800AD1164 /* TrackViaWatch */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EF9FB08E1B2A4D5800AD1164 /* Build configuration list for PBXNativeTarget "TrackViaWatch" */;
-			buildPhases = (
-				EF9FB0631B2A4D5800AD1164 /* Resources */,
-				EF9FB08D1B2A4D5800AD1164 /* Embed App Extensions */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				EF9FB0741B2A4D5800AD1164 /* PBXTargetDependency */,
-			);
-			name = TrackViaWatch;
-			productName = TrackViaWatch;
-			productReference = EF9FB0651B2A4D5800AD1164 /* TrackViaWatch.app */;
-			productType = "com.apple.product-type.application.watchapp2";
-		};
-		EF9FB0701B2A4D5800AD1164 /* TrackViaWatch Extension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EF9FB08C1B2A4D5800AD1164 /* Build configuration list for PBXNativeTarget "TrackViaWatch Extension" */;
-			buildPhases = (
-				EF9FB06D1B2A4D5800AD1164 /* Sources */,
-				EF9FB06E1B2A4D5800AD1164 /* Frameworks */,
-				EF9FB06F1B2A4D5800AD1164 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "TrackViaWatch Extension";
-			productName = "TrackViaWatch Extension";
-			productReference = EF9FB0711B2A4D5800AD1164 /* TrackViaWatch Extension.appex */;
-			productType = "com.apple.product-type.watchkit2-extension";
-		};
 		EFE083ED1A86A9B100AC9631 /* Tracker */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EFE0840F1A86A9B100AC9631 /* Build configuration list for PBXNativeTarget "Tracker" */;
@@ -430,11 +472,12 @@
 				EFE083EC1A86A9B100AC9631 /* Resources */,
 				EF9FB08F1B2A4D5800AD1164 /* Embed Watch Content */,
 				4F3B80AE4696AB98F1238242 /* Copy Pods Resources */,
+				EFF07F3D1B83D2C600ED6520 /* ShellScript */,
+				19A5B0C958E58FB758E5F690 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				EF9FB0861B2A4D5800AD1164 /* PBXTargetDependency */,
 			);
 			name = Tracker;
 			productName = Tracker;
@@ -450,6 +493,7 @@
 				EFE084021A86A9B100AC9631 /* Frameworks */,
 				EFE084031A86A9B100AC9631 /* Resources */,
 				B202162626CFAC4FF3841560 /* Copy Pods Resources */,
+				8B8EE4F9FD74FD63BB1664DA /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -471,15 +515,9 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Tracker;
 				TargetAttributes = {
-					EF9FB0641B2A4D5800AD1164 = {
-						CreatedOnToolsVersion = 7.0;
-					};
-					EF9FB0701B2A4D5800AD1164 = {
-						CreatedOnToolsVersion = 7.0;
-					};
 					EFE083ED1A86A9B100AC9631 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = 7375283Q9W;
+						DevelopmentTeam = CZLFN85575;
 					};
 					EFE084041A86A9B100AC9631 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -502,37 +540,17 @@
 			targets = (
 				EFE083ED1A86A9B100AC9631 /* Tracker */,
 				EFE084041A86A9B100AC9631 /* TrackerTests */,
-				EF9FB0641B2A4D5800AD1164 /* TrackViaWatch */,
-				EF9FB0701B2A4D5800AD1164 /* TrackViaWatch Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		EF9FB0631B2A4D5800AD1164 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EF9FB06B1B2A4D5800AD1164 /* Assets.xcassets in Resources */,
-				EF9FB0691B2A4D5800AD1164 /* Interface.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EF9FB06F1B2A4D5800AD1164 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EF9FB0831B2A4D5800AD1164 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		EFE083EC1A86A9B100AC9631 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFE083FB1A86A9B100AC9631 /* Main.storyboard in Resources */,
+				EF802E151B8A9A1900C51C33 /* Main.storyboard in Resources */,
 				EFE083FD1A86A9B100AC9631 /* Images.xcassets in Resources */,
-				EFA9B5E61B7D6A5B00BAA839 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,6 +564,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		19A5B0C958E58FB758E5F690 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tracker/Pods-Tracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		4F3B80AE4696AB98F1238242 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -574,6 +607,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8B8EE4F9FD74FD63BB1664DA /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TrackerTests/Pods-TrackerTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B202162626CFAC4FF3841560 /* Copy Pods Resources */ = {
@@ -606,50 +654,67 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		EFF07F3D1B83D2C600ED6520 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#\"${PODS_ROOT}/Fabric/Fabric.framework/run\" 0a0212c9a729fc5c3e32348fcf827ee97c5cb9bd 01be25f3bdc148e5dcca511a3999bc102cbd3118f359ae7ed4438268d17c76e6";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		EF9FB06D1B2A4D5800AD1164 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EF9FB07D1B2A4D5800AD1164 /* NotificationController.swift in Sources */,
-				EFABDA1D1B2B299300FCF5A3 /* MainInterfacePresenter.swift in Sources */,
-				EF9FB07B1B2A4D5800AD1164 /* ExtensionDelegate.swift in Sources */,
-				EF9FB0811B2A4D5800AD1164 /* ComplicationController.swift in Sources */,
-				EF9FB0791B2A4D5800AD1164 /* MainInterfaceController.swift in Sources */,
-				EF9FB07F1B2A4D5800AD1164 /* GlanceController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		EFE083EA1A86A9B100AC9631 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				EF7CE0171AF0228600C451B1 /* HTPressableButton.m in Sources */,
+				EF3D9FB81B850E8E009042CA /* NSDate+CL.m in Sources */,
 				EF7CE01A1AF0238800C451B1 /* FXForms.m in Sources */,
 				EF35BA301AF3D29400456D38 /* TRTrackingType.swift in Sources */,
+				EF3D9FBD1B85146F009042CA /* TRTrackerPresenter+TRDateChooserObserver.swift in Sources */,
 				EF6A8B4F1B3B91E60012312E /* TRTrackerPresenter+UIPickerViewDataSource.swift in Sources */,
 				EF7CE0221AF023CC00C451B1 /* HTPressableButtonPrefs.m in Sources */,
 				EF7CE0101AF0204700C451B1 /* TPKeyboardAvoidingScrollView.m in Sources */,
-				EF649E421B54A10D004431C6 /* DateViewController.swift in Sources */,
+				EF3D9FBB1B850E8E009042CA /* UIImage+CL.m in Sources */,
+				EF649E421B54A10D004431C6 /* TRChooseableDateViewController.swift in Sources */,
 				EF6A8B4D1B3B91470012312E /* TRTrackerPresenter+UIPickerViewDelegate.swift in Sources */,
 				EFE083F81A86A9B100AC9631 /* StatsViewController.swift in Sources */,
-				EFFCF9DA1AFA9318004DEDB9 /* ChooseableDates.swift in Sources */,
+				EFFCF9DA1AFA9318004DEDB9 /* TRDateFormatter.swift in Sources */,
 				EFA9B5EA1B7D811800BAA839 /* TRTrackerModel.swift in Sources */,
+				EFF328DB1B87C218001B9E84 /* TREditTracksTableView.swift in Sources */,
 				EFE083F41A86A9B100AC9631 /* AppDelegate.swift in Sources */,
 				EF35BA2D1AF3CA9400456D38 /* TRTrackableItems.swift in Sources */,
 				EF7CE01D1AF023B000C451B1 /* UIImage+HTButton.m in Sources */,
-				EFFCF9DC1AFA9C26004DEDB9 /* CurrentDate.swift in Sources */,
+				EFF85C6A1B8261FA00F766DB /* TRRecordService.swift in Sources */,
+				EF44E7C51B87E64F0088242C /* TREditTracksViewController.swift in Sources */,
+				EFFCF9DC1AFA9C26004DEDB9 /* TRCurrentDate.swift in Sources */,
 				EFF5E6061A8861BC00B59CD4 /* SettingsForm.swift in Sources */,
-				EFC9CD691B7D3BEF00060D54 /* DateViewController+UIPopoverPresentationControllerDelegate.swift in Sources */,
+				EF53D0631B866616007873B4 /* TRToolbar.swift in Sources */,
+				EF3D9FB61B850E8E009042CA /* DailyCalendarView.m in Sources */,
 				EF7CE0131AF021C600C451B1 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
+				EFF328DD1B87C5C6001B9E84 /* TREditTracksTableViewCell.swift in Sources */,
 				EFE083F61A86A9B100AC9631 /* TRTrackerViewController.swift in Sources */,
 				EF52F2451A8735CF00315B35 /* SettingsViewController.swift in Sources */,
 				EFC9CD6B1B7D606800060D54 /* TRTrackerView.swift in Sources */,
-				EF2F2A6B1B489AA6009C886E /* DatePicker.swift in Sources */,
+				EF53D0611B8663BB007873B4 /* TRTodaysDateButton.swift in Sources */,
+				EF53D05E1B866019007873B4 /* TRTrackerView+Layouts.swift in Sources */,
 				EFA9B5E81B7D7EBD00BAA839 /* TRTrackerPresenter.swift in Sources */,
+				EF3D9FB71B850E8E009042CA /* DayTitleLabel.m in Sources */,
 				EF7CE0231AF023CC00C451B1 /* UIColor+HTColor.m in Sources */,
+				EF3D9FB91B850E8E009042CA /* NSDictionary+CL.m in Sources */,
+				EF3D9FB51B850E8E009042CA /* CLWeeklyCalendarView.m in Sources */,
+				EF70DE271B8D147E00CDAFC5 /* TRItemsManager.swift in Sources */,
+				EF3D9FBA1B850E8E009042CA /* UIColor+CL.m in Sources */,
+				EF53D05C1B862CC0007873B4 /* TREditTracksButton.swift in Sources */,
+				EF70DE2D1B8D480D00CDAFC5 /* TREditTracksTableViewCellDecorator.swift in Sources */,
+				EF378F571B891CFA00235464 /* TRRecord.swift in Sources */,
 				EFCA44AE1AF2BD430012AE52 /* TRTrackerButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -658,24 +723,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF776FB61B3B7F9000B64960 /* MainInterfaceController.swift in Sources */,
-				EFABDA1C1B2B299300FCF5A3 /* MainInterfacePresenter.swift in Sources */,
+				EF70DE2B1B8D3DBA00CDAFC5 /* MockRecordService.swift in Sources */,
+				EFFDD9641B8BB9090062FFCE /* TRTrackerModelTests.swift in Sources */,
+				EFFDD9651B8BB9090062FFCE /* TRRecordServiceTests.swift in Sources */,
+				EF70DE291B8D300C00CDAFC5 /* TRItemsManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		EF9FB0741B2A4D5800AD1164 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EF9FB0701B2A4D5800AD1164 /* TrackViaWatch Extension */;
-			targetProxy = EF9FB0731B2A4D5800AD1164 /* PBXContainerItemProxy */;
-		};
-		EF9FB0861B2A4D5800AD1164 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EF9FB0641B2A4D5800AD1164 /* TrackViaWatch */;
-			targetProxy = EF9FB0851B2A4D5800AD1164 /* PBXContainerItemProxy */;
-		};
 		EFE084071A86A9B100AC9631 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = EFE083ED1A86A9B100AC9631 /* Tracker */;
@@ -703,84 +760,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		EF9FB0881B2A4D5800AD1164 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				IBSC_MODULE = TrackViaWatch_Extension;
-				INFOPLIST_FILE = TrackViaWatch/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Tracker.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
-			};
-			name = Debug;
-		};
-		EF9FB0891B2A4D5800AD1164 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				IBSC_MODULE = TrackViaWatch_Extension;
-				INFOPLIST_FILE = TrackViaWatch/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Tracker.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
-			};
-			name = Release;
-		};
-		EF9FB08A1B2A4D5800AD1164 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "TrackViaWatch Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Tracker.watchkitapp.watchkitextension;
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
-			};
-			name = Debug;
-		};
-		EF9FB08B1B2A4D5800AD1164 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "TrackViaWatch Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Tracker.watchkitapp.watchkitextension;
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
-			};
-			name = Release;
-		};
 		EFE0840D1A86A9B100AC9631 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -798,8 +777,9 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -819,6 +799,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "a734ab4d-5947-4e5f-a0db-50738eff9c9c";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -842,8 +823,10 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Patrick McAvoy (CZLFN85575)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Patrick McAvoy (CZLFN85575)";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -855,6 +838,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "a734ab4d-5947-4e5f-a0db-50738eff9c9c";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -867,12 +851,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = Tracker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "a734ab4d-5947-4e5f-a0db-50738eff9c9c";
 				SWIFT_OBJC_BRIDGING_HEADER = "Tracker/Tracker-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -885,12 +872,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Patrick McAvoy (CZLFN85575)";
 				INFOPLIST_FILE = Tracker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "a734ab4d-5947-4e5f-a0db-50738eff9c9c";
 				SWIFT_OBJC_BRIDGING_HEADER = "Tracker/Tracker-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -901,6 +889,7 @@
 			baseConfigurationReference = 615DD27FE14861EAB6D516F8 /* Pods-TrackerTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEFINES_MODULE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -913,6 +902,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TrackerTests/Tracker-Unit-Test-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tracker.app/Tracker";
 			};
 			name = Debug;
@@ -922,6 +912,7 @@
 			baseConfigurationReference = 0E93EFF4A5C6B4902C182392 /* Pods-TrackerTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEFINES_MODULE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -930,6 +921,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TrackerTests/Tracker-Unit-Test-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tracker.app/Tracker";
 			};
 			name = Release;
@@ -937,24 +929,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EF9FB08C1B2A4D5800AD1164 /* Build configuration list for PBXNativeTarget "TrackViaWatch Extension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EF9FB08A1B2A4D5800AD1164 /* Debug */,
-				EF9FB08B1B2A4D5800AD1164 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EF9FB08E1B2A4D5800AD1164 /* Build configuration list for PBXNativeTarget "TrackViaWatch" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EF9FB0881B2A4D5800AD1164 /* Debug */,
-				EF9FB0891B2A4D5800AD1164 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		EFE083E91A86A9B100AC9631 /* Build configuration list for PBXProject "Tracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

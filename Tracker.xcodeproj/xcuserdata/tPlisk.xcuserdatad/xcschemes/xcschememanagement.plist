@@ -7,27 +7,22 @@
 		<key>Complication - TrackViaWatch.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>5</integer>
 		</dict>
 		<key>Glance - TrackViaWatch.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>4</integer>
 		</dict>
 		<key>Notification - TrackViaWatch.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 		<key>TrackViaWatch.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
-		</dict>
-		<key>Tracker.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>2</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>

@@ -13,29 +13,28 @@ extension TRTrackerPresenter: UIPickerViewDataSource {
         if component == 0 {
             switch trackingType {
             case .TrackAction:
-                return self.trackerModel.trackableItems.getCountOfAllItems()
+                return self.trackerModel.itemsManager.trackableItems.allItems.count
             case .TrackUrge:
-                return self.trackerModel.trackableItems.sinfulItems.count
+                return self.trackerModel.itemsManager.trackableItems.sinfulItems.count
             }
         }
         else {
-            return self.trackerModel.trackableItems.ListOfQuantities.count
+            return self.trackerModel.itemsManager.trackableItems.ListOfQuantities.count
         }
     }
     
     func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         if component == 0 {
-            var items = self.trackerModel.trackableItems.sinfulItems + self.trackerModel.trackableItems.regularItems
-            if row == selectedItemOfFirstWheelColumn {
-                return NSAttributedString(string: items[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.greenColor()])
+            if row == selectedItemOfFirstColumn {
+                return NSAttributedString(string: self.trackerModel.itemsManager.trackableItems.allItems[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.greenColor()])
             }
-            return NSAttributedString(string: items[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.whiteColor()])
+            return NSAttributedString(string: self.trackerModel.itemsManager.trackableItems.allItems[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.whiteColor()])
         }
         else {
-            if row == selectedItemOfSecondWheelColumn {
-                return NSAttributedString(string: self.trackerModel.trackableItems.ListOfQuantities[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.greenColor()])
+            if row == selectedItemOfSecondColumn {
+                return NSAttributedString(string: self.trackerModel.itemsManager.trackableItems.ListOfQuantities[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.greenColor()])
             }
-            return NSAttributedString(string: self.trackerModel.trackableItems.ListOfQuantities[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.whiteColor()])
+            return NSAttributedString(string: self.trackerModel.itemsManager.trackableItems.ListOfQuantities[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.whiteColor()])
         }
     }
 }

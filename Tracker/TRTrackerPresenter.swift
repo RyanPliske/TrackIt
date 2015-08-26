@@ -1,29 +1,30 @@
 import Foundation
-
+/**
+The `TRTrackerPresenter` class is designed to act as the mediator between the TRTrackerView and TRTrackerModel.
+*/
 class TRTrackerPresenter: NSObject, TRTrackerViewDelegate {
     let trackerView : TRTrackerView
     let trackerModel : TRTrackerModel
-    
-    var chooseableDates = ChooseableDates(month: CurrentDate.months[CurrentDate.thisMonth - 1], day: CurrentDate.days[0])
-    
-    var selectedItemOfFirstWheelColumn = 0 {
+    var datetoTrack = NSDate()
+
+    var selectedItemOfFirstColumn = 0 {
         didSet {
-            self.trackerView.itemPickerView.selectRow(selectedItemOfFirstWheelColumn, inComponent: 0, animated: false)
+            self.trackerView.itemPickerView.selectRow(selectedItemOfFirstColumn, inComponent: 0, animated: false)
         }
     }
     
-    var selectedItemOfSecondWheelColumn = 0 {
+    var selectedItemOfSecondColumn = 0 {
         didSet {
-            self.trackerView.itemPickerView.selectRow(selectedItemOfSecondWheelColumn, inComponent: 1, animated: false)
+            self.trackerView.itemPickerView.selectRow(selectedItemOfSecondColumn, inComponent: 1, animated: false)
         }
     }
     
     var trackingType : TRTrackingType = .TrackAction {
         didSet {
             self.trackerView.itemPickerView.reloadAllComponents()
-            selectedItemOfFirstWheelColumn = 0
+            selectedItemOfFirstColumn = 0
             if trackingType == .TrackAction {
-                selectedItemOfSecondWheelColumn = 0
+                selectedItemOfSecondColumn = 0
             }
             self.trackerView.hiddenPickerViewTextField.becomeFirstResponder()
         }
@@ -33,22 +34,21 @@ class TRTrackerPresenter: NSObject, TRTrackerViewDelegate {
         trackerView = view
         trackerModel = model
         super.init()
-        
-        self.trackerView.setTodaysDateLabelWith(chooseableDates.description)
         self.trackerView.delegate = self
-        
         self.trackerView.itemPickerView.dataSource = self
         self.trackerView.itemPickerView.delegate = self
     }
     
+    // MARK: TRTrackerViewDelegate
     func userWantsToTrackAction(){
         trackingType = .TrackAction
-        self.trackerView.setToolBarForTrackingTitle("Track")
     }
     
     func userWantsToTrackUrge(){
         trackingType = .TrackUrge
-        self.trackerView.setToolBarForTrackingTitle("Track Urge")
     }
-
+    
+    func userPickedAnItemToTrack() {
+        self.trackerModel.trackItemAtRow(selectedItemOfFirstColumn, quantityRow: selectedItemOfSecondColumn, type: trackingType, date: self.datetoTrack)
+    }
 }
