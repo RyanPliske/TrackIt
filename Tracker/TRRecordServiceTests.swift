@@ -49,9 +49,10 @@ class TRRecordServiceTests : XCTestCase {
         XCTAssertEqual(expectedRecord.itemDate, returnedRecord.itemDate!)
     }
     
-    func testWhenDeletingRecordsFromDevice_ThenZeroRecordsReturnedFromReading() {
+    func testWhenDeletingTracksFromDevice_ThenZeroTracksReturnedFromReading() {
         let expectation = expectationWithDescription("Grab Records")
-
+        let track = TRTrackingType.TrackAction
+        
         let RecordsRetrievalCompletion: PFArrayResultBlock = {
             (objects: [AnyObject]?, error: NSError?) in
             if let records = objects as? [TRRecord] {
@@ -62,8 +63,7 @@ class TRRecordServiceTests : XCTestCase {
         }
         
         testObject.deleteAllRecordsFromPhone()
-        let sortType = TRRecord.stringFromSortType(TRTrackingType.TrackAction)
-        testObject.readTodaysRecordsFromPhoneWithSortType(sortType, completion: RecordsRetrievalCompletion)
+        testObject.readTodaysRecordsFromPhoneWithSortType(track, completion: RecordsRetrievalCompletion)
         
         waitForExpectationsWithTimeout(15) { (error: NSError?) -> Void in
             if (error != nil) {
@@ -72,7 +72,7 @@ class TRRecordServiceTests : XCTestCase {
         }
     }
     
-    func testWhenCreadingAnUrge_ThenReadingUrgesFromDeviceReturnsOneUrge() {
+    func testWhenCreatingAnUrge_ThenReadingUrgesFromDeviceReturnsOneUrge() {
         testObject.deleteAllRecordsFromPhone()
         let expectation = expectationWithDescription("Grab Records")
         let expectedType = TRTrackingType.TrackUrge
@@ -89,8 +89,7 @@ class TRRecordServiceTests : XCTestCase {
         }
         
         testObject.createRecordWithItem("AnyItem", quantity: 1, itemType: expectedType, date: NSDate(), completion: {
-            let sortType = TRRecord.stringFromSortType(expectedType)
-            self.testObject.readTodaysRecordsFromPhoneWithSortType(sortType, completion: RecordsRetrievalCompletion)
+            self.testObject.readTodaysRecordsFromPhoneWithSortType(expectedType, completion: RecordsRetrievalCompletion)
         })
         
         waitForExpectationsWithTimeout(15) { (error: NSError?) -> Void in
@@ -100,7 +99,7 @@ class TRRecordServiceTests : XCTestCase {
         }
     }
     
-    func testWhenCreadingATrack_ThenReadingTracksFromDeviceReturnsOneTrack() {
+    func testWhenCreatingATrack_ThenReadingTracksFromDeviceReturnsOneTrack() {
         testObject.deleteAllRecordsFromPhone()
         let expectation = expectationWithDescription("Grab Records")
         let expectedType = TRTrackingType.TrackAction
@@ -117,8 +116,7 @@ class TRRecordServiceTests : XCTestCase {
         }
         
         testObject.createRecordWithItem("AnyItem", quantity: 1, itemType: expectedType, date: NSDate(), completion: {
-            let sortType = TRRecord.stringFromSortType(expectedType)
-            self.testObject.readTodaysRecordsFromPhoneWithSortType(sortType, completion: RecordsRetrievalCompletion)
+            self.testObject.readTodaysRecordsFromPhoneWithSortType(expectedType, completion: RecordsRetrievalCompletion)
         })
         
         waitForExpectationsWithTimeout(15) { (error: NSError?) -> Void in

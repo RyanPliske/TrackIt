@@ -12,21 +12,21 @@ class MockRecordService: TRRecordService {
         expectedRecord.itemDate = TRDateFormatter.descriptionForDate(date)
         return expectedRecord
     }
+    
+    override func readTodaysRecordsFromPhoneWithSortType(sortType: TRTrackingType, completion: PFArrayResultBlock) {
+        let record = TRRecord(className: "record")
+        var records = [TRRecord]()
+        records.append(record)
+        completion(records as [AnyObject]?, nil)
+    }
 }
 
 class TRTrackerModelTests: XCTestCase {
-    let recordService = MockRecordService()
+    let mockRecordService = MockRecordService()
     var testObject: TRTrackerModel!
     
     override func setUp() {
         super.setUp()
-        testObject = TRTrackerModel(recordService: self.recordService)
+        testObject = TRTrackerModel(recordService: self.mockRecordService)
     }
-    
-    func testRecordsArrayIsEmpty() {
-        XCTAssertTrue(testObject.itemsManager.tracks.isEmpty)
-    }
-    
-    
-    
 }

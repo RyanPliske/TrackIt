@@ -9,8 +9,10 @@ public class TRTrackerModel: NSObject {
     
     public init(recordService: TRRecordService) {
         self.recordService = recordService
-        self.itemsManager = TRItemsManager(sortType: .TrackAction, recordService: self.recordService)
+        self.itemsManager = TRItemsManager(recordService: self.recordService)
         super.init()
+        self.itemsManager.grabTodaysTracks()
+        self.itemsManager.grabTodaysUrges()
     }
     
     func trackItemAtRow(row: Int, quantityRow: Int, type: TRTrackingType, date: NSDate) {

@@ -2,35 +2,38 @@ import Foundation
 import Parse
 
 public class TRItemsManager : NSObject {
-    var itemType: TRTrackingType
+    var itemType = TRTrackingType.TrackAction
     var trackableItems = TRTrackableItems()
     private var recordService: TRRecordService
     public var tracks = [TRRecord]()
-    var urges = [TRRecord]()
+    public var urges = [TRRecord]()
     
-    init(sortType: TRTrackingType, recordService: TRRecordService) {
-        self.itemType = sortType
+    public init(recordService: TRRecordService) {
         self.recordService = recordService
         super.init()
-        grabTodaysTracks()
-        grabTodaysUrges()
     }
     
-    func grabTodaysTracks() {
-        grabTodaysRecordsWithSortType(TRRecord.stringFromSortType(TRTrackingType.TrackAction))
+    public func grabTodaysTracks() {
+        grabTodaysRecordsWithSortType(TRTrackingType.TrackAction)
     }
     
-    func grabTodaysUrges() {
-        grabTodaysRecordsWithSortType(TRRecord.stringFromSortType(TRTrackingType.TrackUrge))
+    public func grabTodaysUrges() {
+        grabTodaysRecordsWithSortType(TRTrackingType.TrackUrge)
     }
     
-    private func grabTodaysRecordsWithSortType(sortType: String) {
+    private func grabTodaysRecordsWithSortType(sortType: TRTrackingType) {
         weak var weakSelf = self
         
         let RecordsRetrievalCompletion: PFArrayResultBlock = {
             (objects: [AnyObject]?, error: NSError?) in
             if let records = objects as? [TRRecord] {
-                weakSelf?.tracks = records
+                switch (sortType) {
+                case .TrackAction:
+                   weakSelf?.tracks = records
+                case .TrackUrge:
+                    weakSelf?.urges = records
+                }
+                
             } else {
                 print(error)
             }
