@@ -21,6 +21,21 @@ class TREditTracksViewController: UIViewController, UITableViewDataSource {
 
     }
     
+    override func setEditing(editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        editTracksTableView.setEditing(editing, animated: animated)
+    }
+    
+    @IBAction func segmentControlPressed(sender: AnyObject) {
+        if (itemTypeSegmentedControl.selectedSegmentIndex == 0) {
+            trackerModel?.setSortType(TRTrackingType.TrackAction)
+            editTracksTableView.reloadData()
+        } else {
+            trackerModel?.setSortType(TRTrackingType.TrackUrge)
+            editTracksTableView.reloadData()
+        }
+    }
+    
     // MARK: editTracksObserver
     
     func dismissEditTracks() {
@@ -40,15 +55,7 @@ class TREditTracksViewController: UIViewController, UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // Note: reuseIdentifier is from Storyboard
         let cell: TREditTracksTableViewCell = tableView.dequeueReusableCellWithIdentifier("editTracks") as! TREditTracksTableViewCell
-        if let model = trackerModel {
-            let item = model.itemsManager.tracks[indexPath.row].itemName
-            cell.setItemLabelTextWith(item!)
-            let count = model.itemsManager.tracks[indexPath.row].itemQuantity
-            cell.setCountLabelTextWith((count?.description)!)
-            let date = model.itemsManager.tracks[indexPath.row].itemDate
-            cell.setDateLabelTextWith(date!)
-        }
-        return cell
+        return TREditTracksTableViewCellDecorator.decoratedCell(cell, indexPath: indexPath, trackerModel: trackerModel)
     }
     
     /*
@@ -70,9 +77,4 @@ class TREditTracksViewController: UIViewController, UITableViewDataSource {
     }
     }
     */
-    
-    override func setEditing(editing: Bool, animated: Bool) {
-        super.setEditing(editing, animated: animated)
-        self.editTracksTableView.setEditing(editing, animated: animated)
-    }
 }

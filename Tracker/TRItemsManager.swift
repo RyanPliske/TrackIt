@@ -2,7 +2,7 @@ import Foundation
 import Parse
 
 public class TRItemsManager : NSObject {
-    var itemType = TRTrackingType.TrackAction
+    var itemSortType = TRTrackingType.TrackAction
     var trackableItems = TRTrackableItems()
     private var recordService: TRRecordService
     public var tracks = [TRRecord]()

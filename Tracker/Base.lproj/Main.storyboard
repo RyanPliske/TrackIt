@@ -92,6 +92,9 @@
                                     <segment title="Urges"/>
                                 </segments>
                                 <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="segmentControlPressed:" destination="7Tx-Ke-KiD" eventType="valueChanged" id="ZuZ-O8-dII"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FwJ-qE-Jh7" customClass="TREditTracksTableView" customModule="Tracker" customModuleProvider="target">
                                 <rect key="frame" x="16" y="72" width="343" height="595"/>
