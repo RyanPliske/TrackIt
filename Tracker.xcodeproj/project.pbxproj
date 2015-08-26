@@ -31,6 +31,7 @@
 		EF6A8B4F1B3B91E60012312E /* TRTrackerPresenter+UIPickerViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6A8B4E1B3B91E60012312E /* TRTrackerPresenter+UIPickerViewDataSource.swift */; };
 		EF70DE271B8D147E00CDAFC5 /* TRItemsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF70DE261B8D147E00CDAFC5 /* TRItemsManager.swift */; };
 		EF70DE291B8D300C00CDAFC5 /* TRItemsManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF70DE281B8D300C00CDAFC5 /* TRItemsManagerTests.swift */; };
+		EF70DE2B1B8D3DBA00CDAFC5 /* MockRecordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF70DE2A1B8D3DBA00CDAFC5 /* MockRecordService.swift */; };
 		EF7CE0101AF0204700C451B1 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE00F1AF0204700C451B1 /* TPKeyboardAvoidingScrollView.m */; };
 		EF7CE0131AF021C600C451B1 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE0121AF021C600C451B1 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		EF7CE0171AF0228600C451B1 /* HTPressableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE0161AF0228600C451B1 /* HTPressableButton.m */; };
@@ -118,6 +119,7 @@
 		EF6A8B4E1B3B91E60012312E /* TRTrackerPresenter+UIPickerViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TRTrackerPresenter+UIPickerViewDataSource.swift"; sourceTree = "<group>"; };
 		EF70DE261B8D147E00CDAFC5 /* TRItemsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRItemsManager.swift; sourceTree = "<group>"; };
 		EF70DE281B8D300C00CDAFC5 /* TRItemsManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRItemsManagerTests.swift; sourceTree = "<group>"; };
+		EF70DE2A1B8D3DBA00CDAFC5 /* MockRecordService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockRecordService.swift; sourceTree = "<group>"; };
 		EF7CE00E1AF0204700C451B1 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
 		EF7CE00F1AF0204700C451B1 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
 		EF7CE0111AF021C600C451B1 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
@@ -430,6 +432,7 @@
 			isa = PBXGroup;
 			children = (
 				EFE084091A86A9B100AC9631 /* Supporting Files */,
+				EF70DE2A1B8D3DBA00CDAFC5 /* MockRecordService.swift */,
 			);
 			path = TrackerTests;
 			sourceTree = "<group>";
@@ -716,6 +719,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF70DE2B1B8D3DBA00CDAFC5 /* MockRecordService.swift in Sources */,
 				EFFDD9641B8BB9090062FFCE /* TRTrackerModelTests.swift in Sources */,
 				EFFDD9651B8BB9090062FFCE /* TRRecordServiceTests.swift in Sources */,
 				EF70DE291B8D300C00CDAFC5 /* TRItemsManagerTests.swift in Sources */,

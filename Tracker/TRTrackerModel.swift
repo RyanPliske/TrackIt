@@ -15,7 +15,7 @@ public class TRTrackerModel: NSObject {
         self.itemsManager.grabTodaysUrges()
     }
     
-    func trackItemAtRow(row: Int, quantityRow: Int, type: TRTrackingType, date: NSDate) {
+    public func trackItemAtRow(row: Int, quantityRow: Int, type: TRTrackingType, date: NSDate) {
         var item: String
         if type == TRTrackingType.TrackUrge {
             item = self.itemsManager.trackableItems.sinfulItems[row]
