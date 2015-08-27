@@ -4,9 +4,9 @@ class TREditTracksTableViewCellDecorator: NSObject {
     
     class func decoratedCell(cell: TREditTracksTableViewCell, indexPath: NSIndexPath, trackerModel: TRTrackerModel?) -> UITableViewCell {
         if let model = trackerModel {
-            let item = model.itemsManager.records[indexPath.row].itemName
-            let count = model.itemsManager.records[indexPath.row].itemQuantity
-            let date = model.itemsManager.records[indexPath.row].itemDate
+            let item = model.records[indexPath.row].itemName
+            let count = model.records[indexPath.row].itemQuantity
+            let date = model.records[indexPath.row].itemDate
             
             switch (model.sortType) {
             case .TrackAction:
@@ -24,7 +24,7 @@ class TREditTracksTableViewCellDecorator: NSObject {
     
     class func numberOfRows(trackerModel: TRTrackerModel?) -> Int {
         if let model = trackerModel {
-            return model.itemsManager.records.count
+            return model.records.count
         } else {
             return 0
         }

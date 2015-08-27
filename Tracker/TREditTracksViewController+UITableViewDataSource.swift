@@ -23,7 +23,7 @@ extension TREditTracksViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             if let model = trackerModel {
-                let recordToDelete = model.itemsManager.records[indexPath.row]
+                let recordToDelete = model.records[indexPath.row]
                 model.untrack(recordToDelete)
                 tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             }

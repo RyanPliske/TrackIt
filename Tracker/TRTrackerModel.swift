@@ -9,6 +9,9 @@ public class TRTrackerModel: NSObject {
     public var sortType: TRTrackingType {
         return self.itemsManager.itemSortType
     }
+    public var records: [TRRecord] {
+        return self.itemsManager.records
+    }
     
     public init(recordService: TRRecordService) {
         self.recordService = recordService
