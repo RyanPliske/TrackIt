@@ -4,7 +4,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8142"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="HelveticaNeue.ttc">
@@ -25,11 +24,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hen-NF-7Nj" customClass="TPKeyboardAvoidingScrollView">
-                                <rect key="frame" x="0.0" y="84" width="375" height="534"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hen-NF-7Nj" customClass="TPKeyboardAvoidingScrollView">
+                                <rect key="frame" x="0.0" y="40" width="375" height="578"/>
                                 <subviews>
-                                    <view alpha="0.79999999999999982" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b09-XM-ycc" userLabel="TrackerView" customClass="TRTrackerView" customModule="Tracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="534"/>
+                                    <view alpha="0.79999999999999982" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b09-XM-ycc" userLabel="TrackerView" customClass="TRTrackerView" customModule="Tracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="578"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="425" id="t6G-kz-c7Q"/>
@@ -128,8 +127,8 @@
                                                     <color key="textColor" red="0.0" green="0.57809930099999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Date" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXx-09-si4">
-                                                    <rect key="frame" x="15" y="59" width="36" height="24"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXx-09-si4">
+                                                    <rect key="frame" x="15" y="59" width="36" height="31"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -139,24 +138,14 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="fkU-gH-DUb" firstAttribute="top" secondItem="XYT-Sd-BQo" secondAttribute="topMargin" constant="7" id="9Vh-gN-cFG"/>
-                                                <constraint firstItem="lLl-GN-W6i" firstAttribute="height" secondItem="fkU-gH-DUb" secondAttribute="height" id="F41-EU-UCd"/>
-                                                <constraint firstItem="fkU-gH-DUb" firstAttribute="height" secondItem="XYT-Sd-BQo" secondAttribute="height" multiplier="0.3" id="GJw-nu-euc"/>
                                                 <constraint firstItem="uXx-09-si4" firstAttribute="bottom" secondItem="XYT-Sd-BQo" secondAttribute="bottomMargin" constant="8" id="KNP-c5-v4M"/>
                                                 <constraint firstItem="lLl-GN-W6i" firstAttribute="top" secondItem="fkU-gH-DUb" secondAttribute="top" id="Mag-BD-jeb"/>
                                                 <constraint firstItem="lLl-GN-W6i" firstAttribute="bottom" secondItem="fkU-gH-DUb" secondAttribute="bottom" id="Pon-fK-4qh"/>
                                                 <constraint firstItem="uXx-09-si4" firstAttribute="top" secondItem="fkU-gH-DUb" secondAttribute="bottom" constant="20" id="Y16-5w-atI"/>
                                                 <constraint firstItem="uXx-09-si4" firstAttribute="leading" secondItem="fkU-gH-DUb" secondAttribute="leading" id="eyN-hB-uvx"/>
-                                                <constraint firstItem="uXx-09-si4" firstAttribute="height" secondItem="XYT-Sd-BQo" secondAttribute="height" multiplier="0.3" id="iiM-ml-H7M"/>
                                                 <constraint firstItem="fkU-gH-DUb" firstAttribute="leading" secondItem="XYT-Sd-BQo" secondAttribute="leadingMargin" constant="7" id="sml-MR-mp3"/>
                                                 <constraint firstItem="lLl-GN-W6i" firstAttribute="leading" secondItem="fkU-gH-DUb" secondAttribute="trailing" constant="5" id="yHh-Lb-sRx"/>
                                             </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="GJw-nu-euc"/>
-                                                    <exclude reference="iiM-ml-H7M"/>
-                                                    <exclude reference="F41-EU-UCd"/>
-                                                </mask>
-                                            </variation>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
