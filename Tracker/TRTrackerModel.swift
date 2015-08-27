@@ -13,6 +13,9 @@ public class TRTrackerModel: NSObject {
     public var records: [TRRecord] {
         return self.itemsManager.records
     }
+    public var searchMode: Bool {
+        return self.itemsManager.searchMode
+    }
     
     public init(recordService: TRRecordService) {
         self.recordService = recordService
@@ -24,6 +27,10 @@ public class TRTrackerModel: NSObject {
     
     func setSortType(sortType: TRTrackingType) {
         itemsManager.itemSortType = sortType
+    }
+    
+    func setSearchModeTo(searchMode: Bool) {
+        itemsManager.searchMode = searchMode
     }
     
     public func trackItemAtRow(row: Int, quantityRow: Int, type: TRTrackingType, date: NSDate) {

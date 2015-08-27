@@ -16,6 +16,9 @@ extension TREditTracksViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         searchBar.setShowsCancelButton(false, animated: true)
+        searchBar.text = nil
+        trackerModel?.setSearchModeTo(false)
+        editTracksTableView.reloadData()
     }
     
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {

@@ -3,16 +3,28 @@ import Parse
 
 public class TRItemsManager : NSObject {
     internal var trackableItems = TRTrackableItems()
+    internal var itemSortType = TRTrackingType.TrackAction
+    internal var searchMode = false
     private var recordService: TRRecordService
     private var tracks = [TRRecord]()
     private var urges = [TRRecord]()
-    internal var itemSortType = TRTrackingType.TrackAction
+    private var searchResultsForTracks = [TRRecord]()
+    private var searchResultsForUrges = [TRRecord]()
     public var records: [TRRecord] {
-        switch (self.itemSortType) {
-        case .TrackAction:
-            return self.tracks
-        case .TrackUrge:
-            return self.urges
+        if searchMode {
+            switch (self.itemSortType) {
+            case .TrackAction:
+                return self.searchResultsForTracks
+            case .TrackUrge:
+                return self.searchResultsForUrges
+            }
+        } else {
+            switch (self.itemSortType) {
+            case .TrackAction:
+                return self.tracks
+            case .TrackUrge:
+                return self.urges
+            }
         }
     }
     
@@ -30,8 +42,9 @@ public class TRItemsManager : NSObject {
     }
     
     func grabAllRecordsContaining(searchText: String, completion: TRSearchCompletion?) {
+        searchMode = true
         if let completionBlock = completion {
-            grabRecordsWithSearchText(searchText, sortType: .TrackAction, completion: completionBlock)
+            grabRecordsWithSearchText(searchText, sortType: .TrackAction, completion: nil)
             grabRecordsWithSearchText(searchText, sortType: .TrackUrge, completion: completionBlock)
         }
     }
@@ -48,7 +61,6 @@ public class TRItemsManager : NSObject {
     // MARK: Helpers
     private func grabRecordsWithSortType(sortType: TRTrackingType) {
         weak var weakSelf = self
-        
         let recordsRetrievalCompletion: PFArrayResultBlock = {
             (objects: [AnyObject]?, error: NSError?) in
             if let records = objects as? [TRRecord] {
@@ -69,26 +81,28 @@ public class TRItemsManager : NSObject {
     
     private func grabRecordsWithSearchText(searchText: String, sortType: TRTrackingType, completion: TRSearchCompletion?) {
         weak var weakSelf = self
-        
         let recordsRetrievalCompletion: PFArrayResultBlock = {
             (objects: [AnyObject]?, error: NSError?) in
             if let records = objects as? [TRRecord] {
-                if let completionBlock = completion {
-                    switch (sortType) {
-                    case .TrackAction:
-                        weakSelf?.tracks = records
-                        completionBlock()
-                    case .TrackUrge:
-                        weakSelf?.urges = records
+                switch (sortType) {
+                case .TrackAction:
+                    weakSelf?.searchResultsForTracks = records
+                    print(records)
+                    if let completionBlock = completion {
                         completionBlock()
                     }
-                }
-                
+                case .TrackUrge:
+                    weakSelf?.searchResultsForUrges = records
+                    print(records)
+                    if let completionBlock = completion {
+                        completionBlock()
+                    }
+                    }
             } else {
                 print(error)
             }
         }
         
-        recordService.readAllRecordsFromPhoneWithSearchText(searchText, sortType: TRTrackingType.TrackAction, completion: recordsRetrievalCompletion)
+        recordService.readAllRecordsFromPhoneWithSearchText(searchText, sortType: sortType, completion: recordsRetrievalCompletion)
     }
 }
