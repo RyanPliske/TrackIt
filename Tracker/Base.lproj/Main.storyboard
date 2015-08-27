@@ -81,10 +81,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" barStyle="black" placeholder="Search Through Your Records" translatesAutoresizingMaskIntoConstraints="NO" id="QCP-yP-v5L">
+                            <searchBar contentMode="scaleToFill" barStyle="black" placeholder="Search Through Your Records" translatesAutoresizingMaskIntoConstraints="NO" id="QCP-yP-v5L">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <color key="barTintColor" red="0.074731691919191934" green="0.074731691919191934" blue="0.074731691919191934" alpha="1" colorSpace="calibratedRGB"/>
-                                <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="search"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES"/>
                             </searchBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="runner" translatesAutoresizingMaskIntoConstraints="NO" id="8p2-UF-fks">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
@@ -184,26 +184,9 @@
                         <outlet property="editTracksTableView" destination="FwJ-qE-Jh7" id="fQ7-G9-cF9"/>
                         <outlet property="itemTypeSegmentedControl" destination="yY0-5y-3hh" id="5f8-3t-Deo"/>
                         <outlet property="recordSearchBar" destination="QCP-yP-v5L" id="d6v-F0-uzT"/>
-                        <outlet property="searchDisplayController" destination="BFB-aP-FdU" id="mAV-Xk-E7A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wm5-K6-5hj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="B2L-kO-1f5">
-                    <connections>
-                        <outlet property="delegate" destination="7Tx-Ke-KiD" id="gUN-Re-uvP"/>
-                        <outlet property="searchContentsController" destination="7Tx-Ke-KiD" id="I1J-PP-Px9"/>
-                        <outlet property="searchResultsDataSource" destination="7Tx-Ke-KiD" id="rT9-Oj-uXO"/>
-                        <outlet property="searchResultsDelegate" destination="7Tx-Ke-KiD" id="61q-3P-BDn"/>
-                    </connections>
-                </searchDisplayController>
-                <searchDisplayController id="BFB-aP-FdU">
-                    <connections>
-                        <outlet property="delegate" destination="7Tx-Ke-KiD" id="LdQ-fi-7hw"/>
-                        <outlet property="searchContentsController" destination="7Tx-Ke-KiD" id="yKH-ca-l6C"/>
-                        <outlet property="searchResultsDataSource" destination="7Tx-Ke-KiD" id="oin-U9-Hmq"/>
-                        <outlet property="searchResultsDelegate" destination="7Tx-Ke-KiD" id="uIk-l9-ti4"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="666.5" y="518.5"/>
         </scene>
