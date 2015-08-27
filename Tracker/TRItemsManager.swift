@@ -7,6 +7,14 @@ public class TRItemsManager : NSObject {
     private var recordService: TRRecordService
     public var tracks = [TRRecord]()
     public var urges = [TRRecord]()
+    public var records: [TRRecord] {
+        switch (self.itemSortType) {
+        case .TrackAction:
+            return self.tracks
+        case .TrackUrge:
+            return self.urges
+        }
+    }
     
     public init(recordService: TRRecordService) {
         self.recordService = recordService
@@ -19,6 +27,15 @@ public class TRItemsManager : NSObject {
     
     public func grabTodaysUrges() {
         grabTodaysRecordsWithSortType(TRTrackingType.TrackUrge)
+    }
+    
+    public func remove(record: TRRecord) {
+        switch (self.itemSortType) {
+        case .TrackAction:
+            tracks = tracks.filter() { $0 !== record}
+        case .TrackUrge:
+            urges = urges.filter() { $0 !== record}
+        }
     }
     
     private func grabTodaysRecordsWithSortType(sortType: TRTrackingType) {

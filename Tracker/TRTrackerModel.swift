@@ -34,7 +34,12 @@ public class TRTrackerModel: NSObject {
             }
         }
         
-        self.recordService.createRecordWithItem(item, quantity: itemQuantity, itemType: type, date: date, completion: blockCompletion)
+        recordService.createRecordWithItem(item, quantity: itemQuantity, itemType: type, date: date, completion: blockCompletion)
+    }
+    
+    public func untrack(record: TRRecord) {
+        recordService.deleteRecord(record)
+        itemsManager.remove(record)
     }
     
     func setSortType(sortType: TRTrackingType) {

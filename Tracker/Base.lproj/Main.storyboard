@@ -107,7 +107,7 @@
                                 <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" selectionStyle="blue" indentationWidth="10" reuseIdentifier="editTracks" rowHeight="90" id="tP0-48-Ogl" customClass="TREditTracksTableViewCell" customModule="Tracker" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="editTracks" rowHeight="90" id="tP0-48-Ogl" customClass="TREditTracksTableViewCell" customModule="Tracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="tP0-48-Ogl" id="XYT-Sd-BQo">

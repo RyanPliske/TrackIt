@@ -42,4 +42,8 @@ public class TRRecordService : NSObject {
     public func deleteAllRecordsFromPhone() {
         TRRecord.unpinAllObjects()
     }
+    
+    public func deleteRecord(record: TRRecord) {
+        record.unpin()
+    }
 }
