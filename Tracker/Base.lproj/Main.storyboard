@@ -128,7 +128,7 @@
                                                     <color key="textColor" red="0.0" green="0.57809930099999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXx-09-si4">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Date" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXx-09-si4">
                                                     <rect key="frame" x="15" y="59" width="36" height="24"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -150,6 +150,13 @@
                                                 <constraint firstItem="fkU-gH-DUb" firstAttribute="leading" secondItem="XYT-Sd-BQo" secondAttribute="leadingMargin" constant="7" id="sml-MR-mp3"/>
                                                 <constraint firstItem="lLl-GN-W6i" firstAttribute="leading" secondItem="fkU-gH-DUb" secondAttribute="trailing" constant="5" id="yHh-Lb-sRx"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="GJw-nu-euc"/>
+                                                    <exclude reference="iiM-ml-H7M"/>
+                                                    <exclude reference="F41-EU-UCd"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
