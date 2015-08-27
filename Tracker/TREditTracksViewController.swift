@@ -25,6 +25,10 @@ class TREditTracksViewController: UIViewController, UITableViewDataSource {
         }
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        trackerModel?.setSortType(TRTrackingType.TrackAction)
+    }
+    
     override func setEditing(editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         editTracksTableView.setEditing(editing, animated: animated)
