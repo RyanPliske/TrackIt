@@ -56,8 +56,8 @@ public class TRTrackerModel: NSObject {
     }
     
     public func untrack(record: TRRecord) {
-        recordService.deleteRecord(record)
         itemsManager.remove(record)
+        recordService.deleteRecord(record)
     }
     
     func searchRecordsFor(searchText: String, completion: TRSearchCompletion?) {

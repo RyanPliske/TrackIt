@@ -52,9 +52,11 @@ public class TRItemsManager : NSObject {
     public func remove(record: TRRecord) {
         switch (self.itemSortType) {
         case .TrackAction:
-            tracks = tracks.filter() { $0 !== record}
+            tracks = tracks.filter { $0 !== record }
+            searchResultsForTracks = searchResultsForTracks.filter { $0 !== record }
         case .TrackUrge:
-            urges = urges.filter() { $0 !== record}
+            urges = urges.filter { $0 !== record }
+            searchResultsForUrges = searchResultsForUrges.filter { $0 !== record }
         }
     }
     
