@@ -2,6 +2,7 @@ import Foundation
 import Parse
 
 public typealias TRCreateRecordCompletion = () -> Void
+public typealias TRSearchCompletion = () -> Void
 
 public class TRTrackerModel: NSObject {
     var recordService: TRRecordService
@@ -52,8 +53,10 @@ public class TRTrackerModel: NSObject {
         itemsManager.remove(record)
     }
     
-    func searchRecordsFor(searchText: String) {
-        itemsManager.grabAllRecordsContaining(searchText)
+    func searchRecordsFor(searchText: String, completion: TRSearchCompletion?) {
+        if let completionBlock = completion {
+            itemsManager.grabAllRecordsContaining(searchText, completion: completionBlock)
+        }
     }
 
     private func quantityForRow(row: Int) -> Int {

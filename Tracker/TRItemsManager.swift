@@ -29,9 +29,11 @@ public class TRItemsManager : NSObject {
         grabRecordsWithSortType(TRTrackingType.TrackUrge)
     }
     
-    func grabAllRecordsContaining(searchText: String) {
-        grabRecordsWithSearchText(searchText, sortType: .TrackAction)
-        grabRecordsWithSearchText(searchText, sortType: .TrackUrge)
+    func grabAllRecordsContaining(searchText: String, completion: TRSearchCompletion?) {
+        if let completionBlock = completion {
+            grabRecordsWithSearchText(searchText, sortType: .TrackAction, completion: completionBlock)
+            grabRecordsWithSearchText(searchText, sortType: .TrackUrge, completion: completionBlock)
+        }
     }
     
     public func remove(record: TRRecord) {
@@ -65,17 +67,21 @@ public class TRItemsManager : NSObject {
         self.recordService.readAllRecordsFromPhoneWithSortType(sortType, completion: recordsRetrievalCompletion)
     }
     
-    private func grabRecordsWithSearchText(searchText: String, sortType: TRTrackingType) {
+    private func grabRecordsWithSearchText(searchText: String, sortType: TRTrackingType, completion: TRSearchCompletion?) {
         weak var weakSelf = self
         
         let recordsRetrievalCompletion: PFArrayResultBlock = {
             (objects: [AnyObject]?, error: NSError?) in
             if let records = objects as? [TRRecord] {
-                switch (sortType) {
-                case .TrackAction:
-                    weakSelf?.tracks = records
-                case .TrackUrge:
-                    weakSelf?.urges = records
+                if let completionBlock = completion {
+                    switch (sortType) {
+                    case .TrackAction:
+                        weakSelf?.tracks = records
+                        completionBlock()
+                    case .TrackUrge:
+                        weakSelf?.urges = records
+                        completionBlock()
+                    }
                 }
                 
             } else {

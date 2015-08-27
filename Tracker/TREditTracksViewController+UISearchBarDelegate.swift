@@ -6,7 +6,10 @@ extension TREditTracksViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
         searchBar.setShowsCancelButton(false, animated: true)
         if let searchText = searchBar.text {
-            trackerModel?.searchRecordsFor(searchText)
+            weak var weakSelf = self
+            trackerModel?.searchRecordsFor(searchText, completion: { () -> Void in
+                weakSelf?.editTracksTableView.reloadData()
+            })
         }
     }
     
