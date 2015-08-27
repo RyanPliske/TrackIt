@@ -30,7 +30,8 @@ public class TRItemsManager : NSObject {
     }
     
     func grabAllRecordsContaining(searchText: String) {
-        grabRecordsWithSearchText(searchText)
+        grabRecordsWithSearchText(searchText, sortType: .TrackAction)
+        grabRecordsWithSearchText(searchText, sortType: .TrackUrge)
     }
     
     public func remove(record: TRRecord) {
@@ -46,7 +47,7 @@ public class TRItemsManager : NSObject {
     private func grabRecordsWithSortType(sortType: TRTrackingType) {
         weak var weakSelf = self
         
-        let RecordsRetrievalCompletion: PFArrayResultBlock = {
+        let recordsRetrievalCompletion: PFArrayResultBlock = {
             (objects: [AnyObject]?, error: NSError?) in
             if let records = objects as? [TRRecord] {
                 switch (sortType) {
@@ -61,11 +62,27 @@ public class TRItemsManager : NSObject {
             }
         }
         
-        self.recordService.readAllRecordsFromPhoneWithSortType(sortType, completion: RecordsRetrievalCompletion)
+        self.recordService.readAllRecordsFromPhoneWithSortType(sortType, completion: recordsRetrievalCompletion)
     }
     
-    private func grabRecordsWithSearchText(searchText: String) {
-        recordService.readAllRecordsFromPhoneWithSearchText(searchText, sortType: TRTrackingType.TrackAction, completion: nil)
-        recordService.readAllRecordsFromPhoneWithSearchText(searchText, sortType: TRTrackingType.TrackUrge, completion: nil)
+    private func grabRecordsWithSearchText(searchText: String, sortType: TRTrackingType) {
+        weak var weakSelf = self
+        
+        let recordsRetrievalCompletion: PFArrayResultBlock = {
+            (objects: [AnyObject]?, error: NSError?) in
+            if let records = objects as? [TRRecord] {
+                switch (sortType) {
+                case .TrackAction:
+                    weakSelf?.tracks = records
+                case .TrackUrge:
+                    weakSelf?.urges = records
+                }
+                
+            } else {
+                print(error)
+            }
+        }
+        
+        recordService.readAllRecordsFromPhoneWithSearchText(searchText, sortType: TRTrackingType.TrackAction, completion: recordsRetrievalCompletion)
     }
 }

@@ -46,9 +46,19 @@ public class TRRecordService : NSObject {
                 completionBlock(objects, error)
             }
         }
-        let query = PFQuery(className: "record")
+        
+        let withinDate = PFQuery(className: "record")
+        withinDate.fromLocalDatastore()
+        withinDate.whereKey("date", containsString: searchText)
+        
+        let withinItem = PFQuery(className: "record")
+        withinItem.fromLocalDatastore()
+        withinItem.whereKey("item", containsString: searchText)
+        
+        let query = PFQuery.orQueryWithSubqueries([withinDate, withinItem])
         query.fromLocalDatastore()
-        print(searchText)
+        query.whereKey("type", equalTo: TRRecord.stringFromSortType(sortType))
+        query.findObjectsInBackgroundWithBlock(BackgroundRetrievalCompletion)
     }
     
     public func deleteAllRecordsFromPhone() {
