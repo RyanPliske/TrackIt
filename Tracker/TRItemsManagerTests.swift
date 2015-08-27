@@ -12,24 +12,28 @@ class TRItemsManagerTests: XCTestCase {
     }
     
     func testTracksArrayIsInitiallyEmpty() {
-        XCTAssertTrue(testObject.tracks.isEmpty)
+        testObject.itemSortType = .TrackAction
+        XCTAssertTrue(testObject.records.isEmpty)
     }
     
     func testUrgesArrayIsEmpty() {
-        XCTAssertTrue(testObject.urges.isEmpty)
+        testObject.itemSortType = .TrackUrge
+        XCTAssertTrue(testObject.records.isEmpty)
     }
     
     func testWhenGrabingTodaysTracks_ThenTracksIsNotEmpty() {
         testObject.grabTodaysTracks()
-        XCTAssert(!testObject.tracks.isEmpty)
-        XCTAssert(testObject.urges.isEmpty)
-        testObject.tracks.removeAll()
+        testObject.itemSortType = .TrackUrge
+        XCTAssert(testObject.records.isEmpty)
+        testObject.itemSortType = .TrackAction
+        XCTAssert(!testObject.records.isEmpty)
     }
     
     func testWhenGrabbingTodaysUrges_ThenUrgesIsNotEmpty() {
         testObject.grabTodaysUrges()
-        XCTAssert(!testObject.urges.isEmpty)
-        XCTAssert(testObject.tracks.isEmpty)
-        testObject.urges.removeAll()
+        testObject.itemSortType = .TrackAction
+        XCTAssert(testObject.records.isEmpty)
+        testObject.itemSortType = .TrackUrge
+        XCTAssert(!testObject.records.isEmpty)
     }
 }

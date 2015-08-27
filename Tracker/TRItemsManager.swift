@@ -2,11 +2,11 @@ import Foundation
 import Parse
 
 public class TRItemsManager : NSObject {
-    var itemSortType = TRTrackingType.TrackAction
-    var trackableItems = TRTrackableItems()
+    internal var trackableItems = TRTrackableItems()
     private var recordService: TRRecordService
-    public var tracks = [TRRecord]()
-    public var urges = [TRRecord]()
+    private var tracks = [TRRecord]()
+    private var urges = [TRRecord]()
+    public var itemSortType = TRTrackingType.TrackAction
     public var records: [TRRecord] {
         switch (self.itemSortType) {
         case .TrackAction:
