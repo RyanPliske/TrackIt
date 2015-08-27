@@ -39,6 +39,18 @@ public class TRRecordService : NSObject {
         query.findObjectsInBackgroundWithBlock(BackgroundRetrievalCompletion)
     }
     
+    func readAllRecordsFromPhoneWithSearchText(searchText: String, sortType: TRTrackingType, completion: PFArrayResultBlock?) {
+        let BackgroundRetrievalCompletion: PFArrayResultBlock = {
+            (objects: [AnyObject]?, error: NSError?) in
+            if let completionBlock = completion {
+                completionBlock(objects, error)
+            }
+        }
+        let query = PFQuery(className: "record")
+        query.fromLocalDatastore()
+        print(searchText)
+    }
+    
     public func deleteAllRecordsFromPhone() {
         TRRecord.unpinAllObjects()
     }

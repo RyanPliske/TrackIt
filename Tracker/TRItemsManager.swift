@@ -6,7 +6,7 @@ public class TRItemsManager : NSObject {
     private var recordService: TRRecordService
     private var tracks = [TRRecord]()
     private var urges = [TRRecord]()
-    public var itemSortType = TRTrackingType.TrackAction
+    internal var itemSortType = TRTrackingType.TrackAction
     public var records: [TRRecord] {
         switch (self.itemSortType) {
         case .TrackAction:
@@ -21,12 +21,16 @@ public class TRItemsManager : NSObject {
         super.init()
     }
     
-    public func grabTodaysTracks() {
-        grabTodaysRecordsWithSortType(TRTrackingType.TrackAction)
+    public func grabAllTracks() {
+        grabRecordsWithSortType(TRTrackingType.TrackAction)
     }
     
-    public func grabTodaysUrges() {
-        grabTodaysRecordsWithSortType(TRTrackingType.TrackUrge)
+    public func grabAllUrges() {
+        grabRecordsWithSortType(TRTrackingType.TrackUrge)
+    }
+    
+    func grabAllRecordsContaining(searchText: String) {
+        grabRecordsWithSearchText(searchText)
     }
     
     public func remove(record: TRRecord) {
@@ -38,7 +42,8 @@ public class TRItemsManager : NSObject {
         }
     }
     
-    private func grabTodaysRecordsWithSortType(sortType: TRTrackingType) {
+    // MARK: Helpers
+    private func grabRecordsWithSortType(sortType: TRTrackingType) {
         weak var weakSelf = self
         
         let RecordsRetrievalCompletion: PFArrayResultBlock = {
@@ -57,5 +62,10 @@ public class TRItemsManager : NSObject {
         }
         
         self.recordService.readAllRecordsFromPhoneWithSortType(sortType, completion: RecordsRetrievalCompletion)
+    }
+    
+    private func grabRecordsWithSearchText(searchText: String) {
+        recordService.readAllRecordsFromPhoneWithSearchText(searchText, sortType: TRTrackingType.TrackAction, completion: nil)
+        recordService.readAllRecordsFromPhoneWithSearchText(searchText, sortType: TRTrackingType.TrackUrge, completion: nil)
     }
 }

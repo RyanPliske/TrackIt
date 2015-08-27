@@ -6,13 +6,20 @@ public typealias TRCreateRecordCompletion = () -> Void
 public class TRTrackerModel: NSObject {
     var recordService: TRRecordService
     public var itemsManager: TRItemsManager
+    public var sortType: TRTrackingType {
+        return self.itemsManager.itemSortType
+    }
     
     public init(recordService: TRRecordService) {
         self.recordService = recordService
         self.itemsManager = TRItemsManager(recordService: self.recordService)
         super.init()
-        self.itemsManager.grabTodaysTracks()
-        self.itemsManager.grabTodaysUrges()
+        self.itemsManager.grabAllTracks()
+        self.itemsManager.grabAllUrges()
+    }
+    
+    func setSortType(sortType: TRTrackingType) {
+        itemsManager.itemSortType = sortType
     }
     
     public func trackItemAtRow(row: Int, quantityRow: Int, type: TRTrackingType, date: NSDate) {
@@ -28,9 +35,9 @@ public class TRTrackerModel: NSObject {
         let blockCompletion: TRCreateRecordCompletion = {
             switch (type) {
                 case .TrackAction:
-                    weakSelf?.itemsManager.grabTodaysTracks()
+                    weakSelf?.itemsManager.grabAllTracks()
                 case .TrackUrge:
-                    weakSelf?.itemsManager.grabTodaysUrges()
+                    weakSelf?.itemsManager.grabAllUrges()
             }
         }
         
@@ -42,8 +49,8 @@ public class TRTrackerModel: NSObject {
         itemsManager.remove(record)
     }
     
-    func setSortType(sortType: TRTrackingType) {
-        itemsManager.itemSortType = sortType
+    func searchRecordsFor(searchText: String) {
+        itemsManager.grabAllRecordsContaining(searchText)
     }
 
     private func quantityForRow(row: Int) -> Int {
