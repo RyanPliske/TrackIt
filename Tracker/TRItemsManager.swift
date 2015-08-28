@@ -74,7 +74,12 @@ public class TRItemsManager : NSObject {
                 }
                 
             } else {
-                print(error)
+                switch (sortType) {
+                case .TrackAction:
+                    weakSelf?.grabAllTracks()
+                case .TrackUrge:
+                    weakSelf?.grabAllUrges()
+                }
             }
         }
         
