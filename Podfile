@@ -3,8 +3,8 @@ use_frameworks!
 
 target 'Tracker' do
     pod 'Parse'
-    #pod 'Fabric'
-    #pod 'Crashlytics'
+    pod 'Fabric'
+    pod 'Crashlytics'
 end
 
 target 'TrackerTests' do
