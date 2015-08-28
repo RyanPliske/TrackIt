@@ -37,7 +37,6 @@
 		EF7CE0101AF0204700C451B1 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE00F1AF0204700C451B1 /* TPKeyboardAvoidingScrollView.m */; };
 		EF7CE0131AF021C600C451B1 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE0121AF021C600C451B1 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		EF7CE0171AF0228600C451B1 /* HTPressableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE0161AF0228600C451B1 /* HTPressableButton.m */; };
-		EF7CE01A1AF0238800C451B1 /* FXForms.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE0191AF0238800C451B1 /* FXForms.m */; };
 		EF7CE01D1AF023B000C451B1 /* UIImage+HTButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE01C1AF023B000C451B1 /* UIImage+HTButton.m */; };
 		EF7CE0221AF023CC00C451B1 /* HTPressableButtonPrefs.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE01F1AF023CC00C451B1 /* HTPressableButtonPrefs.m */; };
 		EF7CE0231AF023CC00C451B1 /* UIColor+HTColor.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE0211AF023CC00C451B1 /* UIColor+HTColor.m */; };
@@ -52,7 +51,6 @@
 		EFE083FD1A86A9B100AC9631 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFE083FC1A86A9B100AC9631 /* Images.xcassets */; };
 		EFF328DB1B87C218001B9E84 /* TREditTracksTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF328DA1B87C218001B9E84 /* TREditTracksTableView.swift */; };
 		EFF328DD1B87C5C6001B9E84 /* TREditTracksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF328DC1B87C5C6001B9E84 /* TREditTracksTableViewCell.swift */; };
-		EFF5E6061A8861BC00B59CD4 /* SettingsForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF5E6051A8861BC00B59CD4 /* SettingsForm.swift */; };
 		EFF85C6A1B8261FA00F766DB /* TRRecordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF85C691B8261FA00F766DB /* TRRecordService.swift */; };
 		EFFCF9DA1AFA9318004DEDB9 /* TRDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCF9D91AFA9318004DEDB9 /* TRDateFormatter.swift */; };
 		EFFCF9DC1AFA9C26004DEDB9 /* TRCurrentDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCF9DB1AFA9C26004DEDB9 /* TRCurrentDate.swift */; };
@@ -130,8 +128,6 @@
 		EF7CE0121AF021C600C451B1 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 		EF7CE0151AF0228600C451B1 /* HTPressableButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTPressableButton.h; sourceTree = "<group>"; };
 		EF7CE0161AF0228600C451B1 /* HTPressableButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTPressableButton.m; sourceTree = "<group>"; };
-		EF7CE0181AF0238800C451B1 /* FXForms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXForms.h; sourceTree = "<group>"; };
-		EF7CE0191AF0238800C451B1 /* FXForms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXForms.m; sourceTree = "<group>"; };
 		EF7CE01B1AF023B000C451B1 /* UIImage+HTButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+HTButton.h"; sourceTree = "<group>"; };
 		EF7CE01C1AF023B000C451B1 /* UIImage+HTButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+HTButton.m"; sourceTree = "<group>"; };
 		EF7CE01E1AF023CC00C451B1 /* HTPressableButtonPrefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTPressableButtonPrefs.h; sourceTree = "<group>"; };
@@ -167,7 +163,6 @@
 		EFF328DA1B87C218001B9E84 /* TREditTracksTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREditTracksTableView.swift; sourceTree = "<group>"; };
 		EFF328DC1B87C5C6001B9E84 /* TREditTracksTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREditTracksTableViewCell.swift; sourceTree = "<group>"; };
 		EFF5E6011A885BCB00B59CD4 /* Tracker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tracker-Bridging-Header.h"; sourceTree = "<group>"; };
-		EFF5E6051A8861BC00B59CD4 /* SettingsForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsForm.swift; sourceTree = "<group>"; };
 		EFF85C691B8261FA00F766DB /* TRRecordService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TRRecordService.swift; path = ../TRRecordService.swift; sourceTree = "<group>"; };
 		EFFCF9D91AFA9318004DEDB9 /* TRDateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRDateFormatter.swift; sourceTree = "<group>"; };
 		EFFCF9DB1AFA9C26004DEDB9 /* TRCurrentDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCurrentDate.swift; sourceTree = "<group>"; };
@@ -290,15 +285,6 @@
 			name = TRTrackerModel;
 			sourceTree = "<group>";
 		};
-		EF7CE00A1AF0050300C451B1 /* FXForms */ = {
-			isa = PBXGroup;
-			children = (
-				EF7CE0181AF0238800C451B1 /* FXForms.h */,
-				EF7CE0191AF0238800C451B1 /* FXForms.m */,
-			);
-			name = FXForms;
-			sourceTree = "<group>";
-		};
 		EF7CE00D1AF0202F00C451B1 /* TPKeyboardAvoiding */ = {
 			isa = PBXGroup;
 			children = (
@@ -377,7 +363,6 @@
 				EF3D9FA51B850E8E009042CA /* CLWeeklyCalendarViewSourceCode */,
 				EF7CE0141AF0227500C451B1 /* HTPressableButton */,
 				EF7CE00D1AF0202F00C451B1 /* TPKeyboardAvoiding */,
-				EF7CE00A1AF0050300C451B1 /* FXForms */,
 			);
 			name = "Vendor Components";
 			sourceTree = "<group>";
@@ -413,7 +398,6 @@
 				EFE083F31A86A9B100AC9631 /* AppDelegate.swift */,
 				EF52F2441A8735CF00315B35 /* SettingsViewController.swift */,
 				EFE083F71A86A9B100AC9631 /* StatsViewController.swift */,
-				EFF5E6051A8861BC00B59CD4 /* SettingsForm.swift */,
 				EFE083F91A86A9B100AC9631 /* Main.storyboard */,
 				EFCA44AB1AF2BCD40012AE52 /* Vendor Components */,
 				EFE083F11A86A9B100AC9631 /* Supporting Files */,
@@ -679,7 +663,6 @@
 			files = (
 				EF7CE0171AF0228600C451B1 /* HTPressableButton.m in Sources */,
 				EF3D9FB81B850E8E009042CA /* NSDate+CL.m in Sources */,
-				EF7CE01A1AF0238800C451B1 /* FXForms.m in Sources */,
 				EF35BA301AF3D29400456D38 /* TRTrackingType.swift in Sources */,
 				EF3D9FBD1B85146F009042CA /* TRTrackerPresenter+TRDateChooserObserver.swift in Sources */,
 				EF6A8B4F1B3B91E60012312E /* TRTrackerPresenter+UIPickerViewDataSource.swift in Sources */,
@@ -699,7 +682,6 @@
 				EFF85C6A1B8261FA00F766DB /* TRRecordService.swift in Sources */,
 				EF44E7C51B87E64F0088242C /* TREditTracksViewController.swift in Sources */,
 				EFFCF9DC1AFA9C26004DEDB9 /* TRCurrentDate.swift in Sources */,
-				EFF5E6061A8861BC00B59CD4 /* SettingsForm.swift in Sources */,
 				EF53D0631B866616007873B4 /* TRToolbar.swift in Sources */,
 				EF3D9FB61B850E8E009042CA /* DailyCalendarView.m in Sources */,
 				EF3779A21B8ECB7300D6FB97 /* TREditTracksViewController+UITableViewDataSource.swift in Sources */,

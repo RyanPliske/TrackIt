@@ -1,9 +1,6 @@
 // Tracker-Bridging-Header
 
 #import <UIKit/UIKit.h>
-// FXForms v1.2.12
-// https://github.com/nicklockwood/FXForms/releases
-#import "FXForms.h"
 // TPKeyboardAvoidingScrollView v1.2.6
 // https://github.com/michaeltyson/TPKeyboardAvoiding/releases
 #import "TPKeyboardAvoidingScrollView.h"
@@ -13,6 +10,3 @@
 #import "UIColor+HTColor.h"
 // CLCalendar
 #import "CLWeeklyCalendarView.h"
-
-//#import <Parse/Parse.h>
-//#import <Bolts/Bolts.h>
