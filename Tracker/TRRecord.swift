@@ -53,9 +53,6 @@ public class TRRecord: PFObject, PFSubclassing {
     }
     
     // MARK: Helper
-//    public static func itemTypeFrom(type: TRTrackingType) -> String {
-//        return (type == TRTrackingType.TrackAction) ? "action" : "urge"
-//    }
     
     public static func stringFromSortType(sortType: TRTrackingType) -> String {
         switch (sortType) {

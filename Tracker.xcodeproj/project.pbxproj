@@ -43,6 +43,7 @@
 		EF802E151B8A9A1900C51C33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFE083F91A86A9B100AC9631 /* Main.storyboard */; };
 		EFA9B5E81B7D7EBD00BAA839 /* TRTrackerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA9B5E71B7D7EBD00BAA839 /* TRTrackerPresenter.swift */; };
 		EFA9B5EA1B7D811800BAA839 /* TRTrackerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA9B5E91B7D811800BAA839 /* TRTrackerModel.swift */; };
+		EFB392911B93609E002EC06C /* MockRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB392901B93609E002EC06C /* MockRecord.swift */; };
 		EFC9CD6B1B7D606800060D54 /* TRTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC9CD6A1B7D606800060D54 /* TRTrackerView.swift */; };
 		EFCA44AE1AF2BD430012AE52 /* TRTrackerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA44AD1AF2BD430012AE52 /* TRTrackerButton.swift */; };
 		EFE083F41A86A9B100AC9631 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE083F31A86A9B100AC9631 /* AppDelegate.swift */; };
@@ -149,6 +150,7 @@
 		EFA9B5E71B7D7EBD00BAA839 /* TRTrackerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRTrackerPresenter.swift; sourceTree = "<group>"; };
 		EFA9B5E91B7D811800BAA839 /* TRTrackerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRTrackerModel.swift; sourceTree = "<group>"; };
 		EFABDA1B1B2B299300FCF5A3 /* MainInterfacePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainInterfacePresenter.swift; sourceTree = "<group>"; };
+		EFB392901B93609E002EC06C /* MockRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockRecord.swift; sourceTree = "<group>"; };
 		EFC9CD6A1B7D606800060D54 /* TRTrackerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRTrackerView.swift; sourceTree = "<group>"; };
 		EFCA44AD1AF2BD430012AE52 /* TRTrackerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRTrackerButton.swift; sourceTree = "<group>"; };
 		EFE083EE1A86A9B100AC9631 /* Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -420,6 +422,7 @@
 			children = (
 				EFE084091A86A9B100AC9631 /* Supporting Files */,
 				EF70DE2A1B8D3DBA00CDAFC5 /* MockRecordService.swift */,
+				EFB392901B93609E002EC06C /* MockRecord.swift */,
 			);
 			path = TrackerTests;
 			sourceTree = "<group>";
@@ -710,6 +713,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFB392911B93609E002EC06C /* MockRecord.swift in Sources */,
 				EF70DE2B1B8D3DBA00CDAFC5 /* MockRecordService.swift in Sources */,
 				EFFDD9641B8BB9090062FFCE /* TRTrackerModelTests.swift in Sources */,
 				EFFDD9651B8BB9090062FFCE /* TRRecordServiceTests.swift in Sources */,

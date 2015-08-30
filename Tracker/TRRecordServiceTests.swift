@@ -15,7 +15,7 @@ class TRRecordServiceTests : XCTestCase {
         let expectedType = "action"
         let expectedDate = TRDateFormatter.descriptionForDate(NSDate())
         
-        let expectedRecord = TRRecord(className: "record")
+        let expectedRecord = MockRecord(className: "record")
         expectedRecord.itemName = expectedItem
         expectedRecord.itemQuantity = expectedQuantity
         expectedRecord.itemType = expectedType
@@ -35,7 +35,7 @@ class TRRecordServiceTests : XCTestCase {
         let expectedType = "urge"
         let expectedDate = TRDateFormatter.descriptionForDate(NSDate())
         
-        let expectedRecord = TRRecord(className: "record")
+        let expectedRecord = MockRecord(className: "record")
         expectedRecord.itemName = expectedItem
         expectedRecord.itemQuantity = expectedQuantity
         expectedRecord.itemType = expectedType
