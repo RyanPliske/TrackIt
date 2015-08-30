@@ -1,6 +1,4 @@
 import XCTest
-import Parse
-import Tracker
 
 class TRTrackerModelTests: XCTestCase {
     let mockRecordService = MockRecordService()

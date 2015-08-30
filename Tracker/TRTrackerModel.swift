@@ -1,23 +1,23 @@
 import Foundation
 import Parse
 
-public typealias TRCreateRecordCompletion = () -> Void
-public typealias TRSearchCompletion = () -> Void
+typealias TRCreateRecordCompletion = () -> Void
+typealias TRSearchCompletion = () -> Void
 
-public class TRTrackerModel: NSObject {
+class TRTrackerModel: NSObject {
     var recordService: TRRecordService
-    public var itemsManager: TRItemsManager
-    public var sortType: TRTrackingType {
+    var itemsManager: TRItemsManager
+    var sortType: TRTrackingType {
         return self.itemsManager.itemSortType
     }
-    public var records: [TRRecord] {
+    var records: [TRRecord] {
         return self.itemsManager.records
     }
-    public var searchMode: Bool {
+    var searchMode: Bool {
         return self.itemsManager.searchMode
     }
     
-    public init(recordService: TRRecordService) {
+    init(recordService: TRRecordService) {
         self.recordService = recordService
         self.itemsManager = TRItemsManager(recordService: self.recordService)
         super.init()
@@ -33,7 +33,7 @@ public class TRTrackerModel: NSObject {
         itemsManager.searchMode = searchMode
     }
     
-    public func trackItemAtRow(row: Int, quantityRow: Int, type: TRTrackingType, date: NSDate) {
+    func trackItemAtRow(row: Int, quantityRow: Int, type: TRTrackingType, date: NSDate) {
         var item: String
         if type == TRTrackingType.TrackUrge {
             item = self.itemsManager.trackableItems.sinfulItems[row]
@@ -55,7 +55,7 @@ public class TRTrackerModel: NSObject {
         recordService.createRecordWithItem(item, quantity: itemQuantity, itemType: type, date: date, completion: blockCompletion)
     }
     
-    public func untrack(record: TRRecord) {
+    func untrack(record: TRRecord) {
         itemsManager.remove(record)
         recordService.deleteRecord(record)
     }

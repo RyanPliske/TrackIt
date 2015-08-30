@@ -4,9 +4,9 @@ import Parse
 class MockRecordService: TRRecordService {
     var createRecordCalled = false
     
-    override func createRecordWithItem(item: String, quantity: Int, itemType: TRTrackingType, date: NSDate, completion: TRCreateRecordCompletion?) -> TRRecord {
+    override func createRecordWithItem(item: String, quantity: Int, itemType: TRTrackingType, date: NSDate, completion: TRCreateRecordCompletion?) -> MockRecord {
         let expectedQuantity = 4
-        let expectedRecord = TRRecord(className: "record")
+        let expectedRecord = MockRecord(className: "record")
         expectedRecord.itemName = "Baby Kicks"
         expectedRecord.itemQuantity = expectedQuantity
         expectedRecord.itemType = "action"
@@ -16,8 +16,8 @@ class MockRecordService: TRRecordService {
     }
     
     override func readAllRecordsFromPhoneWithSortType(sortType: TRTrackingType, completion: PFArrayResultBlock) {
-        let record = TRRecord(className: "record")
-        var records = [TRRecord]()
+        let record = MockRecord(className: "record")
+        var records = [MockRecord]()
         records.append(record)
         completion(records as [AnyObject]?, nil)
     }

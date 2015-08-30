@@ -1,22 +1,22 @@
 import Foundation
 import Parse
 
-public class TRRecord: PFObject, PFSubclassing {
+class TRRecord: PFObject, PFSubclassing {
     // MARK: Parse Setup
-    override public class func initialize() {
+    override class func initialize() {
         struct Static {
             static var onceToken: dispatch_once_t = 0;
         }
         dispatch_once(&Static.onceToken) {
-            self.registerSubclass()
+                self.registerSubclass()
         }
     }
     
-    public class func parseClassName() -> String {
+    class func parseClassName() -> String {
         return "record"
     }
     // MARK: Properties
-    public var itemName: String? {
+    var itemName: String? {
         get {
             return self["item"] as? String
         }
@@ -25,7 +25,7 @@ public class TRRecord: PFObject, PFSubclassing {
         }
     }
     
-    public var itemQuantity: Int? {
+    var itemQuantity: Int? {
         get {
             return self["quantity"] as? Int
         }
@@ -34,7 +34,7 @@ public class TRRecord: PFObject, PFSubclassing {
         }
     }
     
-    public var itemType: String? {
+    var itemType: String? {
         get {
             return self["type"] as? String
         }
@@ -43,7 +43,7 @@ public class TRRecord: PFObject, PFSubclassing {
         }
     }
     
-    public var itemDate: String? {
+    var itemDate: String? {
         get {
             return self["date"] as? String
         }
@@ -54,7 +54,7 @@ public class TRRecord: PFObject, PFSubclassing {
     
     // MARK: Helper
     
-    public static func stringFromSortType(sortType: TRTrackingType) -> String {
+    static func stringFromSortType(sortType: TRTrackingType) -> String {
         switch (sortType) {
         case .TrackAction:
             return "action"
@@ -62,5 +62,5 @@ public class TRRecord: PFObject, PFSubclassing {
             return "urge"
         }
     }
-    
+
 }

@@ -1,9 +1,9 @@
 import Foundation
 import Parse
 
-public class TRRecordService : NSObject {
+class TRRecordService : NSObject {
     
-    public func createRecordWithItem(item: String, quantity: Int, itemType: TRTrackingType, date: NSDate, completion: TRCreateRecordCompletion?) -> TRRecord {
+    func createRecordWithItem(item: String, quantity: Int, itemType: TRTrackingType, date: NSDate, completion: TRCreateRecordCompletion?) -> TRRecord {
         let record = TRRecord(className: "record")
         record.itemName = item
         record.itemQuantity = quantity
@@ -28,7 +28,7 @@ public class TRRecordService : NSObject {
         record.saveEventually(nil)
     }
     
-    public func readAllRecordsFromPhoneWithSortType(sortType: TRTrackingType, completion: PFArrayResultBlock) {
+    func readAllRecordsFromPhoneWithSortType(sortType: TRTrackingType, completion: PFArrayResultBlock) {
         let BackgroundRetrievalCompletion: PFArrayResultBlock = {
             (objects: [AnyObject]?, error: NSError?) in
                 completion(objects, error)
@@ -61,11 +61,11 @@ public class TRRecordService : NSObject {
         query.findObjectsInBackgroundWithBlock(BackgroundRetrievalCompletion)
     }
     
-    public func deleteAllRecordsFromPhone() {
+    func deleteAllRecordsFromPhone() {
         TRRecord.unpinAllObjects()
     }
     
-    public func deleteRecord(record: TRRecord) {
+    func deleteRecord(record: TRRecord) {
         record.unpin()
     }
 }

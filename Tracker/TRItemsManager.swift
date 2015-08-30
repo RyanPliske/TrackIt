@@ -1,16 +1,16 @@
 import Foundation
 import Parse
 
-public class TRItemsManager : NSObject {
-    internal var trackableItems = TRTrackableItems()
-    internal var itemSortType = TRTrackingType.TrackAction
-    internal var searchMode = false
+class TRItemsManager : NSObject {
+    var trackableItems = TRTrackableItems()
+    var itemSortType = TRTrackingType.TrackAction
+    var searchMode = false
     private var recordService: TRRecordService
     private var tracks = [TRRecord]()
     private var urges = [TRRecord]()
     private var searchResultsForTracks = [TRRecord]()
     private var searchResultsForUrges = [TRRecord]()
-    public var records: [TRRecord] {
+    var records: [TRRecord] {
         if searchMode {
             switch (self.itemSortType) {
             case .TrackAction:
@@ -28,16 +28,16 @@ public class TRItemsManager : NSObject {
         }
     }
     
-    public init(recordService: TRRecordService) {
+    init(recordService: TRRecordService) {
         self.recordService = recordService
         super.init()
     }
     
-    public func grabAllTracks() {
+    func grabAllTracks() {
         grabRecordsWithSortType(TRTrackingType.TrackAction)
     }
     
-    public func grabAllUrges() {
+    func grabAllUrges() {
         grabRecordsWithSortType(TRTrackingType.TrackUrge)
     }
     
@@ -49,7 +49,7 @@ public class TRItemsManager : NSObject {
         }
     }
     
-    public func remove(record: TRRecord) {
+    func remove(record: TRRecord) {
         switch (self.itemSortType) {
         case .TrackAction:
             tracks = tracks.filter { $0 !== record }
