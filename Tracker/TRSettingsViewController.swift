@@ -8,6 +8,7 @@ class TRSettingsViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setNeedsStatusBarAppearanceUpdate()
+        self.settingsTableView.dataSource = self
     }
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent;
@@ -26,6 +27,7 @@ class TRSettingsViewController: UIViewController, UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // Note: reuseIdentifier is from Storyboard
         let cell: TRSettingsTableViewCell = tableView.dequeueReusableCellWithIdentifier("settings") as! TRSettingsTableViewCell
+        cell.setSettingNameWith(settingsModel.settings[indexPath.row])
         return cell
     }
 }
