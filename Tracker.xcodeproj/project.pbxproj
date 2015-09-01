@@ -375,15 +375,14 @@
 			name = TRTracker;
 			sourceTree = "<group>";
 		};
-		EFCA44AB1AF2BCD40012AE52 /* Vendor Components */ = {
+		EFCA44AB1AF2BCD40012AE52 /* Open Sourced Libraries */ = {
 			isa = PBXGroup;
 			children = (
 				EF3D9FA51B850E8E009042CA /* CLWeeklyCalendarViewSourceCode */,
 				EF7CE0141AF0227500C451B1 /* HTPressableButton */,
 				EF7CE00D1AF0202F00C451B1 /* TPKeyboardAvoiding */,
 			);
-			name = "Vendor Components";
-			path = Tracker;
+			name = "Open Sourced Libraries";
 			sourceTree = "<group>";
 		};
 		EFD8AEA81B96486100962BA0 /* TRSettings */ = {
@@ -461,7 +460,6 @@
 			isa = PBXGroup;
 			children = (
 				EFE083F01A86A9B100AC9631 /* Tracker */,
-				EFCA44AB1AF2BCD40012AE52 /* Vendor Components */,
 				EFE084081A86A9B100AC9631 /* TrackerTests */,
 				EF9FB0661B2A4D5800AD1164 /* TrackViaWatch */,
 				EF9FB0751B2A4D5800AD1164 /* TrackViaWatch Extension */,
@@ -491,6 +489,7 @@
 				EFC9CD671B7D249B00060D54 /* TRTracker */,
 				EFD8AEB41B965F4600962BA0 /* TRStats */,
 				EFE083F11A86A9B100AC9631 /* Supporting Files */,
+				EFCA44AB1AF2BCD40012AE52 /* Open Sourced Libraries */,
 			);
 			path = Tracker;
 			sourceTree = "<group>";

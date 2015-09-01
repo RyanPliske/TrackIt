@@ -267,16 +267,15 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Weo-Rp-p4z">
-                                                                    <rect key="frame" x="18" y="13" width="326" height="33"/>
+                                                                    <rect key="frame" x="18" y="14" width="326" height="21"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstItem="Weo-Rp-p4z" firstAttribute="top" secondItem="wLe-jD-6ai" secondAttribute="topMargin" constant="5" id="FUb-CH-83C"/>
+                                                                <constraint firstItem="Weo-Rp-p4z" firstAttribute="centerY" secondItem="wLe-jD-6ai" secondAttribute="centerY" id="Hwr-SP-MIP"/>
                                                                 <constraint firstItem="Weo-Rp-p4z" firstAttribute="trailing" secondItem="wLe-jD-6ai" secondAttribute="trailingMargin" constant="10" id="JgX-PD-3Wi"/>
-                                                                <constraint firstItem="Weo-Rp-p4z" firstAttribute="bottom" secondItem="wLe-jD-6ai" secondAttribute="bottomMargin" constant="5" id="S6j-HS-c9j"/>
                                                                 <constraint firstItem="Weo-Rp-p4z" firstAttribute="leading" secondItem="wLe-jD-6ai" secondAttribute="leadingMargin" constant="10" id="vqP-D7-g1V"/>
                                                             </constraints>
                                                         </tableViewCellContentView>
