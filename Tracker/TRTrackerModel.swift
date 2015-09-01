@@ -25,7 +25,7 @@ class TRTrackerModel: NSObject {
         self.itemsManager.grabAllUrges()
     }
     
-    func setSortType(sortType: TRTrackingType) {
+    func setSortTypeTo(sortType: TRTrackingType) {
         itemsManager.itemSortType = sortType
     }
     

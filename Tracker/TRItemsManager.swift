@@ -61,6 +61,7 @@ class TRItemsManager : NSObject {
     }
     
     // MARK: Helpers
+    
     private func grabRecordsWithSortType(sortType: TRTrackingType) {
         weak var weakSelf = self
         let recordsRetrievalCompletion: PFArrayResultBlock = {

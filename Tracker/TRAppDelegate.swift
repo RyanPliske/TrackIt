@@ -6,7 +6,7 @@ import Crashlytics
 import Parse
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class TRAppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     

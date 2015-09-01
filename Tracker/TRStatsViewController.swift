@@ -1,6 +1,6 @@
 import UIKit
 
-class StatsViewController: UIViewController {
+class TRStatsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
