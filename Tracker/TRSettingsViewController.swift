@@ -8,6 +8,7 @@ class TRSettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNeedsStatusBarAppearanceUpdate()
+        title = "Settings"
         settingsTableView.dataSource = self
         settingsTableView.delegate = self
     }

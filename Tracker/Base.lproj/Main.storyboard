@@ -255,15 +255,16 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3f3-r0-ZXI">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                         <subviews>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jLY-zk-90h" customClass="TRSettingsTableView" customModule="Tracker" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="534"/>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jLY-zk-90h" customClass="TRSettingsTableView" customModule="Tracker" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="settings" id="eWP-oY-MpG" customClass="TRSettingsTableViewCell" customModule="Tracker" customModuleProvider="target">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="settings" id="eWP-oY-MpG" customClass="TRSettingsTableViewCell" customModule="Tracker" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eWP-oY-MpG" id="wLe-jD-6ai">
-                                                            <rect key="frame" x="0.0" y="0.0" width="342" height="49"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="342" height="50"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Weo-Rp-p4z">
@@ -291,7 +292,7 @@
                                             <constraint firstItem="jLY-zk-90h" firstAttribute="top" secondItem="3f3-r0-ZXI" secondAttribute="top" id="cSS-CJ-FCt"/>
                                             <constraint firstAttribute="leading" secondItem="jLY-zk-90h" secondAttribute="leading" id="eWS-Ya-4wM"/>
                                             <constraint firstAttribute="trailing" secondItem="jLY-zk-90h" secondAttribute="trailing" id="la4-Va-GCS"/>
-                                            <constraint firstItem="jLY-zk-90h" firstAttribute="bottom" secondItem="3f3-r0-ZXI" secondAttribute="bottom" constant="-20" id="uYM-zZ-KYz"/>
+                                            <constraint firstItem="jLY-zk-90h" firstAttribute="bottom" secondItem="3f3-r0-ZXI" secondAttribute="bottom" id="uYM-zZ-KYz"/>
                                         </constraints>
                                     </view>
                                 </subviews>
