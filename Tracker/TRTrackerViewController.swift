@@ -21,6 +21,7 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver, TREditTr
     }
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         self.tabBarController?.tabBar.tintColor = UIColor.greenColor()
     }
     

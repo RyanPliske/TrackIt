@@ -1,33 +1,25 @@
 import UIKit
 
-class TRSettingsViewController: UIViewController, UITableViewDataSource {
+class TRSettingsViewController: UIViewController {
     
-    private var settingsModel = TRSettingsModel()
+    var settingsModel = TRSettingsModel()
     @IBOutlet weak var settingsTableView: TRSettingsTableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setNeedsStatusBarAppearanceUpdate()
-        self.settingsTableView.dataSource = self
+        setNeedsStatusBarAppearanceUpdate()
+        settingsTableView.dataSource = self
+        settingsTableView.delegate = self
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        // For now this will work. In the future I'll want to deselect a specific row.
+        settingsTableView.deselectRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), animated: false)
+    }
+    
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent;
     }
 
-    // MARK: UITableViewDataSource
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return settingsModel.settings.count
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        // Note: reuseIdentifier is from Storyboard
-        let cell: TRSettingsTableViewCell = tableView.dequeueReusableCellWithIdentifier("settings") as! TRSettingsTableViewCell
-        cell.setSettingNameWith(settingsModel.settings[indexPath.row])
-        return cell
-    }
 }

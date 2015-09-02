@@ -23,6 +23,9 @@
 		EF3D9FBB1B850E8E009042CA /* UIImage+CL.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3D9FB41B850E8E009042CA /* UIImage+CL.m */; };
 		EF3D9FBD1B85146F009042CA /* TRTrackerPresenter+TRDateChooserObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D9FBC1B85146F009042CA /* TRTrackerPresenter+TRDateChooserObserver.swift */; };
 		EF44E7C51B87E64F0088242C /* TREditTracksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF44E7C41B87E64F0088242C /* TREditTracksViewController.swift */; };
+		EF4BF8C31B966E0300B2AAA1 /* TRManageItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4BF8C21B966E0300B2AAA1 /* TRManageItemsViewController.swift */; };
+		EF4BF8C51B966F6C00B2AAA1 /* TRSettingsViewController+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4BF8C41B966F6C00B2AAA1 /* TRSettingsViewController+UITableViewDataSource.swift */; };
+		EF4BF8C71B966FC300B2AAA1 /* TRSettingsViewController+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4BF8C61B966FC300B2AAA1 /* TRSettingsViewController+UITableViewDelegate.swift */; };
 		EF52F2451A8735CF00315B35 /* TRSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF52F2441A8735CF00315B35 /* TRSettingsViewController.swift */; };
 		EF53D05C1B862CC0007873B4 /* TREditTracksButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53D05B1B862CC0007873B4 /* TREditTracksButton.swift */; };
 		EF53D05E1B866019007873B4 /* TRTrackerView+Layouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53D05D1B866019007873B4 /* TRTrackerView+Layouts.swift */; };
@@ -122,6 +125,9 @@
 		EF3D9FB41B850E8E009042CA /* UIImage+CL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CL.m"; sourceTree = "<group>"; };
 		EF3D9FBC1B85146F009042CA /* TRTrackerPresenter+TRDateChooserObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TRTrackerPresenter+TRDateChooserObserver.swift"; sourceTree = "<group>"; };
 		EF44E7C41B87E64F0088242C /* TREditTracksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREditTracksViewController.swift; sourceTree = "<group>"; };
+		EF4BF8C21B966E0300B2AAA1 /* TRManageItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRManageItemsViewController.swift; sourceTree = "<group>"; };
+		EF4BF8C41B966F6C00B2AAA1 /* TRSettingsViewController+UITableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TRSettingsViewController+UITableViewDataSource.swift"; sourceTree = "<group>"; };
+		EF4BF8C61B966FC300B2AAA1 /* TRSettingsViewController+UITableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TRSettingsViewController+UITableViewDelegate.swift"; sourceTree = "<group>"; };
 		EF52F2441A8735CF00315B35 /* TRSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRSettingsViewController.swift; sourceTree = "<group>"; };
 		EF53D05B1B862CC0007873B4 /* TREditTracksButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREditTracksButton.swift; sourceTree = "<group>"; };
 		EF53D05D1B866019007873B4 /* TRTrackerView+Layouts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TRTrackerView+Layouts.swift"; sourceTree = "<group>"; };
@@ -263,6 +269,14 @@
 				EF3D9FB41B850E8E009042CA /* UIImage+CL.m */,
 			);
 			path = Misc;
+			sourceTree = "<group>";
+		};
+		EF4BF8C11B966DB700B2AAA1 /* TRManageItems */ = {
+			isa = PBXGroup;
+			children = (
+				EF4BF8C21B966E0300B2AAA1 /* TRManageItemsViewController.swift */,
+			);
+			name = TRManageItems;
 			sourceTree = "<group>";
 		};
 		EF53D05F1B86637B007873B4 /* TRTrackerView */ = {
@@ -452,6 +466,8 @@
 			isa = PBXGroup;
 			children = (
 				EF52F2441A8735CF00315B35 /* TRSettingsViewController.swift */,
+				EF4BF8C41B966F6C00B2AAA1 /* TRSettingsViewController+UITableViewDataSource.swift */,
+				EF4BF8C61B966FC300B2AAA1 /* TRSettingsViewController+UITableViewDelegate.swift */,
 			);
 			name = TRSettingsViewController;
 			sourceTree = "<group>";
@@ -484,6 +500,7 @@
 				EFE083F31A86A9B100AC9631 /* TRAppDelegate.swift */,
 				EFE083F91A86A9B100AC9631 /* Main.storyboard */,
 				EFD8AEA81B96486100962BA0 /* TRSettings */,
+				EF4BF8C11B966DB700B2AAA1 /* TRManageItems */,
 				EFF328D91B87C1F5001B9E84 /* TREditTracks */,
 				EF1FA9461B7E64ED00AC9095 /* TRChooseableDate */,
 				EFC9CD671B7D249B00060D54 /* TRTracker */,
@@ -759,6 +776,7 @@
 				EF3779A01B8ECB2500D6FB97 /* TREditTracksViewController+UISearchBarDelegate.swift in Sources */,
 				EFD8AEAC1B9658C000962BA0 /* TRSettingsTableViewCell.swift in Sources */,
 				EF6A8B4D1B3B91470012312E /* TRTrackerPresenter+UIPickerViewDelegate.swift in Sources */,
+				EF4BF8C31B966E0300B2AAA1 /* TRManageItemsViewController.swift in Sources */,
 				EFE083F81A86A9B100AC9631 /* TRStatsViewController.swift in Sources */,
 				EFFCF9DA1AFA9318004DEDB9 /* TRDateFormatter.swift in Sources */,
 				EFA9B5EA1B7D811800BAA839 /* TRTrackerModel.swift in Sources */,
@@ -767,6 +785,7 @@
 				EFE083F41A86A9B100AC9631 /* TRAppDelegate.swift in Sources */,
 				EF35BA2D1AF3CA9400456D38 /* TRTrackableItems.swift in Sources */,
 				EF7CE01D1AF023B000C451B1 /* UIImage+HTButton.m in Sources */,
+				EF4BF8C51B966F6C00B2AAA1 /* TRSettingsViewController+UITableViewDataSource.swift in Sources */,
 				EFF85C6A1B8261FA00F766DB /* TRRecordService.swift in Sources */,
 				EF44E7C51B87E64F0088242C /* TREditTracksViewController.swift in Sources */,
 				EFFCF9DC1AFA9C26004DEDB9 /* TRCurrentDate.swift in Sources */,
@@ -787,6 +806,7 @@
 				EF3D9FB91B850E8E009042CA /* NSDictionary+CL.m in Sources */,
 				EF3D9FB51B850E8E009042CA /* CLWeeklyCalendarView.m in Sources */,
 				EF70DE271B8D147E00CDAFC5 /* TRItemsManager.swift in Sources */,
+				EF4BF8C71B966FC300B2AAA1 /* TRSettingsViewController+UITableViewDelegate.swift in Sources */,
 				EF3D9FBA1B850E8E009042CA /* UIColor+CL.m in Sources */,
 				EF53D05C1B862CC0007873B4 /* TREditTracksButton.swift in Sources */,
 				EF70DE2D1B8D480D00CDAFC5 /* TREditTracksTableViewCellDecorator.swift in Sources */,
