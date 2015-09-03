@@ -21,6 +21,9 @@ class TRTrackerModel: NSObject {
         self.recordService = recordService
         self.itemsManager = TRItemsManager(recordService: self.recordService)
         super.init()
+    }
+    
+    func grabInitialData() {
         self.itemsManager.grabAllTracks()
         self.itemsManager.grabAllUrges()
     }
