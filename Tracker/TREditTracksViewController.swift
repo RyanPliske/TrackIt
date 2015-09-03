@@ -15,7 +15,7 @@ class TREditTracksViewController: UIViewController {
         super.viewDidLoad()
         editTracksTableView.dataSource = self
         recordSearchBar.delegate = self
-        title = "Tracker"
+        title = "TrackIt"
         navigationItem.rightBarButtonItem = self.editButtonItem()
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Done, target: self, action: "dismissEditTracks")
         if let navController = navigationController {

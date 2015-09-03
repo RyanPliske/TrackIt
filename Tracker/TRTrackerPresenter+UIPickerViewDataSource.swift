@@ -26,13 +26,13 @@ extension TRTrackerPresenter: UIPickerViewDataSource {
     func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         if component == 0 {
             if row == selectedItemOfFirstColumn {
-                return NSAttributedString(string: self.trackerModel.itemsManager.trackableItems.allItems[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.greenColor()])
+                return NSAttributedString(string: self.trackerModel.itemsManager.trackableItems.allItems[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.blueColor()])
             }
             return NSAttributedString(string: self.trackerModel.itemsManager.trackableItems.allItems[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.whiteColor()])
         }
         else {
             if row == selectedItemOfSecondColumn {
-                return NSAttributedString(string: self.trackerModel.itemsManager.trackableItems.ListOfQuantities[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.greenColor()])
+                return NSAttributedString(string: self.trackerModel.itemsManager.trackableItems.ListOfQuantities[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.blueColor()])
             }
             return NSAttributedString(string: self.trackerModel.itemsManager.trackableItems.ListOfQuantities[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.whiteColor()])
         }

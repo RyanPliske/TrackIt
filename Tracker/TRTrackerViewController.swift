@@ -22,11 +22,7 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver, TREditTr
         trackerView.observer = self
         dateViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
         dateViewController.dateObserver = self.trackerPresenter
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        self.tabBarController?.tabBar.tintColor = UIColor.greenColor()
+        self.tabBarController?.tabBar.tintColor = UIColor.blueColor()
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
