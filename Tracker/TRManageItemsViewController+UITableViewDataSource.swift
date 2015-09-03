@@ -1,23 +1,23 @@
 import Foundation
 
-extension TRSettingsViewController: UITableViewDataSource {
+extension TRManageItemsViewController: UITableViewDataSource {
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return settingsModel.settings.count
+        return 3
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        // Note: reuseIdentifier is from Storyboard
-        let cell: TRSettingsTableViewCell = tableView.dequeueReusableCellWithIdentifier("settings") as! TRSettingsTableViewCell
+        let cell: TRSettingsTableViewCell = tableView.dequeueReusableCellWithIdentifier("items") as! TRSettingsTableViewCell
         if (indexPath.row == 0) {
             cell.topBorder.hidden = false
+        } else if (indexPath.row == 2) {
             cell.bottomBorder.hidden = false
         }
-        cell.setSettingNameWith(settingsModel.settings[indexPath.row])
+        cell.setSettingNameWith("\(indexPath.row)")
         return cell
     }
     
