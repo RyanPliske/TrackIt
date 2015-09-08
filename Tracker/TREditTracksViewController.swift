@@ -6,7 +6,7 @@ protocol TREditTracksObserver {
 
 class TREditTracksViewController: UIViewController {
     var editTracksObserver: TREditTracksObserver?
-    var trackerModel: TRRecordsModel?
+    var recordsModel: TRRecordsModel?
     @IBOutlet weak var editTracksTableView: TREditTracksTableView!
     @IBOutlet weak var itemTypeSegmentedControl: UISegmentedControl!
     @IBOutlet weak var recordSearchBar: UISearchBar!
@@ -28,7 +28,7 @@ class TREditTracksViewController: UIViewController {
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        trackerModel?.setSortTypeTo(TRTrackingType.TrackAction)
+        recordsModel?.setSortTypeTo(TRTrackingType.TrackAction)
         view.endEditing(true)
     }
     
@@ -52,10 +52,10 @@ class TREditTracksViewController: UIViewController {
     
     @IBAction func segmentControlPressed(sender: AnyObject) {
         if (itemTypeSegmentedControl.selectedSegmentIndex == 0) {
-            trackerModel?.setSortTypeTo(TRTrackingType.TrackAction)
+            recordsModel?.setSortTypeTo(TRTrackingType.TrackAction)
             editTracksTableView.reloadData()
         } else {
-            trackerModel?.setSortTypeTo(TRTrackingType.TrackUrge)
+            recordsModel?.setSortTypeTo(TRTrackingType.TrackUrge)
             editTracksTableView.reloadData()
         }
     }

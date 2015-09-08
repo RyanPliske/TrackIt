@@ -4,7 +4,7 @@ The `TRTrackerPresenter` class is designed to act as the mediator between the TR
 */
 class TRTrackerPresenter: NSObject, TRTrackerViewDelegate {
     let trackerView : TRTrackerView
-    let trackerModel : TRRecordsModel
+    let recordsModel : TRRecordsModel
     var datetoTrack = NSDate()
 
     var selectedItemOfFirstColumn = 0 {
@@ -32,7 +32,7 @@ class TRTrackerPresenter: NSObject, TRTrackerViewDelegate {
     
     init(view: TRTrackerView, model: TRRecordsModel) {
         trackerView = view
-        trackerModel = model
+        recordsModel = model
         super.init()
         self.trackerView.delegate = self
         self.trackerView.itemPickerView.dataSource = self
@@ -49,6 +49,6 @@ class TRTrackerPresenter: NSObject, TRTrackerViewDelegate {
     }
     
     func userPickedAnItemToTrack() {
-        self.trackerModel.trackItemAtRow(selectedItemOfFirstColumn, quantityRow: selectedItemOfSecondColumn, type: trackingType, date: self.datetoTrack)
+        self.recordsModel.trackItemAtRow(selectedItemOfFirstColumn, quantityRow: selectedItemOfSecondColumn, type: trackingType, date: self.datetoTrack)
     }
 }
