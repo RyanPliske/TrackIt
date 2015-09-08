@@ -24,7 +24,7 @@ extension TREditTracksViewController: UITableViewDataSource {
         if editingStyle == .Delete {
             if let model = recordsModel {
                 let recordToDelete = model.records[indexPath.row]
-                model.untrack(recordToDelete)
+                model.deleteRecordAtRow(recordToDelete)
                 tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             }
         }

@@ -9,9 +9,9 @@ class TRRecordsModelTests: XCTestCase {
         testObject = TRRecordsModel(recordService: self.mockRecordService)
     }
     
-    func testWhenTrackItemAtRowIsCalled_ThenCreateRecordWithItemIsCalledOnTheRecordService() {
+    func testWhencreateRecordUsingRowIsCalled_ThenCreateRecordWithItemIsCalledOnTheRecordService() {
         XCTAssertFalse(mockRecordService.createRecordCalled)
-        testObject.trackItemAtRow(0, quantityRow: 1, type: .TrackAction, date: NSDate())
+        testObject.createRecordUsingRow(0, quantityRow: 1, type: .TrackAction, date: NSDate())
         XCTAssertTrue(mockRecordService.createRecordCalled)
     }
 }
