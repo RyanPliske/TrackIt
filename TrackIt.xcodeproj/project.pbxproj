@@ -279,7 +279,7 @@
 			name = TRManageItems;
 			sourceTree = "<group>";
 		};
-		EF53D05F1B86637B007873B4 /* TRTrackItView */ = {
+		EF53D05F1B86637B007873B4 /* TRTrackerView */ = {
 			isa = PBXGroup;
 			children = (
 				EFC9CD6A1B7D606800060D54 /* TRTrackerView.swift */,
@@ -289,10 +289,10 @@
 				EF53D0601B8663BB007873B4 /* TRTodaysDateButton.swift */,
 				EF53D0621B866616007873B4 /* TRToolbar.swift */,
 			);
-			name = TRTrackItView;
+			name = TRTrackerView;
 			sourceTree = "<group>";
 		};
-		EF53D0641B8677E2007873B4 /* TRTrackItPresenter */ = {
+		EF53D0641B8677E2007873B4 /* TRTrackerPresenter */ = {
 			isa = PBXGroup;
 			children = (
 				EFA9B5E71B7D7EBD00BAA839 /* TRTrackerPresenter.swift */,
@@ -300,10 +300,10 @@
 				EF6A8B4C1B3B91470012312E /* TRTrackerPresenter+UIPickerViewDelegate.swift */,
 				EF6A8B4E1B3B91E60012312E /* TRTrackerPresenter+UIPickerViewDataSource.swift */,
 			);
-			name = TRTrackItPresenter;
+			name = TRTrackerPresenter;
 			sourceTree = "<group>";
 		};
-		EF53D0651B867811007873B4 /* TRTrackItModel */ = {
+		EF53D0651B867811007873B4 /* TRTrackerModel */ = {
 			isa = PBXGroup;
 			children = (
 				EF70DE261B8D147E00CDAFC5 /* TRItemsManager.swift */,
@@ -315,7 +315,7 @@
 				EF35BA2C1AF3CA9300456D38 /* TRTrackableItems.swift */,
 				EF35BA2F1AF3D29400456D38 /* TRTrackingType.swift */,
 			);
-			name = TRTrackItModel;
+			name = TRTrackerModel;
 			sourceTree = "<group>";
 		};
 		EF7CE00D1AF0202F00C451B1 /* TPKeyboardAvoiding */ = {
@@ -378,15 +378,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		EFC9CD671B7D249B00060D54 /* TRTrackIt */ = {
+		EFC9CD671B7D249B00060D54 /* TRTracker */ = {
 			isa = PBXGroup;
 			children = (
-				EF53D05F1B86637B007873B4 /* TRTrackItView */,
-				EF53D0641B8677E2007873B4 /* TRTrackItPresenter */,
-				EFD8AEB31B965EB300962BA0 /* TRTrackItViewController */,
-				EF53D0651B867811007873B4 /* TRTrackItModel */,
+				EF53D05F1B86637B007873B4 /* TRTrackerView */,
+				EF53D0641B8677E2007873B4 /* TRTrackerPresenter */,
+				EFD8AEB31B965EB300962BA0 /* TRTrackerViewController */,
+				EF53D0651B867811007873B4 /* TRTrackerModel */,
 			);
-			name = TRTrackIt;
+			name = TRTracker;
 			sourceTree = "<group>";
 		};
 		EFCA44AB1AF2BCD40012AE52 /* Open Sourced Libraries */ = {
@@ -446,12 +446,12 @@
 			name = TREditTracksView;
 			sourceTree = "<group>";
 		};
-		EFD8AEB31B965EB300962BA0 /* TRTrackItViewController */ = {
+		EFD8AEB31B965EB300962BA0 /* TRTrackerViewController */ = {
 			isa = PBXGroup;
 			children = (
 				EFE083F51A86A9B100AC9631 /* TRTrackerViewController.swift */,
 			);
-			name = TRTrackItViewController;
+			name = TRTrackerViewController;
 			sourceTree = "<group>";
 		};
 		EFD8AEB41B965F4600962BA0 /* TRStats */ = {
@@ -503,7 +503,7 @@
 				EF4BF8C11B966DB700B2AAA1 /* TRManageItems */,
 				EFF328D91B87C1F5001B9E84 /* TREditTracks */,
 				EF1FA9461B7E64ED00AC9095 /* TRChooseableDate */,
-				EFC9CD671B7D249B00060D54 /* TRTrackIt */,
+				EFC9CD671B7D249B00060D54 /* TRTracker */,
 				EFD8AEB41B965F4600962BA0 /* TRStats */,
 				EFE083F11A86A9B100AC9631 /* Supporting Files */,
 				EFCA44AB1AF2BCD40012AE52 /* Open Sourced Libraries */,
