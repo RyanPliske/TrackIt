@@ -175,13 +175,13 @@
 		EFD8AEA91B9658AF00962BA0 /* TRSettingsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRSettingsTableView.swift; sourceTree = "<group>"; };
 		EFD8AEAB1B9658C000962BA0 /* TRSettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRSettingsTableViewCell.swift; sourceTree = "<group>"; };
 		EFD8AEAE1B965C0200962BA0 /* TRSettingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRSettingsModel.swift; sourceTree = "<group>"; };
-		EFE083EE1A86A9B100AC9631 /* Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFE083EE1A86A9B100AC9631 /* TrackIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFE083F31A86A9B100AC9631 /* TRAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRAppDelegate.swift; sourceTree = "<group>"; };
 		EFE083F51A86A9B100AC9631 /* TRTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRTrackerViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		EFE083F71A86A9B100AC9631 /* TRStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRStatsViewController.swift; sourceTree = "<group>"; };
 		EFE083FA1A86A9B100AC9631 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EFE083FC1A86A9B100AC9631 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		EFE084051A86A9B100AC9631 /* TrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFE084051A86A9B100AC9631 /* TrackIt.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrackIt.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFE0840A1A86A9B100AC9631 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EFF07F3A1B8399A000ED6520 /* TRRecordServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRRecordServiceTests.swift; sourceTree = "<group>"; };
 		EFF328DA1B87C218001B9E84 /* TREditTracksTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREditTracksTableView.swift; sourceTree = "<group>"; };
@@ -279,7 +279,7 @@
 			name = TRManageItems;
 			sourceTree = "<group>";
 		};
-		EF53D05F1B86637B007873B4 /* TRTrackerView */ = {
+		EF53D05F1B86637B007873B4 /* TRTrackItView */ = {
 			isa = PBXGroup;
 			children = (
 				EFC9CD6A1B7D606800060D54 /* TRTrackerView.swift */,
@@ -289,10 +289,10 @@
 				EF53D0601B8663BB007873B4 /* TRTodaysDateButton.swift */,
 				EF53D0621B866616007873B4 /* TRToolbar.swift */,
 			);
-			name = TRTrackerView;
+			name = TRTrackItView;
 			sourceTree = "<group>";
 		};
-		EF53D0641B8677E2007873B4 /* TRTrackerPresenter */ = {
+		EF53D0641B8677E2007873B4 /* TRTrackItPresenter */ = {
 			isa = PBXGroup;
 			children = (
 				EFA9B5E71B7D7EBD00BAA839 /* TRTrackerPresenter.swift */,
@@ -300,10 +300,10 @@
 				EF6A8B4C1B3B91470012312E /* TRTrackerPresenter+UIPickerViewDelegate.swift */,
 				EF6A8B4E1B3B91E60012312E /* TRTrackerPresenter+UIPickerViewDataSource.swift */,
 			);
-			name = TRTrackerPresenter;
+			name = TRTrackItPresenter;
 			sourceTree = "<group>";
 		};
-		EF53D0651B867811007873B4 /* TRTrackerModel */ = {
+		EF53D0651B867811007873B4 /* TRTrackItModel */ = {
 			isa = PBXGroup;
 			children = (
 				EF70DE261B8D147E00CDAFC5 /* TRItemsManager.swift */,
@@ -315,7 +315,7 @@
 				EF35BA2C1AF3CA9300456D38 /* TRTrackableItems.swift */,
 				EF35BA2F1AF3D29400456D38 /* TRTrackingType.swift */,
 			);
-			name = TRTrackerModel;
+			name = TRTrackItModel;
 			sourceTree = "<group>";
 		};
 		EF7CE00D1AF0202F00C451B1 /* TPKeyboardAvoiding */ = {
@@ -378,15 +378,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		EFC9CD671B7D249B00060D54 /* TRTracker */ = {
+		EFC9CD671B7D249B00060D54 /* TRTrackIt */ = {
 			isa = PBXGroup;
 			children = (
-				EF53D05F1B86637B007873B4 /* TRTrackerView */,
-				EF53D0641B8677E2007873B4 /* TRTrackerPresenter */,
-				EFD8AEB31B965EB300962BA0 /* TRTrackerViewController */,
-				EF53D0651B867811007873B4 /* TRTrackerModel */,
+				EF53D05F1B86637B007873B4 /* TRTrackItView */,
+				EF53D0641B8677E2007873B4 /* TRTrackItPresenter */,
+				EFD8AEB31B965EB300962BA0 /* TRTrackItViewController */,
+				EF53D0651B867811007873B4 /* TRTrackItModel */,
 			);
-			name = TRTracker;
+			name = TRTrackIt;
 			sourceTree = "<group>";
 		};
 		EFCA44AB1AF2BCD40012AE52 /* Open Sourced Libraries */ = {
@@ -446,12 +446,12 @@
 			name = TREditTracksView;
 			sourceTree = "<group>";
 		};
-		EFD8AEB31B965EB300962BA0 /* TRTrackerViewController */ = {
+		EFD8AEB31B965EB300962BA0 /* TRTrackItViewController */ = {
 			isa = PBXGroup;
 			children = (
 				EFE083F51A86A9B100AC9631 /* TRTrackerViewController.swift */,
 			);
-			name = TRTrackerViewController;
+			name = TRTrackItViewController;
 			sourceTree = "<group>";
 		};
 		EFD8AEB41B965F4600962BA0 /* TRStats */ = {
@@ -475,8 +475,8 @@
 		EFE083E51A86A9B100AC9631 = {
 			isa = PBXGroup;
 			children = (
-				EFE083F01A86A9B100AC9631 /* Tracker */,
-				EFE084081A86A9B100AC9631 /* TrackerTests */,
+				EFE083F01A86A9B100AC9631 /* TrackIt */,
+				EFE084081A86A9B100AC9631 /* TrackItTests */,
 				EF9FB0661B2A4D5800AD1164 /* TrackViaWatch */,
 				EF9FB0751B2A4D5800AD1164 /* TrackViaWatch Extension */,
 				EFE083EF1A86A9B100AC9631 /* Products */,
@@ -488,13 +488,13 @@
 		EFE083EF1A86A9B100AC9631 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EFE083EE1A86A9B100AC9631 /* Tracker.app */,
-				EFE084051A86A9B100AC9631 /* TrackerTests.xctest */,
+				EFE083EE1A86A9B100AC9631 /* TrackIt.app */,
+				EFE084051A86A9B100AC9631 /* TrackIt.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EFE083F01A86A9B100AC9631 /* Tracker */ = {
+		EFE083F01A86A9B100AC9631 /* TrackIt */ = {
 			isa = PBXGroup;
 			children = (
 				EFE083F31A86A9B100AC9631 /* TRAppDelegate.swift */,
@@ -503,11 +503,12 @@
 				EF4BF8C11B966DB700B2AAA1 /* TRManageItems */,
 				EFF328D91B87C1F5001B9E84 /* TREditTracks */,
 				EF1FA9461B7E64ED00AC9095 /* TRChooseableDate */,
-				EFC9CD671B7D249B00060D54 /* TRTracker */,
+				EFC9CD671B7D249B00060D54 /* TRTrackIt */,
 				EFD8AEB41B965F4600962BA0 /* TRStats */,
 				EFE083F11A86A9B100AC9631 /* Supporting Files */,
 				EFCA44AB1AF2BCD40012AE52 /* Open Sourced Libraries */,
 			);
+			name = TrackIt;
 			path = Tracker;
 			sourceTree = "<group>";
 		};
@@ -521,7 +522,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		EFE084081A86A9B100AC9631 /* TrackerTests */ = {
+		EFE084081A86A9B100AC9631 /* TrackItTests */ = {
 			isa = PBXGroup;
 			children = (
 				EFE084091A86A9B100AC9631 /* Supporting Files */,
@@ -529,6 +530,7 @@
 				EFB392901B93609E002EC06C /* MockRecord.swift */,
 				EFB392921B939A92002EC06C /* MockQuery.swift */,
 			);
+			name = TrackItTests;
 			path = TrackerTests;
 			sourceTree = "<group>";
 		};
@@ -553,9 +555,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EFE083ED1A86A9B100AC9631 /* Tracker */ = {
+		EFE083ED1A86A9B100AC9631 /* TrackIt */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EFE0840F1A86A9B100AC9631 /* Build configuration list for PBXNativeTarget "Tracker" */;
+			buildConfigurationList = EFE0840F1A86A9B100AC9631 /* Build configuration list for PBXNativeTarget "TrackIt" */;
 			buildPhases = (
 				C882B60EE31D885ABA86A3E5 /* Check Pods Manifest.lock */,
 				EFE083EA1A86A9B100AC9631 /* Sources */,
@@ -570,14 +572,14 @@
 			);
 			dependencies = (
 			);
-			name = Tracker;
+			name = TrackIt;
 			productName = Tracker;
-			productReference = EFE083EE1A86A9B100AC9631 /* Tracker.app */;
+			productReference = EFE083EE1A86A9B100AC9631 /* TrackIt.app */;
 			productType = "com.apple.product-type.application";
 		};
-		EFE084041A86A9B100AC9631 /* TrackerTests */ = {
+		EFE084041A86A9B100AC9631 /* TrackItTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EFE084121A86A9B100AC9631 /* Build configuration list for PBXNativeTarget "TrackerTests" */;
+			buildConfigurationList = EFE084121A86A9B100AC9631 /* Build configuration list for PBXNativeTarget "TrackItTests" */;
 			buildPhases = (
 				604B0D803E70E0A6D7C18ED3 /* Check Pods Manifest.lock */,
 				EFE084011A86A9B100AC9631 /* Sources */,
@@ -591,9 +593,9 @@
 			dependencies = (
 				EFE084071A86A9B100AC9631 /* PBXTargetDependency */,
 			);
-			name = TrackerTests;
+			name = TrackItTests;
 			productName = TrackerTests;
-			productReference = EFE084051A86A9B100AC9631 /* TrackerTests.xctest */;
+			productReference = EFE084051A86A9B100AC9631 /* TrackIt.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -604,7 +606,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
-				ORGANIZATIONNAME = Tracker;
+				ORGANIZATIONNAME = TrackIt;
 				TargetAttributes = {
 					EFE083ED1A86A9B100AC9631 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -615,7 +617,7 @@
 					};
 				};
 			};
-			buildConfigurationList = EFE083E91A86A9B100AC9631 /* Build configuration list for PBXProject "Tracker" */;
+			buildConfigurationList = EFE083E91A86A9B100AC9631 /* Build configuration list for PBXProject "TrackIt" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -628,8 +630,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EFE083ED1A86A9B100AC9631 /* Tracker */,
-				EFE084041A86A9B100AC9631 /* TrackerTests */,
+				EFE083ED1A86A9B100AC9631 /* TrackIt */,
+				EFE084041A86A9B100AC9631 /* TrackItTests */,
 			);
 		};
 /* End PBXProject section */
@@ -840,7 +842,7 @@
 /* Begin PBXTargetDependency section */
 		EFE084071A86A9B100AC9631 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = EFE083ED1A86A9B100AC9631 /* Tracker */;
+			target = EFE083ED1A86A9B100AC9631 /* TrackIt */;
 			targetProxy = EFE084061A86A9B100AC9631 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -964,7 +966,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = TrackIt;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Tracker/Tracker-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -983,7 +985,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = TrackIt;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Tracker/Tracker-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1003,7 +1005,7 @@
 				INFOPLIST_FILE = TrackerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = TrackIt;
 				SWIFT_OBJC_BRIDGING_HEADER = "TrackerTests/Tracker-Unit-Test-Bridging-Header.h";
 			};
 			name = Debug;
@@ -1020,7 +1022,7 @@
 				INFOPLIST_FILE = TrackerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = TrackIt;
 				SWIFT_OBJC_BRIDGING_HEADER = "TrackerTests/Tracker-Unit-Test-Bridging-Header.h";
 			};
 			name = Release;
@@ -1028,7 +1030,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EFE083E91A86A9B100AC9631 /* Build configuration list for PBXProject "Tracker" */ = {
+		EFE083E91A86A9B100AC9631 /* Build configuration list for PBXProject "TrackIt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EFE0840D1A86A9B100AC9631 /* Debug */,
@@ -1037,7 +1039,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EFE0840F1A86A9B100AC9631 /* Build configuration list for PBXNativeTarget "Tracker" */ = {
+		EFE0840F1A86A9B100AC9631 /* Build configuration list for PBXNativeTarget "TrackIt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EFE084101A86A9B100AC9631 /* Debug */,
@@ -1046,7 +1048,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EFE084121A86A9B100AC9631 /* Build configuration list for PBXNativeTarget "TrackerTests" */ = {
+		EFE084121A86A9B100AC9631 /* Build configuration list for PBXNativeTarget "TrackItTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EFE084131A86A9B100AC9631 /* Debug */,
