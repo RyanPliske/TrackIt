@@ -4,11 +4,11 @@ class TRManageItemsViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet weak var itemsTableView: TRSettingsTableView!
     private var recordService = TRRecordService()
-    private var trackerModel: TRTrackerModel
+    private var trackerModel: TRRecordsModel
     private var numberOfItemsInTrackerModel: Int
     
     required init?(coder aDecoder: NSCoder) {
-        trackerModel = TRTrackerModel(recordService: self.recordService)
+        trackerModel = TRRecordsModel(recordService: self.recordService)
         numberOfItemsInTrackerModel = trackerModel.itemsManager.trackableItems.allItems.count
         super.init(coder: aDecoder)
     }

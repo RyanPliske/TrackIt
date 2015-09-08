@@ -6,11 +6,11 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver, TREditTr
     @IBOutlet private weak var trackerView: TRTrackerView!
     private var trackerPresenter: TRTrackerPresenter!
     private var recordService = TRRecordService()
-    private var trackerModel: TRTrackerModel
+    private var trackerModel: TRRecordsModel
     private let dateViewController = TRChooseableDateViewController()
     
     required init?(coder aDecoder: NSCoder) {
-        trackerModel = TRTrackerModel(recordService: self.recordService)
+        trackerModel = TRRecordsModel(recordService: self.recordService)
         super.init(coder: aDecoder)
     }
     

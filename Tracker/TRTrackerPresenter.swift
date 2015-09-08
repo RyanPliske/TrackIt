@@ -1,10 +1,10 @@
 import Foundation
 /**
-The `TRTrackerPresenter` class is designed to act as the mediator between the TRTrackerView and TRTrackerModel.
+The `TRTrackerPresenter` class is designed to act as the mediator between the TRTrackerView and TRRecordsModel.
 */
 class TRTrackerPresenter: NSObject, TRTrackerViewDelegate {
     let trackerView : TRTrackerView
-    let trackerModel : TRTrackerModel
+    let trackerModel : TRRecordsModel
     var datetoTrack = NSDate()
 
     var selectedItemOfFirstColumn = 0 {
@@ -30,7 +30,7 @@ class TRTrackerPresenter: NSObject, TRTrackerViewDelegate {
         }
     }
     
-    init(view: TRTrackerView, model: TRTrackerModel) {
+    init(view: TRTrackerView, model: TRRecordsModel) {
         trackerView = view
         trackerModel = model
         super.init()

@@ -2,7 +2,7 @@ import Foundation
 
 class TREditTracksTableViewCellDecorator: NSObject {
     
-    class func decoratedCell(cell: TREditTracksTableViewCell, indexPath: NSIndexPath, trackerModel: TRTrackerModel?) -> UITableViewCell {
+    class func decoratedCell(cell: TREditTracksTableViewCell, indexPath: NSIndexPath, trackerModel: TRRecordsModel?) -> UITableViewCell {
         if let model = trackerModel {
             let item = model.records[indexPath.row].itemName
             let count = model.records[indexPath.row].itemQuantity
@@ -22,7 +22,7 @@ class TREditTracksTableViewCellDecorator: NSObject {
         return cell
     }
     
-    class func numberOfRows(trackerModel: TRTrackerModel?) -> Int {
+    class func numberOfRows(trackerModel: TRRecordsModel?) -> Int {
         if let model = trackerModel {
             return model.records.count
         } else {

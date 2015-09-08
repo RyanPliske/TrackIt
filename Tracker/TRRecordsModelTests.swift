@@ -1,12 +1,12 @@
 import XCTest
 
-class TRTrackerModelTests: XCTestCase {
+class TRRecordsModelTests: XCTestCase {
     let mockRecordService = MockRecordService()
-    var testObject: TRTrackerModel!
+    var testObject: TRRecordsModel!
     
     override func setUp() {
         super.setUp()
-        testObject = TRTrackerModel(recordService: self.mockRecordService)
+        testObject = TRRecordsModel(recordService: self.mockRecordService)
     }
     
     func testWhenTrackItemAtRowIsCalled_ThenCreateRecordWithItemIsCalledOnTheRecordService() {

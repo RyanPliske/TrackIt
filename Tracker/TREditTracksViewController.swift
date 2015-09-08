@@ -6,7 +6,7 @@ protocol TREditTracksObserver {
 
 class TREditTracksViewController: UIViewController {
     var editTracksObserver: TREditTracksObserver?
-    var trackerModel: TRTrackerModel?
+    var trackerModel: TRRecordsModel?
     @IBOutlet weak var editTracksTableView: TREditTracksTableView!
     @IBOutlet weak var itemTypeSegmentedControl: UISegmentedControl!
     @IBOutlet weak var recordSearchBar: UISearchBar!

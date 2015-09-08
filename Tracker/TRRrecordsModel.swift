@@ -4,7 +4,7 @@ import Parse
 typealias TRCreateRecordCompletion = () -> Void
 typealias TRSearchCompletion = () -> Void
 
-class TRTrackerModel: NSObject {
+class TRRecordsModel: NSObject {
     var recordService: TRRecordService
     var itemsManager: TRItemsManager
     var sortType: TRTrackingType {
