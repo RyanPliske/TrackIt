@@ -1,6 +1,5 @@
 import Foundation
 import Parse
-import Tracker
 
 class MockRecord: TRRecord {
     
