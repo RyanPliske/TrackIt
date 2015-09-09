@@ -9,7 +9,7 @@ class TRManageItemsViewController: UIViewController, UITableViewDataSource {
     
     required init?(coder aDecoder: NSCoder) {
         recordsModel = TRRecordsModel(recordService: self.recordService)
-        numberOfItemsInrecordsModel = recordsModel.recordTypeManager.trackableItems.allItems.count
+        numberOfItemsInrecordsModel = recordsModel.trackableItems.allItems.count
         super.init(coder: aDecoder)
     }
     
@@ -42,7 +42,7 @@ class TRManageItemsViewController: UIViewController, UITableViewDataSource {
         } else if (indexPath.row == (numberOfItemsInrecordsModel - 1)) {
             cell.bottomBorder.hidden = false
         }
-        let name: String = recordsModel.recordTypeManager.trackableItems.allItems[indexPath.row]
+        let name: String = recordsModel.trackableItems.allItems[indexPath.row]
         cell.setSettingNameWith(name)
         return cell
     }

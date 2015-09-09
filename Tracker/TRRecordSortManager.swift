@@ -2,7 +2,6 @@ import Foundation
 import Parse
 
 class TRRecordSortManager : NSObject {
-    var trackableItems = TRTrackableItems()
     var sortType = TRRecordType.TrackAction
     var searchMode = false
     var tracks = [TRRecord]()

@@ -5,9 +5,12 @@ typealias TRCreateRecordCompletion = () -> Void
 typealias TRSearchCompletion = () -> Void
 
 class TRRecordsModel: NSObject {
-    var recordService: TRRecordService
-    var recordSortManager = TRRecordSortManager()
+    // MARK: Private Variables
+    private var recordSortManager = TRRecordSortManager()
+    private var recordService: TRRecordService
     
+    // MARK: Public Variables
+    var trackableItems = TRTrackableItems()
     var records: [TRRecord] {
         return self.recordSortManager.records
     }
@@ -18,6 +21,7 @@ class TRRecordsModel: NSObject {
         return self.recordSortManager.searchMode
     }
     
+    // MARK: Public Methods
     init(recordService: TRRecordService) {
         self.recordService = recordService
         super.init()
@@ -34,9 +38,9 @@ class TRRecordsModel: NSObject {
     func createRecordUsingRow(row: Int, quantityRow: Int, type: TRRecordType, date: NSDate) {
         var item: String
         if type == TRRecordType.TrackUrge {
-            item = recordSortManager.trackableItems.sinfulItems[row]
+            item = trackableItems.sinfulItems[row]
         } else {
-            item = recordSortManager.trackableItems.allItems[row]
+            item = trackableItems.allItems[row]
         }
         
         let itemQuantity = quantityForRow(quantityRow)
@@ -71,7 +75,6 @@ class TRRecordsModel: NSObject {
     }
     
     // MARK: Private Helpers
-
     private func quantityForRow(row: Int) -> Int {
         return row + 1
     }
