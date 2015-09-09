@@ -27,12 +27,20 @@ class TRRecordSortManager {
     }
     
     func removeRecord(record: TRRecord) {
+        
+        func isNotEqual(_record: TRRecord) -> Bool {
+            // Identity Operator: determines if two references both refer to the same instance
+            return _record !== record
+        }
+        
         switch (sortType) {
         case .TrackAction:
-            tracks = tracks.filter { $0 !== record }
-            searchResultsForTracks = searchResultsForTracks.filter { $0 !== record }
+            tracks = tracks.filter(isNotEqual)
+            searchResultsForTracks = searchResultsForTracks.filter(isNotEqual)
         case .TrackUrge:
-            urges = urges.filter { $0 !== record }
+            // Compiler infers the parameter and return types of the closure
+            urges = urges.filter { _record in _record !== record }
+            // Shorthand argument notation
             searchResultsForUrges = searchResultsForUrges.filter { $0 !== record }
         }
     }
