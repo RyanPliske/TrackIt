@@ -317,7 +317,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="items" id="GuU-zA-tk5" customClass="TRSettingsTableViewCell" customModule="TrackIt" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="items" id="GuU-zA-tk5" customClass="TRManageItemsTableViewCell" customModule="TrackIt" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GuU-zA-tk5" id="caY-D3-EZc">
@@ -332,6 +332,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GHW-77-0Vk">
                                                     <rect key="frame" x="276" y="10" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="toggleSwitchPressed:" destination="GuU-zA-tk5" eventType="valueChanged" id="fMR-KF-IkX"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -341,11 +344,13 @@
                                                 <constraint firstItem="rKY-xk-DXE" firstAttribute="centerY" secondItem="caY-D3-EZc" secondAttribute="centerY" id="wyE-uk-hfg"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration" identifier="items"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="GHW-77-0Vk" secondAttribute="trailing" constant="50" id="WJV-i1-yKh"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="settingNameLabel" destination="rKY-xk-DXE" id="CaK-9q-eRB"/>
+                                            <outlet property="toggleSwitch" destination="GHW-77-0Vk" id="ptd-CG-xE4"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

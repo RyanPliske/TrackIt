@@ -33,7 +33,7 @@ class TRManageItemsViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: TRSettingsTableViewCell = tableView.dequeueReusableCellWithIdentifier("items") as! TRSettingsTableViewCell
+        let cell: TRManageItemsTableViewCell = tableView.dequeueReusableCellWithIdentifier("items") as! TRManageItemsTableViewCell
         if (indexPath.row == 0) {
             cell.topBorder.hidden = false
         } else if (indexPath.row == (numberOfItemsInRecordsModel - 1)) {
@@ -41,6 +41,7 @@ class TRManageItemsViewController: UIViewController, UITableViewDataSource {
         }
         let name: String = TRTrackableItems.allItems[indexPath.row]
         cell.setSettingNameWith(name)
+        cell.toggleSwitchTag = indexPath.row
         return cell
     }
     

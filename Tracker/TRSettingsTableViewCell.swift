@@ -3,6 +3,7 @@ import Foundation
 class TRSettingsTableViewCell: UITableViewCell {
     
     @IBOutlet weak private var settingNameLabel: UILabel!
+    
     let topBorder = UIView()
     let separator = UIView()
     let bottomBorder = UIView()
@@ -56,5 +57,5 @@ class TRSettingsTableViewCell: UITableViewCell {
             nameLabel.text = name
         }
     }
-    
+
 }

@@ -44,6 +44,7 @@
 		EF7CE0221AF023CC00C451B1 /* HTPressableButtonPrefs.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE01F1AF023CC00C451B1 /* HTPressableButtonPrefs.m */; };
 		EF7CE0231AF023CC00C451B1 /* UIColor+HTColor.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE0211AF023CC00C451B1 /* UIColor+HTColor.m */; };
 		EF802E151B8A9A1900C51C33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFE083F91A86A9B100AC9631 /* Main.storyboard */; };
+		EF86B2B41BA0E56F0080DC97 /* TRManageItemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF86B2B31BA0E56E0080DC97 /* TRManageItemsTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		EFA9B5E81B7D7EBD00BAA839 /* TRTrackerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA9B5E71B7D7EBD00BAA839 /* TRTrackerPresenter.swift */; };
 		EFA9B5EA1B7D811800BAA839 /* TRRrecordsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA9B5E91B7D811800BAA839 /* TRRrecordsModel.swift */; };
 		EFB392911B93609E002EC06C /* MockRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB392901B93609E002EC06C /* MockRecord.swift */; };
@@ -153,6 +154,7 @@
 		EF7CE01F1AF023CC00C451B1 /* HTPressableButtonPrefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTPressableButtonPrefs.m; sourceTree = "<group>"; };
 		EF7CE0201AF023CC00C451B1 /* UIColor+HTColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HTColor.h"; sourceTree = "<group>"; };
 		EF7CE0211AF023CC00C451B1 /* UIColor+HTColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HTColor.m"; sourceTree = "<group>"; };
+		EF86B2B31BA0E56E0080DC97 /* TRManageItemsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRManageItemsTableViewCell.swift; sourceTree = "<group>"; };
 		EF9FB0681B2A4D5800AD1164 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		EF9FB06A1B2A4D5800AD1164 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF9FB06C1B2A4D5800AD1164 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 		EF4BF8C11B966DB700B2AAA1 /* TRManageItems */ = {
 			isa = PBXGroup;
 			children = (
+				EF86B2B21BA0E5360080DC97 /* TRManageItemsView */,
 				EF4BF8C21B966E0300B2AAA1 /* TRManageItemsViewController.swift */,
 			);
 			name = TRManageItems;
@@ -358,6 +361,14 @@
 				EF7CE01C1AF023B000C451B1 /* UIImage+HTButton.m */,
 			);
 			name = HTPressableButton;
+			sourceTree = "<group>";
+		};
+		EF86B2B21BA0E5360080DC97 /* TRManageItemsView */ = {
+			isa = PBXGroup;
+			children = (
+				EF86B2B31BA0E56E0080DC97 /* TRManageItemsTableViewCell.swift */,
+			);
+			name = TRManageItemsView;
 			sourceTree = "<group>";
 		};
 		EF9FB0661B2A4D5800AD1164 /* TrackViaWatch */ = {
@@ -783,6 +794,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF7CE0171AF0228600C451B1 /* HTPressableButton.m in Sources */,
+				EF86B2B41BA0E56F0080DC97 /* TRManageItemsTableViewCell.swift in Sources */,
 				EF3D9FB81B850E8E009042CA /* NSDate+CL.m in Sources */,
 				EF35BA301AF3D29400456D38 /* TRRecordType.swift in Sources */,
 				EF3D9FBD1B85146F009042CA /* TRTrackerPresenter+TRDateChooserObserver.swift in Sources */,
