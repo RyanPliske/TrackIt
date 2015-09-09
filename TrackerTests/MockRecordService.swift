@@ -2,16 +2,17 @@ import Parse
 
 class MockRecordService: TRRecordService {
     var createRecordCalled = false
+    var createdRecord: MockRecord?
     
     override func createRecordWithItem(item: String, quantity: Int, itemType: TRRecordType, date: NSDate, completion: TRCreateRecordCompletion?) -> MockRecord {
-        let expectedQuantity = 4
-        let expectedRecord = MockRecord(className: "record")
-        expectedRecord.itemName = "Baby Kicks"
-        expectedRecord.itemQuantity = expectedQuantity
-        expectedRecord.itemType = "action"
-        expectedRecord.itemDate = TRDateFormatter.descriptionForDate(date)
+        let record = MockRecord(className: "record")
+        record.itemName = item
+        record.itemQuantity = quantity
+        record.itemType = TRRecord.stringFromSortType(itemType)
+        record.itemDate = TRDateFormatter.descriptionForDate(date)
         createRecordCalled = true
-        return expectedRecord
+        createdRecord = record
+        return record
     }
     
     override func readAllRecordsFromPhoneWithSortType(sortType: TRRecordType, completion: PFArrayResultBlock) {
