@@ -19,7 +19,7 @@ class TRTrackerPresenter: NSObject, TRTrackerViewDelegate {
         }
     }
     
-    var trackingType : TRTrackingType = .TrackAction {
+    var trackingType : TRRecordType = .TrackAction {
         didSet {
             self.trackerView.itemPickerView.reloadAllComponents()
             selectedItemOfFirstColumn = 0

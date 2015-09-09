@@ -3,7 +3,7 @@ import Parse
 
 class TRRecordService : NSObject {
     
-    func createRecordWithItem(item: String, quantity: Int, itemType: TRTrackingType, date: NSDate, completion: TRCreateRecordCompletion?) -> TRRecord {
+    func createRecordWithItem(item: String, quantity: Int, itemType: TRRecordType, date: NSDate, completion: TRCreateRecordCompletion?) -> TRRecord {
         let record = TRRecord(className: "record")
         record.itemName = item
         record.itemQuantity = quantity
@@ -28,7 +28,7 @@ class TRRecordService : NSObject {
         record.saveEventually(nil)
     }
     
-    func readAllRecordsFromPhoneWithSortType(sortType: TRTrackingType, completion: PFArrayResultBlock) {
+    func readAllRecordsFromPhoneWithSortType(sortType: TRRecordType, completion: PFArrayResultBlock) {
         let BackgroundRetrievalCompletion: PFArrayResultBlock = {
             (objects: [AnyObject]?, error: NSError?) in
                 completion(objects, error)
@@ -39,7 +39,7 @@ class TRRecordService : NSObject {
         query.findObjectsInBackgroundWithBlock(BackgroundRetrievalCompletion)
     }
     
-    func readAllRecordsFromPhoneWithSearchText(searchText: String, sortType: TRTrackingType, completion: PFArrayResultBlock?) {
+    func readAllRecordsFromPhoneWithSearchText(searchText: String, sortType: TRRecordType, completion: PFArrayResultBlock?) {
         let BackgroundRetrievalCompletion: PFArrayResultBlock = {
             (objects: [AnyObject]?, error: NSError?) in
             if let completionBlock = completion {

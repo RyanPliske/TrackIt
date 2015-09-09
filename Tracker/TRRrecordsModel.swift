@@ -6,37 +6,38 @@ typealias TRSearchCompletion = () -> Void
 
 class TRRecordsModel: NSObject {
     var recordService: TRRecordService
-    var itemsManager: TRItemsManager
-    var sortType: TRTrackingType {
-        return self.itemsManager.itemSortType
-    }
+    var recordTypeManager: TRRecordTypesManager
+    
     var records: [TRRecord] {
-        return self.itemsManager.records
+        return self.recordTypeManager.records
+    }
+    var sortType: TRRecordType {
+        return self.recordTypeManager.itemSortType
     }
     var searchMode: Bool {
-        return self.itemsManager.searchMode
+        return self.recordTypeManager.searchMode
     }
     
     init(recordService: TRRecordService) {
         self.recordService = recordService
-        self.itemsManager = TRItemsManager(recordService: self.recordService)
+        self.recordTypeManager = TRRecordTypesManager(recordService: self.recordService)
         super.init()
     }
     
-    func setSortTypeTo(sortType: TRTrackingType) {
-        itemsManager.itemSortType = sortType
+    func setSortTypeTo(sortType: TRRecordType) {
+        recordTypeManager.itemSortType = sortType
     }
     
     func setSearchModeTo(searchMode: Bool) {
-        itemsManager.searchMode = searchMode
+        recordTypeManager.searchMode = searchMode
     }
     
-    func createRecordUsingRow(row: Int, quantityRow: Int, type: TRTrackingType, date: NSDate) {
+    func createRecordUsingRow(row: Int, quantityRow: Int, type: TRRecordType, date: NSDate) {
         var item: String
-        if type == TRTrackingType.TrackUrge {
-            item = self.itemsManager.trackableItems.sinfulItems[row]
+        if type == TRRecordType.TrackUrge {
+            item = self.recordTypeManager.trackableItems.sinfulItems[row]
         } else {
-            item = self.itemsManager.trackableItems.allItems[row]
+            item = self.recordTypeManager.trackableItems.allItems[row]
         }
         
         let itemQuantity = self.quantityForRow(quantityRow)
@@ -45,9 +46,9 @@ class TRRecordsModel: NSObject {
         let blockCompletion: TRCreateRecordCompletion = {
             switch (type) {
             case .TrackAction:
-                weakSelf?.itemsManager.grabAllTracks()
+                weakSelf?.recordTypeManager.grabAllTracks()
             case .TrackUrge:
-                weakSelf?.itemsManager.grabAllUrges()
+                weakSelf?.recordTypeManager.grabAllUrges()
             }
         }
         
@@ -55,20 +56,22 @@ class TRRecordsModel: NSObject {
     }
     
     func readAllRecords() {
-        self.itemsManager.grabAllTracks()
-        self.itemsManager.grabAllUrges()
+        self.recordTypeManager.grabAllTracks()
+        self.recordTypeManager.grabAllUrges()
     }
     
     func searchRecordsFor(searchText: String, completion: TRSearchCompletion?) {
         if let completionBlock = completion {
-            itemsManager.grabAllRecordsContaining(searchText, completion: completionBlock)
+            recordTypeManager.grabAllRecordsContaining(searchText, completion: completionBlock)
         }
     }
     
     func deleteRecordAtRow(record: TRRecord) {
-        itemsManager.remove(record)
+        recordTypeManager.remove(record)
         recordService.deleteRecord(record)
     }
+    
+    // MARK: Private Helpers
 
     private func quantityForRow(row: Int) -> Int {
         return row + 1

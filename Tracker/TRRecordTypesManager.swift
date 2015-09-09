@@ -1,9 +1,9 @@
 import Foundation
 import Parse
 
-class TRItemsManager : NSObject {
+class TRRecordTypesManager : NSObject {
     var trackableItems = TRTrackableItems()
-    var itemSortType = TRTrackingType.TrackAction
+    var itemSortType = TRRecordType.TrackAction
     var searchMode = false
     private var recordService: TRRecordService
     private var tracks = [TRRecord]()
@@ -34,11 +34,11 @@ class TRItemsManager : NSObject {
     }
     
     func grabAllTracks() {
-        grabRecordsWithSortType(TRTrackingType.TrackAction)
+        grabRecordsWithSortType(TRRecordType.TrackAction)
     }
     
     func grabAllUrges() {
-        grabRecordsWithSortType(TRTrackingType.TrackUrge)
+        grabRecordsWithSortType(TRRecordType.TrackUrge)
     }
     
     func grabAllRecordsContaining(searchText: String, completion: TRSearchCompletion?) {
@@ -62,7 +62,7 @@ class TRItemsManager : NSObject {
     
     // MARK: Helpers
     
-    private func grabRecordsWithSortType(sortType: TRTrackingType) {
+    private func grabRecordsWithSortType(sortType: TRRecordType) {
         weak var weakSelf = self
         let recordsRetrievalCompletion: PFArrayResultBlock = {
             (objects: [AnyObject]?, error: NSError?) in
@@ -87,7 +87,7 @@ class TRItemsManager : NSObject {
         self.recordService.readAllRecordsFromPhoneWithSortType(sortType, completion: recordsRetrievalCompletion)
     }
     
-    private func grabRecordsWithSearchText(searchText: String, sortType: TRTrackingType, completion: TRSearchCompletion?) {
+    private func grabRecordsWithSearchText(searchText: String, sortType: TRRecordType, completion: TRSearchCompletion?) {
         weak var weakSelf = self
         let recordsRetrievalCompletion: PFArrayResultBlock = {
             (objects: [AnyObject]?, error: NSError?) in
