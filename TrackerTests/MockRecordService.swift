@@ -8,7 +8,7 @@ class MockRecordService: TRRecordService {
         let record = MockRecord(className: "record")
         record.itemName = item
         record.itemQuantity = quantity
-        record.itemType = TRRecord.stringFromSortType(itemType)
+        record.itemType = itemType.description
         record.itemDate = TRDateFormatter.descriptionForDate(date)
         createRecordCalled = true
         createdRecord = record

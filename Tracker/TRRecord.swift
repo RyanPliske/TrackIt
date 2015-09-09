@@ -51,16 +51,4 @@ class TRRecord: PFObject, PFSubclassing {
             self["date"] = newValue
         }
     }
-    
-    // MARK: Helper
-    
-    static func stringFromSortType(sortType: TRRecordType) -> String {
-        switch (sortType) {
-        case .TrackAction:
-            return "action"
-        case .TrackUrge:
-            return "urge"
-        }
-    }
-
 }

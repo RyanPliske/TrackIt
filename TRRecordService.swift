@@ -7,7 +7,7 @@ class TRRecordService {
         let record = TRRecord(className: "record")
         record.itemName = item
         record.itemQuantity = quantity
-        record.itemType = TRRecord.stringFromSortType(itemType)
+        record.itemType = itemType.description
         record.itemDate = TRDateFormatter.descriptionForDate(date)
         saveRecordToPhoneWithRecord(record, completion: completion)
         return record
@@ -35,7 +35,7 @@ class TRRecordService {
         }
         let query = PFQuery(className: "record")
         query.fromLocalDatastore()
-        query.whereKey("type", equalTo: TRRecord.stringFromSortType(sortType))
+        query.whereKey("type", equalTo: sortType.description)
         query.findObjectsInBackgroundWithBlock(BackgroundRetrievalCompletion)
     }
     
@@ -57,7 +57,7 @@ class TRRecordService {
         
         let query = PFQuery.orQueryWithSubqueries([withinDate, withinItem])
         query.fromLocalDatastore()
-        query.whereKey("type", equalTo: TRRecord.stringFromSortType(sortType))
+        query.whereKey("type", equalTo: sortType.description)
         query.findObjectsInBackgroundWithBlock(BackgroundRetrievalCompletion)
     }
     

@@ -20,7 +20,7 @@ class TRRecordsModelTests: XCTestCase {
         let expectedItemName = TRTrackableItems.allItems[row]
         let expectedItemQuantity = 4
         let itemType = TRRecordType.TrackAction
-        let expectedItemType = TRRecord.stringFromSortType(itemType)
+        let expectedItemType = itemType.description
         let itemDate = NSDate()
         let expectedItemDate = TRDateFormatter.descriptionForDate(itemDate)
         
