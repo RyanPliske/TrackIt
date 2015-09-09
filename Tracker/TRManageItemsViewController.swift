@@ -3,13 +3,10 @@ import Foundation
 class TRManageItemsViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet weak var itemsTableView: TRSettingsTableView!
-    private var recordService = TRRecordService()
-    private var recordsModel: TRRecordsModel
     private var numberOfItemsInRecordsModel: Int
-    
+    private var trackableItems = TRTrackableItems()
     required init?(coder aDecoder: NSCoder) {
-        recordsModel = TRRecordsModel(recordService: self.recordService)
-        numberOfItemsInRecordsModel = recordsModel.trackableItems.allItems.count
+        numberOfItemsInRecordsModel = trackableItems.allItems.count
         super.init(coder: aDecoder)
     }
     
@@ -42,7 +39,7 @@ class TRManageItemsViewController: UIViewController, UITableViewDataSource {
         } else if (indexPath.row == (numberOfItemsInRecordsModel - 1)) {
             cell.bottomBorder.hidden = false
         }
-        let name: String = recordsModel.trackableItems.allItems[indexPath.row]
+        let name: String = trackableItems.allItems[indexPath.row]
         cell.setSettingNameWith(name)
         return cell
     }
