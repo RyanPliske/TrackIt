@@ -5,11 +5,11 @@ class TRManageItemsViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var itemsTableView: TRSettingsTableView!
     private var recordService = TRRecordService()
     private var recordsModel: TRRecordsModel
-    private var numberOfItemsInrecordsModel: Int
+    private var numberOfItemsInRecordsModel: Int
     
     required init?(coder aDecoder: NSCoder) {
         recordsModel = TRRecordsModel(recordService: self.recordService)
-        numberOfItemsInrecordsModel = recordsModel.trackableItems.allItems.count
+        numberOfItemsInRecordsModel = recordsModel.trackableItems.allItems.count
         super.init(coder: aDecoder)
     }
     
@@ -32,14 +32,14 @@ class TRManageItemsViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return numberOfItemsInrecordsModel
+        return numberOfItemsInRecordsModel
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: TRSettingsTableViewCell = tableView.dequeueReusableCellWithIdentifier("items") as! TRSettingsTableViewCell
         if (indexPath.row == 0) {
             cell.topBorder.hidden = false
-        } else if (indexPath.row == (numberOfItemsInrecordsModel - 1)) {
+        } else if (indexPath.row == (numberOfItemsInRecordsModel - 1)) {
             cell.bottomBorder.hidden = false
         }
         let name: String = recordsModel.trackableItems.allItems[indexPath.row]
