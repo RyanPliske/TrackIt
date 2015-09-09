@@ -1,7 +1,7 @@
 import Foundation
 import Parse
 
-class TRRecordSortManager : NSObject {
+class TRRecordSortManager {
     var sortType = TRRecordType.TrackAction
     var searchMode = false
     var tracks = [TRRecord]()

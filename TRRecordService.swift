@@ -1,7 +1,7 @@
 import Foundation
 import Parse
 
-class TRRecordService : NSObject {
+class TRRecordService {
     
     func createRecordWithItem(item: String, quantity: Int, itemType: TRRecordType, date: NSDate, completion: TRCreateRecordCompletion?) -> TRRecord {
         let record = TRRecord(className: "record")

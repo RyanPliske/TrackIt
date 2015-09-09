@@ -13,28 +13,28 @@ extension TRTrackerPresenter: UIPickerViewDataSource {
         if component == 0 {
             switch trackingType {
             case .TrackAction:
-                return self.recordsModel.trackableItems.allItems.count
+                return TRTrackableItems.allItems.count
             case .TrackUrge:
-                return self.recordsModel.trackableItems.sinfulItems.count
+                return TRTrackableItems.sinfulItems.count
             }
         }
         else {
-            return self.recordsModel.trackableItems.ListOfQuantities.count
+            return TRTrackableItems.ListOfQuantities.count
         }
     }
     
     func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         if component == 0 {
             if row == selectedItemOfFirstColumn {
-                return NSAttributedString(string: self.recordsModel.trackableItems.allItems[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.blueColor()])
+                return NSAttributedString(string: TRTrackableItems.allItems[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.blueColor()])
             }
-            return NSAttributedString(string: self.recordsModel.trackableItems.allItems[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.whiteColor()])
+            return NSAttributedString(string: TRTrackableItems.allItems[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.whiteColor()])
         }
         else {
             if row == selectedItemOfSecondColumn {
-                return NSAttributedString(string: self.recordsModel.trackableItems.ListOfQuantities[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.blueColor()])
+                return NSAttributedString(string: TRTrackableItems.ListOfQuantities[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.blueColor()])
             }
-            return NSAttributedString(string: self.recordsModel.trackableItems.ListOfQuantities[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.whiteColor()])
+            return NSAttributedString(string: TRTrackableItems.ListOfQuantities[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.whiteColor()])
         }
     }
 }

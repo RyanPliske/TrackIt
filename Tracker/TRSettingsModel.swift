@@ -1,5 +1,5 @@
 import Foundation
 
-class TRSettingsModel: NSObject {
+class TRSettingsModel {
     var settings = ["Edit Items"]
 }

@@ -4,14 +4,13 @@ import Parse
 typealias TRCreateRecordCompletion = () -> Void
 typealias TRSearchCompletion = () -> Void
 
-class TRRecordsModel: NSObject {
+class TRRecordsModel {
     
     // MARK: Private Variables
     private let recordSortManager = TRRecordSortManager()
     private let recordService: TRRecordService
     
     // MARK: Public Variables
-    let trackableItems = TRTrackableItems()
     var records: [TRRecord] {
         get { return self.recordSortManager.records }
     }
@@ -27,16 +26,15 @@ class TRRecordsModel: NSObject {
     // MARK: Public Methods
     init(recordService: TRRecordService) {
         self.recordService = recordService
-        super.init()
     }
     
     func createRecordUsingRow(row: Int, quantityRow: Int, type: TRRecordType, date: NSDate) {
         var item: String
         switch (type) {
         case .TrackAction:
-            item = trackableItems.allItems[row]
+            item = TRTrackableItems.allItems[row]
         case .TrackUrge:
-            item = trackableItems.sinfulItems[row]
+            item = TRTrackableItems.sinfulItems[row]
         }
         
         let itemQuantity = quantityRow + 1

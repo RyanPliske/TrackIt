@@ -17,7 +17,7 @@ class TRRecordsModelTests: XCTestCase {
     
     func testWhenCreatingRecord_TheCorrectParametersAreUsed() {
         let row = 0
-        let expectedItemName = TRTrackableItems().allItems[row]
+        let expectedItemName = TRTrackableItems.allItems[row]
         let expectedItemQuantity = 4
         let itemType = TRRecordType.TrackAction
         let expectedItemType = TRRecord.stringFromSortType(itemType)

@@ -1,6 +1,6 @@
 import Foundation
 
-class TREditTracksTableViewCellDecorator: NSObject {
+class TREditTracksTableViewCellDecorator {
     
     class func decoratedCell(cell: TREditTracksTableViewCell, indexPath: NSIndexPath, recordsModel: TRRecordsModel?) -> UITableViewCell {
         if let model = recordsModel {

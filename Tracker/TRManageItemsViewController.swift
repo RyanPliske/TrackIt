@@ -4,9 +4,9 @@ class TRManageItemsViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet weak var itemsTableView: TRSettingsTableView!
     private var numberOfItemsInRecordsModel: Int
-    private var trackableItems = TRTrackableItems()
+    
     required init?(coder aDecoder: NSCoder) {
-        numberOfItemsInRecordsModel = trackableItems.allItems.count
+        numberOfItemsInRecordsModel = TRTrackableItems.allItems.count
         super.init(coder: aDecoder)
     }
     
@@ -39,7 +39,7 @@ class TRManageItemsViewController: UIViewController, UITableViewDataSource {
         } else if (indexPath.row == (numberOfItemsInRecordsModel - 1)) {
             cell.bottomBorder.hidden = false
         }
-        let name: String = trackableItems.allItems[indexPath.row]
+        let name: String = TRTrackableItems.allItems[indexPath.row]
         cell.setSettingNameWith(name)
         return cell
     }

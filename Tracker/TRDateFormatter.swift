@@ -1,6 +1,6 @@
 import Foundation
 
-class TRDateFormatter : NSObject {
+class TRDateFormatter {
     
     static var descriptionForToday : String {
         
