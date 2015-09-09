@@ -2,7 +2,7 @@ import Foundation
 
 struct TRTrackableItems {
     static var regularItems = ["Workouts", "Protein", "Calories"]
-    static var sinfulItems  = ["Drinks", "Cigarettes", "Ate Junk Food"]
+    static var sinfulItems  = ["Drinks", "Cigarettes", "Junk Food"]
     static var allItems : [String] {
        return self.sinfulItems + self.regularItems
     }
