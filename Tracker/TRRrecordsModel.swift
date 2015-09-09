@@ -6,11 +6,11 @@ typealias TRSearchCompletion = () -> Void
 
 class TRRecordsModel {
     
-    // MARK: Private Variables
+    // MARK: Private Properties
     private let recordSortManager = TRRecordSortManager()
     private let recordService: TRRecordService
     
-    // MARK: Public Variables
+    // MARK: Public Properties
     var records: [TRRecord] {
         get { return self.recordSortManager.records }
     }
