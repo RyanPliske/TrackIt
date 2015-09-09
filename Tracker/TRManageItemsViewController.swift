@@ -1,6 +1,6 @@
 import Foundation
 
-class TRManageItemsViewController: UIViewController, UITableViewDataSource {
+class TRManageItemsViewController: UIViewController, UITableViewDataSource, TRManageItemsTableViewCellDelegate {
     
     @IBOutlet weak var itemsTableView: TRSettingsTableView!
     private var numberOfItemsInRecordsModel: Int
@@ -42,7 +42,23 @@ class TRManageItemsViewController: UIViewController, UITableViewDataSource {
         let name: String = TRTrackableItems.allItems[indexPath.row]
         cell.setSettingNameWith(name)
         cell.toggleSwitchTag = indexPath.row
+        cell.manageItemsTableViewCellDelegate = self
         return cell
     }
+    
+    // MARK: TRManageItemsTableViewCellDelegate
+    
+    func toggleSwitchChangedValueAtRow(row: Int) {
+        let indexPath = NSIndexPath(forRow: row, inSection: 0)
+        let cell = itemsTableView.cellForRowAtIndexPath(indexPath) as! TRManageItemsTableViewCell
+        if cell.toggleSwitch.on {
+            print(cell.toggleSwitch.on.description)
+            print(cell.toggleSwitchTag)
+        } else {
+            print(cell.toggleSwitch.on.description)
+            print(cell.toggleSwitchTag)
+        }
+    }
+    
     
 }

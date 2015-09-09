@@ -1,8 +1,13 @@
 import Foundation
 
+protocol TRManageItemsTableViewCellDelegate {
+    func toggleSwitchChangedValueAtRow(row: Int)
+}
+
 class TRManageItemsTableViewCell: TRSettingsTableViewCell {
     
     @IBOutlet weak var toggleSwitch: UISwitch!
+    var manageItemsTableViewCellDelegate: TRManageItemsTableViewCellDelegate?
     
     var toggleSwitchTag: Int {
         get { return self.toggleSwitch.tag }
@@ -10,13 +15,7 @@ class TRManageItemsTableViewCell: TRSettingsTableViewCell {
     }
 
     @IBAction func toggleSwitchPressed(sender: AnyObject) {
-        if self.toggleSwitch.on {
-            print(self.toggleSwitch.on.description)
-            print(toggleSwitchTag)
-        } else {
-            print(self.toggleSwitch.on.description)
-            print(toggleSwitchTag)
-        }
+        manageItemsTableViewCellDelegate?.toggleSwitchChangedValueAtRow(toggleSwitchTag)
     }
     
 }

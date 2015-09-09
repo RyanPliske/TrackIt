@@ -276,8 +276,8 @@
 		EF4BF8C11B966DB700B2AAA1 /* TRManageItems */ = {
 			isa = PBXGroup;
 			children = (
+				EF86B2B51BA0F1E70080DC97 /* TRManageItemsViewController */,
 				EF86B2B21BA0E5360080DC97 /* TRManageItemsView */,
-				EF4BF8C21B966E0300B2AAA1 /* TRManageItemsViewController.swift */,
 			);
 			name = TRManageItems;
 			sourceTree = "<group>";
@@ -369,6 +369,14 @@
 				EF86B2B31BA0E56E0080DC97 /* TRManageItemsTableViewCell.swift */,
 			);
 			name = TRManageItemsView;
+			sourceTree = "<group>";
+		};
+		EF86B2B51BA0F1E70080DC97 /* TRManageItemsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EF4BF8C21B966E0300B2AAA1 /* TRManageItemsViewController.swift */,
+			);
+			name = TRManageItemsViewController;
 			sourceTree = "<group>";
 		};
 		EF9FB0661B2A4D5800AD1164 /* TrackViaWatch */ = {
