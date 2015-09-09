@@ -3,8 +3,8 @@ import Foundation
 The `TRTrackerPresenter` class is designed to act as the mediator between the TRTrackerView and TRRecordsModel.
 */
 class TRTrackerPresenter: NSObject, TRTrackerViewDelegate {
-    let trackerView : TRTrackerView
-    let recordsModel : TRRecordsModel
+    let trackerView: TRTrackerView
+    let recordsModel: TRRecordsModel
     var datetoTrack = NSDate()
 
     var selectedItemOfFirstColumn = 0 {

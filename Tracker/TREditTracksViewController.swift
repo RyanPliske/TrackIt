@@ -28,7 +28,7 @@ class TREditTracksViewController: UIViewController {
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        recordsModel?.setSortTypeTo(TRRecordType.TrackAction)
+        recordsModel?.sortType = TRRecordType.TrackAction
         view.endEditing(true)
     }
     
@@ -52,10 +52,10 @@ class TREditTracksViewController: UIViewController {
     
     @IBAction func segmentControlPressed(sender: AnyObject) {
         if (itemTypeSegmentedControl.selectedSegmentIndex == 0) {
-            recordsModel?.setSortTypeTo(TRRecordType.TrackAction)
+            recordsModel?.sortType = TRRecordType.TrackAction
             editTracksTableView.reloadData()
         } else {
-            recordsModel?.setSortTypeTo(TRRecordType.TrackUrge)
+            recordsModel?.sortType = TRRecordType.TrackUrge
             editTracksTableView.reloadData()
         }
     }

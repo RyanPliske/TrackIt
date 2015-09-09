@@ -17,7 +17,7 @@ extension TREditTracksViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
         searchBar.setShowsCancelButton(false, animated: true)
         searchBar.text = nil
-        recordsModel?.setSearchModeTo(false)
+        recordsModel?.searchMode = false
         editTracksTableView.reloadData()
     }
     

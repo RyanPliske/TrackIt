@@ -5,20 +5,23 @@ typealias TRCreateRecordCompletion = () -> Void
 typealias TRSearchCompletion = () -> Void
 
 class TRRecordsModel: NSObject {
+    
     // MARK: Private Variables
-    private var recordSortManager = TRRecordSortManager()
-    private var recordService: TRRecordService
+    private let recordSortManager = TRRecordSortManager()
+    private let recordService: TRRecordService
     
     // MARK: Public Variables
-    var trackableItems = TRTrackableItems()
+    let trackableItems = TRTrackableItems()
     var records: [TRRecord] {
-        return self.recordSortManager.records
+        get { return self.recordSortManager.records }
     }
     var sortType: TRRecordType {
-        return self.recordSortManager.sortType
+        get { return self.recordSortManager.sortType }
+        set { self.recordSortManager.sortType = newValue }
     }
     var searchMode: Bool {
-        return self.recordSortManager.searchMode
+        get { return self.recordSortManager.searchMode }
+        set { self.recordSortManager.searchMode = newValue }
     }
     
     // MARK: Public Methods
@@ -27,23 +30,16 @@ class TRRecordsModel: NSObject {
         super.init()
     }
     
-    func setSortTypeTo(sortType: TRRecordType) {
-        recordSortManager.sortType = sortType
-    }
-    
-    func setSearchModeTo(searchMode: Bool) {
-        recordSortManager.searchMode = searchMode
-    }
-    
     func createRecordUsingRow(row: Int, quantityRow: Int, type: TRRecordType, date: NSDate) {
         var item: String
-        if type == TRRecordType.TrackUrge {
-            item = trackableItems.sinfulItems[row]
-        } else {
+        switch (type) {
+        case .TrackAction:
             item = trackableItems.allItems[row]
+        case .TrackUrge:
+            item = trackableItems.sinfulItems[row]
         }
         
-        let itemQuantity = quantityForRow(quantityRow)
+        let itemQuantity = quantityRow + 1
         
         weak var weakSelf = self
         let blockCompletion: TRCreateRecordCompletion = {
@@ -75,10 +71,6 @@ class TRRecordsModel: NSObject {
     }
     
     // MARK: Private Helpers
-    private func quantityForRow(row: Int) -> Int {
-        return row + 1
-    }
-    
     private func grabAllTracks() {
         grabRecordsWithSortType(TRRecordType.TrackAction)
     }
