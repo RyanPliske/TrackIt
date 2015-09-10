@@ -18,7 +18,7 @@ class TRAppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId("xXgO9EuCmM0fMAPvTk7jxPWQomcQPH40IcrKnCCf",
             clientKey: "ErKp2ZiaCImNSpiUQaCXWEAtClBou0b4qrBk7anU")
         PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions, block: nil)
-        
+        _ = TRItemsModel.sharedInstanceOfItemsModel
         return true
     }
 }
