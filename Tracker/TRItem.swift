@@ -16,16 +16,16 @@ class TRItem: PFObject, PFSubclassing {
         return "item"
     }
     // MARK: Properties
-    var name: String? {
+    var name: String {
         get {
-            return self["name"] as? String
+            return self["name"] as! String
         }
         set(newValue) {
             self["name"] = newValue
         }
     }
     
-    var activated: Bool? {
+    var activated: Bool {
         get {
             if let status = self["activated"] as? Bool {
                 return status
@@ -39,7 +39,7 @@ class TRItem: PFObject, PFSubclassing {
         }
     }
     
-    var isAVice: Bool? {
+    var isAVice: Bool {
         get {
             if let status = self["vice"] as? Bool {
                 return status

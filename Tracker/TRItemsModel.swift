@@ -29,11 +29,11 @@ class TRItemsModel {
     }
     
     private func saveAllItems() {
-        for item in TRTrackableItems.regularItems {
-            itemService.createItemWithName(item, isAVice: false)
-        }
         for item in TRTrackableItems.sinfulItems {
             itemService.createItemWithName(item, isAVice: true)
+        }
+        for item in TRTrackableItems.regularItems {
+            itemService.createItemWithName(item, isAVice: false)
         }
     }
     
@@ -42,6 +42,6 @@ class TRItemsModel {
     }
     
     private func filterOutInactiveItems() {
-        activeItems = activeItems.filter { $0.activated! }
+        activeItems = activeItems.filter { $0.activated }
     }
 }
