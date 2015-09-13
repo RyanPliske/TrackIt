@@ -44,7 +44,7 @@ class TRItemsModel {
     func updateItemsActiveStatusAtIndex(index: Int, activeStatus: Bool) {
         _allItems[index].activated = activeStatus
         filterItemsByActivated()
-        itemService.updateItem(self.activeItems[index], activeStatus: activeStatus)
+        itemService.updateItem(self.allItems[index], activeStatus: activeStatus)
     }
     
     private func deleteAllItems() {
@@ -52,6 +52,6 @@ class TRItemsModel {
     }
     
     private func filterItemsByActivated() {
-        _activeItems = _allItems.filter { $0.activated }
+        _activeItems = allItems.filter { $0.activated }
     }
 }
