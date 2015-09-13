@@ -4,7 +4,7 @@ class TRManageItemsViewController: UIViewController, UITableViewDataSource, TRMa
     
     @IBOutlet weak var itemsTableView: TRSettingsTableView!
     private var numberOfItemsInRecordsModel: Int
-//    private let itemsModel = TRItemsModel.sharedInstanceOfItemsModel
+    private let itemsModel = TRItemsModel.sharedInstanceOfItemsModel
     
     required init?(coder aDecoder: NSCoder) {
         numberOfItemsInRecordsModel = TRTrackableItems.allItems.count
@@ -43,6 +43,7 @@ class TRManageItemsViewController: UIViewController, UITableViewDataSource, TRMa
         let name: String = TRTrackableItems.allItems[indexPath.row]
         cell.setSettingNameWith(name)
         cell.toggleSwitch.tag = indexPath.row
+        cell.toggleSwitch.on = itemsModel.allItems[indexPath.row].activated
         cell.manageItemsTableViewCellDelegate = self
         return cell
     }
@@ -52,13 +53,7 @@ class TRManageItemsViewController: UIViewController, UITableViewDataSource, TRMa
     func toggleSwitchChangedValueAtRow(row: Int) {
         let indexPath = NSIndexPath(forRow: row, inSection: 0)
         let cell = itemsTableView.cellForRowAtIndexPath(indexPath) as! TRManageItemsTableViewCell
-        if cell.toggleSwitch.on {
-            print(cell.toggleSwitch.on.description)
-            print(cell.toggleSwitch.tag)
-        } else {
-            print(cell.toggleSwitch.on.description)
-            print(cell.toggleSwitch.tag)
-        }
+        TRItemsModel.sharedInstanceOfItemsModel.updateItemsActiveStatusAtIndex(row, activeStatus: cell.toggleSwitch.on)
     }
     
     

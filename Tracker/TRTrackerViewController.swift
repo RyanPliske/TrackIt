@@ -16,9 +16,9 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver, TREditTr
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        recordsModel.readAllRecords()
         trackerPresenter = TRTrackerPresenter(view: self.trackerView, model: self.recordsModel)
         setNeedsStatusBarAppearanceUpdate()
-        recordsModel.readAllRecords()
         trackerView.observer = self
         dateViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
         dateViewController.dateObserver = self.trackerPresenter

@@ -24,6 +24,11 @@ class TRItemService {
         query.findObjectsInBackgroundWithBlock(BackgroundRetrievalCompletion)
     }
     
+    func updateItem(item: TRItem, activeStatus: Bool) {
+        item.activated = activeStatus
+        item.pinInBackgroundWithBlock(nil)
+    }
+    
     func deleteAllItemsFromPhone() {
         TRItem.unpinAllObjects()
     }

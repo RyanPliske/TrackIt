@@ -3,8 +3,11 @@ import Foundation
 class TRItemsModel {
     
     static let sharedInstanceOfItemsModel = TRItemsModel(itemService: TRItemService())
-    var items: [TRItem] { return self.activeItems }
-    private var activeItems = [TRItem]()
+    var allItems: [TRItem] { return self._allItems }
+    private var _allItems = [TRItem]()
+    var activeItems: [TRItem] { return self._activeItems }
+    private var _activeItems = [TRItem]()
+    
     private var itemService: TRItemService
     
     private init(itemService: TRItemService) {
@@ -19,7 +22,8 @@ class TRItemsModel {
             if let unwrappedObjects = objects {
                 if (unwrappedObjects.count != 0) {
                     let items = objects as! [TRItem]
-                    weakSelf?.activeItems = items
+                    weakSelf?._allItems = items
+                    weakSelf?.filterItemsByActivated()
                     return
                 }
             }
@@ -37,11 +41,17 @@ class TRItemsModel {
         }
     }
     
+    func updateItemsActiveStatusAtIndex(index: Int, activeStatus: Bool) {
+        _allItems[index].activated = activeStatus
+        filterItemsByActivated()
+        itemService.updateItem(self.activeItems[index], activeStatus: activeStatus)
+    }
+    
     private func deleteAllItems() {
         itemService.deleteAllItemsFromPhone()
     }
     
-    private func filterOutInactiveItems() {
-        activeItems = activeItems.filter { $0.activated }
+    private func filterItemsByActivated() {
+        _activeItems = _allItems.filter { $0.activated }
     }
 }
