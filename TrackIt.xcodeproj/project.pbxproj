@@ -37,6 +37,7 @@
 		EF70DE271B8D147E00CDAFC5 /* TRRecordSortManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF70DE261B8D147E00CDAFC5 /* TRRecordSortManager.swift */; };
 		EF70DE2B1B8D3DBA00CDAFC5 /* MockRecordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF70DE2A1B8D3DBA00CDAFC5 /* MockRecordService.swift */; };
 		EF70DE2D1B8D480D00CDAFC5 /* TREditTracksTableViewCellDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF70DE2C1B8D480D00CDAFC5 /* TREditTracksTableViewCellDecorator.swift */; };
+		EF7C173A1BA7346B000A3947 /* TRColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7C17391BA7346B000A3947 /* TRColors.swift */; settings = {ASSET_TAGS = (); }; };
 		EF7CE0101AF0204700C451B1 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE00F1AF0204700C451B1 /* TPKeyboardAvoidingScrollView.m */; };
 		EF7CE0131AF021C600C451B1 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE0121AF021C600C451B1 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		EF7CE0171AF0228600C451B1 /* HTPressableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE0161AF0228600C451B1 /* HTPressableButton.m */; };
@@ -145,6 +146,7 @@
 		EF70DE261B8D147E00CDAFC5 /* TRRecordSortManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRRecordSortManager.swift; sourceTree = "<group>"; };
 		EF70DE2A1B8D3DBA00CDAFC5 /* MockRecordService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockRecordService.swift; sourceTree = "<group>"; };
 		EF70DE2C1B8D480D00CDAFC5 /* TREditTracksTableViewCellDecorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREditTracksTableViewCellDecorator.swift; sourceTree = "<group>"; };
+		EF7C17391BA7346B000A3947 /* TRColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRColors.swift; sourceTree = "<group>"; };
 		EF7CE00E1AF0204700C451B1 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
 		EF7CE00F1AF0204700C451B1 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
 		EF7CE0111AF021C600C451B1 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
@@ -342,6 +344,14 @@
 				EF77AD601B9FB731009DE5A4 /* TRRecord */,
 			);
 			name = TRRecordsModel;
+			sourceTree = "<group>";
+		};
+		EF7C173B1BA738FE000A3947 /* TRColors */ = {
+			isa = PBXGroup;
+			children = (
+				EF7C17391BA7346B000A3947 /* TRColors.swift */,
+			);
+			name = TRColors;
 			sourceTree = "<group>";
 		};
 		EF7CE00D1AF0202F00C451B1 /* TPKeyboardAvoiding */ = {
@@ -551,6 +561,7 @@
 			children = (
 				EFE083F31A86A9B100AC9631 /* TRAppDelegate.swift */,
 				EFE083F91A86A9B100AC9631 /* Main.storyboard */,
+				EF7C173B1BA738FE000A3947 /* TRColors */,
 				EFD8AEA81B96486100962BA0 /* TRSettings */,
 				EF4BF8C11B966DB700B2AAA1 /* TRManageItems */,
 				EFF328D91B87C1F5001B9E84 /* TREditTracks */,
@@ -845,6 +856,7 @@
 				EFF85C6A1B8261FA00F766DB /* TRRecordService.swift in Sources */,
 				EF44E7C51B87E64F0088242C /* TREditTracksViewController.swift in Sources */,
 				EFFCF9DC1AFA9C26004DEDB9 /* TRCurrentDate.swift in Sources */,
+				EF7C173A1BA7346B000A3947 /* TRColors.swift in Sources */,
 				EF53D0631B866616007873B4 /* TRToolbar.swift in Sources */,
 				EF3D9FB61B850E8E009042CA /* DailyCalendarView.m in Sources */,
 				EF3779A21B8ECB7300D6FB97 /* TREditTracksViewController+UITableViewDataSource.swift in Sources */,

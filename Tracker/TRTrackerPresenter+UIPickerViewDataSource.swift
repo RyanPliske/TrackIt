@@ -35,13 +35,13 @@ extension TRTrackerPresenter: UIPickerViewDataSource {
         
         if component == 0 {
             if row == selectedItemOfFirstColumn {
-                return NSAttributedString(string: pickableItems[row].name as String, attributes: [NSForegroundColorAttributeName:UIColor.blueColor()])
+                return NSAttributedString(string: pickableItems[row].name as String, attributes: [NSForegroundColorAttributeName:UIColor.TRBabyBlue()])
             }
             return NSAttributedString(string: pickableItems[row].name as String, attributes: [NSForegroundColorAttributeName:UIColor.whiteColor()])
         }
         else {
             if row == selectedItemOfSecondColumn {
-                return NSAttributedString(string: TRTrackableItems.ListOfQuantities[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.blueColor()])
+                return NSAttributedString(string: TRTrackableItems.ListOfQuantities[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.TRBabyBlue()])
             }
             return NSAttributedString(string: TRTrackableItems.ListOfQuantities[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.whiteColor()])
         }

@@ -21,6 +21,7 @@ class TREditTracksViewController: UIViewController {
         if let navController = navigationController {
             navController.navigationBar.barStyle = UIBarStyle.BlackTranslucent
             navController.navigationBar.barTintColor = UIColor.clearColor()
+            navController.navigationBar.tintColor = UIColor.TRBabyBlue()
             let navBarHairLineImageView = findHairLineImageViewUnder(navController.navigationBar)
             navBarHairLineImageView?.hidden = true
         }

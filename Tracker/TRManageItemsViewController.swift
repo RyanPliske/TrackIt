@@ -16,6 +16,7 @@ class TRManageItemsViewController: UIViewController, UITableViewDataSource, TRMa
         title = "Items"
         let addButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addItem")
         navigationItem.rightBarButtonItem = addButton
+        navigationController?.navigationBar.tintColor = UIColor.TRBabyBlue()
         itemsTableView.dataSource = self
     }
     

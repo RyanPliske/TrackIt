@@ -13,8 +13,10 @@ class TRToolbar: UIToolbar {
     
     private func setupFor(parentView: UIView) {
         let doneButton = UIBarButtonItem(title: "Track", style: UIBarButtonItemStyle.Plain, target: parentView, action: "userPickedAnItemToTrack:")
+        doneButton.tintColor = UIColor.TRBabyBlue()
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
         let cancelButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: parentView, action: "userCanceledPicking:")
+        cancelButton.tintColor = UIColor.TRBabyBlue()
         setItems([cancelButton, flexibleSpace, doneButton], animated: false)
         barStyle = UIBarStyle.Black
     }
