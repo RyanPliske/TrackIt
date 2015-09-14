@@ -13,9 +13,9 @@ extension TRTrackerPresenter: UIPickerViewDataSource {
         if component == 0 {
             switch trackingType {
             case .TrackAction:
-                return TRItemsModel.sharedInstanceOfItemsModel.activeItems.count
+                return itemsModel.activeItems.count
             case .TrackUrge:
-                return TRItemsModel.sharedInstanceOfItemsModel.activeItems.filter({!$0.isAVice}).count
+                return itemsModel.activeSinfulItems.count
             }
         }
         else {
@@ -24,11 +24,20 @@ extension TRTrackerPresenter: UIPickerViewDataSource {
     }
     
     func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        
+        var pickableItems = [TRItem]()
+        switch trackingType {
+        case .TrackAction:
+            pickableItems = itemsModel.activeItems
+        case .TrackUrge:
+            pickableItems = itemsModel.activeSinfulItems
+        }
+        
         if component == 0 {
             if row == selectedItemOfFirstColumn {
-                return NSAttributedString(string: TRItemsModel.sharedInstanceOfItemsModel.activeItems[row].name as String, attributes: [NSForegroundColorAttributeName:UIColor.blueColor()])
+                return NSAttributedString(string: pickableItems[row].name as String, attributes: [NSForegroundColorAttributeName:UIColor.blueColor()])
             }
-            return NSAttributedString(string: TRItemsModel.sharedInstanceOfItemsModel.activeItems[row].name as String, attributes: [NSForegroundColorAttributeName:UIColor.whiteColor()])
+            return NSAttributedString(string: pickableItems[row].name as String, attributes: [NSForegroundColorAttributeName:UIColor.whiteColor()])
         }
         else {
             if row == selectedItemOfSecondColumn {

@@ -7,6 +7,10 @@ class TRItemsModel {
     private var _allItems = [TRItem]()
     var activeItems: [TRItem] { return self._activeItems }
     private var _activeItems = [TRItem]()
+    var activeSinfulItems: [TRItem] { return self._sinfulItems }
+    private var _sinfulItems = [TRItem]()
+    var activeRegularItems: [TRItem] { return self._regularItems }
+    private var _regularItems = [TRItem]()
     
     private var itemService: TRItemService
     
@@ -51,7 +55,13 @@ class TRItemsModel {
         itemService.deleteAllItemsFromPhone()
     }
     
+    private func filterActiveItemsByVice() {
+        _sinfulItems = activeItems.filter { $0.isAVice }
+        _regularItems = activeItems.filter { !$0.isAVice }
+    }
+    
     private func filterItemsByActivated() {
         _activeItems = allItems.filter { $0.activated }
+        filterActiveItemsByVice()
     }
 }

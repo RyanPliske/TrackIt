@@ -5,6 +5,7 @@ The `TRTrackerPresenter` class is designed to act as the mediator between the TR
 class TRTrackerPresenter: NSObject, TRTrackerViewDelegate {
     let trackerView: TRTrackerView
     let recordsModel: TRRecordsModel
+    let itemsModel = TRItemsModel.sharedInstanceOfItemsModel
     var datetoTrack = NSDate()
 
     var selectedItemOfFirstColumn = 0 {
