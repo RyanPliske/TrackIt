@@ -49,6 +49,8 @@
 		EF86B2BA1BA0FC5C0080DC97 /* TRItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF86B2B91BA0FC5C0080DC97 /* TRItemsModel.swift */; settings = {ASSET_TAGS = (); }; };
 		EF86B2BC1BA0FDBA0080DC97 /* TRItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF86B2BB1BA0FDBA0080DC97 /* TRItem.swift */; settings = {ASSET_TAGS = (); }; };
 		EF86B2BE1BA1055C0080DC97 /* TRItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF86B2BD1BA1055C0080DC97 /* TRItemService.swift */; settings = {ASSET_TAGS = (); }; };
+		EFA1EF8C1BA75BB6007D82E6 /* TREditItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA1EF8B1BA75BB6007D82E6 /* TREditItemViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		EFA1EF901BA75E77007D82E6 /* TREditItemPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA1EF8F1BA75E77007D82E6 /* TREditItemPresenter.swift */; settings = {ASSET_TAGS = (); }; };
 		EFA9B5E81B7D7EBD00BAA839 /* TRTrackerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA9B5E71B7D7EBD00BAA839 /* TRTrackerPresenter.swift */; };
 		EFA9B5EA1B7D811800BAA839 /* TRRrecordsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA9B5E91B7D811800BAA839 /* TRRrecordsModel.swift */; };
 		EFB392911B93609E002EC06C /* MockRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB392901B93609E002EC06C /* MockRecord.swift */; };
@@ -174,6 +176,8 @@
 		EF9FB0801B2A4D5800AD1164 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		EF9FB0821B2A4D5800AD1164 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF9FB0841B2A4D5800AD1164 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFA1EF8B1BA75BB6007D82E6 /* TREditItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREditItemViewController.swift; sourceTree = "<group>"; };
+		EFA1EF8F1BA75E77007D82E6 /* TREditItemPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREditItemPresenter.swift; sourceTree = "<group>"; };
 		EFA9B5E51B7D6A5B00BAA839 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EFA9B5E71B7D7EBD00BAA839 /* TRTrackerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRTrackerPresenter.swift; sourceTree = "<group>"; };
 		EFA9B5E91B7D811800BAA839 /* TRRrecordsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRRrecordsModel.swift; sourceTree = "<group>"; };
@@ -440,6 +444,31 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		EFA1EF871BA75B47007D82E6 /* TREditItem */ = {
+			isa = PBXGroup;
+			children = (
+				EFA1EF8E1BA75DCA007D82E6 /* TREditItemPresenter */,
+				EFA1EF8D1BA75D7F007D82E6 /* TREditItemView */,
+				EFA1EF8B1BA75BB6007D82E6 /* TREditItemViewController.swift */,
+			);
+			name = TREditItem;
+			sourceTree = "<group>";
+		};
+		EFA1EF8D1BA75D7F007D82E6 /* TREditItemView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = TREditItemView;
+			sourceTree = "<group>";
+		};
+		EFA1EF8E1BA75DCA007D82E6 /* TREditItemPresenter */ = {
+			isa = PBXGroup;
+			children = (
+				EFA1EF8F1BA75E77007D82E6 /* TREditItemPresenter.swift */,
+			);
+			name = TREditItemPresenter;
+			sourceTree = "<group>";
+		};
 		EFC9CD671B7D249B00060D54 /* TRTracker */ = {
 			isa = PBXGroup;
 			children = (
@@ -563,6 +592,7 @@
 				EFE083F91A86A9B100AC9631 /* Main.storyboard */,
 				EF7C173B1BA738FE000A3947 /* TRColors */,
 				EFD8AEA81B96486100962BA0 /* TRSettings */,
+				EFA1EF871BA75B47007D82E6 /* TREditItem */,
 				EF4BF8C11B966DB700B2AAA1 /* TRManageItems */,
 				EFF328D91B87C1F5001B9E84 /* TREditTracks */,
 				EF1FA9461B7E64ED00AC9095 /* TRChooseableDate */,
@@ -831,6 +861,7 @@
 			files = (
 				EF7CE0171AF0228600C451B1 /* HTPressableButton.m in Sources */,
 				EF86B2B41BA0E56F0080DC97 /* TRManageItemsTableViewCell.swift in Sources */,
+				EFA1EF901BA75E77007D82E6 /* TREditItemPresenter.swift in Sources */,
 				EF3D9FB81B850E8E009042CA /* NSDate+CL.m in Sources */,
 				EF35BA301AF3D29400456D38 /* TRRecordType.swift in Sources */,
 				EF86B2BE1BA1055C0080DC97 /* TRItemService.swift in Sources */,
@@ -854,6 +885,7 @@
 				EF7CE01D1AF023B000C451B1 /* UIImage+HTButton.m in Sources */,
 				EF4BF8C51B966F6C00B2AAA1 /* TRSettingsViewController+UITableViewDataSource.swift in Sources */,
 				EFF85C6A1B8261FA00F766DB /* TRRecordService.swift in Sources */,
+				EFA1EF8C1BA75BB6007D82E6 /* TREditItemViewController.swift in Sources */,
 				EF44E7C51B87E64F0088242C /* TREditTracksViewController.swift in Sources */,
 				EFFCF9DC1AFA9C26004DEDB9 /* TRCurrentDate.swift in Sources */,
 				EF7C173A1BA7346B000A3947 /* TRColors.swift in Sources */,
