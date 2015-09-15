@@ -12,9 +12,9 @@
 #import <dlfcn.h>
 
 #if TARGET_OS_IPHONE
-
 #import <AudioToolbox/AudioToolbox.h>
 
+#import "PFAlertView.h"
 #endif
 
 #import "PFInstallationPrivate.h"
@@ -56,15 +56,15 @@
 
 #if TARGET_OS_IPHONE
 
-+ (void)showAlertViewWithTitle:(NSString *)title
-                       message:(NSString *)message {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
-                                                    message:message
-                                                   delegate:nil
-                                          cancelButtonTitle:NSLocalizedString(@"OK",
-                                                                              @"Default alert cancel button title.")
-                                          otherButtonTitles:nil];
-    [alert show];
++ (void)showAlertViewWithTitle:(NSString *)title message:(NSString *)message {
+    NSString *cancelButtonTitle = NSLocalizedStringFromTableInBundle(@"OK", @"Parse",
+                                                                     [NSBundle bundleForClass:[self class]],
+                                                                     @"Default alert view cancel button title.");
+    [PFAlertView showAlertWithTitle:title
+                            message:message
+                  cancelButtonTitle:cancelButtonTitle
+                  otherButtonTitles:nil
+                         completion:nil];
 }
 
 + (void)playAudioWithName:(NSString *)audioFileName {

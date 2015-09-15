@@ -33,11 +33,18 @@ And you're off! Take a look at the public [documentation][docs] and start buildi
 
  2. **Compiling for yourself**
 
-    If you want to manually compile the SDK, clone it locally, and run the following command in the root directory of the repository:
+    If you want to manually compile the SDK, clone it locally, and run the following commands in the root directory of the repository:
 
-        rake package:deployment
+        # To pull in extra dependencies (Bolts and OCMock)
+        git submodule update --init --recursive
+        
+        # To install all the gems
+        bundle install
+        
+        # Build & Package the Frameworks
+        rake package:frameworks
 
-    Your binaries should now be located inside the `build` folder, and you can link them as you'd please.
+    Compiled frameworks will be in 2 archives: `Parse-iOS.zip` and `Parse-OSX.zip` inside the `build/release` folder, and you can link them as you'd please.
 
  3. **Using Parse as a sub-project**
 

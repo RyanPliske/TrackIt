@@ -318,7 +318,7 @@ static NSString *const _ParseApplicationIdFileName = @"applicationId";
     __block PFAnalyticsController *controller = nil;
     dispatch_sync(_controllerAccessQueue, ^{
         if (!_analyticsController) {
-            _analyticsController = [[PFAnalyticsController alloc] initWithEventuallyQueue:self.eventuallyQueue];
+            _analyticsController = [[PFAnalyticsController alloc] initWithDataSource:self];
         }
         controller = _analyticsController;
     });
@@ -342,7 +342,8 @@ static NSString *const _ParseApplicationIdFileName = @"applicationId";
     dispatch_sync(_controllerAccessQueue, ^{
         if (!_purchaseController) {
             _purchaseController = [PFPurchaseController controllerWithCommandRunner:self.commandRunner
-                                                                        fileManager:self.fileManager];
+                                                                        fileManager:self.fileManager
+                                                                             bundle:[NSBundle mainBundle]];
         }
         controller = _purchaseController;
     });
