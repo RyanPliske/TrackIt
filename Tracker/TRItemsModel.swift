@@ -31,7 +31,6 @@ class TRItemsModel {
                     return
                 }
             }
-            UIAlertView(title: "Fuck", message: "\(objects)", delegate: self, cancelButtonTitle: "Cancel").show()
             weakSelf?.deleteAllItems()
             weakSelf?.saveAllItems()
         }
