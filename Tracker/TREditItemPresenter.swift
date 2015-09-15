@@ -2,9 +2,12 @@ import Foundation
 
 class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate {
     let itemTableView: UITableView
+    let itemsModel = TRItemsModel.sharedInstanceOfItemsModel
+    let itemRow: Int
     
-    init(view: UITableView) {
+    init(view: UITableView, itemRowToPopulateWith: Int) {
         self.itemTableView = view
+        self.itemRow = itemRowToPopulateWith
         super.init()
         self.itemTableView.dataSource = self
         self.itemTableView.delegate = self
@@ -27,6 +30,7 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate 
             if let inputCell = cell as? TREditItemTableViewCell {
                 inputCell.topBorder.hidden = false
                 inputCell.setLabelWithText("Name:")
+                inputCell.setTextFieldTextWithText(itemsModel.allItems[itemRow].name)
             }
         case 1:
             cell = tableView.dequeueReusableCellWithIdentifier("badHabitCell")!
@@ -35,6 +39,7 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate 
             if let inputCell = cell as? TREditItemTableViewCell {
                 inputCell.bottomBorder.hidden = false
                 inputCell.setLabelWithText("Measure Unit:")
+                inputCell.setTextFieldTextWithText(itemsModel.allItems[itemRow].name)
             }
         default:
             cell = tableView.dequeueReusableCellWithIdentifier("userInputCell") as! TREditItemTableViewCell

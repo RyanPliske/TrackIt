@@ -9,4 +9,8 @@ class TREditItemTableViewCell: TRSettingsTableViewCell {
         itemLabel?.text = text
     }
     
+    func setTextFieldTextWithText(text: String) {
+        textField?.text = text
+    }
+    
 }

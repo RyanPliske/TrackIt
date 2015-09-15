@@ -351,7 +351,6 @@
                                         <connections>
                                             <outlet property="settingNameLabel" destination="rKY-xk-DXE" id="CaK-9q-eRB"/>
                                             <outlet property="toggleSwitch" destination="GHW-77-0Vk" id="ptd-CG-xE4"/>
-                                            <segue destination="BZ8-nc-TKl" kind="show" identifier="showEditItemViewController" id="rWM-PJ-x7M"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -369,6 +368,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="itemsTableView" destination="4Jj-LB-1SC" id="5Cv-np-nFy"/>
+                        <segue destination="BZ8-nc-TKl" kind="show" identifier="showEditItemViewController" id="uOd-dk-8FU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wy8-sB-7s4" userLabel="First Responder" sceneMemberID="firstResponder"/>

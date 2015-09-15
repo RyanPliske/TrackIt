@@ -1,10 +1,11 @@
 import Foundation
 
-class TRManageItemsViewController: UIViewController, UITableViewDataSource, TRManageItemsTableViewCellDelegate {
+class TRManageItemsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TRManageItemsTableViewCellDelegate {
     
     @IBOutlet weak var itemsTableView: TRSettingsTableView!
     private var numberOfItemsInRecordsModel: Int
     private let itemsModel = TRItemsModel.sharedInstanceOfItemsModel
+    private var selectedRow: Int?
     
     required init?(coder aDecoder: NSCoder) {
         numberOfItemsInRecordsModel = TRTrackableItems.allItems.count
@@ -18,10 +19,29 @@ class TRManageItemsViewController: UIViewController, UITableViewDataSource, TRMa
         navigationItem.rightBarButtonItem = addButton
         navigationController?.navigationBar.tintColor = UIColor.TRBabyBlue()
         itemsTableView.dataSource = self
+        itemsTableView.delegate = self
     }
     
     func addItem() {
         UIAlertView(title: "Under Construction.", message: "Not implemented yet.", delegate: self, cancelButtonTitle: "Okay!").show()
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showEditItemViewController" {
+            if let editItemViewController = segue.destinationViewController as? TREditItemViewController {
+                if let row = selectedRow {
+                    editItemViewController.itemRowToPopulateWith = row
+                }
+            }
+        }
+    
+        super.prepareForSegue(segue, sender: sender)
+    }
+    
+    // MARK: UITableViewDelegate
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        selectedRow = indexPath.row
+        performSegueWithIdentifier("showEditItemViewController", sender: nil)
     }
     
     // MARK: UITableViewDataSource
@@ -56,6 +76,5 @@ class TRManageItemsViewController: UIViewController, UITableViewDataSource, TRMa
         let cell = itemsTableView.cellForRowAtIndexPath(indexPath) as! TRManageItemsTableViewCell
         TRItemsModel.sharedInstanceOfItemsModel.updateItemsActiveStatusAtIndex(row, activeStatus: cell.toggleSwitch.on)
     }
-    
     
 }
