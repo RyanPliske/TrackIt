@@ -3,7 +3,7 @@ import Foundation
 class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate {
     let itemTableView: UITableView
     let itemsModel = TRItemsModel.sharedInstanceOfItemsModel
-    let itemRow: Int
+    var itemRow: Int?
     
     init(view: UITableView, itemRowToPopulateWith: Int) {
         self.itemTableView = view
@@ -30,7 +30,8 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate 
             if let inputCell = cell as? TREditItemTableViewCell {
                 inputCell.topBorder.hidden = false
                 inputCell.setLabelWithText("Name:")
-                inputCell.setTextFieldTextWithText(itemsModel.allItems[itemRow].name)
+                let textFieldText = itemRow != nil ? itemsModel.allItems[itemRow!].name : ""
+                inputCell.setTextFieldTextWithText(textFieldText)
             }
         case 1:
             cell = tableView.dequeueReusableCellWithIdentifier("badHabitCell")!
@@ -39,7 +40,8 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate 
             if let inputCell = cell as? TREditItemTableViewCell {
                 inputCell.bottomBorder.hidden = false
                 inputCell.setLabelWithText("Measure Unit:")
-                inputCell.setTextFieldTextWithText(itemsModel.allItems[itemRow].measurementUnit)
+                let textFieldText = itemRow != nil ? itemsModel.allItems[itemRow!].measurementUnit : ""
+                inputCell.setTextFieldTextWithText(textFieldText)
             }
         default:
             cell = tableView.dequeueReusableCellWithIdentifier("userInputCell") as! TREditItemTableViewCell
