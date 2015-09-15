@@ -3,13 +3,14 @@ import Parse
 
 class TRItemService {
     
-    func createItemWithName(name: String, isAVice: Bool) -> TRItem {
+    private var itemsToSave = [TRItem]()
+    
+    func createItemWithName(name: String, isAVice: Bool) {
         let item = TRItem(className: "item")
         item.activated = true
         item.name = name
         item.isAVice = isAVice
-        saveItemToPhoneWithItem(item)
-        return item
+        itemsToSave.append(item)
     }
     
     func readAllItemsFromPhone(completion: PFArrayResultBlock?) {
@@ -33,8 +34,10 @@ class TRItemService {
         TRItem.unpinAllObjects()
     }
     
-    private func saveItemToPhoneWithItem(item: TRItem) {
-        item.pinInBackgroundWithBlock(nil)
+    func saveAll(completion: PFBooleanResultBlock?) {
+        if let completionBlock = completion {
+            TRItem.pinAllInBackground(itemsToSave, block: completionBlock)
+        }
     }
     
 }

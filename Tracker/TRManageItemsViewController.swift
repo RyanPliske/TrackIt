@@ -3,12 +3,10 @@ import Foundation
 class TRManageItemsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TRManageItemsTableViewCellDelegate {
     
     @IBOutlet weak var itemsTableView: TRSettingsTableView!
-    private var numberOfItemsInRecordsModel: Int
     private let itemsModel = TRItemsModel.sharedInstanceOfItemsModel
     private var selectedRow: Int?
     
     required init?(coder aDecoder: NSCoder) {
-        numberOfItemsInRecordsModel = TRTrackableItems.allItems.count
         super.init(coder: aDecoder)
     }
     
@@ -51,14 +49,14 @@ class TRManageItemsViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return numberOfItemsInRecordsModel
+        return itemsModel.allItems.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: TRManageItemsTableViewCell = tableView.dequeueReusableCellWithIdentifier("items") as! TRManageItemsTableViewCell
         if (indexPath.row == 0) {
             cell.topBorder.hidden = false
-        } else if (indexPath.row == (numberOfItemsInRecordsModel - 1)) {
+        } else if (indexPath.row == (itemsModel.allItems.count - 1)) {
             cell.bottomBorder.hidden = false
         }
         let name: String = TRTrackableItems.allItems[indexPath.row]

@@ -43,6 +43,12 @@ class TRItemsModel {
         for item in TRTrackableItems.regularItems {
             itemService.createItemWithName(item, isAVice: false)
         }
+        weak var weakSelf = self
+        itemService.saveAll { (success, error) -> Void in
+            if success {
+                weakSelf?.checkForItems()
+            }
+        }
     }
     
     func updateItemsActiveStatusAtIndex(index: Int, activeStatus: Bool) {
