@@ -26,25 +26,28 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate 
         let cell: UITableViewCell
         switch (indexPath.row) {
         case 0:
-            cell = tableView.dequeueReusableCellWithIdentifier("userInputCell") as! TREditItemTableViewCell
-            if let inputCell = cell as? TREditItemTableViewCell {
+            cell = tableView.dequeueReusableCellWithIdentifier("userInputCell") as! TREditItemTableViewInputCell
+            if let inputCell = cell as? TREditItemTableViewInputCell {
                 inputCell.topBorder.hidden = false
                 inputCell.setLabelWithText("Name:")
                 let textFieldText = itemRow != nil ? itemsModel.allItems[itemRow!].name : ""
                 inputCell.setTextFieldTextWithText(textFieldText)
             }
         case 1:
-            cell = tableView.dequeueReusableCellWithIdentifier("badHabitCell")!
+            cell = tableView.dequeueReusableCellWithIdentifier("badHabitCell") as! TREditItemTableViewViceCell
+            if let viceCell = cell as? TREditItemTableViewViceCell {
+                
+            }
         case 2:
-            cell = tableView.dequeueReusableCellWithIdentifier("userInputCell") as! TREditItemTableViewCell
-            if let inputCell = cell as? TREditItemTableViewCell {
+            cell = tableView.dequeueReusableCellWithIdentifier("userInputCell") as! TREditItemTableViewInputCell
+            if let inputCell = cell as? TREditItemTableViewInputCell {
                 inputCell.bottomBorder.hidden = false
                 inputCell.setLabelWithText("Measure Unit:")
                 let textFieldText = itemRow != nil ? itemsModel.allItems[itemRow!].measurementUnit : ""
                 inputCell.setTextFieldTextWithText(textFieldText)
             }
         default:
-            cell = tableView.dequeueReusableCellWithIdentifier("userInputCell") as! TREditItemTableViewCell
+            cell = tableView.dequeueReusableCellWithIdentifier("userInputCell") as! TREditItemTableViewInputCell
             
         }
         return cell

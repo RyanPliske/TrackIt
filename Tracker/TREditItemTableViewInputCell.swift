@@ -1,6 +1,6 @@
 import UIKit
 
-class TREditItemTableViewCell: TRSettingsTableViewCell {
+class TREditItemTableViewInputCell: TRSettingsTableViewCell {
     
     @IBOutlet private weak var itemLabel: UILabel!
     @IBOutlet private weak var textField: UITextField!
