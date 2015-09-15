@@ -38,10 +38,12 @@ class TRItemsModel {
     
     private func saveAllItems() {
         for item in TRTrackableItems.sinfulItems {
-            itemService.createItemWithName(item, isAVice: true)
+            itemService.createItemWithName(item, isAVice: true, measureUnit: nil)
         }
-        for item in TRTrackableItems.regularItems {
-            itemService.createItemWithName(item, isAVice: false)
+        for (_, items) in TRTrackableItems.regularItems {
+            let itemName = items["name"]! as String
+            let itemMeasureUnit = items["unit"]! as String
+            itemService.createItemWithName(itemName, isAVice: false, measureUnit: itemMeasureUnit)
         }
         weak var weakSelf = self
         itemService.saveAll { (success, error) -> Void in

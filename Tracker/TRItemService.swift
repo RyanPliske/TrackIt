@@ -5,11 +5,14 @@ class TRItemService {
     
     private var itemsToSave = [TRItem]()
     
-    func createItemWithName(name: String, isAVice: Bool) {
+    func createItemWithName(name: String, isAVice: Bool, measureUnit: String?) {
         let item = TRItem(className: "item")
         item.activated = true
         item.name = name
         item.isAVice = isAVice
+        if let unit = measureUnit {
+            item.measurementUnit = unit
+        }
         itemsToSave.append(item)
     }
     

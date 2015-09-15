@@ -39,7 +39,7 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate 
             if let inputCell = cell as? TREditItemTableViewCell {
                 inputCell.bottomBorder.hidden = false
                 inputCell.setLabelWithText("Measure Unit:")
-                inputCell.setTextFieldTextWithText(itemsModel.allItems[itemRow].name)
+                inputCell.setTextFieldTextWithText(itemsModel.allItems[itemRow].measurementUnit)
             }
         default:
             cell = tableView.dequeueReusableCellWithIdentifier("userInputCell") as! TREditItemTableViewCell

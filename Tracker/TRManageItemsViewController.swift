@@ -59,7 +59,7 @@ class TRManageItemsViewController: UIViewController, UITableViewDataSource, UITa
         } else if (indexPath.row == (itemsModel.allItems.count - 1)) {
             cell.bottomBorder.hidden = false
         }
-        let name: String = TRTrackableItems.allItems[indexPath.row]
+        let name: String = itemsModel.allItems[indexPath.row].name
         cell.setSettingNameWith(name)
         cell.toggleSwitch.tag = indexPath.row
         cell.toggleSwitch.on = itemsModel.allItems[indexPath.row].activated
