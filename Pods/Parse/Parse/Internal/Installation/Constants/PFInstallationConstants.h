@@ -17,6 +17,5 @@ extern NSString *const PFInstallationKeyAppName;
 extern NSString *const PFInstallationKeyAppVersion;
 extern NSString *const PFInstallationKeyAppIdentifier;
 extern NSString *const PFInstallationKeyTimeZone;
-extern NSString *const PFInstallationKeyLocaleIdentifier;
 extern NSString *const PFInstallationKeyBadge;
 extern NSString *const PFInstallationKeyChannels;

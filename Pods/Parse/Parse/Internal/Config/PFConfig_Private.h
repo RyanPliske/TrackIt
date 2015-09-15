@@ -9,9 +9,13 @@
 
 #import <Foundation/Foundation.h>
 
+#if TARGET_OS_IPHONE
 #import <Parse/PFConfig.h>
+#else
+#import <ParseOSX/PFConfig.h>
+#endif
 
-extern NSString *const PFConfigParametersRESTKey;
+NSString *const PFConfigParametersRESTKey;
 
 @interface PFConfig (Private)
 

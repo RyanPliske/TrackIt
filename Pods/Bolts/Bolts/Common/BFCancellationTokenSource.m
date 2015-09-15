@@ -12,12 +12,23 @@
 
 #import "BFCancellationToken.h"
 
+@interface BFCancellationTokenSource ()
+
+@property (nonatomic, strong, readwrite) BFCancellationToken *token;
+@property (atomic, assign, readwrite, getter=isCancellationRequested) BOOL cancellationRequested;
+@property (atomic, assign) BOOL disposed;
+@property (nonatomic, strong) NSObject *lock;
+
+@end
+
 @interface BFCancellationToken (BFCancellationTokenSource)
 
 - (void)cancel;
+
 - (void)cancelAfterDelay:(int)millis;
 
 - (void)dispose;
+
 - (void)throwIfDisposed;
 
 @end
@@ -26,17 +37,16 @@
 
 #pragma mark - Initializer
 
-- (instancetype)init {
-    self = [super init];
-    if (!self) return nil;
-
-    _token = [BFCancellationToken new];
-
-    return self;
-}
-
 + (instancetype)cancellationTokenSource {
     return [BFCancellationTokenSource new];
+}
+
+- (instancetype)init {
+    if (self = [super init]) {
+        _token = [BFCancellationToken new];
+        _lock = [NSObject new];
+    }
+    return self;
 }
 
 #pragma mark - Custom Setters/Getters

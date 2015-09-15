@@ -152,9 +152,11 @@
         NSNumber *newAmount = [PFInternalUtils addNumber:self.amount
                                               withNumber:((PFIncrementOperation *)previous).amount];
         return [PFIncrementOperation incrementWithAmount:newAmount];
+    } else {
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                       reason:@"Operation is invalid after previous operation."
+                                     userInfo:nil];
     }
-    [NSException raise:NSInternalInconsistencyException format:@"Operation is invalid after previous operation."];
-    return nil;
 }
 
 - (id)applyToValue:(id)oldValue forKey:(NSString *)key {
@@ -208,16 +210,19 @@
             NSArray *newArray = [oldArray arrayByAddingObjectsFromArray:self.objects];
             return [PFSetOperation setWithValue:newArray];
         } else {
-            [NSException raise:NSInternalInconsistencyException format:@"You can't add an item to a non-array."];
-            return nil;
+            @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                           reason:@"You can't add an item to a non-array."
+                                         userInfo:nil];
         }
     } else if ([previous isKindOfClass:[PFAddOperation class]]) {
         NSMutableArray *newObjects = [((PFAddOperation *)previous).objects mutableCopy];
         [newObjects addObjectsFromArray:self.objects];
         return [[self class] addWithObjects:newObjects];
+    } else {
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                       reason:@"Operation is invalid after previous operation."
+                                     userInfo:nil];
     }
-    [NSException raise:NSInternalInconsistencyException format:@"Operation is invalid after previous operation."];
-    return nil;
 }
 
 - (id)applyToValue:(id)oldValue forKey:(NSString *)key {
@@ -225,9 +230,11 @@
         return [self.objects mutableCopy];
     } else if ([oldValue isKindOfClass:[NSArray class]]) {
         return [((NSArray *)oldValue)arrayByAddingObjectsFromArray:self.objects];
+    } else {
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                       reason:@"Operation is invalid after previous operation."
+                                     userInfo:nil];
     }
-    [NSException raise:NSInternalInconsistencyException format:@"Operation is invalid after previous operation."];
-    return nil;
 }
 
 @end
@@ -267,15 +274,18 @@
             NSArray *oldArray = (((PFSetOperation *)previous).value);
             return [PFSetOperation setWithValue:[self applyToValue:oldArray forKey:nil]];
         } else {
-            [NSException raise:NSInternalInconsistencyException format:@"You can't add an item to a non-array."];
-            return nil;
+            @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                           reason:@"You can't add an item to a non-array."
+                                         userInfo:nil];
         }
     } else if ([previous isKindOfClass:[PFAddUniqueOperation class]]) {
         NSArray *previousObjects = ((PFAddUniqueOperation *)previous).objects;
         return [[self class] addUniqueWithObjects:[self applyToValue:previousObjects forKey:nil]];
+    } else {
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                       reason:@"Operation is invalid after previous operation."
+                                     userInfo:nil];
     }
-    [NSException raise:NSInternalInconsistencyException format:@"Operation is invalid after previous operation."];
-    return nil;
 }
 
 - (id)applyToValue:(id)oldValue forKey:(NSString *)key {
@@ -301,9 +311,11 @@
             }
         }
         return newValue;
+    } else {
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                       reason:@"Operation is invalid after previous operation."
+                                     userInfo:nil];
     }
-    [NSException raise:NSInternalInconsistencyException format:@"Operation is invalid after previous operation."];
-    return nil;
 }
 
 @end
@@ -336,23 +348,26 @@
     if (!previous) {
         return self;
     } else if ([previous isKindOfClass:[PFDeleteOperation class]]) {
-        [NSException raise:NSInternalInconsistencyException format:@"You can't remove items from a deleted array."];
-        return nil;
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                       reason:@"You can't remove items from a deleted array."
+                                     userInfo:nil];
     } else if ([previous isKindOfClass:[PFSetOperation class]]) {
         if ([((PFSetOperation *)previous).value isKindOfClass:[NSArray class]]) {
             NSArray *oldArray = ((PFSetOperation *)previous).value;
             return [PFSetOperation setWithValue:[self applyToValue:oldArray forKey:nil]];
         } else {
-            [NSException raise:NSInternalInconsistencyException format:@"You can't add an item to a non-array."];
-            return nil;
+            @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                           reason:@"You can't add an item to a non-array."
+                                         userInfo:nil];
         }
     } else if ([previous isKindOfClass:[PFRemoveOperation class]]) {
         NSArray *newObjects = [((PFRemoveOperation *)previous).objects arrayByAddingObjectsFromArray:self.objects];
         return [PFRemoveOperation removeWithObjects:newObjects];
+    } else {
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                       reason:@"Operation is invalid after previous operation."
+                                     userInfo:nil];
     }
-
-    [NSException raise:NSInternalInconsistencyException format:@"Operation is invalid after previous operation."];
-    return nil;
 }
 
 - (id)applyToValue:(id)oldValue forKey:(NSString *)key {
@@ -378,9 +393,11 @@
             }
         }
         return newValue;
+    } else {
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                       reason:@"Operation is invalid after previous operation."
+                                     userInfo:nil];
     }
-    [NSException raise:NSInternalInconsistencyException format:@"Operation is invalid after previous operation."];
-    return nil;
 }
 
 @end
@@ -409,8 +426,10 @@
     }
 
     for (PFObject *target in targets) {
-        PFParameterAssert([target.parseClassName isEqualToString:op.targetClass],
-                          @"All objects in a relation must be of the same class.");
+        if (![[target parseClassName] isEqualToString:op.targetClass]) {
+            [NSException raise:NSInvalidArgumentException
+                        format:@"All objects in a relation must be of the same class."];
+        }
         [op.relationsToAdd addObject:target];
     }
 
@@ -424,8 +443,10 @@
     }
 
     for (PFObject *target in targets) {
-        PFParameterAssert([target.parseClassName isEqualToString:operation.targetClass],
-                          @"All objects in a relation must be of the same class.");
+        if (![[target parseClassName] isEqualToString:operation.targetClass]) {
+            [NSException raise:NSInvalidArgumentException
+                        format:@"All objects in a relation must be of the same class."];
+        }
         [operation.relationsToRemove addObject:target];
     }
 
@@ -475,48 +496,57 @@
         return removeDict;
     }
 
-    [NSException raise:NSInternalInconsistencyException format:@"A PFRelationOperation was created without any data."];
-    return nil;
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                   reason:@"A PFRelationOperation was created without any data."
+                                 userInfo:nil];
 }
 
 - (PFFieldOperation *)mergeWithPrevious:(PFFieldOperation *)previous {
     if (!previous) {
         return self;
+    } else if ([previous isKindOfClass:[PFDeleteOperation class]]) {
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                       reason:@"You can't modify a relation after deleting it."
+                                     userInfo:nil];
+    } else if ([previous isKindOfClass:[PFRelationOperation class]]) {
+        PFRelationOperation *previousOperation = (PFRelationOperation *)previous;
+        if (previousOperation.targetClass &&
+            ![previousOperation.targetClass isEqualToString:self.targetClass]) {
+            [NSException raise:NSInvalidArgumentException
+                        format:@"Related object object must be of class %@, but %@ was passed in",
+             previousOperation.targetClass,
+             self.targetClass];
+        } else {
+            //TODO: (nlutsenko) This logic seems to be messed up. We should return a new operation here, also merging logic seems funky.
+            NSSet *newRelationsToAdd = [self.relationsToAdd copy];
+            NSSet *newRelationsToRemove = [self.relationsToRemove copy];
+            [self.relationsToAdd removeAllObjects];
+            [self.relationsToRemove removeAllObjects];
+
+            for (NSString *objectId in previousOperation.relationsToAdd) {
+                [self.relationsToRemove removeObject:objectId];
+                [self.relationsToAdd addObject:objectId];
+            }
+            for (NSString *objectId in previousOperation.relationsToRemove) {
+                [self.relationsToRemove removeObject:objectId];
+                [self.relationsToRemove addObject:objectId];
+            }
+
+            for (NSString *objectId in newRelationsToAdd) {
+                [self.relationsToRemove removeObject:objectId];
+                [self.relationsToAdd addObject:objectId];
+            }
+            for (NSString *objectId in newRelationsToRemove) {
+                [self.relationsToRemove removeObject:objectId];
+                [self.relationsToRemove addObject:objectId];
+            }
+        }
+        return self;
+    } else {
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                       reason:@"Operation is invalid after previous operation."
+                                     userInfo:nil];
     }
-
-    PFConsistencyAssert(![previous isKindOfClass:[PFDeleteOperation class]], @"You can't modify a relation after deleting it");
-    PFConsistencyAssert([previous isKindOfClass:[PFRelationOperation class]], @"Operation is invalid after previous operation");
-
-    PFRelationOperation *previousOperation = (PFRelationOperation *)previous;
-
-    PFParameterAssert(!previousOperation.targetClass || [previousOperation.targetClass isEqualToString:self.targetClass],
-                      @"Related object object must be of class %@, but %@ was passed in",
-                      previousOperation.targetClass, self.targetClass);
-
-    //TODO: (nlutsenko) This logic seems to be messed up. We should return a new operation here, also merging logic seems funky.
-    NSSet *newRelationsToAdd = [self.relationsToAdd copy];
-    NSSet *newRelationsToRemove = [self.relationsToRemove copy];
-    [self.relationsToAdd removeAllObjects];
-    [self.relationsToRemove removeAllObjects];
-
-    for (NSString *objectId in previousOperation.relationsToAdd) {
-        [self.relationsToRemove removeObject:objectId];
-        [self.relationsToAdd addObject:objectId];
-    }
-    for (NSString *objectId in previousOperation.relationsToRemove) {
-        [self.relationsToRemove removeObject:objectId];
-        [self.relationsToRemove addObject:objectId];
-    }
-
-    for (NSString *objectId in newRelationsToAdd) {
-        [self.relationsToRemove removeObject:objectId];
-        [self.relationsToAdd addObject:objectId];
-    }
-    for (NSString *objectId in newRelationsToRemove) {
-        [self.relationsToRemove removeObject:objectId];
-        [self.relationsToRemove addObject:objectId];
-    }
-    return self;
 }
 
 - (id)applyToValue:(id)oldValue forKey:(NSString *)key {
@@ -527,16 +557,20 @@
         relation = oldValue;
         if (self.targetClass) {
             if (relation.targetClass) {
-                PFParameterAssert([relation.targetClass isEqualToString:targetClass],
-                                  @"Related object object must be of class %@, but %@ was passed in",
-                                  relation.targetClass, self.targetClass);
+                if (![relation.targetClass isEqualToString:targetClass]) {
+                    [NSException raise:NSInvalidArgumentException
+                                format:@"Related object object must be of class %@, but %@ was passed in",
+                     relation.targetClass,
+                     self.targetClass];
+                }
             } else {
                 relation.targetClass = self.targetClass;
             }
         }
     } else {
-        [NSException raise:NSInternalInconsistencyException format:@"Operation is invalid after previous operation."];
-        return nil;
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                       reason:@"Operation is invalid after previous operation."
+                                     userInfo:nil];
     }
 
     for (PFObject *object in self.relationsToAdd) {

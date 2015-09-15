@@ -7,7 +7,6 @@
  * of patent rights can be found in the PATENTS file in the same directory.
  */
 
-#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
 typedef void(^PFAlertViewCompletion)(NSUInteger selectedOtherButtonIndex);
@@ -18,6 +17,6 @@ typedef void(^PFAlertViewCompletion)(NSUInteger selectedOtherButtonIndex);
                    message:(NSString *)message
          cancelButtonTitle:(NSString *)cancelButtonTitle
          otherButtonTitles:(NSArray *)otherButtonTitles
-                completion:(PFAlertViewCompletion)completion NS_EXTENSION_UNAVAILABLE_IOS("");
+                completion:(PFAlertViewCompletion)completion;
 
 @end

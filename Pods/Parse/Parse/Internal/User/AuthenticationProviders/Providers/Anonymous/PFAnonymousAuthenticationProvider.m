@@ -21,12 +21,16 @@
     return @"anonymous";
 }
 
-- (BFTask *)deauthenticateInBackground {
+- (BFTask *)authenticateAsync {
+    return [BFTask taskWithResult:self.authData];
+}
+
+- (BFTask *)deauthenticateAsync {
     return [BFTask taskWithResult:nil];
 }
 
-- (BFTask *)restoreAuthenticationInBackgroundWithAuthData:(NSDictionary *)authData {
-    return [BFTask taskWithResult:nil];
+- (BOOL)restoreAuthenticationWithAuthData:(NSDictionary *)authData {
+    return YES;
 }
 
 ///--------------------------------------

@@ -9,7 +9,11 @@
 
 #import <Foundation/Foundation.h>
 
+#if TARGET_OS_IPHONE
 #import <Parse/PFNullability.h>
+#else
+#import <ParseOSX/PFNullability.h>
+#endif
 
 @class PFQuery;
 

@@ -9,7 +9,11 @@
 
 #import <Foundation/Foundation.h>
 
-#import <Parse/PFUser.h>
+#if TARGET_OS_IPHONE
+# import <Parse/PFUser.h>
+#else
+# import <ParseOSX/PFUser.h>
+#endif
 
 #import "PFAuthenticationProvider.h"
 
@@ -19,7 +23,6 @@ extern NSString *const PFUserCurrentUserKeychainItemName;
 
 @class BFTask;
 @class PFCommandResult;
-@class PFUserController;
 
 @interface PFUser (Private)
 
@@ -31,7 +34,14 @@ extern NSString *const PFUserCurrentUserKeychainItemName;
 
 - (void)synchronizeAllAuthData;
 
+- (void)checkSignUpParams;
+
++ (BFTask *)_logInWithAuthTypeInBackground:(NSString *)authType authData:(NSDictionary *)authData;
 - (BFTask *)_handleServiceLoginCommandResult:(PFCommandResult *)result;
+
+- (BFTask *)_linkWithAuthTypeInBackground:(NSString *)authType authData:(NSDictionary *)authData;
+
+- (BFTask *)_unlinkWithAuthTypeInBackground:(NSString *)authType;
 
 - (void)synchronizeAuthDataWithAuthType:(NSString *)authType;
 
@@ -45,8 +55,6 @@ extern NSString *const PFUserCurrentUserKeychainItemName;
 ///--------------------------------------
 + (BOOL)_isRevocableSessionEnabled;
 + (void)_setRevocableSessionEnabled:(BOOL)enabled;
-
-+ (PFUserController *)userController;
 
 @end
 
@@ -62,37 +70,12 @@ extern NSString *const PFUserCurrentUserKeychainItemName;
 // to the currentUser singleton and disk object
 @property (nonatomic, assign) BOOL isCurrentUser;
 
-@property (nonatomic, strong, readonly) NSMutableDictionary *authData;
-@property (nonatomic, strong, readonly) NSMutableSet *linkedServiceNames;
+@property (strong, readonly) NSMutableDictionary *authData;
+@property (strong, readonly) NSMutableSet *linkedServiceNames;
 @property (nonatomic, assign) BOOL isLazy;
 
 - (BOOL)_isAuthenticatedWithCurrentUser:(PFUser *)currentUser;
 
 - (BFTask *)_logOutAsync;
-
-///--------------------------------------
-/// @name Authentication Providers
-///--------------------------------------
-
-// TODO: (nlutsenko) Add Documentation
-+ (void)registerAuthenticationProvider:(id<PFAuthenticationProvider>)authenticationProvider;
-
-// TODO: (nlutsenko) Add Documentation
-+ (BFTask *)logInWithAuthTypeInBackground:(NSString *)authType authData:(NSDictionary *)authData;
-
-// TODO: (nlutsenko) Add Documentation
-- (BFTask *)linkWithAuthTypeInBackground:(NSString *)authType authData:(NSDictionary *)authData;
-
-// TODO: (nlutsenko) Add Documentation
-- (BFTask *)unlinkWithAuthTypeInBackground:(NSString *)authType;
-
-// TODO: (nlutsenko) Add Documentation
-- (BOOL)isLinkedWithAuthType:(NSString *)authType;
-
-///--------------------------------------
-/// @name Authentication Providers (Private)
-///--------------------------------------
-
-+ (void)_unregisterAuthenticationProvider:(id<PFAuthenticationProvider>)provider;
 
 @end

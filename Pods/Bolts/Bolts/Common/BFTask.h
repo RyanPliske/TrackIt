@@ -11,7 +11,6 @@
 #import <Foundation/Foundation.h>
 
 #import <Bolts/BFCancellationToken.h>
-#import <Bolts/BFDefines.h>
 
 /*!
  Error domain used if there was multiple errors on <BFTask taskForCompletionOfAllTasks:>.
@@ -27,22 +26,22 @@ extern NSString *const BFTaskMultipleExceptionsException;
 @class BFTask;
 
 /*!
+ A block that can act as a continuation for a task.
+ */
+typedef id(^BFContinuationBlock)(BFTask *task);
+
+/*!
  The consumer view of a Task. A BFTask has methods to
  inspect the state of the task, and to add continuations to
  be run once the task is complete.
  */
-@interface BFTask BF_GENERIC(__covariant BFGenericType) : NSObject
-
-/*!
- A block that can act as a continuation for a task.
- */
-typedef id(^BFContinuationBlock)(BFTask BF_GENERIC(BFGenericType) *task);
+@interface BFTask : NSObject
 
 /*!
  Creates a task that is already completed with the given result.
  @param result The result for the task.
  */
-+ (instancetype)taskWithResult:(BFGenericType)result;
++ (instancetype)taskWithResult:(id)result;
 
 /*!
  Creates a task that is already completed with the given error.
@@ -110,7 +109,7 @@ typedef id(^BFContinuationBlock)(BFTask BF_GENERIC(BFGenericType) *task);
 /*!
  The result of a successful task.
  */
-@property (nonatomic, strong, readonly) BFGenericType result;
+@property (nonatomic, strong, readonly) id result;
 
 /*!
  The error of a failed task.

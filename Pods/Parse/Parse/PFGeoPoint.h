@@ -7,10 +7,14 @@
  * of patent rights can be found in the PATENTS file in the same directory.
  */
 
-#import <CoreLocation/CoreLocation.h>
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
+#if TARGET_OS_IPHONE
 #import <Parse/PFNullability.h>
+#else
+#import <ParseOSX/PFNullability.h>
+#endif
 
 PF_ASSUME_NONNULL_BEGIN
 
@@ -35,7 +39,7 @@ typedef void(^PFGeoPointResultBlock)(PFGeoPoint *PF_NULLABLE_S geoPoint, NSError
 
  @returns Returns a new `PFGeoPoint`.
  */
-+ (instancetype)geoPoint;
++ (PFGeoPoint *)geoPoint;
 
 /*!
  @abstract Creates a new `PFGeoPoint` object for the given `CLLocation`, set to the location's coordinates.
@@ -44,7 +48,7 @@ typedef void(^PFGeoPointResultBlock)(PFGeoPoint *PF_NULLABLE_S geoPoint, NSError
 
  @returns Returns a new PFGeoPoint at specified location.
  */
-+ (instancetype)geoPointWithLocation:(PF_NULLABLE CLLocation *)location;
++ (PFGeoPoint *)geoPointWithLocation:(PF_NULLABLE CLLocation *)location;
 
 /*!
  @abstract Create a new `PFGeoPoint` object with the specified latitude and longitude.
@@ -54,7 +58,7 @@ typedef void(^PFGeoPointResultBlock)(PFGeoPoint *PF_NULLABLE_S geoPoint, NSError
 
  @returns New point object with specified latitude and longitude.
  */
-+ (instancetype)geoPointWithLatitude:(double)latitude longitude:(double)longitude;
++ (PFGeoPoint *)geoPointWithLatitude:(double)latitude longitude:(double)longitude;
 
 /*!
  @abstract Fetches the current device location and executes a block with a new `PFGeoPoint` object.

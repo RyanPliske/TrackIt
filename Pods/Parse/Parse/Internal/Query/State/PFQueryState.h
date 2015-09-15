@@ -9,9 +9,13 @@
 
 #import <Foundation/Foundation.h>
 
-#import <Parse/PFConstants.h>
-
 #import "PFBaseState.h"
+
+#if TARGET_OS_IPHONE
+#import <Parse/PFConstants.h>
+#else
+#import <ParseOSX/PFConstants.h>
+#endif
 
 @interface PFQueryState : PFBaseState <PFBaseStateSubclass, NSCopying, NSMutableCopying>
 

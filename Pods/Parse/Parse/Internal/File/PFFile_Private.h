@@ -9,23 +9,27 @@
 
 #import <Foundation/Foundation.h>
 
+#if TARGET_OS_IPHONE
 #import <Parse/PFConstants.h>
 #import <Parse/PFFile.h>
+#else
+#import <ParseOSX/PFConstants.h>
+#import <ParseOSX/PFFile.h>
+#endif
 
 #import "PFFileState.h"
 
 @class BFTask;
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface PFFile (Private)
 
 @property (nonatomic, strong, readonly) PFFileState *state;
 
-+ (instancetype)fileWithName:(nullable NSString *)name url:(nullable NSString *)url;
++ (instancetype)fileWithName:(NSString *)name url:(NSString *)url;
 
-- (nullable NSString *)_cachedFilePath;
+//
+// Download
+- (BFTask *)_getDataAsyncWithProgressBlock:(PFProgressBlock)block;
+- (NSString *)_cachedFilePath;
 
 @end
-
-NS_ASSUME_NONNULL_END

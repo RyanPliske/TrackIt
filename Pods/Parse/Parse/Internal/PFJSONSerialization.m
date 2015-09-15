@@ -9,7 +9,6 @@
 
 #import "PFJSONSerialization.h"
 
-#import "PFAssert.h"
 #import "PFLogging.h"
 
 @implementation PFJSONSerialization
@@ -17,8 +16,10 @@
 + (NSData *)dataFromJSONObject:(id)object {
     NSError *error = nil;
     NSData *data = [NSJSONSerialization dataWithJSONObject:object options:0 error:&error];
-    PFParameterAssert(data && !error, @"PFObject values must be serializable to JSON");
-
+    if (!data || error != nil) {
+        [NSException raise:NSInvalidArgumentException
+                    format:@"PFObject values must be serializable to JSON"];
+    }
     return data;
 }
 

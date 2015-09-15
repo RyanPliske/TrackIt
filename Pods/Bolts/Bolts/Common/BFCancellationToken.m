@@ -94,9 +94,7 @@
 
 - (void)cancelAfterDelay:(int)millis {
     [self throwIfDisposed];
-    if (millis < -1) {
-        [NSException raise:NSInvalidArgumentException format:@"Delay must be >= -1"];
-    }
+    NSAssert(millis >= -1, @"Delay must be >= -1");
 
     if (millis == 0) {
         [self cancel];
@@ -131,9 +129,7 @@
 }
 
 - (void)throwIfDisposed {
-    if (self.disposed) {
-        [NSException raise:NSInternalInconsistencyException format:@"Object already disposed"];
-    }
+    NSAssert(!self.disposed, @"Object already disposed");
 }
 
 @end

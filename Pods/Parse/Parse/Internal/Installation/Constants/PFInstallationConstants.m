@@ -17,6 +17,5 @@ NSString *const PFInstallationKeyAppName = @"appName";
 NSString *const PFInstallationKeyAppVersion = @"appVersion";
 NSString *const PFInstallationKeyAppIdentifier = @"appIdentifier";
 NSString *const PFInstallationKeyTimeZone = @"timeZone";
-NSString *const PFInstallationKeyLocaleIdentifier = @"localeIdentifier";
 NSString *const PFInstallationKeyBadge = @"badge";
 NSString *const PFInstallationKeyChannels = @"channels";

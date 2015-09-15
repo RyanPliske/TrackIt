@@ -9,11 +9,15 @@
 
 #import <Foundation/Foundation.h>
 
-#import <Bolts/BFTask.h>
-
+#if TARGET_OS_IPHONE
 #import <Parse/PFConstants.h>
+#else
+#import <ParseOSX/PFConstants.h>
+#endif
 
 PF_ASSUME_NONNULL_BEGIN
+
+@class BFTask;
 
 /*!
  `PFAnalytics` provides an interface to Parse's logging and analytics backend.

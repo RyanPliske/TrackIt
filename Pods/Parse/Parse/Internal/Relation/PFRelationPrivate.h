@@ -9,7 +9,11 @@
 
 #import <Foundation/Foundation.h>
 
+#if TARGET_OS_IPHONE
 #import <Parse/PFRelation.h>
+#else
+#import <ParseOSX/PFRelation.h>
+#endif
 
 @class PFDecoder;
 

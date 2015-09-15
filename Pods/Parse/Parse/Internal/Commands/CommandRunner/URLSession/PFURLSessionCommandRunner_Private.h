@@ -21,8 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithDataSource:(id<PFInstallationIdentifierStoreProvider>)dataSource
                            session:(PFURLSession *)session
-                requestConstructor:(PFCommandURLRequestConstructor *)requestConstructor
-                notificationCenter:(NSNotificationCenter *)notificationCenter NS_DESIGNATED_INITIALIZER;
+                requestConstructor:(PFCommandURLRequestConstructor *)requestConstructor NS_DESIGNATED_INITIALIZER;
 
 @end
 

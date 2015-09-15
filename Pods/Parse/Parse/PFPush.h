@@ -9,13 +9,14 @@
 
 #import <Foundation/Foundation.h>
 
-#import <Bolts/BFTask.h>
-
+#if TARGET_OS_IPHONE
 #import <Parse/PFConstants.h>
+#else
+#import <ParseOSX/PFConstants.h>
+#endif
 
+@class BFTask;
 @class PFQuery;
-
-PF_ASSUME_NONNULL_BEGIN
 
 /*!
  The `PFPush` class defines a push notification that can be sent from a client device.
@@ -41,7 +42,7 @@ PF_ASSUME_NONNULL_BEGIN
  @param channel The channel to set for this push.
  The channel name must start with a letter and contain only letters, numbers, dashes, and underscores.
  */
-- (void)setChannel:(PF_NULLABLE NSString *)channel;
+- (void)setChannel:(NSString *)channel;
 
 /*!
  @abstract Sets the array of channels on which this push notification will be sent.
@@ -49,7 +50,7 @@ PF_ASSUME_NONNULL_BEGIN
  @param channels The array of channels to set for this push.
  Each channel name must start with a letter and contain only letters, numbers, dashes, and underscores.
  */
-- (void)setChannels:(PF_NULLABLE NSArray *)channels;
+- (void)setChannels:(NSArray *)channels;
 
 /*!
  @abstract Sets an installation query to which this push notification will be sent.
@@ -58,7 +59,7 @@ PF_ASSUME_NONNULL_BEGIN
 
  @param query The installation query to set for this push.
  */
-- (void)setQuery:(PF_NULLABLE  PFQuery *)query;
+- (void)setQuery:(PFQuery *)query;
 
 /*!
  @abstract Sets an alert message for this push notification.
@@ -67,7 +68,7 @@ PF_ASSUME_NONNULL_BEGIN
 
  @param message The message to send in this push.
  */
-- (void)setMessage:(PF_NULLABLE  NSString *)message;
+- (void)setMessage:(NSString *)message;
 
 /*!
  @abstract Sets an arbitrary data payload for this push notification.
@@ -78,7 +79,7 @@ PF_ASSUME_NONNULL_BEGIN
 
  @param data The data to send in this push.
  */
-- (void)setData:(PF_NULLABLE  NSDictionary *)data;
+- (void)setData:(NSDictionary *)data;
 
 /*!
  @abstract Sets whether this push will go to Android devices.
@@ -110,7 +111,7 @@ PF_ASSUME_NONNULL_BEGIN
 
  @param date The time at which the notification should expire.
  */
-- (void)expireAtDate:(PF_NULLABLE NSDate *)date;
+- (void)expireAtDate:(NSDate *)date;
 
 /*!
  @abstract Sets the time interval after which this notification should expire.
@@ -171,7 +172,7 @@ PF_ASSUME_NONNULL_BEGIN
  */
 + (void)sendPushMessageToChannelInBackground:(NSString *)channel
                                  withMessage:(NSString *)message
-                                       block:(PF_NULLABLE PFBooleanResultBlock)block;
+                                       block:(PFBooleanResultBlock)block;
 
 /*
  @abstract *Asynchronously* send a push message to a channel.
@@ -187,8 +188,8 @@ PF_ASSUME_NONNULL_BEGIN
  */
 + (void)sendPushMessageToChannelInBackground:(NSString *)channel
                                  withMessage:(NSString *)message
-                                      target:(PF_NULLABLE_S id)target
-                                    selector:(PF_NULLABLE_S SEL)selector;
+                                      target:(id)target
+                                    selector:(SEL)selector;
 
 /*!
  @abstract Send a push message to a query.
@@ -225,7 +226,7 @@ PF_ASSUME_NONNULL_BEGIN
  */
 + (void)sendPushMessageToQueryInBackground:(PFQuery *)query
                                withMessage:(NSString *)message
-                                     block:(PF_NULLABLE PFBooleanResultBlock)block;
+                                     block:(PFBooleanResultBlock)block;
 
 /*!
  @abstract *Synchronously* send this push message.
@@ -248,7 +249,7 @@ PF_ASSUME_NONNULL_BEGIN
  @param block The block to execute.
  It should have the following argument signature: `^(BOOL succeeded, NSError *error)`.
  */
-- (void)sendPushInBackgroundWithBlock:(PF_NULLABLE PFBooleanResultBlock)block;
+- (void)sendPushInBackgroundWithBlock:(PFBooleanResultBlock)block;
 
 /*
  @abstract *Asynchronously* send this push message and calls the given callback.
@@ -259,7 +260,7 @@ PF_ASSUME_NONNULL_BEGIN
  `error` will be `nil` on success and set if there was an error.
  `[result boolValue]` will tell you whether the call succeeded or not.
  */
-- (void)sendPushInBackgroundWithTarget:(PF_NULLABLE_S id)target selector:(PF_NULLABLE_S SEL)selector;
+- (void)sendPushInBackgroundWithTarget:(id)target selector:(SEL)selector;
 
 /*!
  @abstract *Synchronously* send a push message with arbitrary data to a channel.
@@ -304,7 +305,7 @@ PF_ASSUME_NONNULL_BEGIN
  */
 + (void)sendPushDataToChannelInBackground:(NSString *)channel
                                  withData:(NSDictionary *)data
-                                    block:(PF_NULLABLE PFBooleanResultBlock)block;
+                                    block:(PFBooleanResultBlock)block;
 
 /*
  @abstract *Asynchronously* send a push message with arbitrary data to a channel.
@@ -322,8 +323,8 @@ PF_ASSUME_NONNULL_BEGIN
  */
 + (void)sendPushDataToChannelInBackground:(NSString *)channel
                                  withData:(NSDictionary *)data
-                                   target:(PF_NULLABLE_S id)target
-                                 selector:(PF_NULLABLE_S SEL)selector;
+                                   target:(id)target
+                                 selector:(SEL)selector;
 
 /*!
  @abstract *Synchronously* send a push message with arbitrary data to a query.
@@ -368,7 +369,7 @@ PF_ASSUME_NONNULL_BEGIN
  */
 + (void)sendPushDataToQueryInBackground:(PFQuery *)query
                                withData:(NSDictionary *)data
-                                  block:(PF_NULLABLE PFBooleanResultBlock)block;
+                                  block:(PFBooleanResultBlock)block;
 
 ///--------------------------------------
 /// @name Handling Notifications
@@ -386,7 +387,7 @@ PF_ASSUME_NONNULL_BEGIN
 
  @param userInfo The userInfo dictionary you get in `appplication:didReceiveRemoteNotification:`.
  */
-+ (void)handlePush:(PF_NULLABLE NSDictionary *)userInfo NS_AVAILABLE_IOS(3_0) PF_EXTENSION_UNAVAILABLE("");
++ (void)handlePush:(NSDictionary *)userInfo NS_AVAILABLE_IOS(3_0);
 
 ///--------------------------------------
 /// @name Managing Channel Subscriptions
@@ -409,7 +410,7 @@ PF_ASSUME_NONNULL_BEGIN
 
  @returns Returns an `NSSet` containing all the channel names this device is subscribed to.
  */
-+ (PF_NULLABLE NSSet *)getSubscribedChannels:(NSError **)error;
++ (NSSet *)getSubscribedChannels:(NSError **)error;
 
 /*!
  @abstract *Asynchronously* get all the channels that this device is subscribed to.
@@ -466,7 +467,7 @@ PF_ASSUME_NONNULL_BEGIN
  It should have the following argument signature: `^(BOOL succeeded, NSError *error)`
  */
 + (void)subscribeToChannelInBackground:(NSString *)channel
-                                 block:(PF_NULLABLE PFBooleanResultBlock)block;
+                                 block:(PFBooleanResultBlock)block;
 
 /*
  @abstract *Asynchronously* subscribes the device to a channel of push notifications and calls the given callback.
@@ -480,8 +481,8 @@ PF_ASSUME_NONNULL_BEGIN
  `[result boolValue]` will tell you whether the call succeeded or not.
  */
 + (void)subscribeToChannelInBackground:(NSString *)channel
-                                target:(PF_NULLABLE_S id)target
-                              selector:(PF_NULLABLE_S SEL)selector;
+                                target:(id)target
+                              selector:(SEL)selector;
 
 /*!
  @abstract *Synchronously* unsubscribes the device to a channel of push notifications.
@@ -510,7 +511,7 @@ PF_ASSUME_NONNULL_BEGIN
  It should have the following argument signature: `^(BOOL succeeded, NSError *error)`.
  */
 + (void)unsubscribeFromChannelInBackground:(NSString *)channel
-                                     block:(PF_NULLABLE PFBooleanResultBlock)block;
+                                     block:(PFBooleanResultBlock)block;
 
 /*
  @abstract *Asynchronously* unsubscribes the device from a channel of push notifications and calls the given callback.
@@ -523,9 +524,7 @@ PF_ASSUME_NONNULL_BEGIN
  `[result boolValue]` will tell you whether the call succeeded or not.
  */
 + (void)unsubscribeFromChannelInBackground:(NSString *)channel
-                                    target:(PF_NULLABLE_S id)target
-                                  selector:(PF_NULLABLE_S SEL)selector;
+                                    target:(id)target
+                                  selector:(SEL)selector;
 
 @end
-
-PF_ASSUME_NONNULL_END

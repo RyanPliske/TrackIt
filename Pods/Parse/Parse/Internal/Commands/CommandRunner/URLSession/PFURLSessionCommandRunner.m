@@ -30,12 +30,6 @@
 #import "PFURLConstructor.h"
 #import "PFURLSession.h"
 
-@interface PFURLSessionCommandRunner () <PFURLSessionDelegate>
-
-@property (nonatomic, strong) NSNotificationCenter *notificationCenter;
-
-@end
-
 @implementation PFURLSessionCommandRunner
 
 @synthesize applicationId = _applicationId;
@@ -55,12 +49,11 @@
                          clientKey:(NSString *)clientKey {
     NSURLSessionConfiguration *configuration = [[self class] _urlSessionConfigurationForApplicationId:applicationId
                                                                                             clientKey:clientKey];
-    PFURLSession *session = [PFURLSession sessionWithConfiguration:configuration delegate:self];
+    PFURLSession *session = [PFURLSession sessionWithConfiguration:configuration];
     PFCommandURLRequestConstructor *constructor = [PFCommandURLRequestConstructor constructorWithDataSource:dataSource];
     self = [self initWithDataSource:dataSource
                             session:session
-                 requestConstructor:constructor
-                 notificationCenter:[NSNotificationCenter defaultCenter]];
+                 requestConstructor:constructor];
     if (!self) return nil;
 
     _applicationId = [applicationId copy];
@@ -71,8 +64,7 @@
 
 - (instancetype)initWithDataSource:(id<PFInstallationIdentifierStoreProvider>)dataSource
                            session:(PFURLSession *)session
-                requestConstructor:(PFCommandURLRequestConstructor *)requestConstructor
-                notificationCenter:(NSNotificationCenter *)notificationCenter {
+                requestConstructor:(PFCommandURLRequestConstructor *)requestConstructor {
     self = [super init];
     if (!self) return nil;
 
@@ -80,7 +72,6 @@
 
     _requestConstructor = requestConstructor;
     _session = session;
-    _notificationCenter = notificationCenter;
 
     return self;
 }
@@ -244,42 +235,6 @@
     configuration.HTTPAdditionalHeaders = headers;
 
     return configuration;
-}
-
-///--------------------------------------
-#pragma mark - PFURLSessionDelegate
-///--------------------------------------
-
-- (void)urlSession:(PFURLSession *)session willPerformURLRequest:(NSURLRequest *)request {
-    [[BFExecutor defaultPriorityBackgroundExecutor] execute:^{
-        NSDictionary *userInfo = ([PFLogger sharedLogger].logLevel == PFLogLevelDebug ?
-                                  @{ PFCommandRunnerNotificationURLRequestUserInfoKey : request } : nil);
-        [self.notificationCenter postNotificationName:PFCommandRunnerWillSendURLRequestNotification
-                                               object:self
-                                             userInfo:userInfo];
-    }];
-}
-
-- (void)urlSession:(PFURLSession *)session
-didPerformURLRequest:(NSURLRequest *)request
-   withURLResponse:(nullable NSURLResponse *)response
-    responseString:(nullable NSString *)responseString {
-    [[BFExecutor defaultPriorityBackgroundExecutor] execute:^{
-        NSMutableDictionary *userInfo = nil;
-        if ([PFLogger sharedLogger].logLevel == PFLogLevelDebug) {
-            userInfo = [NSMutableDictionary dictionaryWithObject:request
-                                                          forKey:PFCommandRunnerNotificationURLRequestUserInfoKey];
-            if (response) {
-                userInfo[PFCommandRunnerNotificationURLResponseUserInfoKey] = response;
-            }
-            if (responseString) {
-                userInfo[PFCommandRunnerNotificationURLResponseBodyUserInfoKey] = responseString;
-            }
-        }
-        [self.notificationCenter postNotificationName:PFCommandRunnerDidReceiveURLResponseNotification
-                                               object:self
-                                             userInfo:userInfo];
-    }];
 }
 
 @end

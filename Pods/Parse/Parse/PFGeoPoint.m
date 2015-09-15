@@ -26,17 +26,17 @@ const double EARTH_RADIUS_KILOMETERS = 6371.0;
 #pragma mark - Init
 ///--------------------------------------
 
-+ (instancetype)geoPoint {
++ (PFGeoPoint *)geoPoint {
     return [[self alloc] init];
 }
 
-+ (instancetype)geoPointWithLocation:(CLLocation *)location {
++ (PFGeoPoint *)geoPointWithLocation:(CLLocation *)location {
     return [self geoPointWithLatitude:location.coordinate.latitude
                             longitude:location.coordinate.longitude];
 }
 
-+ (instancetype)geoPointWithLatitude:(double)latitude longitude:(double)longitude {
-    PFGeoPoint *gpt = [self geoPoint];
++ (PFGeoPoint *)geoPointWithLatitude:(double)latitude longitude:(double)longitude {
+    PFGeoPoint *gpt = [PFGeoPoint geoPoint];
     gpt.latitude = latitude;
     gpt.longitude = longitude;
     return gpt;
@@ -58,16 +58,21 @@ const double EARTH_RADIUS_KILOMETERS = 6371.0;
 #pragma mark - Accessors
 ///--------------------------------------
 
-- (void)setLatitude:(double)latitude {
-    PFParameterAssert(latitude >= -90.0 && latitude <= 90.0,
-                      @"`latitude` is out of range [-90.0, 90.0]: %f", latitude);
-    _latitude = latitude;
+- (void)setLatitude:(double)newLatitude {
+    // Restrictions for mongo ranges (exclusive at high end).
+    if (newLatitude >= 90.0 || newLatitude < -90.0) {
+        [NSException raise:NSInvalidArgumentException
+                    format:@"latitude out of range (expect [-90.0, 90.0): %f", newLatitude];
+    }
+    _latitude = newLatitude;
 }
 
-- (void)setLongitude:(double)longitude {
-    PFParameterAssert(longitude >= -180.0 && longitude <= 180.0,
-                      @"`longitude` is out of range [-180.0, 180.0]: %f", longitude);
-    _longitude = longitude;
+- (void)setLongitude:(double)newLongitude {
+    if (newLongitude >= 180.0 || newLongitude < -180.0) {
+        [NSException raise:NSInvalidArgumentException
+                    format:@"longitude out of range (expect [-180.0, 180.0): %f", newLongitude];
+    }
+    _longitude = newLongitude;
 }
 
 - (double)distanceInRadiansTo:(PFGeoPoint *)point {
@@ -111,7 +116,7 @@ static NSString *const PFGeoPointCodingLongitudeKey = @"longitude";
              };
 }
 
-+ (instancetype)geoPointWithDictionary:(NSDictionary *)dictionary {
++ (PFGeoPoint *)geoPointWithDictionary:(NSDictionary *)dictionary {
     return [[self alloc] initWithEncodedDictionary:dictionary];
 }
 

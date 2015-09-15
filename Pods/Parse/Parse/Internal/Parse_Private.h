@@ -9,7 +9,11 @@
 
 #import <Foundation/Foundation.h>
 
-#import <Parse/Parse.h>
+#if TARGET_OS_IPHONE
+# import <Parse/Parse.h>
+#else
+# import <ParseOSX/Parse.h>
+#endif
 
 #import "ParseManager.h"
 

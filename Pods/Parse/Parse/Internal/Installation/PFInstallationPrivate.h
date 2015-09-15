@@ -9,7 +9,11 @@
 
 #import <Foundation/Foundation.h>
 
+#if TARGET_OS_IPHONE
 #import <Parse/PFInstallation.h>
+#else
+#import <ParseOSX/PFInstallation.h>
+#endif
 
 @interface PFInstallation (Private)
 

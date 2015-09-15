@@ -9,7 +9,11 @@
 
 #import <Foundation/Foundation.h>
 
-#import <Parse/PFObject.h>
+#if TARGET_OS_IPHONE
+# import <Parse/PFObject.h>
+#else
+# import <ParseOSX/PFObject.h>
+#endif
 
 #import <Bolts/BFTask.h>
 
@@ -86,8 +90,8 @@
 #if PARSE_OSX_ONLY
 // Not available publicly, but available for testing
 
-- (instancetype)refresh;
-- (instancetype)refresh:(NSError **)error;
+- (void)refresh;
+- (void)refresh:(NSError **)error;
 - (void)refreshInBackgroundWithBlock:(PFObjectResultBlock)block;
 - (void)refreshInBackgroundWithTarget:(id)target selector:(SEL)selector;
 

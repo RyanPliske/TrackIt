@@ -9,10 +9,13 @@
 
 #import <Foundation/Foundation.h>
 
-#import <Bolts/BFTask.h>
-
+#if TARGET_OS_IPHONE
 #import <Parse/PFConstants.h>
 #import <Parse/PFUser.h>
+#else
+#import <ParseOSX/PFConstants.h>
+#import <ParseOSX/PFUser.h>
+#endif
 
 PF_ASSUME_NONNULL_BEGIN
 

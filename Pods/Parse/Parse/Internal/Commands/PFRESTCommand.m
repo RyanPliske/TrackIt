@@ -10,7 +10,6 @@
 #import "PFRESTCommand.h"
 #import "PFRESTCommand_Private.h"
 
-#import "PFAssert.h"
 #import "PFCoreManager.h"
 #import "PFFieldOperation.h"
 #import "PFHTTPRequest.h"
@@ -160,8 +159,10 @@ static const int PFRESTCommandCacheKeyVersion = 1;
             }
         }
 
-        PFConsistencyAssert(![self.httpMethod isEqualToString:PFHTTPRequestMethodDELETE] || objectId,
-                            @"Attempt to delete non-existent object.");
+        if ([self.httpMethod isEqualToString:PFHTTPRequestMethodDELETE] && !objectId) {
+            [NSException raise:NSInternalInconsistencyException
+                        format:@"Attempt to delete non-existent object."];
+        }
     }
 }
 

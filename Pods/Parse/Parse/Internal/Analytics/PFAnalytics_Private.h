@@ -7,7 +7,11 @@
  * of patent rights can be found in the PATENTS file in the same directory.
  */
 
-#import <Parse/PFAnalytics.h>
+#if TARGET_OS_IPHONE
+# import <Parse/PFAnalytics.h>
+#else
+# import <ParseOSX/PFAnalytics.h>
+#endif
 
 /*!
  Predefined events - AppOpened, CrashReport

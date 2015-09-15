@@ -13,11 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PFURLSession ()
 
-- (instancetype)initWithURLSession:(NSURLSession *)session
-                          delegate:(id<PFURLSessionDelegate>)delegate NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithURLSession:(NSURLSession *)session NS_DESIGNATED_INITIALIZER;
 
-+ (instancetype)sessionWithURLSession:(NSURLSession *)session
-                             delegate:(id<PFURLSessionDelegate>)delegate;
++ (instancetype)sessionWithURLSession:(NSURLSession *)session;
 
 @end
 

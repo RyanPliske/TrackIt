@@ -14,29 +14,27 @@
 
 #import "BFTask+Private.h"
 #import "PFAssert.h"
+#import "PFBlockRetryer.h"
 #import "PFCommandResult.h"
 #import "PFCommandRunning.h"
 #import "PFFileManager.h"
-#import "PFFileStagingController.h"
 #import "PFFileState.h"
 #import "PFHash.h"
 #import "PFMacros.h"
 #import "PFRESTFileCommand.h"
 
 static NSString *const PFFileControllerCacheDirectoryName_ = @"PFFileCache";
+static NSString *const PFFileControllerStagingDirectoryName_ = @"PFFileStaging";
 
 @interface PFFileController () {
     NSMutableDictionary *_downloadTasks; // { "urlString" : BFTask }
     NSMutableDictionary *_downloadProgressBlocks; // { "urlString" : [ block1, block2 ] }
     dispatch_queue_t _downloadDataAccessQueue;
-    dispatch_queue_t _fileStagingControllerAccessQueue;
 }
 
 @end
 
 @implementation PFFileController
-
-@synthesize fileStagingController = _fileStagingController;
 
 ///--------------------------------------
 #pragma mark - Init
@@ -55,28 +53,12 @@ static NSString *const PFFileControllerCacheDirectoryName_ = @"PFFileCache";
     _downloadTasks = [NSMutableDictionary dictionary];
     _downloadProgressBlocks = [NSMutableDictionary dictionary];
     _downloadDataAccessQueue = dispatch_queue_create("com.parse.fileController.download", DISPATCH_QUEUE_SERIAL);
-    _fileStagingControllerAccessQueue = dispatch_queue_create("com.parse.filestaging.controller.access", DISPATCH_QUEUE_SERIAL);
 
     return self;
 }
 
 + (instancetype)controllerWithDataSource:(id<PFCommandRunnerProvider, PFFileManagerProvider>)dataSource {
     return [[self alloc] initWithDataSource:dataSource];
-}
-
-///--------------------------------------
-#pragma mark - Properties
-///--------------------------------------
-
-- (PFFileStagingController *)fileStagingController {
-    __block PFFileStagingController *result = nil;
-    dispatch_sync(_fileStagingControllerAccessQueue, ^{
-        if (!_fileStagingController) {
-            _fileStagingController = [PFFileStagingController controllerWithDataSource:self.dataSource];
-        }
-        result = _fileStagingController;
-    });
-    return result;
 }
 
 ///--------------------------------------
@@ -97,7 +79,7 @@ static NSString *const PFFileControllerCacheDirectoryName_ = @"PFFileCache";
 
         BFTask *resultTask = [self _fileDownloadResultTaskForFileWithState:fileState];
         if (!resultTask) {
-            NSURL *url = [NSURL URLWithString:fileState.secureURLString];
+            NSURL *url = [NSURL URLWithString:fileState.urlString];
             NSString *temporaryPath = [self _temporaryFileDownloadPathForFileState:fileState];
 
             PFProgressBlock unifyingProgressBlock = [self _fileDownloadUnifyingProgressBlockForFileState:fileState];
@@ -106,23 +88,24 @@ static NSString *const PFFileControllerCacheDirectoryName_ = @"PFFileCache";
                                                                              cancellationToken:cancellationToken
                                                                                  progressBlock:unifyingProgressBlock];
             resultTask = [[resultTask continueWithSuccessBlock:^id(BFTask *task) {
-                return [[PFFileManager moveItemAsyncAtPath:temporaryPath
-                                                    toPath:[self cachedFilePathForFileState:fileState]] continueWithBlock:^id(BFTask *task) {
-                    // Ignore the error if file exists.
-                    if (task.error && task.error.code == NSFileWriteFileExistsError) {
-                        return nil;
-                    }
-                    return task;
-                }];
+                // TODO: (nlutsenko) Create `+ moveAsync` in PFFileManager
+                NSError *fileError = nil;
+                [[NSFileManager defaultManager] moveItemAtPath:temporaryPath
+                                                        toPath:[self cachedFilePathForFileState:fileState]
+                                                         error:&fileError];
+                if (fileError && fileError.code != NSFileWriteFileExistsError) {
+                    return fileError;
+                }
+                return nil;
             }] continueWithBlock:^id(BFTask *task) {
                 dispatch_barrier_async(_downloadDataAccessQueue, ^{
-                    [_downloadTasks removeObjectForKey:fileState.secureURLString];
-                    [_downloadProgressBlocks removeObjectForKey:fileState.secureURLString];
+                    [_downloadTasks removeObjectForKey:fileState.urlString];
+                    [_downloadProgressBlocks removeObjectForKey:fileState.urlString];
                 });
                 return task;
             }];
             dispatch_barrier_async(_downloadDataAccessQueue, ^{
-                _downloadTasks[fileState.secureURLString] = resultTask;
+                _downloadTasks[fileState.urlString] = resultTask;
             });
         }
         return resultTask;
@@ -152,7 +135,7 @@ static NSString *const PFFileControllerCacheDirectoryName_ = @"PFFileCache";
 - (BFTask *)_fileDownloadResultTaskForFileWithState:(PFFileState *)state {
     __block BFTask *resultTask = nil;
     dispatch_sync(_downloadDataAccessQueue, ^{
-        resultTask = _downloadTasks[state.secureURLString];
+        resultTask = _downloadTasks[state.urlString];
     });
     return resultTask;
 }
@@ -162,7 +145,7 @@ static NSString *const PFFileControllerCacheDirectoryName_ = @"PFFileCache";
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             __block NSArray *blocks = nil;
             dispatch_sync(_downloadDataAccessQueue, ^{
-                blocks = [_downloadProgressBlocks[fileState.secureURLString] copy];
+                blocks = [_downloadProgressBlocks[fileState.urlString] copy];
             });
             if (blocks.count != 0) {
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -181,10 +164,10 @@ static NSString *const PFFileControllerCacheDirectoryName_ = @"PFFileCache";
     }
 
     dispatch_barrier_async(_downloadDataAccessQueue, ^{
-        NSMutableArray *progressBlocks = _downloadProgressBlocks[state.secureURLString];
+        NSMutableArray *progressBlocks = _downloadProgressBlocks[state.urlString];
         if (!progressBlocks) {
             progressBlocks = [NSMutableArray arrayWithObject:block];
-            _downloadProgressBlocks[state.secureURLString] = progressBlocks;
+            _downloadProgressBlocks[state.urlString] = progressBlocks;
         } else {
             [progressBlocks addObject:block];
         }
@@ -192,7 +175,7 @@ static NSString *const PFFileControllerCacheDirectoryName_ = @"PFFileCache";
 }
 
 - (NSString *)_temporaryFileDownloadPathForFileState:(PFFileState *)fileState {
-    return [NSTemporaryDirectory() stringByAppendingPathComponent:PFMD5HashFromString(fileState.secureURLString)];
+    return [NSTemporaryDirectory() stringByAppendingPathComponent:PFMD5HashFromString(fileState.urlString)];
 }
 
 ///--------------------------------------
@@ -242,11 +225,11 @@ static NSString *const PFFileControllerCacheDirectoryName_ = @"PFFileCache";
 ///--------------------------------------
 
 - (NSString *)cachedFilePathForFileState:(PFFileState *)fileState {
-    if (!fileState.secureURLString) {
+    if (!fileState.urlString) {
         return nil;
     }
 
-    NSString *filename = [fileState.secureURLString lastPathComponent];
+    NSString *filename = [fileState.urlString lastPathComponent];
     NSString *path = [self.cacheFilesDirectoryPath stringByAppendingPathComponent:filename];
     return path;
 }
@@ -260,6 +243,17 @@ static NSString *const PFFileControllerCacheDirectoryName_ = @"PFFileCache";
 - (BFTask *)clearFileCacheAsync {
     NSString *path = [self cacheFilesDirectoryPath];
     return [PFFileManager removeDirectoryContentsAsyncAtPath:path];
+}
+
+///--------------------------------------
+#pragma mark - Staging
+///--------------------------------------
+
+- (NSString *)stagedFilesDirectoryPath {
+    NSString *folderPath = [self.dataSource.fileManager parseLocalSandboxDataDirectoryPath];
+    NSString *path = [folderPath stringByAppendingPathComponent:PFFileControllerStagingDirectoryName_];
+    [[PFFileManager createDirectoryIfNeededAsyncAtPath:path] waitForResult:nil withMainThreadWarning:NO];
+    return path;
 }
 
 @end

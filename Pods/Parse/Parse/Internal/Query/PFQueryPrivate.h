@@ -9,7 +9,11 @@
 
 #import <Foundation/Foundation.h>
 
+#if TARGET_OS_IPHONE
 #import <Parse/PFQuery.h>
+#else
+#import <ParseOSX/PFQuery.h>
+#endif
 
 #import "PFQueryState.h"
 

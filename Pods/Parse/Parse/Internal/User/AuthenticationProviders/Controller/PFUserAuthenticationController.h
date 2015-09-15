@@ -9,8 +9,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import <Parse/PFConstants.h>
-
 #import "PFAuthenticationProvider.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -33,16 +31,25 @@ NS_ASSUME_NONNULL_BEGIN
 /// @name Authentication
 ///--------------------------------------
 
+- (BFTask *)authenticateAsyncWithProviderForAuthType:(NSString *)authType;
 - (BFTask *)deauthenticateAsyncWithProviderForAuthType:(NSString *)authType;
 
-- (BFTask *)restoreAuthenticationAsyncWithAuthData:(nullable NSDictionary *)authData
-                           forProviderWithAuthType:(NSString *)authType;
+- (BOOL)restoreAuthenticationWithAuthData:(nullable NSDictionary *)authData
+                  withProviderForAuthType:(NSString *)authType;
 
 ///--------------------------------------
 /// @name Log In
 ///--------------------------------------
 
+- (BFTask *)logInUserAsyncWithAuthType:(NSString *)authType;
 - (BFTask *)logInUserAsyncWithAuthType:(NSString *)authType authData:(NSDictionary *)authData;
+
+///--------------------------------------
+/// @name Link
+///--------------------------------------
+
+- (BFTask *)linkUserAsync:(PFUser *)user withAuthType:(NSString *)authType;
+- (BFTask *)linkUserAsync:(PFUser *)user withAuthType:(NSString *)authType authData:(NSDictionary *)authData;
 
 @end
 
