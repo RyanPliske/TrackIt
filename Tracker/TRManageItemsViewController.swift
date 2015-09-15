@@ -72,7 +72,7 @@ class TRManageItemsViewController: UIViewController, UITableViewDataSource, UITa
     func toggleSwitchChangedValueAtRow(row: Int) {
         let indexPath = NSIndexPath(forRow: row, inSection: 0)
         let cell = itemsTableView.cellForRowAtIndexPath(indexPath) as! TRManageItemsTableViewCell
-        TRItemsModel.sharedInstanceOfItemsModel.updateItemsActiveStatusAtIndex(row, activeStatus: cell.toggleSwitch.on)
+            itemsModel.updateItemsActiveStatusAtIndex(row, activeStatus: cell.toggleSwitch.on)
     }
     
 }

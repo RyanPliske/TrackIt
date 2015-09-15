@@ -26,6 +26,7 @@ class TRRecordsModel {
     // MARK: Public Methods
     init(recordService: TRRecordService) {
         self.recordService = recordService
+        TRRecord()
     }
     
     func createRecordUsingRow(row: Int, quantityRow: Int, type: TRRecordType, date: NSDate) {

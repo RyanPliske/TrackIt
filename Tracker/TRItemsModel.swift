@@ -16,6 +16,7 @@ class TRItemsModel {
     
     private init(itemService: TRItemService) {
         self.itemService = itemService
+        TRItem()
         self.checkForItems()
     }
     
@@ -23,14 +24,14 @@ class TRItemsModel {
         weak var weakSelf = self
         itemService.readAllItemsFromPhone {
             (objects, error) -> Void in
-            if let unwrappedObjects = objects {
-                if (unwrappedObjects.count != 0) {
-                    let items = objects as! [TRItem]
+            if let items = objects as? [TRItem] {
+                if (items.count != 0) {
                     weakSelf?._allItems = items
                     weakSelf?.filterItemsByActivated()
                     return
                 }
             }
+            UIAlertView(title: "Fuck", message: "\(objects)", delegate: self, cancelButtonTitle: "Cancel").show()
             weakSelf?.deleteAllItems()
             weakSelf?.saveAllItems()
         }
@@ -62,12 +63,12 @@ class TRItemsModel {
     }
     
     private func filterActiveItemsByVice() {
-        _sinfulItems = activeItems.filter { $0.isAVice }
-        _regularItems = activeItems.filter { !$0.isAVice }
+        _sinfulItems = _activeItems.filter { $0.isAVice }
+        _regularItems = _activeItems.filter { !$0.isAVice }
     }
     
     private func filterItemsByActivated() {
-        _activeItems = allItems.filter { $0.activated }
+        _activeItems = _allItems.filter { $0.activated }
         filterActiveItemsByVice()
     }
 }
