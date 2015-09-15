@@ -3,12 +3,12 @@ import QuartzCore
 
 class TREditItemTextField: UITextField {
 
-    var edgeInsets = UIEdgeInsetsMake(1.0, 10.0, 1.0, 10.0)
+    private var edgeInsets = UIEdgeInsetsMake(1.0, 10.0, 1.0, 10.0)
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         layer.cornerRadius = 8.0
-        layer.borderColor = UIColor.whiteColor().CGColor
+        layer.borderColor = UIColor.darkGrayColor().CGColor
         layer.borderWidth = 1.0
         
     }
