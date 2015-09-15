@@ -8,6 +8,7 @@ class TREditItemViewController: UIViewController {
     
     override func viewDidLoad() {
         editItemPresenter = TREditItemPresenter(view: itemTableView)
+        title = "Item"
     }
     
 }

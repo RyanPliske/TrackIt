@@ -23,13 +23,21 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate 
         let cell: UITableViewCell
         switch (indexPath.row) {
         case 0:
-            cell = tableView.dequeueReusableCellWithIdentifier("userInputCell")!
+            cell = tableView.dequeueReusableCellWithIdentifier("userInputCell") as! TREditItemTableViewCell
+            if let inputCell = cell as? TREditItemTableViewCell {
+                inputCell.topBorder.hidden = false
+                inputCell.setLabelWithText("Name:")
+            }
         case 1:
             cell = tableView.dequeueReusableCellWithIdentifier("badHabitCell")!
         case 2:
-            cell = tableView.dequeueReusableCellWithIdentifier("userInputCell")!
+            cell = tableView.dequeueReusableCellWithIdentifier("userInputCell") as! TREditItemTableViewCell
+            if let inputCell = cell as? TREditItemTableViewCell {
+                inputCell.bottomBorder.hidden = false
+                inputCell.setLabelWithText("Measure Unit:")
+            }
         default:
-            cell = tableView.dequeueReusableCellWithIdentifier("userInputCell")!
+            cell = tableView.dequeueReusableCellWithIdentifier("userInputCell") as! TREditItemTableViewCell
             
         }
         return cell
