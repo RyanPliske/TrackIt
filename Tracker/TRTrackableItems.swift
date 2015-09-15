@@ -2,7 +2,7 @@ import Foundation
 
 struct TRTrackableItems {
     static var regularItems: Dictionary = [
-        0: ["name" : "Workouts", "unit" : ""],
+        0: ["name" : "Workouts", "unit" : "none"],
         1: ["name" : "Protein", "unit" : "grams"],
         2: ["name" : "Calories", "unit" : "kcal"]]
     static var sinfulItems  = ["Drinks", "Cigarettes", "Junk Food"]

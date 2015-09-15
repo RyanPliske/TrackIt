@@ -58,7 +58,7 @@ class TRItem: PFObject, PFSubclassing {
             if let measurementUnit = self["unit"] as? String {
                 return measurementUnit
             } else {
-                return ""
+                return "none"
             }
         }
         set {
