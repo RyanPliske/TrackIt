@@ -52,10 +52,10 @@ code_sign_if_enabled() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework 'Pods-TrackerTests/Bolts.framework'
-  install_framework 'Pods-TrackerTests/Parse.framework'
+  install_framework 'Pods-TrackItTests/Bolts.framework'
+  install_framework 'Pods-TrackItTests/Parse.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework 'Pods-TrackerTests/Bolts.framework'
-  install_framework 'Pods-TrackerTests/Parse.framework'
+  install_framework 'Pods-TrackItTests/Bolts.framework'
+  install_framework 'Pods-TrackItTests/Parse.framework'
 fi

@@ -9,21 +9,14 @@
 
 #import <Foundation/Foundation.h>
 
-#if TARGET_OS_IPHONE
+#import <Bolts/BFTask.h>
+
 #import <Parse/PFConstants.h>
 #import <Parse/PFGeoPoint.h>
 #import <Parse/PFObject.h>
 #import <Parse/PFUser.h>
-#else
-#import <ParseOSX/PFConstants.h>
-#import <ParseOSX/PFGeoPoint.h>
-#import <ParseOSX/PFObject.h>
-#import <ParseOSX/PFUser.h>
-#endif
 
 PF_ASSUME_NONNULL_BEGIN
-
-@class BFTask;
 
 /*!
  The `PFQuery` class defines a query that is used to query for <PFObject>s.

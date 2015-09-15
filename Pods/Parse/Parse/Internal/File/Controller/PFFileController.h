@@ -9,24 +9,22 @@
 
 #import <Foundation/Foundation.h>
 
-#if TARGET_OS_IPHONE
 #import <Parse/PFConstants.h>
-#else
-#import <ParseOSX/PFConstants.h>
-#endif
 
 #import "PFDataProvider.h"
 
 @class BFCancellationToken;
 @class BFTask;
 @class PFFileState;
+@class PFFileStagingController;
 
 @interface PFFileController : NSObject
 
 @property (nonatomic, weak, readonly) id<PFCommandRunnerProvider, PFFileManagerProvider> dataSource;
 
+@property (nonatomic, strong, readonly) PFFileStagingController *fileStagingController;
+
 @property (nonatomic, copy, readonly) NSString *cacheFilesDirectoryPath;
-@property (nonatomic, copy, readonly) NSString *stagedFilesDirectoryPath;
 
 ///--------------------------------------
 /// @name Init
