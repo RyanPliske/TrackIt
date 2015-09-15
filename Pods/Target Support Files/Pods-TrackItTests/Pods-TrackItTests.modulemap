@@ -1,6 +1,0 @@
-framework module Pods_TrackItTests {
-  umbrella header "Pods-TrackItTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
