@@ -59,6 +59,16 @@ class TRItemsModel {
         itemService.updateItem(self.allItems[index], activeStatus: activeStatus)
     }
     
+    func updateItemsNameAtIndex(index: Int, name: String) {
+        _allItems[index].name = name
+        itemService.updateItem(self.allItems[index], name: name)
+    }
+    
+    func updateItemsMeasurementUnitAtIndex(index: Int, unit: String) {
+        _allItems[index].measurementUnit = unit
+        itemService.updateItem(self.allItems[index], unit: unit)
+    }
+    
     private func deleteAllItems() {
         itemService.deleteAllItemsFromPhone()
     }

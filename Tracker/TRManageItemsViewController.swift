@@ -20,6 +20,10 @@ class TRManageItemsViewController: UIViewController, UITableViewDataSource, UITa
         itemsTableView.delegate = self
     }
     
+    override func viewWillAppear(animated: Bool) {
+        itemsTableView.reloadData()
+    }
+    
     func addItem() {
         performSegueWithIdentifier("showEditItemViewController", sender: nil)
     }

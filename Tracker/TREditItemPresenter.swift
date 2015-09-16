@@ -1,6 +1,6 @@
 import Foundation
 
-class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate {
+class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate, TREditItemTableViewInputCellDelegate {
     let itemTableView: UITableView
     let itemsModel = TRItemsModel.sharedInstanceOfItemsModel
     var itemRow: Int?
@@ -32,6 +32,8 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate 
                 inputCell.setLabelWithText("Name:")
                 let textFieldText = itemRow != nil ? itemsModel.allItems[itemRow!].name : ""
                 inputCell.setTextFieldTextWithText(textFieldText)
+                inputCell.setTextFieldTagWith(indexPath.row)
+                inputCell.textFieldDelegate = self
             }
         case 1:
             cell = tableView.dequeueReusableCellWithIdentifier("badHabitCell") as! TREditItemTableViewViceCell
@@ -46,6 +48,8 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate 
                 inputCell.setLabelWithText("Measure Unit:")
                 let textFieldText = itemRow != nil ? itemsModel.allItems[itemRow!].measurementUnit : ""
                 inputCell.setTextFieldTextWithText(textFieldText)
+                inputCell.setTextFieldTagWith(indexPath.row)
+                inputCell.textFieldDelegate = self
             }
         default:
             cell = tableView.dequeueReusableCellWithIdentifier("userInputCell") as! TREditItemTableViewInputCell
@@ -84,6 +88,18 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate 
         cell.layoutIfNeeded()
         let size = cell.contentView .systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
         return size.height + 1.0
+    }
+    
+    func textFieldReturnedAtRow(row: Int, text: String) {
+        if row == 0 {
+            if let unwrappedRow = itemRow {
+                itemsModel.updateItemsNameAtIndex(unwrappedRow, name: text)
+            }
+        } else if row == 2 {
+            if let unwrappedRow = itemRow {
+                itemsModel.updateItemsMeasurementUnitAtIndex(unwrappedRow, unit: text)
+            }
+        }
     }
     
 }

@@ -33,6 +33,16 @@ class TRItemService {
         item.pinInBackgroundWithBlock(nil)
     }
     
+    func updateItem(item: TRItem, name: String) {
+        item.name = name
+        item.pinInBackgroundWithBlock(nil)
+    }
+    
+    func updateItem(item: TRItem, unit: String) {
+        item.measurementUnit = unit
+        item.pinInBackgroundWithBlock(nil)
+    }
+    
     func deleteAllItemsFromPhone() {
         TRItem.unpinAllObjects()
     }
