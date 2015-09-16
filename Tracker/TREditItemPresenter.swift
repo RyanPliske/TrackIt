@@ -90,7 +90,8 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
         return size.height + 1.0
     }
     
-    func textFieldReturnedAtRow(row: Int, text: String) {
+    // MARK: TREditItemTableViewInputCellDelegate
+    func textFieldChangedAtRow(row: Int, text: String) {
         if row == 0 {
             if let unwrappedRow = itemRow {
                 itemsModel.updateItemsNameAtIndex(unwrappedRow, name: text)
