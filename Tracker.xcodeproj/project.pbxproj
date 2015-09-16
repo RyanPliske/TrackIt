@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		376645703CED1E2EEE66B377 /* Pods_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14D533F76E1CF4A5F5873397 /* Pods_Tracker.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		54BD8E3791E761869C71B91B /* Pods_TrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43B672E98257AADA6A21AB52 /* Pods_TrackerTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		6254712634B63432ADF42F27 /* Pods_TrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43B672E98257AADA6A21AB52 /* Pods_TrackerTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		E17245E75E992DD3BEA241B3 /* Pods_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14D533F76E1CF4A5F5873397 /* Pods_Tracker.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		EF35BA2D1AF3CA9400456D38 /* TRTrackableItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF35BA2C1AF3CA9300456D38 /* TRTrackableItems.swift */; };
-		EF35BA301AF3D29400456D38 /* TRTrackingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF35BA2F1AF3D29400456D38 /* TRTrackingType.swift */; };
+		EF35BA301AF3D29400456D38 /* TRRecordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF35BA2F1AF3D29400456D38 /* TRRecordType.swift */; };
+		EF3779A01B8ECB2500D6FB97 /* TREditTracksViewController+UISearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF37799F1B8ECB2500D6FB97 /* TREditTracksViewController+UISearchBarDelegate.swift */; };
+		EF3779A21B8ECB7300D6FB97 /* TREditTracksViewController+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3779A11B8ECB7300D6FB97 /* TREditTracksViewController+UITableViewDataSource.swift */; };
 		EF378F571B891CFA00235464 /* TRRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF378F561B891CFA00235464 /* TRRecord.swift */; };
 		EF3D9FB51B850E8E009042CA /* CLWeeklyCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3D9FA71B850E8E009042CA /* CLWeeklyCalendarView.m */; };
 		EF3D9FB61B850E8E009042CA /* DailyCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3D9FA91B850E8E009042CA /* DailyCalendarView.m */; };
@@ -20,8 +22,14 @@
 		EF3D9FBA1B850E8E009042CA /* UIColor+CL.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3D9FB21B850E8E009042CA /* UIColor+CL.m */; };
 		EF3D9FBB1B850E8E009042CA /* UIImage+CL.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3D9FB41B850E8E009042CA /* UIImage+CL.m */; };
 		EF3D9FBD1B85146F009042CA /* TRTrackerPresenter+TRDateChooserObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D9FBC1B85146F009042CA /* TRTrackerPresenter+TRDateChooserObserver.swift */; };
+		EF41496B1BA8ED2200428F48 /* TRItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF86B2B91BA0FC5C0080DC97 /* TRItemsModel.swift */; settings = {ASSET_TAGS = (); }; };
+		EF41496C1BA8ED3F00428F48 /* TRItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF86B2BB1BA0FDBA0080DC97 /* TRItem.swift */; settings = {ASSET_TAGS = (); }; };
+		EF41496D1BA8ED4800428F48 /* TRItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF86B2BD1BA1055C0080DC97 /* TRItemService.swift */; settings = {ASSET_TAGS = (); }; };
 		EF44E7C51B87E64F0088242C /* TREditTracksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF44E7C41B87E64F0088242C /* TREditTracksViewController.swift */; };
-		EF52F2451A8735CF00315B35 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF52F2441A8735CF00315B35 /* SettingsViewController.swift */; };
+		EF4BF8C31B966E0300B2AAA1 /* TRManageItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4BF8C21B966E0300B2AAA1 /* TRManageItemsViewController.swift */; };
+		EF4BF8C51B966F6C00B2AAA1 /* TRSettingsViewController+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4BF8C41B966F6C00B2AAA1 /* TRSettingsViewController+UITableViewDataSource.swift */; };
+		EF4BF8C71B966FC300B2AAA1 /* TRSettingsViewController+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4BF8C61B966FC300B2AAA1 /* TRSettingsViewController+UITableViewDelegate.swift */; };
+		EF52F2451A8735CF00315B35 /* TRSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF52F2441A8735CF00315B35 /* TRSettingsViewController.swift */; };
 		EF53D05C1B862CC0007873B4 /* TREditTracksButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53D05B1B862CC0007873B4 /* TREditTracksButton.swift */; };
 		EF53D05E1B866019007873B4 /* TRTrackerView+Layouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53D05D1B866019007873B4 /* TRTrackerView+Layouts.swift */; };
 		EF53D0611B8663BB007873B4 /* TRTodaysDateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53D0601B8663BB007873B4 /* TRTodaysDateButton.swift */; };
@@ -29,33 +37,53 @@
 		EF649E421B54A10D004431C6 /* TRChooseableDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF649E411B54A10D004431C6 /* TRChooseableDateViewController.swift */; };
 		EF6A8B4D1B3B91470012312E /* TRTrackerPresenter+UIPickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6A8B4C1B3B91470012312E /* TRTrackerPresenter+UIPickerViewDelegate.swift */; };
 		EF6A8B4F1B3B91E60012312E /* TRTrackerPresenter+UIPickerViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6A8B4E1B3B91E60012312E /* TRTrackerPresenter+UIPickerViewDataSource.swift */; };
-		EF70DE271B8D147E00CDAFC5 /* TRItemsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF70DE261B8D147E00CDAFC5 /* TRItemsManager.swift */; };
-		EF70DE291B8D300C00CDAFC5 /* TRItemsManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF70DE281B8D300C00CDAFC5 /* TRItemsManagerTests.swift */; };
+		EF70DE271B8D147E00CDAFC5 /* TRRecordSortManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF70DE261B8D147E00CDAFC5 /* TRRecordSortManager.swift */; };
 		EF70DE2B1B8D3DBA00CDAFC5 /* MockRecordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF70DE2A1B8D3DBA00CDAFC5 /* MockRecordService.swift */; };
 		EF70DE2D1B8D480D00CDAFC5 /* TREditTracksTableViewCellDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF70DE2C1B8D480D00CDAFC5 /* TREditTracksTableViewCellDecorator.swift */; };
+		EF7C173A1BA7346B000A3947 /* TRColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7C17391BA7346B000A3947 /* TRColors.swift */; };
 		EF7CE0101AF0204700C451B1 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE00F1AF0204700C451B1 /* TPKeyboardAvoidingScrollView.m */; };
 		EF7CE0131AF021C600C451B1 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE0121AF021C600C451B1 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		EF7CE0171AF0228600C451B1 /* HTPressableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE0161AF0228600C451B1 /* HTPressableButton.m */; };
-		EF7CE01A1AF0238800C451B1 /* FXForms.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE0191AF0238800C451B1 /* FXForms.m */; };
 		EF7CE01D1AF023B000C451B1 /* UIImage+HTButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE01C1AF023B000C451B1 /* UIImage+HTButton.m */; };
 		EF7CE0221AF023CC00C451B1 /* HTPressableButtonPrefs.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE01F1AF023CC00C451B1 /* HTPressableButtonPrefs.m */; };
 		EF7CE0231AF023CC00C451B1 /* UIColor+HTColor.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE0211AF023CC00C451B1 /* UIColor+HTColor.m */; };
 		EF802E151B8A9A1900C51C33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFE083F91A86A9B100AC9631 /* Main.storyboard */; };
+		EF86B2B41BA0E56F0080DC97 /* TRManageItemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF86B2B31BA0E56E0080DC97 /* TRManageItemsTableViewCell.swift */; };
+		EF86B2BA1BA0FC5C0080DC97 /* TRItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF86B2B91BA0FC5C0080DC97 /* TRItemsModel.swift */; };
+		EF86B2BC1BA0FDBA0080DC97 /* TRItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF86B2BB1BA0FDBA0080DC97 /* TRItem.swift */; };
+		EF86B2BE1BA1055C0080DC97 /* TRItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF86B2BD1BA1055C0080DC97 /* TRItemService.swift */; };
+		EF9A004F1BA8B6C7009FF92E /* TREditItemTableViewViceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9A004E1BA8B6C7009FF92E /* TREditItemTableViewViceCell.swift */; settings = {ASSET_TAGS = (); }; };
+		EFA1EF8C1BA75BB6007D82E6 /* TREditItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA1EF8B1BA75BB6007D82E6 /* TREditItemViewController.swift */; };
+		EFA1EF901BA75E77007D82E6 /* TREditItemPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA1EF8F1BA75E77007D82E6 /* TREditItemPresenter.swift */; };
+		EFA1EF921BA788D0007D82E6 /* TREditItemTableViewInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA1EF911BA788D0007D82E6 /* TREditItemTableViewInputCell.swift */; };
+		EFA1EF951BA78D26007D82E6 /* TREditItemTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA1EF941BA78D26007D82E6 /* TREditItemTextField.swift */; };
 		EFA9B5E81B7D7EBD00BAA839 /* TRTrackerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA9B5E71B7D7EBD00BAA839 /* TRTrackerPresenter.swift */; };
-		EFA9B5EA1B7D811800BAA839 /* TRTrackerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA9B5E91B7D811800BAA839 /* TRTrackerModel.swift */; };
+		EFA9B5EA1B7D811800BAA839 /* TRRrecordsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA9B5E91B7D811800BAA839 /* TRRrecordsModel.swift */; };
+		EFB392911B93609E002EC06C /* MockRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB392901B93609E002EC06C /* MockRecord.swift */; };
+		EFB392931B939A92002EC06C /* MockQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB392921B939A92002EC06C /* MockQuery.swift */; };
+		EFB392941B93A1E7002EC06C /* TRRrecordsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA9B5E91B7D811800BAA839 /* TRRrecordsModel.swift */; };
+		EFB392951B93A229002EC06C /* TRRecordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF85C691B8261FA00F766DB /* TRRecordService.swift */; };
+		EFB392961B93A22D002EC06C /* TRRecordSortManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF70DE261B8D147E00CDAFC5 /* TRRecordSortManager.swift */; };
+		EFB392971B93A231002EC06C /* TRRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF378F561B891CFA00235464 /* TRRecord.swift */; };
+		EFB392981B93A25B002EC06C /* TRRecordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF35BA2F1AF3D29400456D38 /* TRRecordType.swift */; };
+		EFB392991B93A26D002EC06C /* TRTrackableItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF35BA2C1AF3CA9300456D38 /* TRTrackableItems.swift */; };
+		EFB3929A1B93A295002EC06C /* TRDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCF9D91AFA9318004DEDB9 /* TRDateFormatter.swift */; };
+		EFB3929B1B93A2A3002EC06C /* TRCurrentDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCF9DB1AFA9C26004DEDB9 /* TRCurrentDate.swift */; };
 		EFC9CD6B1B7D606800060D54 /* TRTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC9CD6A1B7D606800060D54 /* TRTrackerView.swift */; };
 		EFCA44AE1AF2BD430012AE52 /* TRTrackerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA44AD1AF2BD430012AE52 /* TRTrackerButton.swift */; };
-		EFE083F41A86A9B100AC9631 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE083F31A86A9B100AC9631 /* AppDelegate.swift */; };
+		EFD8AEAA1B9658AF00962BA0 /* TRSettingsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD8AEA91B9658AF00962BA0 /* TRSettingsTableView.swift */; };
+		EFD8AEAC1B9658C000962BA0 /* TRSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD8AEAB1B9658C000962BA0 /* TRSettingsTableViewCell.swift */; };
+		EFD8AEAF1B965C0200962BA0 /* TRSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD8AEAE1B965C0200962BA0 /* TRSettingsModel.swift */; };
+		EFE083F41A86A9B100AC9631 /* TRAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE083F31A86A9B100AC9631 /* TRAppDelegate.swift */; };
 		EFE083F61A86A9B100AC9631 /* TRTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE083F51A86A9B100AC9631 /* TRTrackerViewController.swift */; };
-		EFE083F81A86A9B100AC9631 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE083F71A86A9B100AC9631 /* StatsViewController.swift */; };
+		EFE083F81A86A9B100AC9631 /* TRStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE083F71A86A9B100AC9631 /* TRStatsViewController.swift */; };
 		EFE083FD1A86A9B100AC9631 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFE083FC1A86A9B100AC9631 /* Images.xcassets */; };
 		EFF328DB1B87C218001B9E84 /* TREditTracksTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF328DA1B87C218001B9E84 /* TREditTracksTableView.swift */; };
 		EFF328DD1B87C5C6001B9E84 /* TREditTracksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF328DC1B87C5C6001B9E84 /* TREditTracksTableViewCell.swift */; };
-		EFF5E6061A8861BC00B59CD4 /* SettingsForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF5E6051A8861BC00B59CD4 /* SettingsForm.swift */; };
 		EFF85C6A1B8261FA00F766DB /* TRRecordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF85C691B8261FA00F766DB /* TRRecordService.swift */; };
 		EFFCF9DA1AFA9318004DEDB9 /* TRDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCF9D91AFA9318004DEDB9 /* TRDateFormatter.swift */; };
 		EFFCF9DC1AFA9C26004DEDB9 /* TRCurrentDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCF9DB1AFA9C26004DEDB9 /* TRCurrentDate.swift */; };
-		EFFDD9641B8BB9090062FFCE /* TRTrackerModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5AB94E1B7FF91B0061286E /* TRTrackerModelTests.swift */; };
+		EFFDD9641B8BB9090062FFCE /* TRRecordsModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5AB94E1B7FF91B0061286E /* TRRecordsModelTests.swift */; };
 		EFFDD9651B8BB9090062FFCE /* TRRecordServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF07F3A1B8399A000ED6520 /* TRRecordServiceTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -83,14 +111,22 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0C459376465AA52DE4514CF0 /* Pods-TrackItTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackItTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrackItTests/Pods-TrackItTests.debug.xcconfig"; sourceTree = "<group>"; };
 		0E93EFF4A5C6B4902C182392 /* Pods-TrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrackerTests/Pods-TrackerTests.release.xcconfig"; sourceTree = "<group>"; };
 		14D533F76E1CF4A5F5873397 /* Pods_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		186B23C7D38FFC61C7BB0D21 /* Pods-TrackIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackIt.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrackIt/Pods-TrackIt.release.xcconfig"; sourceTree = "<group>"; };
+		4312C81532628D7339CAB874 /* Pods-TrackIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackIt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrackIt/Pods-TrackIt.debug.xcconfig"; sourceTree = "<group>"; };
 		43B672E98257AADA6A21AB52 /* Pods_TrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		54B27EDACAD8A87277A70789 /* Pods-Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tracker/Pods-Tracker.debug.xcconfig"; sourceTree = "<group>"; };
 		552D0FBFF161A60D313AA58F /* Pods-Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tracker/Pods-Tracker.release.xcconfig"; sourceTree = "<group>"; };
 		615DD27FE14861EAB6D516F8 /* Pods-TrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrackerTests/Pods-TrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9198402C4F9A83F2B6788988 /* Pods_TrackIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrackIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC2BB2303B972E6E8E70A1CC /* Pods-TrackItTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackItTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrackItTests/Pods-TrackItTests.release.xcconfig"; sourceTree = "<group>"; };
+		D7A920A77FFCC7D29D4F4D54 /* Pods_TrackItTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrackItTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF35BA2C1AF3CA9300456D38 /* TRTrackableItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRTrackableItems.swift; sourceTree = "<group>"; };
-		EF35BA2F1AF3D29400456D38 /* TRTrackingType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRTrackingType.swift; sourceTree = "<group>"; };
+		EF35BA2F1AF3D29400456D38 /* TRRecordType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRRecordType.swift; sourceTree = "<group>"; };
+		EF37799F1B8ECB2500D6FB97 /* TREditTracksViewController+UISearchBarDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TREditTracksViewController+UISearchBarDelegate.swift"; sourceTree = "<group>"; };
+		EF3779A11B8ECB7300D6FB97 /* TREditTracksViewController+UITableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TREditTracksViewController+UITableViewDataSource.swift"; sourceTree = "<group>"; };
 		EF378F561B891CFA00235464 /* TRRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRRecord.swift; sourceTree = "<group>"; };
 		EF3D9FA61B850E8E009042CA /* CLWeeklyCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLWeeklyCalendarView.h; sourceTree = "<group>"; };
 		EF3D9FA71B850E8E009042CA /* CLWeeklyCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLWeeklyCalendarView.m; sourceTree = "<group>"; };
@@ -108,34 +144,40 @@
 		EF3D9FB41B850E8E009042CA /* UIImage+CL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CL.m"; sourceTree = "<group>"; };
 		EF3D9FBC1B85146F009042CA /* TRTrackerPresenter+TRDateChooserObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TRTrackerPresenter+TRDateChooserObserver.swift"; sourceTree = "<group>"; };
 		EF44E7C41B87E64F0088242C /* TREditTracksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREditTracksViewController.swift; sourceTree = "<group>"; };
-		EF52F2441A8735CF00315B35 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		EF4BF8C21B966E0300B2AAA1 /* TRManageItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRManageItemsViewController.swift; sourceTree = "<group>"; };
+		EF4BF8C41B966F6C00B2AAA1 /* TRSettingsViewController+UITableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TRSettingsViewController+UITableViewDataSource.swift"; sourceTree = "<group>"; };
+		EF4BF8C61B966FC300B2AAA1 /* TRSettingsViewController+UITableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TRSettingsViewController+UITableViewDelegate.swift"; sourceTree = "<group>"; };
+		EF52F2441A8735CF00315B35 /* TRSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRSettingsViewController.swift; sourceTree = "<group>"; };
 		EF53D05B1B862CC0007873B4 /* TREditTracksButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREditTracksButton.swift; sourceTree = "<group>"; };
 		EF53D05D1B866019007873B4 /* TRTrackerView+Layouts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TRTrackerView+Layouts.swift"; sourceTree = "<group>"; };
 		EF53D0601B8663BB007873B4 /* TRTodaysDateButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRTodaysDateButton.swift; sourceTree = "<group>"; };
 		EF53D0621B866616007873B4 /* TRToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRToolbar.swift; sourceTree = "<group>"; };
-		EF5AB94E1B7FF91B0061286E /* TRTrackerModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRTrackerModelTests.swift; sourceTree = "<group>"; };
+		EF5AB94E1B7FF91B0061286E /* TRRecordsModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRRecordsModelTests.swift; sourceTree = "<group>"; };
 		EF5AB9531B7FFDEE0061286E /* Tracker-Unit-Test-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Tracker-Unit-Test-Bridging-Header.h"; sourceTree = "<group>"; };
 		EF649E411B54A10D004431C6 /* TRChooseableDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRChooseableDateViewController.swift; sourceTree = "<group>"; };
 		EF6A8B4C1B3B91470012312E /* TRTrackerPresenter+UIPickerViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TRTrackerPresenter+UIPickerViewDelegate.swift"; sourceTree = "<group>"; };
 		EF6A8B4E1B3B91E60012312E /* TRTrackerPresenter+UIPickerViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TRTrackerPresenter+UIPickerViewDataSource.swift"; sourceTree = "<group>"; };
-		EF70DE261B8D147E00CDAFC5 /* TRItemsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRItemsManager.swift; sourceTree = "<group>"; };
-		EF70DE281B8D300C00CDAFC5 /* TRItemsManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRItemsManagerTests.swift; sourceTree = "<group>"; };
+		EF70DE261B8D147E00CDAFC5 /* TRRecordSortManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRRecordSortManager.swift; sourceTree = "<group>"; };
 		EF70DE2A1B8D3DBA00CDAFC5 /* MockRecordService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockRecordService.swift; sourceTree = "<group>"; };
 		EF70DE2C1B8D480D00CDAFC5 /* TREditTracksTableViewCellDecorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREditTracksTableViewCellDecorator.swift; sourceTree = "<group>"; };
+		EF7C17391BA7346B000A3947 /* TRColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRColors.swift; sourceTree = "<group>"; };
 		EF7CE00E1AF0204700C451B1 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
 		EF7CE00F1AF0204700C451B1 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
 		EF7CE0111AF021C600C451B1 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
 		EF7CE0121AF021C600C451B1 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 		EF7CE0151AF0228600C451B1 /* HTPressableButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTPressableButton.h; sourceTree = "<group>"; };
 		EF7CE0161AF0228600C451B1 /* HTPressableButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTPressableButton.m; sourceTree = "<group>"; };
-		EF7CE0181AF0238800C451B1 /* FXForms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXForms.h; sourceTree = "<group>"; };
-		EF7CE0191AF0238800C451B1 /* FXForms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXForms.m; sourceTree = "<group>"; };
 		EF7CE01B1AF023B000C451B1 /* UIImage+HTButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+HTButton.h"; sourceTree = "<group>"; };
 		EF7CE01C1AF023B000C451B1 /* UIImage+HTButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+HTButton.m"; sourceTree = "<group>"; };
 		EF7CE01E1AF023CC00C451B1 /* HTPressableButtonPrefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTPressableButtonPrefs.h; sourceTree = "<group>"; };
 		EF7CE01F1AF023CC00C451B1 /* HTPressableButtonPrefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTPressableButtonPrefs.m; sourceTree = "<group>"; };
 		EF7CE0201AF023CC00C451B1 /* UIColor+HTColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HTColor.h"; sourceTree = "<group>"; };
 		EF7CE0211AF023CC00C451B1 /* UIColor+HTColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HTColor.m"; sourceTree = "<group>"; };
+		EF86B2B31BA0E56E0080DC97 /* TRManageItemsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRManageItemsTableViewCell.swift; sourceTree = "<group>"; };
+		EF86B2B91BA0FC5C0080DC97 /* TRItemsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRItemsModel.swift; sourceTree = "<group>"; };
+		EF86B2BB1BA0FDBA0080DC97 /* TRItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRItem.swift; sourceTree = "<group>"; };
+		EF86B2BD1BA1055C0080DC97 /* TRItemService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRItemService.swift; sourceTree = "<group>"; };
+		EF9A004E1BA8B6C7009FF92E /* TREditItemTableViewViceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREditItemTableViewViceCell.swift; sourceTree = "<group>"; };
 		EF9FB0681B2A4D5800AD1164 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		EF9FB06A1B2A4D5800AD1164 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF9FB06C1B2A4D5800AD1164 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -147,25 +189,33 @@
 		EF9FB0801B2A4D5800AD1164 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		EF9FB0821B2A4D5800AD1164 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF9FB0841B2A4D5800AD1164 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFA1EF8B1BA75BB6007D82E6 /* TREditItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREditItemViewController.swift; sourceTree = "<group>"; };
+		EFA1EF8F1BA75E77007D82E6 /* TREditItemPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREditItemPresenter.swift; sourceTree = "<group>"; };
+		EFA1EF911BA788D0007D82E6 /* TREditItemTableViewInputCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREditItemTableViewInputCell.swift; sourceTree = "<group>"; };
+		EFA1EF941BA78D26007D82E6 /* TREditItemTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREditItemTextField.swift; sourceTree = "<group>"; };
 		EFA9B5E51B7D6A5B00BAA839 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EFA9B5E71B7D7EBD00BAA839 /* TRTrackerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRTrackerPresenter.swift; sourceTree = "<group>"; };
-		EFA9B5E91B7D811800BAA839 /* TRTrackerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRTrackerModel.swift; sourceTree = "<group>"; };
+		EFA9B5E91B7D811800BAA839 /* TRRrecordsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRRrecordsModel.swift; sourceTree = "<group>"; };
 		EFABDA1B1B2B299300FCF5A3 /* MainInterfacePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainInterfacePresenter.swift; sourceTree = "<group>"; };
+		EFB392901B93609E002EC06C /* MockRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockRecord.swift; sourceTree = "<group>"; };
+		EFB392921B939A92002EC06C /* MockQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockQuery.swift; sourceTree = "<group>"; };
 		EFC9CD6A1B7D606800060D54 /* TRTrackerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRTrackerView.swift; sourceTree = "<group>"; };
 		EFCA44AD1AF2BD430012AE52 /* TRTrackerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRTrackerButton.swift; sourceTree = "<group>"; };
+		EFD8AEA91B9658AF00962BA0 /* TRSettingsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRSettingsTableView.swift; sourceTree = "<group>"; };
+		EFD8AEAB1B9658C000962BA0 /* TRSettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRSettingsTableViewCell.swift; sourceTree = "<group>"; };
+		EFD8AEAE1B965C0200962BA0 /* TRSettingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRSettingsModel.swift; sourceTree = "<group>"; };
 		EFE083EE1A86A9B100AC9631 /* Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		EFE083F31A86A9B100AC9631 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EFE083F31A86A9B100AC9631 /* TRAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRAppDelegate.swift; sourceTree = "<group>"; };
 		EFE083F51A86A9B100AC9631 /* TRTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRTrackerViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
-		EFE083F71A86A9B100AC9631 /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
+		EFE083F71A86A9B100AC9631 /* TRStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRStatsViewController.swift; sourceTree = "<group>"; };
 		EFE083FA1A86A9B100AC9631 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EFE083FC1A86A9B100AC9631 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		EFE084051A86A9B100AC9631 /* TrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFE084051A86A9B100AC9631 /* Tracker.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tracker.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFE0840A1A86A9B100AC9631 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EFF07F3A1B8399A000ED6520 /* TRRecordServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRRecordServiceTests.swift; sourceTree = "<group>"; };
 		EFF328DA1B87C218001B9E84 /* TREditTracksTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREditTracksTableView.swift; sourceTree = "<group>"; };
 		EFF328DC1B87C5C6001B9E84 /* TREditTracksTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREditTracksTableViewCell.swift; sourceTree = "<group>"; };
 		EFF5E6011A885BCB00B59CD4 /* Tracker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tracker-Bridging-Header.h"; sourceTree = "<group>"; };
-		EFF5E6051A8861BC00B59CD4 /* SettingsForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsForm.swift; sourceTree = "<group>"; };
 		EFF85C691B8261FA00F766DB /* TRRecordService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TRRecordService.swift; path = ../TRRecordService.swift; sourceTree = "<group>"; };
 		EFFCF9D91AFA9318004DEDB9 /* TRDateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRDateFormatter.swift; sourceTree = "<group>"; };
 		EFFCF9DB1AFA9C26004DEDB9 /* TRCurrentDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCurrentDate.swift; sourceTree = "<group>"; };
@@ -176,7 +226,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				376645703CED1E2EEE66B377 /* Pods_Tracker.framework in Frameworks */,
+				E17245E75E992DD3BEA241B3 /* Pods_Tracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,7 +234,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54BD8E3791E761869C71B91B /* Pods_TrackerTests.framework in Frameworks */,
+				6254712634B63432ADF42F27 /* Pods_TrackerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +248,10 @@
 				552D0FBFF161A60D313AA58F /* Pods-Tracker.release.xcconfig */,
 				615DD27FE14861EAB6D516F8 /* Pods-TrackerTests.debug.xcconfig */,
 				0E93EFF4A5C6B4902C182392 /* Pods-TrackerTests.release.xcconfig */,
+				4312C81532628D7339CAB874 /* Pods-TrackIt.debug.xcconfig */,
+				186B23C7D38FFC61C7BB0D21 /* Pods-TrackIt.release.xcconfig */,
+				0C459376465AA52DE4514CF0 /* Pods-TrackItTests.debug.xcconfig */,
+				AC2BB2303B972E6E8E70A1CC /* Pods-TrackItTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -207,6 +261,8 @@
 			children = (
 				14D533F76E1CF4A5F5873397 /* Pods_Tracker.framework */,
 				43B672E98257AADA6A21AB52 /* Pods_TrackerTests.framework */,
+				9198402C4F9A83F2B6788988 /* Pods_TrackIt.framework */,
+				D7A920A77FFCC7D29D4F4D54 /* Pods_TrackItTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -250,6 +306,16 @@
 			path = Misc;
 			sourceTree = "<group>";
 		};
+		EF4BF8C11B966DB700B2AAA1 /* TRManageItems */ = {
+			isa = PBXGroup;
+			children = (
+				EF86B2B81BA0FC420080DC97 /* TRItemsModel */,
+				EF86B2B51BA0F1E70080DC97 /* TRManageItemsViewController */,
+				EF86B2B21BA0E5360080DC97 /* TRManageItemsView */,
+			);
+			name = TRManageItems;
+			sourceTree = "<group>";
+		};
 		EF53D05F1B86637B007873B4 /* TRTrackerView */ = {
 			isa = PBXGroup;
 			children = (
@@ -277,25 +343,40 @@
 		EF53D0651B867811007873B4 /* TRTrackerModel */ = {
 			isa = PBXGroup;
 			children = (
-				EF70DE261B8D147E00CDAFC5 /* TRItemsManager.swift */,
-				EF70DE281B8D300C00CDAFC5 /* TRItemsManagerTests.swift */,
-				EFA9B5E91B7D811800BAA839 /* TRTrackerModel.swift */,
-				EF5AB94E1B7FF91B0061286E /* TRTrackerModelTests.swift */,
-				EF378F561B891CFA00235464 /* TRRecord.swift */,
-				EFF85C691B8261FA00F766DB /* TRRecordService.swift */,
-				EFF07F3A1B8399A000ED6520 /* TRRecordServiceTests.swift */,
+				EF77AD611B9FB747009DE5A4 /* TRRecordsModel */,
 				EF35BA2C1AF3CA9300456D38 /* TRTrackableItems.swift */,
 			);
 			name = TRTrackerModel;
 			sourceTree = "<group>";
 		};
-		EF7CE00A1AF0050300C451B1 /* FXForms */ = {
+		EF77AD601B9FB731009DE5A4 /* TRRecord */ = {
 			isa = PBXGroup;
 			children = (
-				EF7CE0181AF0238800C451B1 /* FXForms.h */,
-				EF7CE0191AF0238800C451B1 /* FXForms.m */,
+				EF378F561B891CFA00235464 /* TRRecord.swift */,
+				EF35BA2F1AF3D29400456D38 /* TRRecordType.swift */,
 			);
-			name = FXForms;
+			name = TRRecord;
+			sourceTree = "<group>";
+		};
+		EF77AD611B9FB747009DE5A4 /* TRRecordsModel */ = {
+			isa = PBXGroup;
+			children = (
+				EFA9B5E91B7D811800BAA839 /* TRRrecordsModel.swift */,
+				EF5AB94E1B7FF91B0061286E /* TRRecordsModelTests.swift */,
+				EF70DE261B8D147E00CDAFC5 /* TRRecordSortManager.swift */,
+				EFF85C691B8261FA00F766DB /* TRRecordService.swift */,
+				EFF07F3A1B8399A000ED6520 /* TRRecordServiceTests.swift */,
+				EF77AD601B9FB731009DE5A4 /* TRRecord */,
+			);
+			name = TRRecordsModel;
+			sourceTree = "<group>";
+		};
+		EF7C173B1BA738FE000A3947 /* TRColors */ = {
+			isa = PBXGroup;
+			children = (
+				EF7C17391BA7346B000A3947 /* TRColors.swift */,
+			);
+			name = TRColors;
 			sourceTree = "<group>";
 		};
 		EF7CE00D1AF0202F00C451B1 /* TPKeyboardAvoiding */ = {
@@ -322,6 +403,32 @@
 				EF7CE01C1AF023B000C451B1 /* UIImage+HTButton.m */,
 			);
 			name = HTPressableButton;
+			sourceTree = "<group>";
+		};
+		EF86B2B21BA0E5360080DC97 /* TRManageItemsView */ = {
+			isa = PBXGroup;
+			children = (
+				EF86B2B31BA0E56E0080DC97 /* TRManageItemsTableViewCell.swift */,
+			);
+			name = TRManageItemsView;
+			sourceTree = "<group>";
+		};
+		EF86B2B51BA0F1E70080DC97 /* TRManageItemsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EF4BF8C21B966E0300B2AAA1 /* TRManageItemsViewController.swift */,
+			);
+			name = TRManageItemsViewController;
+			sourceTree = "<group>";
+		};
+		EF86B2B81BA0FC420080DC97 /* TRItemsModel */ = {
+			isa = PBXGroup;
+			children = (
+				EF86B2B91BA0FC5C0080DC97 /* TRItemsModel.swift */,
+				EF86B2BD1BA1055C0080DC97 /* TRItemService.swift */,
+				EF86B2BB1BA0FDBA0080DC97 /* TRItem.swift */,
+			);
+			name = TRItemsModel;
 			sourceTree = "<group>";
 		};
 		EF9FB0661B2A4D5800AD1164 /* TrackViaWatch */ = {
@@ -358,34 +465,141 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		EFA1EF871BA75B47007D82E6 /* TREditItem */ = {
+			isa = PBXGroup;
+			children = (
+				EFA1EF931BA78BE8007D82E6 /* TREditItemViewController */,
+				EFA1EF8E1BA75DCA007D82E6 /* TREditItemPresenter */,
+				EFA1EF8D1BA75D7F007D82E6 /* TREditItemView */,
+			);
+			name = TREditItem;
+			sourceTree = "<group>";
+		};
+		EFA1EF8D1BA75D7F007D82E6 /* TREditItemView */ = {
+			isa = PBXGroup;
+			children = (
+				EFA1EF911BA788D0007D82E6 /* TREditItemTableViewInputCell.swift */,
+				EF9A004E1BA8B6C7009FF92E /* TREditItemTableViewViceCell.swift */,
+				EFA1EF941BA78D26007D82E6 /* TREditItemTextField.swift */,
+			);
+			name = TREditItemView;
+			sourceTree = "<group>";
+		};
+		EFA1EF8E1BA75DCA007D82E6 /* TREditItemPresenter */ = {
+			isa = PBXGroup;
+			children = (
+				EFA1EF8F1BA75E77007D82E6 /* TREditItemPresenter.swift */,
+			);
+			name = TREditItemPresenter;
+			sourceTree = "<group>";
+		};
+		EFA1EF931BA78BE8007D82E6 /* TREditItemViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EFA1EF8B1BA75BB6007D82E6 /* TREditItemViewController.swift */,
+			);
+			name = TREditItemViewController;
+			sourceTree = "<group>";
+		};
 		EFC9CD671B7D249B00060D54 /* TRTracker */ = {
 			isa = PBXGroup;
 			children = (
-				EF35BA2F1AF3D29400456D38 /* TRTrackingType.swift */,
-				EFE083F51A86A9B100AC9631 /* TRTrackerViewController.swift */,
-				EF53D0651B867811007873B4 /* TRTrackerModel */,
-				EF53D0641B8677E2007873B4 /* TRTrackerPresenter */,
 				EF53D05F1B86637B007873B4 /* TRTrackerView */,
+				EF53D0641B8677E2007873B4 /* TRTrackerPresenter */,
+				EFD8AEB31B965EB300962BA0 /* TRTrackerViewController */,
+				EF53D0651B867811007873B4 /* TRTrackerModel */,
 			);
 			name = TRTracker;
 			sourceTree = "<group>";
 		};
-		EFCA44AB1AF2BCD40012AE52 /* Vendor Components */ = {
+		EFCA44AB1AF2BCD40012AE52 /* Open Sourced Libraries */ = {
 			isa = PBXGroup;
 			children = (
 				EF3D9FA51B850E8E009042CA /* CLWeeklyCalendarViewSourceCode */,
 				EF7CE0141AF0227500C451B1 /* HTPressableButton */,
 				EF7CE00D1AF0202F00C451B1 /* TPKeyboardAvoiding */,
-				EF7CE00A1AF0050300C451B1 /* FXForms */,
 			);
-			name = "Vendor Components";
+			name = "Open Sourced Libraries";
+			sourceTree = "<group>";
+		};
+		EFD8AEA81B96486100962BA0 /* TRSettings */ = {
+			isa = PBXGroup;
+			children = (
+				EFD8AEB01B965E7500962BA0 /* TRSettingsView */,
+				EFD8AEB51B965F9400962BA0 /* TRSettingsViewController */,
+				EFD8AEAD1B965AAA00962BA0 /* TRSettingsModel */,
+			);
+			name = TRSettings;
+			sourceTree = "<group>";
+		};
+		EFD8AEAD1B965AAA00962BA0 /* TRSettingsModel */ = {
+			isa = PBXGroup;
+			children = (
+				EFD8AEAE1B965C0200962BA0 /* TRSettingsModel.swift */,
+			);
+			name = TRSettingsModel;
+			sourceTree = "<group>";
+		};
+		EFD8AEB01B965E7500962BA0 /* TRSettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				EFD8AEA91B9658AF00962BA0 /* TRSettingsTableView.swift */,
+				EFD8AEAB1B9658C000962BA0 /* TRSettingsTableViewCell.swift */,
+			);
+			name = TRSettingsView;
+			sourceTree = "<group>";
+		};
+		EFD8AEB11B965E8C00962BA0 /* TREditTracksViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EF44E7C41B87E64F0088242C /* TREditTracksViewController.swift */,
+				EF3779A11B8ECB7300D6FB97 /* TREditTracksViewController+UITableViewDataSource.swift */,
+				EF37799F1B8ECB2500D6FB97 /* TREditTracksViewController+UISearchBarDelegate.swift */,
+			);
+			name = TREditTracksViewController;
+			sourceTree = "<group>";
+		};
+		EFD8AEB21B965E9800962BA0 /* TREditTracksView */ = {
+			isa = PBXGroup;
+			children = (
+				EFF328DA1B87C218001B9E84 /* TREditTracksTableView.swift */,
+				EFF328DC1B87C5C6001B9E84 /* TREditTracksTableViewCell.swift */,
+				EF70DE2C1B8D480D00CDAFC5 /* TREditTracksTableViewCellDecorator.swift */,
+			);
+			name = TREditTracksView;
+			sourceTree = "<group>";
+		};
+		EFD8AEB31B965EB300962BA0 /* TRTrackerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EFE083F51A86A9B100AC9631 /* TRTrackerViewController.swift */,
+			);
+			name = TRTrackerViewController;
+			sourceTree = "<group>";
+		};
+		EFD8AEB41B965F4600962BA0 /* TRStats */ = {
+			isa = PBXGroup;
+			children = (
+				EFE083F71A86A9B100AC9631 /* TRStatsViewController.swift */,
+			);
+			name = TRStats;
+			sourceTree = "<group>";
+		};
+		EFD8AEB51B965F9400962BA0 /* TRSettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EF52F2441A8735CF00315B35 /* TRSettingsViewController.swift */,
+				EF4BF8C41B966F6C00B2AAA1 /* TRSettingsViewController+UITableViewDataSource.swift */,
+				EF4BF8C61B966FC300B2AAA1 /* TRSettingsViewController+UITableViewDelegate.swift */,
+			);
+			name = TRSettingsViewController;
 			sourceTree = "<group>";
 		};
 		EFE083E51A86A9B100AC9631 = {
 			isa = PBXGroup;
 			children = (
-				EFE083F01A86A9B100AC9631 /* Tracker */,
-				EFE084081A86A9B100AC9631 /* TrackerTests */,
+				EFE083F01A86A9B100AC9631 /* TrackIt */,
+				EFE084081A86A9B100AC9631 /* TrackItTests */,
 				EF9FB0661B2A4D5800AD1164 /* TrackViaWatch */,
 				EF9FB0751B2A4D5800AD1164 /* TrackViaWatch Extension */,
 				EFE083EF1A86A9B100AC9631 /* Products */,
@@ -398,25 +612,28 @@
 			isa = PBXGroup;
 			children = (
 				EFE083EE1A86A9B100AC9631 /* Tracker.app */,
-				EFE084051A86A9B100AC9631 /* TrackerTests.xctest */,
+				EFE084051A86A9B100AC9631 /* Tracker.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EFE083F01A86A9B100AC9631 /* Tracker */ = {
+		EFE083F01A86A9B100AC9631 /* TrackIt */ = {
 			isa = PBXGroup;
 			children = (
+				EFE083F31A86A9B100AC9631 /* TRAppDelegate.swift */,
+				EFE083F91A86A9B100AC9631 /* Main.storyboard */,
+				EF7C173B1BA738FE000A3947 /* TRColors */,
+				EFD8AEA81B96486100962BA0 /* TRSettings */,
+				EFA1EF871BA75B47007D82E6 /* TREditItem */,
+				EF4BF8C11B966DB700B2AAA1 /* TRManageItems */,
 				EFF328D91B87C1F5001B9E84 /* TREditTracks */,
 				EF1FA9461B7E64ED00AC9095 /* TRChooseableDate */,
 				EFC9CD671B7D249B00060D54 /* TRTracker */,
-				EFE083F31A86A9B100AC9631 /* AppDelegate.swift */,
-				EF52F2441A8735CF00315B35 /* SettingsViewController.swift */,
-				EFE083F71A86A9B100AC9631 /* StatsViewController.swift */,
-				EFF5E6051A8861BC00B59CD4 /* SettingsForm.swift */,
-				EFE083F91A86A9B100AC9631 /* Main.storyboard */,
-				EFCA44AB1AF2BCD40012AE52 /* Vendor Components */,
+				EFD8AEB41B965F4600962BA0 /* TRStats */,
 				EFE083F11A86A9B100AC9631 /* Supporting Files */,
+				EFCA44AB1AF2BCD40012AE52 /* Open Sourced Libraries */,
 			);
+			name = TrackIt;
 			path = Tracker;
 			sourceTree = "<group>";
 		};
@@ -430,12 +647,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		EFE084081A86A9B100AC9631 /* TrackerTests */ = {
+		EFE084081A86A9B100AC9631 /* TrackItTests */ = {
 			isa = PBXGroup;
 			children = (
 				EFE084091A86A9B100AC9631 /* Supporting Files */,
 				EF70DE2A1B8D3DBA00CDAFC5 /* MockRecordService.swift */,
+				EFB392901B93609E002EC06C /* MockRecord.swift */,
+				EFB392921B939A92002EC06C /* MockQuery.swift */,
 			);
+			name = TrackItTests;
 			path = TrackerTests;
 			sourceTree = "<group>";
 		};
@@ -451,10 +671,8 @@
 		EFF328D91B87C1F5001B9E84 /* TREditTracks */ = {
 			isa = PBXGroup;
 			children = (
-				EF44E7C41B87E64F0088242C /* TREditTracksViewController.swift */,
-				EFF328DA1B87C218001B9E84 /* TREditTracksTableView.swift */,
-				EFF328DC1B87C5C6001B9E84 /* TREditTracksTableViewCell.swift */,
-				EF70DE2C1B8D480D00CDAFC5 /* TREditTracksTableViewCellDecorator.swift */,
+				EFD8AEB21B965E9800962BA0 /* TREditTracksView */,
+				EFD8AEB11B965E8C00962BA0 /* TREditTracksViewController */,
 			);
 			name = TREditTracks;
 			sourceTree = "<group>";
@@ -502,7 +720,7 @@
 			);
 			name = TrackerTests;
 			productName = TrackerTests;
-			productReference = EFE084051A86A9B100AC9631 /* TrackerTests.xctest */;
+			productReference = EFE084051A86A9B100AC9631 /* Tracker.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -521,7 +739,6 @@
 					};
 					EFE084041A86A9B100AC9631 = {
 						CreatedOnToolsVersion = 6.1.1;
-						TestTargetID = EFE083ED1A86A9B100AC9631;
 					};
 				};
 			};
@@ -665,7 +882,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#\"${PODS_ROOT}/Fabric/Fabric.framework/run\" 0a0212c9a729fc5c3e32348fcf827ee97c5cb9bd 01be25f3bdc148e5dcca511a3999bc102cbd3118f359ae7ed4438268d17c76e6";
+			shellScript = "\"${PODS_ROOT}/Fabric/Fabric.framework/run\" 0a0212c9a729fc5c3e32348fcf827ee97c5cb9bd 01be25f3bdc148e5dcca511a3999bc102cbd3118f359ae7ed4438268d17c76e6";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -675,33 +892,46 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF7CE0171AF0228600C451B1 /* HTPressableButton.m in Sources */,
+				EF86B2B41BA0E56F0080DC97 /* TRManageItemsTableViewCell.swift in Sources */,
+				EFA1EF901BA75E77007D82E6 /* TREditItemPresenter.swift in Sources */,
 				EF3D9FB81B850E8E009042CA /* NSDate+CL.m in Sources */,
-				EF7CE01A1AF0238800C451B1 /* FXForms.m in Sources */,
-				EF35BA301AF3D29400456D38 /* TRTrackingType.swift in Sources */,
+				EF35BA301AF3D29400456D38 /* TRRecordType.swift in Sources */,
+				EF86B2BE1BA1055C0080DC97 /* TRItemService.swift in Sources */,
 				EF3D9FBD1B85146F009042CA /* TRTrackerPresenter+TRDateChooserObserver.swift in Sources */,
 				EF6A8B4F1B3B91E60012312E /* TRTrackerPresenter+UIPickerViewDataSource.swift in Sources */,
 				EF7CE0221AF023CC00C451B1 /* HTPressableButtonPrefs.m in Sources */,
 				EF7CE0101AF0204700C451B1 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				EF3D9FBB1B850E8E009042CA /* UIImage+CL.m in Sources */,
 				EF649E421B54A10D004431C6 /* TRChooseableDateViewController.swift in Sources */,
+				EF3779A01B8ECB2500D6FB97 /* TREditTracksViewController+UISearchBarDelegate.swift in Sources */,
+				EFD8AEAC1B9658C000962BA0 /* TRSettingsTableViewCell.swift in Sources */,
 				EF6A8B4D1B3B91470012312E /* TRTrackerPresenter+UIPickerViewDelegate.swift in Sources */,
-				EFE083F81A86A9B100AC9631 /* StatsViewController.swift in Sources */,
+				EF4BF8C31B966E0300B2AAA1 /* TRManageItemsViewController.swift in Sources */,
+				EFE083F81A86A9B100AC9631 /* TRStatsViewController.swift in Sources */,
 				EFFCF9DA1AFA9318004DEDB9 /* TRDateFormatter.swift in Sources */,
-				EFA9B5EA1B7D811800BAA839 /* TRTrackerModel.swift in Sources */,
+				EFA9B5EA1B7D811800BAA839 /* TRRrecordsModel.swift in Sources */,
 				EFF328DB1B87C218001B9E84 /* TREditTracksTableView.swift in Sources */,
-				EFE083F41A86A9B100AC9631 /* AppDelegate.swift in Sources */,
+				EFD8AEAA1B9658AF00962BA0 /* TRSettingsTableView.swift in Sources */,
+				EFE083F41A86A9B100AC9631 /* TRAppDelegate.swift in Sources */,
+				EFA1EF921BA788D0007D82E6 /* TREditItemTableViewInputCell.swift in Sources */,
 				EF35BA2D1AF3CA9400456D38 /* TRTrackableItems.swift in Sources */,
 				EF7CE01D1AF023B000C451B1 /* UIImage+HTButton.m in Sources */,
+				EF4BF8C51B966F6C00B2AAA1 /* TRSettingsViewController+UITableViewDataSource.swift in Sources */,
 				EFF85C6A1B8261FA00F766DB /* TRRecordService.swift in Sources */,
+				EFA1EF8C1BA75BB6007D82E6 /* TREditItemViewController.swift in Sources */,
 				EF44E7C51B87E64F0088242C /* TREditTracksViewController.swift in Sources */,
 				EFFCF9DC1AFA9C26004DEDB9 /* TRCurrentDate.swift in Sources */,
-				EFF5E6061A8861BC00B59CD4 /* SettingsForm.swift in Sources */,
+				EF7C173A1BA7346B000A3947 /* TRColors.swift in Sources */,
 				EF53D0631B866616007873B4 /* TRToolbar.swift in Sources */,
 				EF3D9FB61B850E8E009042CA /* DailyCalendarView.m in Sources */,
+				EFA1EF951BA78D26007D82E6 /* TREditItemTextField.swift in Sources */,
+				EF3779A21B8ECB7300D6FB97 /* TREditTracksViewController+UITableViewDataSource.swift in Sources */,
+				EFD8AEAF1B965C0200962BA0 /* TRSettingsModel.swift in Sources */,
 				EF7CE0131AF021C600C451B1 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				EFF328DD1B87C5C6001B9E84 /* TREditTracksTableViewCell.swift in Sources */,
 				EFE083F61A86A9B100AC9631 /* TRTrackerViewController.swift in Sources */,
-				EF52F2451A8735CF00315B35 /* SettingsViewController.swift in Sources */,
+				EF52F2451A8735CF00315B35 /* TRSettingsViewController.swift in Sources */,
+				EF86B2BA1BA0FC5C0080DC97 /* TRItemsModel.swift in Sources */,
 				EFC9CD6B1B7D606800060D54 /* TRTrackerView.swift in Sources */,
 				EF53D0611B8663BB007873B4 /* TRTodaysDateButton.swift in Sources */,
 				EF53D05E1B866019007873B4 /* TRTrackerView+Layouts.swift in Sources */,
@@ -710,10 +940,13 @@
 				EF7CE0231AF023CC00C451B1 /* UIColor+HTColor.m in Sources */,
 				EF3D9FB91B850E8E009042CA /* NSDictionary+CL.m in Sources */,
 				EF3D9FB51B850E8E009042CA /* CLWeeklyCalendarView.m in Sources */,
-				EF70DE271B8D147E00CDAFC5 /* TRItemsManager.swift in Sources */,
+				EF86B2BC1BA0FDBA0080DC97 /* TRItem.swift in Sources */,
+				EF70DE271B8D147E00CDAFC5 /* TRRecordSortManager.swift in Sources */,
+				EF4BF8C71B966FC300B2AAA1 /* TRSettingsViewController+UITableViewDelegate.swift in Sources */,
 				EF3D9FBA1B850E8E009042CA /* UIColor+CL.m in Sources */,
 				EF53D05C1B862CC0007873B4 /* TREditTracksButton.swift in Sources */,
 				EF70DE2D1B8D480D00CDAFC5 /* TREditTracksTableViewCellDecorator.swift in Sources */,
+				EF9A004F1BA8B6C7009FF92E /* TREditItemTableViewViceCell.swift in Sources */,
 				EF378F571B891CFA00235464 /* TRRecord.swift in Sources */,
 				EFCA44AE1AF2BD430012AE52 /* TRTrackerButton.swift in Sources */,
 			);
@@ -723,10 +956,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFB392911B93609E002EC06C /* MockRecord.swift in Sources */,
 				EF70DE2B1B8D3DBA00CDAFC5 /* MockRecordService.swift in Sources */,
-				EFFDD9641B8BB9090062FFCE /* TRTrackerModelTests.swift in Sources */,
+				EFB392981B93A25B002EC06C /* TRRecordType.swift in Sources */,
+				EFB392961B93A22D002EC06C /* TRRecordSortManager.swift in Sources */,
+				EF41496D1BA8ED4800428F48 /* TRItemService.swift in Sources */,
+				EF41496C1BA8ED3F00428F48 /* TRItem.swift in Sources */,
+				EFB3929A1B93A295002EC06C /* TRDateFormatter.swift in Sources */,
+				EFB3929B1B93A2A3002EC06C /* TRCurrentDate.swift in Sources */,
+				EFB392951B93A229002EC06C /* TRRecordService.swift in Sources */,
+				EFB392971B93A231002EC06C /* TRRecord.swift in Sources */,
+				EF41496B1BA8ED2200428F48 /* TRItemsModel.swift in Sources */,
+				EFB392941B93A1E7002EC06C /* TRRrecordsModel.swift in Sources */,
+				EFFDD9641B8BB9090062FFCE /* TRRecordsModelTests.swift in Sources */,
+				EFB392991B93A26D002EC06C /* TRTrackableItems.swift in Sources */,
+				EFB392931B939A92002EC06C /* MockQuery.swift in Sources */,
 				EFFDD9651B8BB9090062FFCE /* TRRecordServiceTests.swift in Sources */,
-				EF70DE291B8D300C00CDAFC5 /* TRItemsManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -777,7 +1022,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -799,7 +1045,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "a734ab4d-5947-4e5f-a0db-50738eff9c9c";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -823,8 +1069,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Patrick McAvoy (CZLFN85575)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Patrick McAvoy (CZLFN85575)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -838,7 +1084,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "a734ab4d-5947-4e5f-a0db-50738eff9c9c";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -851,15 +1097,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				DEFINES_MODULE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = NO;
 				INFOPLIST_FILE = Tracker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a734ab4d-5947-4e5f-a0db-50738eff9c9c";
+				PRODUCT_NAME = Tracker;
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Tracker/Tracker-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -872,13 +1118,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Patrick McAvoy (CZLFN85575)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				INFOPLIST_FILE = Tracker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a734ab4d-5947-4e5f-a0db-50738eff9c9c";
+				PRODUCT_NAME = Tracker;
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Tracker/Tracker-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -888,22 +1134,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 615DD27FE14861EAB6D516F8 /* Pods-TrackerTests.debug.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEFINES_MODULE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				INFOPLIST_FILE = TrackerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Tracker;
 				SWIFT_OBJC_BRIDGING_HEADER = "TrackerTests/Tracker-Unit-Test-Bridging-Header.h";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tracker.app/Tracker";
 			};
 			name = Debug;
 		};
@@ -911,7 +1152,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0E93EFF4A5C6B4902C182392 /* Pods-TrackerTests.release.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEFINES_MODULE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -920,9 +1160,8 @@
 				INFOPLIST_FILE = TrackerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Tracker;
 				SWIFT_OBJC_BRIDGING_HEADER = "TrackerTests/Tracker-Unit-Test-Bridging-Header.h";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tracker.app/Tracker";
 			};
 			name = Release;
 		};

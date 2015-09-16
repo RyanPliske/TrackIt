@@ -2,9 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Tracker.xcodeproj">
+      location = "group:/Users/tPlisk/Documents/Tracker/Tracker.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Tracker.xcodeproj">
    </FileRef>
 </Workspace>

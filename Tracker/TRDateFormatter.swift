@@ -1,8 +1,8 @@
 import Foundation
 
-public class TRDateFormatter : NSObject {
+class TRDateFormatter {
     
-    public static var descriptionForToday : String {
+    static var descriptionForToday : String {
         
         let months = [
             "January",
@@ -22,7 +22,7 @@ public class TRDateFormatter : NSObject {
         return months[TRCurrentDate.thisMonth] + " \(TRCurrentDate.thisDay), " + TRCurrentDate.thisYear
     }
     
-    public static func descriptionForDate(date: NSDate) -> String {
+    static func descriptionForDate(date: NSDate) -> String {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "MMMM dd, YYYY"
         return formatter.stringFromDate(date)

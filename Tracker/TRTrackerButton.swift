@@ -5,9 +5,9 @@ The `TrackerButton` class is designed for two different types : 1. TrackAction 2
 */
 class TRTrackerButton: HTPressableButton {
     
-    var trackingType: TRTrackingType
+    var trackingType: TRRecordType
     
-    init(frame: CGRect, buttonStyle: HTPressableButtonStyle, trackingType : TRTrackingType) {
+    init(frame: CGRect, buttonStyle: HTPressableButtonStyle, trackingType : TRRecordType) {
         self.trackingType = trackingType
         super.init(frame: frame, buttonStyle: buttonStyle)
         

@@ -1,10 +1,18 @@
 import Foundation
 
-public struct TRTrackableItems {
-    var regularItems = ["Workouts", "Protein", "Baby Kicks"]
-    var sinfulItems  = ["Drinks", "Cigarettes", "Money"]
-    var allItems : [String] {
-       return self.sinfulItems + self.regularItems
+struct TRTrackableItems {
+    static var regularItems: Dictionary = [
+        0: ["name" : "Workouts", "unit" : "none"],
+        1: ["name" : "Protein", "unit" : "grams"],
+        2: ["name" : "Calories", "unit" : "kcal"]]
+    static var sinfulItems  = ["Drinks", "Cigarettes", "Junk Food"]
+    static var allItems : [String] {
+        var regular = [String]()
+        for var count = 0; count < regularItems.count; count++ {
+            regular.append(self.regularItems[count]!["name"]! as String)
+            count++
+        }
+       return self.sinfulItems + regular
     }
-    let ListOfQuantities = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+    static let ListOfQuantities = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
 }

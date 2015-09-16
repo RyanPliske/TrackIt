@@ -9,15 +9,11 @@
 
 #import <Foundation/Foundation.h>
 
-#if TARGET_OS_IPHONE
+#import <Bolts/BFTask.h>
+
 #import <Parse/PFConstants.h>
-#else
-#import <ParseOSX/PFConstants.h>
-#endif
 
 PF_ASSUME_NONNULL_BEGIN
-
-@class BFTask;
 
 /*!
  `PFFile` representes a file of binary data stored on the Parse servers.

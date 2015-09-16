@@ -1,10 +1,11 @@
 import Foundation
 /**
-The `TRTrackerPresenter` class is designed to act as the mediator between the TRTrackerView and TRTrackerModel.
+The `TRTrackerPresenter` class is designed to act as the mediator between the TRTrackerView and TRRecordsModel.
 */
 class TRTrackerPresenter: NSObject, TRTrackerViewDelegate {
-    let trackerView : TRTrackerView
-    let trackerModel : TRTrackerModel
+    let trackerView: TRTrackerView
+    let recordsModel: TRRecordsModel
+    let itemsModel = TRItemsModel.sharedInstanceOfItemsModel
     var datetoTrack = NSDate()
 
     var selectedItemOfFirstColumn = 0 {
@@ -19,7 +20,7 @@ class TRTrackerPresenter: NSObject, TRTrackerViewDelegate {
         }
     }
     
-    var trackingType : TRTrackingType = .TrackAction {
+    var trackingType : TRRecordType = .TrackAction {
         didSet {
             self.trackerView.itemPickerView.reloadAllComponents()
             selectedItemOfFirstColumn = 0
@@ -30,9 +31,9 @@ class TRTrackerPresenter: NSObject, TRTrackerViewDelegate {
         }
     }
     
-    init(view: TRTrackerView, model: TRTrackerModel) {
+    init(view: TRTrackerView, model: TRRecordsModel) {
         trackerView = view
-        trackerModel = model
+        recordsModel = model
         super.init()
         self.trackerView.delegate = self
         self.trackerView.itemPickerView.dataSource = self
@@ -49,6 +50,6 @@ class TRTrackerPresenter: NSObject, TRTrackerViewDelegate {
     }
     
     func userPickedAnItemToTrack() {
-        self.trackerModel.trackItemAtRow(selectedItemOfFirstColumn, quantityRow: selectedItemOfSecondColumn, type: trackingType, date: self.datetoTrack)
+        self.recordsModel.createRecordUsingRow(selectedItemOfFirstColumn, quantityRow: selectedItemOfSecondColumn, type: trackingType, date: self.datetoTrack)
     }
 }

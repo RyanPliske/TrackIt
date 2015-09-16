@@ -2,9 +2,9 @@ import UIKit
 
 class TREditTracksTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var itemLabel: UILabel!
-    @IBOutlet weak var countLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak private var itemLabel: UILabel!
+    @IBOutlet weak private var countLabel: UILabel!
+    @IBOutlet weak private var dateLabel: UILabel!
     
     func setItemLabelTextWith(text: String) {
         if let item = itemLabel {

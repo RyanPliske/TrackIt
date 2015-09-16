@@ -398,8 +398,8 @@ static Class _pushInternalUtilClass = nil;
             NSDictionary *alertDict = alert;
             NSString *locKey = alertDict[@"loc-key"];
             if (locKey) {
-                message = [PFInternalUtils _stringWithFormat:NSLocalizedString(locKey, nil)
-                                                   arguments:alertDict[@"loc-args"]];
+                NSString *format = [[NSBundle mainBundle] localizedStringForKey:locKey value:@"" table:nil];
+                message = [PFInternalUtils _stringWithFormat:format arguments:alertDict[@"loc-args"]];
             }
         }
         if (message) {
@@ -415,7 +415,7 @@ static Class _pushInternalUtilClass = nil;
 
     NSString *soundName = aps[@"sound"];
 
-    if (soundName.length == 0 || [soundName isEqualToString:@"default"]) {
+    if ((id)soundName == [NSNull null] || soundName.length == 0 || [soundName isEqualToString:@"default"]) {
         [[self pushInternalUtilClass] playVibrate];
     } else {
         [[self pushInternalUtilClass] playAudioWithName:soundName];

@@ -107,7 +107,7 @@ static float const CLCalendarSelectedDatePrintFontSizeDefault = 13.f;
     
     self.selectedDatePrintFontSize = attributes[CLCalendarSelectedDatePrintFontSize]? [attributes[CLCalendarSelectedDatePrintFontSize] floatValue] : CLCalendarSelectedDatePrintFontSizeDefault;
     
-    NSLog(@"%@  %f", attributes[CLCalendarBackgroundImageColor],  self.selectedDatePrintFontSize);
+    NSLog(@"Background Image Color: %@  Selected Date Print Font Size: %f", attributes[CLCalendarBackgroundImageColor],  self.selectedDatePrintFontSize);
     self.backgroundImageColor = attributes[CLCalendarBackgroundImageColor];
     
     [self setNeedsDisplay];

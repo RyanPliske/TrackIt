@@ -6,22 +6,23 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver, TREditTr
     @IBOutlet private weak var trackerView: TRTrackerView!
     private var trackerPresenter: TRTrackerPresenter!
     private var recordService = TRRecordService()
-    private var trackerModel: TRTrackerModel!
+    private var recordsModel: TRRecordsModel
     private let dateViewController = TRChooseableDateViewController()
     
+    required init?(coder aDecoder: NSCoder) {
+        recordsModel = TRRecordsModel(recordService: self.recordService)
+        super.init(coder: aDecoder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        recordsModel.readAllRecords()
+        trackerPresenter = TRTrackerPresenter(view: self.trackerView, model: self.recordsModel)
         setNeedsStatusBarAppearanceUpdate()
-        trackerModel = TRTrackerModel(recordService: self.recordService)
-        trackerPresenter = TRTrackerPresenter(view: self.trackerView, model: self.trackerModel)
-        self.trackerView.observer = self
+        trackerView.observer = self
         dateViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
         dateViewController.dateObserver = self.trackerPresenter
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        self.tabBarController?.tabBar.tintColor = UIColor.greenColor()
+        self.tabBarController?.tabBar.tintColor = UIColor.TRBabyBlue()
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -42,7 +43,7 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver, TREditTr
     func displayEditableTracks() {
         let editTracksViewController = self.storyboard?.instantiateViewControllerWithIdentifier("EditTracksViewController") as! TREditTracksViewController
         editTracksViewController.editTracksObserver = self
-        editTracksViewController.trackerModel = trackerModel
+        editTracksViewController.recordsModel = recordsModel
         let navController = UINavigationController(rootViewController: editTracksViewController)
         self.presentViewController(navController, animated: true, completion: nil)
     }

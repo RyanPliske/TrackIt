@@ -9,11 +9,7 @@
 
 #import <Foundation/Foundation.h>
 
-#if TARGET_OS_IPHONE
 #import <Parse/PFNullability.h>
-#else
-#import <ParseOSX/PFNullability.h>
-#endif
 
 @class PFObject;
 @class PFUser;
@@ -22,7 +18,7 @@
 /// @name Version
 ///--------------------------------------
 
-#define PARSE_VERSION @"1.8.0"
+#define PARSE_VERSION @"1.8.2"
 
 extern NSInteger const PARSE_API_VERSION;
 
