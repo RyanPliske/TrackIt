@@ -17,6 +17,15 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
         self.itemTableView.delegate = self
     }
     
+    private func enableOtherCells() {
+        if let secondInputCell = itemTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as? TREditItemTableViewInputCell {
+            secondInputCell.setTextFieldUserInteraction(true)
+        }
+        if let badHabitCell = itemTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 0)) as? TREditItemTableViewViceCell {
+            badHabitCell.setViewSwitchUserInteraction(true)
+        }
+    }
+    
     // MARK: UITableViewDataSource
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -71,7 +80,7 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
         return cell
     }
     
-    // MARK: UITableView
+    // MARK: UITableViewDelegate
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.row == 0 || indexPath.row == 2 {
             let heightForRow = heightForUserInputCell()
@@ -105,12 +114,12 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
     
     // MARK: TREditItemTableViewInputCellDelegate
     func textFieldChangedAtRow(row: Int, text: String) {
-        if row == 0 {
-            if !isNewItem {
+        if isNewItem {
+            enableOtherCells()
+        } else {
+            if row == 0 {
                 itemsModel.updateItemsNameAtIndex(itemRow!, name: text)
-            }
-        } else if row == 2 {
-            if !isNewItem {
+            } else if row == 2 {
                 itemsModel.updateItemsMeasurementUnitAtIndex(itemRow!, unit: text)
             }
         }
