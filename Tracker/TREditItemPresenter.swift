@@ -36,7 +36,8 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate 
         case 1:
             cell = tableView.dequeueReusableCellWithIdentifier("badHabitCell") as! TREditItemTableViewViceCell
             if let viceCell = cell as? TREditItemTableViewViceCell {
-                
+                let isAVice = itemRow != nil ? itemsModel.allItems[itemRow!].isAVice : false
+                viceCell.setViceSwitchTo(isAVice)
             }
         case 2:
             cell = tableView.dequeueReusableCellWithIdentifier("userInputCell") as! TREditItemTableViewInputCell
