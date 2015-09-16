@@ -26,6 +26,14 @@ class TREditItemTableViewInputCell: TRSettingsTableViewCell, UITextFieldDelegate
         textField?.tag = tag
     }
     
+    func setTextFieldAsFirstResponder() {
+        textField?.becomeFirstResponder()
+    }
+    
+    func setTextFieldUserInteraction(enabled: Bool){
+        textField?.userInteractionEnabled = enabled
+    }
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         textFieldDelegate?.textFieldChangedAtRow(textField.tag, text: textField.text!)

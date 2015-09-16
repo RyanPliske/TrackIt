@@ -1,13 +1,17 @@
 import Foundation
 
 class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate, TREditItemTableViewInputCellDelegate {
-    let itemTableView: UITableView
-    let itemsModel = TRItemsModel.sharedInstanceOfItemsModel
-    var itemRow: Int?
+    private let itemTableView: UITableView
+    private let itemsModel = TRItemsModel.sharedInstanceOfItemsModel
+    private var itemRow: Int?
+    private var isNewItem = false
     
     init(view: UITableView, itemRowToPopulateWith: Int?) {
         self.itemTableView = view
         self.itemRow = itemRowToPopulateWith
+        if self.itemRow == nil {
+            self.isNewItem = true
+        }
         super.init()
         self.itemTableView.dataSource = self
         self.itemTableView.delegate = self
@@ -30,26 +34,35 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
             if let inputCell = cell as? TREditItemTableViewInputCell {
                 inputCell.topBorder.hidden = false
                 inputCell.setLabelWithText("Name:")
-                let textFieldText = itemRow != nil ? itemsModel.allItems[itemRow!].name : ""
+                let textFieldText = isNewItem ? "" : itemsModel.allItems[itemRow!].name
                 inputCell.setTextFieldTextWithText(textFieldText)
                 inputCell.setTextFieldTagWith(indexPath.row)
                 inputCell.textFieldDelegate = self
+                if isNewItem {
+                    inputCell.setTextFieldAsFirstResponder()
+                }
             }
         case 1:
             cell = tableView.dequeueReusableCellWithIdentifier("badHabitCell") as! TREditItemTableViewViceCell
             if let viceCell = cell as? TREditItemTableViewViceCell {
-                let isAVice = itemRow != nil ? itemsModel.allItems[itemRow!].isAVice : false
+                let isAVice = isNewItem ? false : itemsModel.allItems[itemRow!].isAVice
                 viceCell.setViceSwitchTo(isAVice)
+                if isNewItem {
+                    viceCell.setViewSwitchUserInteraction(false)
+                }
             }
         case 2:
             cell = tableView.dequeueReusableCellWithIdentifier("userInputCell") as! TREditItemTableViewInputCell
             if let inputCell = cell as? TREditItemTableViewInputCell {
                 inputCell.bottomBorder.hidden = false
                 inputCell.setLabelWithText("Measure Unit:")
-                let textFieldText = itemRow != nil ? itemsModel.allItems[itemRow!].measurementUnit : ""
+                let textFieldText = isNewItem ? "" : itemsModel.allItems[itemRow!].measurementUnit
                 inputCell.setTextFieldTextWithText(textFieldText)
                 inputCell.setTextFieldTagWith(indexPath.row)
                 inputCell.textFieldDelegate = self
+                if isNewItem {
+                    inputCell.setTextFieldUserInteraction(false)
+                }
             }
         default:
             cell = tableView.dequeueReusableCellWithIdentifier("userInputCell") as! TREditItemTableViewInputCell
@@ -93,12 +106,12 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
     // MARK: TREditItemTableViewInputCellDelegate
     func textFieldChangedAtRow(row: Int, text: String) {
         if row == 0 {
-            if let unwrappedRow = itemRow {
-                itemsModel.updateItemsNameAtIndex(unwrappedRow, name: text)
+            if !isNewItem {
+                itemsModel.updateItemsNameAtIndex(itemRow!, name: text)
             }
         } else if row == 2 {
-            if let unwrappedRow = itemRow {
-                itemsModel.updateItemsMeasurementUnitAtIndex(unwrappedRow, unit: text)
+            if !isNewItem {
+                itemsModel.updateItemsMeasurementUnitAtIndex(itemRow!, unit: text)
             }
         }
     }
