@@ -5,11 +5,12 @@ class TREditItemViewController: UIViewController {
     @IBOutlet weak var itemTableView: TRSettingsTableView!
 
     private var editItemPresenter: TREditItemPresenter!
-    var itemRowToPopulateWith: Int!
+    var itemRowToPopulateWith: Int?
     
     override func viewDidLoad() {
         editItemPresenter = TREditItemPresenter(view: itemTableView, itemRowToPopulateWith: itemRowToPopulateWith)
-        title = "Item"
+        let pageTitle = itemRowToPopulateWith != nil ? "Item" : "New Item"
+        title = pageTitle
     }
     
 }

@@ -21,7 +21,7 @@ class TRManageItemsViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func addItem() {
-        UIAlertView(title: "Under Construction.", message: "Not implemented yet.", delegate: self, cancelButtonTitle: "Okay!").show()
+        performSegueWithIdentifier("showEditItemViewController", sender: nil)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -30,9 +30,9 @@ class TRManageItemsViewController: UIViewController, UITableViewDataSource, UITa
                 if let row = selectedRow {
                     editItemViewController.itemRowToPopulateWith = row
                 }
+                selectedRow = nil
             }
         }
-    
         super.prepareForSegue(segue, sender: sender)
     }
     

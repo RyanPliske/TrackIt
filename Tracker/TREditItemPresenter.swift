@@ -5,7 +5,7 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate 
     let itemsModel = TRItemsModel.sharedInstanceOfItemsModel
     var itemRow: Int?
     
-    init(view: UITableView, itemRowToPopulateWith: Int) {
+    init(view: UITableView, itemRowToPopulateWith: Int?) {
         self.itemTableView = view
         self.itemRow = itemRowToPopulateWith
         super.init()
