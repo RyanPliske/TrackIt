@@ -33,9 +33,9 @@ class TRRecordsModel {
         var item: String
         switch (type) {
         case .TrackAction:
-            item = TRTrackableItems.allItems[row]
+            item = TRItemsModel.sharedInstanceOfItemsModel.activeItems[row].name
         case .TrackUrge:
-            item = TRTrackableItems.sinfulItems[row]
+            item = TRItemsModel.sharedInstanceOfItemsModel.activeSinfulItems[row].name
         }
         
         let itemQuantity = quantityRow + 1

@@ -22,6 +22,9 @@
 		EF3D9FBA1B850E8E009042CA /* UIColor+CL.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3D9FB21B850E8E009042CA /* UIColor+CL.m */; };
 		EF3D9FBB1B850E8E009042CA /* UIImage+CL.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3D9FB41B850E8E009042CA /* UIImage+CL.m */; };
 		EF3D9FBD1B85146F009042CA /* TRTrackerPresenter+TRDateChooserObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D9FBC1B85146F009042CA /* TRTrackerPresenter+TRDateChooserObserver.swift */; };
+		EF41496B1BA8ED2200428F48 /* TRItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF86B2B91BA0FC5C0080DC97 /* TRItemsModel.swift */; settings = {ASSET_TAGS = (); }; };
+		EF41496C1BA8ED3F00428F48 /* TRItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF86B2BB1BA0FDBA0080DC97 /* TRItem.swift */; settings = {ASSET_TAGS = (); }; };
+		EF41496D1BA8ED4800428F48 /* TRItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF86B2BD1BA1055C0080DC97 /* TRItemService.swift */; settings = {ASSET_TAGS = (); }; };
 		EF44E7C51B87E64F0088242C /* TREditTracksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF44E7C41B87E64F0088242C /* TREditTracksViewController.swift */; };
 		EF4BF8C31B966E0300B2AAA1 /* TRManageItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4BF8C21B966E0300B2AAA1 /* TRManageItemsViewController.swift */; };
 		EF4BF8C51B966F6C00B2AAA1 /* TRSettingsViewController+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4BF8C41B966F6C00B2AAA1 /* TRSettingsViewController+UITableViewDataSource.swift */; };
@@ -957,10 +960,13 @@
 				EF70DE2B1B8D3DBA00CDAFC5 /* MockRecordService.swift in Sources */,
 				EFB392981B93A25B002EC06C /* TRRecordType.swift in Sources */,
 				EFB392961B93A22D002EC06C /* TRRecordSortManager.swift in Sources */,
+				EF41496D1BA8ED4800428F48 /* TRItemService.swift in Sources */,
+				EF41496C1BA8ED3F00428F48 /* TRItem.swift in Sources */,
 				EFB3929A1B93A295002EC06C /* TRDateFormatter.swift in Sources */,
 				EFB3929B1B93A2A3002EC06C /* TRCurrentDate.swift in Sources */,
 				EFB392951B93A229002EC06C /* TRRecordService.swift in Sources */,
 				EFB392971B93A231002EC06C /* TRRecord.swift in Sources */,
+				EF41496B1BA8ED2200428F48 /* TRItemsModel.swift in Sources */,
 				EFB392941B93A1E7002EC06C /* TRRrecordsModel.swift in Sources */,
 				EFFDD9641B8BB9090062FFCE /* TRRecordsModelTests.swift in Sources */,
 				EFB392991B93A26D002EC06C /* TRTrackableItems.swift in Sources */,
