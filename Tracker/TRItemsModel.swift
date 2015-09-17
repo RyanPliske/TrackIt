@@ -14,7 +14,7 @@ class TRItemsModel {
     
     private var itemService: TRItemService
     
-    private init(itemService: TRItemService) {
+    init(itemService: TRItemService) {
         self.itemService = itemService
         TRItem()
         self.checkForItems(nil)

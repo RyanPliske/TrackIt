@@ -6,18 +6,19 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver, TREditTr
     @IBOutlet private weak var trackerView: TRTrackerView!
     private var trackerPresenter: TRTrackerPresenter!
     private var recordService = TRRecordService()
-    private var recordsModel: TRRecordsModel
+    private var recordsModel: TRRecordsModel?
     private let dateViewController = TRChooseableDateViewController()
     
     required init?(coder aDecoder: NSCoder) {
-        recordsModel = TRRecordsModel(recordService: self.recordService)
+        
         super.init(coder: aDecoder)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        recordsModel.readAllRecords()
-        trackerPresenter = TRTrackerPresenter(view: self.trackerView, model: self.recordsModel)
+        recordsModel = TRRecordsModel(recordService: self.recordService, itemsModel: TRItemsModel.sharedInstanceOfItemsModel)
+        recordsModel?.readAllRecords()
+        trackerPresenter = TRTrackerPresenter(view: self.trackerView, model: self.recordsModel!)
         setNeedsStatusBarAppearanceUpdate()
         trackerView.observer = self
         dateViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
