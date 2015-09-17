@@ -88,6 +88,17 @@ class TRItemsModel {
         itemService.updateItem(self.allItems[index], viceStatus: viceStatus)
     }
     
+    func deleteItemAtIndex(index: Int) {
+        let itemToDelete = _allItems[index]
+        _allItems = _allItems.filter { $0 !== itemToDelete }
+        weak var weakSelf = self
+        itemService.deleteItemFromPhone(itemToDelete) { (success, error) -> Void in
+            if success {
+                weakSelf?.checkForItems(nil)
+            }
+        }
+    }
+    
     private func deleteAllItems() {
         itemService.deleteAllItemsFromPhone()
     }

@@ -81,6 +81,21 @@ class TRManageItemsViewController: UIViewController, UITableViewDataSource, UITa
         return cell
     }
     
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        if indexPath.row <= TRTrackableItems.allItems.count {
+            return false
+        } else {
+            return true
+        }
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            itemsModel.deleteItemAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        }
+    }
+    
     // MARK: TRManageItemsTableViewCellDelegate
     
     func toggleSwitchChangedValueAtRow(row: Int) {
