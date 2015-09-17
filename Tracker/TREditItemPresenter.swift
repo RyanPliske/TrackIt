@@ -5,6 +5,11 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
     private let itemsModel = TRItemsModel.sharedInstanceOfItemsModel
     private var itemRow: Int?
     private var isNewItem = false
+    private enum cellIndex: Int {
+        case itemName = 0
+        case itemVice = 1
+        case itemUnit = 2
+    }
     
     init(view: UITableView, itemRowToPopulateWith: Int?) {
         self.itemTableView = view
@@ -18,11 +23,20 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
     }
     
     private func enableOtherCells() {
-        if let secondInputCell = itemTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as? TREditItemTableViewInputCell {
+        if let secondInputCell = itemTableView.cellForRowAtIndexPath(NSIndexPath(forRow: cellIndex.itemUnit.rawValue, inSection: 0)) as? TREditItemTableViewInputCell {
             secondInputCell.setTextFieldUserInteraction(true)
         }
-        if let badHabitCell = itemTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 0)) as? TREditItemTableViewViceCell {
+        if let badHabitCell = itemTableView.cellForRowAtIndexPath(NSIndexPath(forRow: cellIndex.itemVice.rawValue, inSection: 0)) as? TREditItemTableViewViceCell {
             badHabitCell.setViewSwitchUserInteraction(true)
+        }
+    }
+    
+    private func setTagForNewItem() {
+        if let firstInputCell = itemTableView.cellForRowAtIndexPath(NSIndexPath(forRow: cellIndex.itemUnit.rawValue, inSection: 0)) as? TREditItemTableViewInputCell {
+            firstInputCell.setTextFieldTagWith(itemsModel.allItems.count + 1)
+        }
+        if let secondInputCell = itemTableView.cellForRowAtIndexPath(NSIndexPath(forRow: cellIndex.itemUnit.rawValue, inSection: 0)) as? TREditItemTableViewInputCell {
+            secondInputCell.setTextFieldTagWith(itemsModel.allItems.count + 1)
         }
     }
     
@@ -38,7 +52,7 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell
         switch (indexPath.row) {
-        case 0:
+        case cellIndex.itemName.rawValue:
             cell = tableView.dequeueReusableCellWithIdentifier("userInputCell") as! TREditItemTableViewInputCell
             if let inputCell = cell as? TREditItemTableViewInputCell {
                 inputCell.topBorder.hidden = false
@@ -51,7 +65,7 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
                     inputCell.setTextFieldAsFirstResponder()
                 }
             }
-        case 1:
+        case cellIndex.itemVice.rawValue:
             cell = tableView.dequeueReusableCellWithIdentifier("badHabitCell") as! TREditItemTableViewViceCell
             if let viceCell = cell as? TREditItemTableViewViceCell {
                 let isAVice = isNewItem ? false : itemsModel.allItems[itemRow!].isAVice
@@ -60,7 +74,7 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
                     viceCell.setViewSwitchUserInteraction(false)
                 }
             }
-        case 2:
+        case cellIndex.itemUnit.rawValue:
             cell = tableView.dequeueReusableCellWithIdentifier("userInputCell") as! TREditItemTableViewInputCell
             if let inputCell = cell as? TREditItemTableViewInputCell {
                 inputCell.bottomBorder.hidden = false
@@ -82,7 +96,7 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
     
     // MARK: UITableViewDelegate
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if indexPath.row == 0 || indexPath.row == 2 {
+        if indexPath.row == cellIndex.itemName.rawValue || indexPath.row == cellIndex.itemUnit.rawValue {
             let heightForRow = heightForUserInputCell()
             return heightForRow
         } else {
@@ -116,10 +130,13 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
     func textFieldChangedAtRow(row: Int, text: String) {
         if isNewItem {
             enableOtherCells()
+            itemsModel.createItemWithName(text)
+            isNewItem = false
+            setTagForNewItem()
         } else {
-            if row == 0 {
+            if row == cellIndex.itemName.rawValue {
                 itemsModel.updateItemsNameAtIndex(itemRow!, name: text)
-            } else if row == 2 {
+            } else if row == cellIndex.itemUnit.rawValue {
                 itemsModel.updateItemsMeasurementUnitAtIndex(itemRow!, unit: text)
             }
         }

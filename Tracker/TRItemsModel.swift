@@ -53,6 +53,16 @@ class TRItemsModel {
         }
     }
     
+    func createItemWithName(itemName: String) {
+        itemService.createItemWithName(itemName, isAVice: false, measureUnit: nil)
+        weak var weakSelf = self
+        itemService.saveAll { (success, error) -> Void in
+            if success {
+                weakSelf?.checkForItems()
+            }
+        }
+    }
+    
     func updateItemsActiveStatusAtIndex(index: Int, activeStatus: Bool) {
         _allItems[index].activated = activeStatus
         filterItemsByActivated()
