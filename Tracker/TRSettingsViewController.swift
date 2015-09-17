@@ -3,7 +3,7 @@ import UIKit
 class TRSettingsViewController: UIViewController {
     
     var settingsModel = TRSettingsModel()
-    @IBOutlet weak var settingsTableView: TRSettingsTableView!
+    @IBOutlet weak var settingsTableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()

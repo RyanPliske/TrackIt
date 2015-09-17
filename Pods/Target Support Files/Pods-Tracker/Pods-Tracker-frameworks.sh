@@ -54,8 +54,10 @@ code_sign_if_enabled() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Pods-Tracker/Bolts.framework'
   install_framework 'Pods-Tracker/Parse.framework'
+  install_framework 'Pods-Tracker/TPKeyboardAvoiding.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Pods-Tracker/Bolts.framework'
   install_framework 'Pods-Tracker/Parse.framework'
+  install_framework 'Pods-Tracker/TPKeyboardAvoiding.framework'
 fi

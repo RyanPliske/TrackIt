@@ -1,7 +1,7 @@
 import Foundation
 
 class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate, TREditItemTableViewInputCellDelegate, TREditItemTableViewViceCellDelegate {
-    private let itemTableView: UITableView
+    private let editItemTableView: UITableView
     private let itemsModel = TRItemsModel.sharedInstanceOfItemsModel
     private var itemRow: Int?
     private var isNewItem = false
@@ -12,21 +12,21 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
     }
     
     init(view: UITableView, itemRowToPopulateWith: Int?) {
-        self.itemTableView = view
+        self.editItemTableView = view
         self.itemRow = itemRowToPopulateWith
         if self.itemRow == nil {
             self.isNewItem = true
         }
         super.init()
-        self.itemTableView.dataSource = self
-        self.itemTableView.delegate = self
+        self.editItemTableView.dataSource = self
+        self.editItemTableView.delegate = self
     }
     
     private func enableOtherCells() {
-        if let secondInputCell = itemTableView.cellForRowAtIndexPath(NSIndexPath(forRow: cellIndex.itemUnit.rawValue, inSection: 0)) as? TREditItemTableViewInputCell {
+        if let secondInputCell = editItemTableView.cellForRowAtIndexPath(NSIndexPath(forRow: cellIndex.itemUnit.rawValue, inSection: 0)) as? TREditItemTableViewInputCell {
             secondInputCell.setTextFieldUserInteraction(true)
         }
-        if let badHabitCell = itemTableView.cellForRowAtIndexPath(NSIndexPath(forRow: cellIndex.itemVice.rawValue, inSection: 0)) as? TREditItemTableViewViceCell {
+        if let badHabitCell = editItemTableView.cellForRowAtIndexPath(NSIndexPath(forRow: cellIndex.itemVice.rawValue, inSection: 0)) as? TREditItemTableViewViceCell {
             badHabitCell.setViewSwitchUserInteraction(true)
         }
     }
@@ -105,7 +105,7 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
         }
         
         dispatch_once(&Static.onceToken, {
-            Static.userInputCell = self.itemTableView.dequeueReusableCellWithIdentifier("userInputCell")
+            Static.userInputCell = self.editItemTableView.dequeueReusableCellWithIdentifier("userInputCell")
         })
         
         return calculateHeightForConfiguredUserInputCell(Static.userInputCell!)
@@ -141,7 +141,7 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
     
     // MARK: TREditItemTableViewViceCellDelegate
     func toggleSwitchChangedValueAtRow() {
-        if let badHabitCell = itemTableView.cellForRowAtIndexPath(NSIndexPath(forRow: cellIndex.itemVice.rawValue, inSection: 0)) as? TREditItemTableViewViceCell {
+        if let badHabitCell = editItemTableView.cellForRowAtIndexPath(NSIndexPath(forRow: cellIndex.itemVice.rawValue, inSection: 0)) as? TREditItemTableViewViceCell {
             itemsModel.updateItemsViceStatusAtIndex(itemRow!, viceStatus: badHabitCell.viceSwitchState)
         }
     }

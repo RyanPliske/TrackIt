@@ -2,7 +2,7 @@ import Foundation
 
 class TRManageItemsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TRManageItemsTableViewCellDelegate {
     
-    @IBOutlet weak var itemsTableView: TRSettingsTableView!
+    @IBOutlet weak var itemsTableView: UITableView!
     private let itemsModel = TRItemsModel.sharedInstanceOfItemsModel
     private var selectedRow: Int?
     

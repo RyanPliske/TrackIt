@@ -2,7 +2,7 @@ import Foundation
 
 class TREditItemViewController: UIViewController {
     
-    @IBOutlet weak var itemTableView: TRSettingsTableView!
+    @IBOutlet weak var itemTableView: UITableView!
 
     private var editItemPresenter: TREditItemPresenter!
     var itemRowToPopulateWith: Int?
