@@ -16,6 +16,13 @@ class TRItemService {
         itemsToSave.append(item)
     }
     
+    func saveAll(completion: PFBooleanResultBlock?) {
+        if let completionBlock = completion {
+            TRItem.pinAllInBackground(itemsToSave, block: completionBlock)
+            itemsToSave.removeAll()
+        }
+    }
+    
     func readAllItemsFromPhone(completion: PFArrayResultBlock?) {
         let BackgroundRetrievalCompletion: PFArrayResultBlock = {
             (objects: [AnyObject]?, error: NSError?) in
@@ -58,12 +65,6 @@ class TRItemService {
     
     func deleteAllItemsFromPhone() {
         TRItem.unpinAllObjects()
-    }
-    
-    func saveAll(completion: PFBooleanResultBlock?) {
-        if let completionBlock = completion {
-            TRItem.pinAllInBackground(itemsToSave, block: completionBlock)
-        }
     }
     
 }
