@@ -36,7 +36,9 @@ class TREditItemTableViewInputCell: TRSettingsTableViewCell, UITextFieldDelegate
     
     func textFieldDidEndEditing(textField: UITextField) {
         textField.resignFirstResponder()
-        textFieldDelegate?.textFieldChangedAtRow(textField.tag, text: textField.text!)
+        if !textField.text!.isEmpty {
+            textFieldDelegate?.textFieldChangedAtRow(textField.tag, text: textField.text!)
+        }
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
