@@ -18,6 +18,7 @@ class TRManageItemsViewController: UIViewController, UITableViewDataSource, UITa
         navigationController?.navigationBar.tintColor = UIColor.TRBabyBlue()
         itemsTableView.dataSource = self
         itemsTableView.delegate = self
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadTable", name: "newItem", object: nil)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -26,6 +27,10 @@ class TRManageItemsViewController: UIViewController, UITableViewDataSource, UITa
     
     func addItem() {
         performSegueWithIdentifier("showEditItemViewController", sender: nil)
+    }
+    
+    func reloadTable() {
+        itemsTableView.reloadData()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -60,8 +65,13 @@ class TRManageItemsViewController: UIViewController, UITableViewDataSource, UITa
         let cell: TRManageItemsTableViewCell = tableView.dequeueReusableCellWithIdentifier("items") as! TRManageItemsTableViewCell
         if (indexPath.row == 0) {
             cell.topBorder.hidden = false
+            cell.bottomBorder.hidden = true
         } else if (indexPath.row == (itemsModel.allItems.count - 1)) {
+            cell.topBorder.hidden = true
             cell.bottomBorder.hidden = false
+        } else {
+            cell.topBorder.hidden = true
+            cell.bottomBorder.hidden = true
         }
         let name: String = itemsModel.allItems[indexPath.row].name
         cell.setSettingNameWith(name)

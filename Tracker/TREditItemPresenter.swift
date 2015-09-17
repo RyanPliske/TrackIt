@@ -132,9 +132,12 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
     func textFieldChangedAtRow(row: Int, text: String) {
         if isNewItem {
             enableOtherCells()
-            itemsModel.createItemWithName(text)
-            isNewItem = false
-            setTagsForNewItem()
+            weak var weakSelf = self
+            itemsModel.createItemWithName(text, completion: { () -> () in
+                weakSelf?.isNewItem = false
+                weakSelf?.setTagsForNewItem()
+                NSNotificationCenter.defaultCenter().postNotificationName("newItem", object: nil)
+            })
         } else {
             if row == cellIndex.itemName.rawValue {
                 itemsModel.updateItemsNameAtIndex(itemRow!, name: text)

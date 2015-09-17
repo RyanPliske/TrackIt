@@ -17,10 +17,10 @@ class TRItemsModel {
     private init(itemService: TRItemService) {
         self.itemService = itemService
         TRItem()
-        self.checkForItems()
+        self.checkForItems(nil)
     }
     
-    private func checkForItems() {
+    private func checkForItems(completion: (() -> ())?) {
         weak var weakSelf = self
         itemService.readAllItemsFromPhone {
             (objects, error) -> Void in
@@ -28,6 +28,9 @@ class TRItemsModel {
                 if (items.count != 0) {
                     weakSelf?._allItems = items
                     weakSelf?.filterItemsByActivated()
+                    if let completionBlock = completion {
+                        completionBlock()
+                    }
                     return
                 }
             }
@@ -48,17 +51,17 @@ class TRItemsModel {
         weak var weakSelf = self
         itemService.saveAll { (success, error) -> Void in
             if success {
-                weakSelf?.checkForItems()
+                weakSelf?.checkForItems(nil)
             }
         }
     }
     
-    func createItemWithName(itemName: String) {
+    func createItemWithName(itemName: String, completion: (()->())?) {
         itemService.createItemWithName(itemName, isAVice: false, measureUnit: nil)
         weak var weakSelf = self
         itemService.saveAll { (success, error) -> Void in
             if success {
-                weakSelf?.checkForItems()
+                weakSelf?.checkForItems(completion)
             }
         }
     }
