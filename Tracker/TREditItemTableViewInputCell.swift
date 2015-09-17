@@ -34,9 +34,13 @@ class TREditItemTableViewInputCell: TRSettingsTableViewCell, UITextFieldDelegate
         textField?.userInteractionEnabled = enabled
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldDidEndEditing(textField: UITextField) {
         textField.resignFirstResponder()
         textFieldDelegate?.textFieldChangedAtRow(textField.tag, text: textField.text!)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
         return true
     }
     
