@@ -79,6 +79,12 @@ class TRItemsModel {
         itemService.updateItem(self.allItems[index], unit: unit)
     }
     
+    func updateItemsViceStatusAtIndex(index: Int, viceStatus: Bool) {
+        _allItems[index].isAVice = viceStatus
+        filterActiveItemsByVice()
+        itemService.updateItem(self.allItems[index], viceStatus: viceStatus)
+    }
+    
     private func deleteAllItems() {
         itemService.deleteAllItemsFromPhone()
     }

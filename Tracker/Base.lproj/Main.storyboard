@@ -491,6 +491,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="11O-KI-d0W">
                                                     <rect key="frame" x="301" y="30" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="viceSwitchPressed:" destination="567-5f-noH" eventType="valueChanged" id="uau-AX-TU9"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>

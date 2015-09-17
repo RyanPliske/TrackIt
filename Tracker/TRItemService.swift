@@ -33,6 +33,11 @@ class TRItemService {
         item.pinInBackgroundWithBlock(nil)
     }
     
+    func updateItem(item: TRItem, viceStatus: Bool) {
+        item.isAVice = viceStatus
+        item.pinInBackgroundWithBlock(nil)
+    }
+    
     func updateItem(item: TRItem, name: String) {
         item.name = name
         item.pinInBackgroundWithBlock(nil)
