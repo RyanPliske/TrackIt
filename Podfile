@@ -6,6 +6,7 @@ target 'Tracker' do
     pod 'Fabric'
     pod 'Crashlytics'
     pod 'TPKeyboardAvoiding'
+    pod 'HTPressableButton'
 end
 
 target 'TrackerTests' do

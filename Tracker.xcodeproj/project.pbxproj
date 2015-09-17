@@ -41,10 +41,6 @@
 		EF70DE2B1B8D3DBA00CDAFC5 /* MockRecordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF70DE2A1B8D3DBA00CDAFC5 /* MockRecordService.swift */; };
 		EF70DE2D1B8D480D00CDAFC5 /* TREditTracksTableViewCellDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF70DE2C1B8D480D00CDAFC5 /* TREditTracksTableViewCellDecorator.swift */; };
 		EF7C173A1BA7346B000A3947 /* TRColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7C17391BA7346B000A3947 /* TRColors.swift */; };
-		EF7CE0171AF0228600C451B1 /* HTPressableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE0161AF0228600C451B1 /* HTPressableButton.m */; };
-		EF7CE01D1AF023B000C451B1 /* UIImage+HTButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE01C1AF023B000C451B1 /* UIImage+HTButton.m */; };
-		EF7CE0221AF023CC00C451B1 /* HTPressableButtonPrefs.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE01F1AF023CC00C451B1 /* HTPressableButtonPrefs.m */; };
-		EF7CE0231AF023CC00C451B1 /* UIColor+HTColor.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE0211AF023CC00C451B1 /* UIColor+HTColor.m */; };
 		EF802E151B8A9A1900C51C33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFE083F91A86A9B100AC9631 /* Main.storyboard */; };
 		EF86B2B41BA0E56F0080DC97 /* TRManageItemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF86B2B31BA0E56E0080DC97 /* TRManageItemsTableViewCell.swift */; };
 		EF86B2BA1BA0FC5C0080DC97 /* TRItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF86B2B91BA0FC5C0080DC97 /* TRItemsModel.swift */; };
@@ -158,14 +154,6 @@
 		EF70DE2A1B8D3DBA00CDAFC5 /* MockRecordService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockRecordService.swift; sourceTree = "<group>"; };
 		EF70DE2C1B8D480D00CDAFC5 /* TREditTracksTableViewCellDecorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREditTracksTableViewCellDecorator.swift; sourceTree = "<group>"; };
 		EF7C17391BA7346B000A3947 /* TRColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRColors.swift; sourceTree = "<group>"; };
-		EF7CE0151AF0228600C451B1 /* HTPressableButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTPressableButton.h; sourceTree = "<group>"; };
-		EF7CE0161AF0228600C451B1 /* HTPressableButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTPressableButton.m; sourceTree = "<group>"; };
-		EF7CE01B1AF023B000C451B1 /* UIImage+HTButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+HTButton.h"; sourceTree = "<group>"; };
-		EF7CE01C1AF023B000C451B1 /* UIImage+HTButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+HTButton.m"; sourceTree = "<group>"; };
-		EF7CE01E1AF023CC00C451B1 /* HTPressableButtonPrefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTPressableButtonPrefs.h; sourceTree = "<group>"; };
-		EF7CE01F1AF023CC00C451B1 /* HTPressableButtonPrefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTPressableButtonPrefs.m; sourceTree = "<group>"; };
-		EF7CE0201AF023CC00C451B1 /* UIColor+HTColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HTColor.h"; sourceTree = "<group>"; };
-		EF7CE0211AF023CC00C451B1 /* UIColor+HTColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HTColor.m"; sourceTree = "<group>"; };
 		EF86B2B31BA0E56E0080DC97 /* TRManageItemsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRManageItemsTableViewCell.swift; sourceTree = "<group>"; };
 		EF86B2B91BA0FC5C0080DC97 /* TRItemsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRItemsModel.swift; sourceTree = "<group>"; };
 		EF86B2BB1BA0FDBA0080DC97 /* TRItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRItem.swift; sourceTree = "<group>"; };
@@ -371,21 +359,6 @@
 			name = TRColors;
 			sourceTree = "<group>";
 		};
-		EF7CE0141AF0227500C451B1 /* HTPressableButton */ = {
-			isa = PBXGroup;
-			children = (
-				EF7CE0151AF0228600C451B1 /* HTPressableButton.h */,
-				EF7CE0161AF0228600C451B1 /* HTPressableButton.m */,
-				EF7CE01E1AF023CC00C451B1 /* HTPressableButtonPrefs.h */,
-				EF7CE01F1AF023CC00C451B1 /* HTPressableButtonPrefs.m */,
-				EF7CE0201AF023CC00C451B1 /* UIColor+HTColor.h */,
-				EF7CE0211AF023CC00C451B1 /* UIColor+HTColor.m */,
-				EF7CE01B1AF023B000C451B1 /* UIImage+HTButton.h */,
-				EF7CE01C1AF023B000C451B1 /* UIImage+HTButton.m */,
-			);
-			name = HTPressableButton;
-			sourceTree = "<group>";
-		};
 		EF86B2B21BA0E5360080DC97 /* TRManageItemsView */ = {
 			isa = PBXGroup;
 			children = (
@@ -497,7 +470,6 @@
 			isa = PBXGroup;
 			children = (
 				EF3D9FA51B850E8E009042CA /* CLWeeklyCalendarViewSourceCode */,
-				EF7CE0141AF0227500C451B1 /* HTPressableButton */,
 			);
 			name = "Open Sourced Libraries";
 			sourceTree = "<group>";
@@ -870,7 +842,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF7CE0171AF0228600C451B1 /* HTPressableButton.m in Sources */,
 				EF86B2B41BA0E56F0080DC97 /* TRManageItemsTableViewCell.swift in Sources */,
 				EFA1EF901BA75E77007D82E6 /* TREditItemPresenter.swift in Sources */,
 				EF3D9FB81B850E8E009042CA /* NSDate+CL.m in Sources */,
@@ -878,7 +849,6 @@
 				EF86B2BE1BA1055C0080DC97 /* TRItemService.swift in Sources */,
 				EF3D9FBD1B85146F009042CA /* TRTrackerPresenter+TRDateChooserObserver.swift in Sources */,
 				EF6A8B4F1B3B91E60012312E /* TRTrackerPresenter+UIPickerViewDataSource.swift in Sources */,
-				EF7CE0221AF023CC00C451B1 /* HTPressableButtonPrefs.m in Sources */,
 				EF3D9FBB1B850E8E009042CA /* UIImage+CL.m in Sources */,
 				EF649E421B54A10D004431C6 /* TRChooseableDateViewController.swift in Sources */,
 				EF3779A01B8ECB2500D6FB97 /* TREditTracksViewController+UISearchBarDelegate.swift in Sources */,
@@ -892,7 +862,6 @@
 				EFE083F41A86A9B100AC9631 /* TRAppDelegate.swift in Sources */,
 				EFA1EF921BA788D0007D82E6 /* TREditItemTableViewInputCell.swift in Sources */,
 				EF35BA2D1AF3CA9400456D38 /* TRTrackableItems.swift in Sources */,
-				EF7CE01D1AF023B000C451B1 /* UIImage+HTButton.m in Sources */,
 				EF4BF8C51B966F6C00B2AAA1 /* TRSettingsViewController+UITableViewDataSource.swift in Sources */,
 				EFF85C6A1B8261FA00F766DB /* TRRecordService.swift in Sources */,
 				EFA1EF8C1BA75BB6007D82E6 /* TREditItemViewController.swift in Sources */,
@@ -913,7 +882,6 @@
 				EF53D05E1B866019007873B4 /* TRTrackerView+Layouts.swift in Sources */,
 				EFA9B5E81B7D7EBD00BAA839 /* TRTrackerPresenter.swift in Sources */,
 				EF3D9FB71B850E8E009042CA /* DayTitleLabel.m in Sources */,
-				EF7CE0231AF023CC00C451B1 /* UIColor+HTColor.m in Sources */,
 				EF3D9FB91B850E8E009042CA /* NSDictionary+CL.m in Sources */,
 				EF3D9FB51B850E8E009042CA /* CLWeeklyCalendarView.m in Sources */,
 				EF86B2BC1BA0FDBA0080DC97 /* TRItem.swift in Sources */,

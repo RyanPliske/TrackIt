@@ -7,7 +7,6 @@
 //
 
 #import "HTPressableButtonPrefs.h"
-#import <UIKit/UIKit.h>
 
 const CGFloat HTShadowDefaultHeightPercentage = 0.17;
 //60% from default shadow height
