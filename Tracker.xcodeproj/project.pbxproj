@@ -72,6 +72,7 @@
 		EFE083F81A86A9B100AC9631 /* TRStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE083F71A86A9B100AC9631 /* TRStatsViewController.swift */; };
 		EFE083FD1A86A9B100AC9631 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFE083FC1A86A9B100AC9631 /* Images.xcassets */; };
 		EFE9F6411BAB442100C786FE /* MockItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9F63F1BAB43AC00C786FE /* MockItemService.swift */; settings = {ASSET_TAGS = (); }; };
+		EFE9F6431BAB4DE600C786FE /* TRHiddenTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9F6421BAB4DE600C786FE /* TRHiddenTextField.swift */; settings = {ASSET_TAGS = (); }; };
 		EFF328DB1B87C218001B9E84 /* TREditTracksTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF328DA1B87C218001B9E84 /* TREditTracksTableView.swift */; };
 		EFF328DD1B87C5C6001B9E84 /* TREditTracksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF328DC1B87C5C6001B9E84 /* TREditTracksTableViewCell.swift */; };
 		EFF85C6A1B8261FA00F766DB /* TRRecordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF85C691B8261FA00F766DB /* TRRecordService.swift */; };
@@ -194,6 +195,7 @@
 		EFE084051A86A9B100AC9631 /* Tracker.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tracker.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFE0840A1A86A9B100AC9631 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EFE9F63F1BAB43AC00C786FE /* MockItemService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockItemService.swift; sourceTree = "<group>"; };
+		EFE9F6421BAB4DE600C786FE /* TRHiddenTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRHiddenTextField.swift; sourceTree = "<group>"; };
 		EFF07F3A1B8399A000ED6520 /* TRRecordServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRRecordServiceTests.swift; sourceTree = "<group>"; };
 		EFF328DA1B87C218001B9E84 /* TREditTracksTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREditTracksTableView.swift; sourceTree = "<group>"; };
 		EFF328DC1B87C5C6001B9E84 /* TREditTracksTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREditTracksTableViewCell.swift; sourceTree = "<group>"; };
@@ -307,6 +309,7 @@
 				EFCA44AD1AF2BD430012AE52 /* TRTrackerButton.swift */,
 				EF53D0601B8663BB007873B4 /* TRTodaysDateButton.swift */,
 				EF53D0621B866616007873B4 /* TRToolbar.swift */,
+				EFE9F6421BAB4DE600C786FE /* TRHiddenTextField.swift */,
 			);
 			name = TRTrackerView;
 			sourceTree = "<group>";
@@ -846,6 +849,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF86B2B41BA0E56F0080DC97 /* TRManageItemsTableViewCell.swift in Sources */,
+				EFE9F6431BAB4DE600C786FE /* TRHiddenTextField.swift in Sources */,
 				EFA1EF901BA75E77007D82E6 /* TREditItemPresenter.swift in Sources */,
 				EF3D9FB81B850E8E009042CA /* NSDate+CL.m in Sources */,
 				EF35BA301AF3D29400456D38 /* TRRecordType.swift in Sources */,
