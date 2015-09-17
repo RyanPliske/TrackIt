@@ -31,16 +31,6 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
         }
     }
     
-    private func setTagsForNewItem() {
-        if let firstInputCell = itemTableView.cellForRowAtIndexPath(NSIndexPath(forRow: cellIndex.itemUnit.rawValue, inSection: 0)) as? TREditItemTableViewInputCell {
-            itemRow = itemsModel.allItems.count + 1
-            firstInputCell.setTextFieldTagWith(itemRow!)
-        }
-        if let secondInputCell = itemTableView.cellForRowAtIndexPath(NSIndexPath(forRow: cellIndex.itemUnit.rawValue, inSection: 0)) as? TREditItemTableViewInputCell {
-            secondInputCell.setTextFieldTagWith(itemsModel.allItems.count + 1)
-        }
-    }
-    
     // MARK: UITableViewDataSource
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -131,13 +121,15 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
     // MARK: TREditItemTableViewInputCellDelegate
     func textFieldChangedAtRow(row: Int, text: String) {
         if isNewItem {
-            enableOtherCells()
-            weak var weakSelf = self
-            itemsModel.createItemWithName(text, completion: { () -> () in
-                weakSelf?.isNewItem = false
-                weakSelf?.setTagsForNewItem()
-                NSNotificationCenter.defaultCenter().postNotificationName("newItem", object: nil)
-            })
+            if !text.isEmpty {
+                enableOtherCells()
+                weak var weakSelf = self
+                itemsModel.createItemWithName(text, completion: { () -> () in
+                    weakSelf?.isNewItem = false
+                    weakSelf?.itemRow = ((weakSelf?.itemsModel.allItems.count)! - 1)
+                    NSNotificationCenter.defaultCenter().postNotificationName("newItem", object: nil)
+                })
+            }
         } else {
             if row == cellIndex.itemName.rawValue {
                 itemsModel.updateItemsNameAtIndex(itemRow!, name: text)
