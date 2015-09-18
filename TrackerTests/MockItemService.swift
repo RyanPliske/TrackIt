@@ -26,12 +26,16 @@ class MockItemService : TRItemService {
         
     }
     
-    override func updateItem(item: TRItem, unit: String) {
+    override func updateItem(item: TRItem, unit: String?) {
         
     }
     
     override func updateItem(item: TRItem, viceStatus: Bool) {
 
+    }
+    
+    override func updateItem(item: TRItem, goal: Int?) {
+        
     }
     
     override func deleteItemFromPhone(item: TRItem, completion: PFBooleanResultBlock?) {
