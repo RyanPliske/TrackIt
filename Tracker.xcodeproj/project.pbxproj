@@ -293,9 +293,9 @@
 		EF4BF8C11B966DB700B2AAA1 /* TRManageItems */ = {
 			isa = PBXGroup;
 			children = (
-				EF86B2B81BA0FC420080DC97 /* TRItemsModel */,
-				EF86B2B51BA0F1E70080DC97 /* TRManageItemsViewController */,
 				EF86B2B21BA0E5360080DC97 /* TRManageItemsView */,
+				EF86B2B51BA0F1E70080DC97 /* TRManageItemsViewController */,
+				EF86B2B81BA0FC420080DC97 /* TRItemsModel */,
 			);
 			name = TRManageItems;
 			sourceTree = "<group>";
@@ -403,9 +403,9 @@
 		EFA1EF871BA75B47007D82E6 /* TREditItem */ = {
 			isa = PBXGroup;
 			children = (
+				EFA1EF8D1BA75D7F007D82E6 /* TREditItemView */,
 				EFA1EF931BA78BE8007D82E6 /* TREditItemViewController */,
 				EFA1EF8E1BA75DCA007D82E6 /* TREditItemPresenter */,
-				EFA1EF8D1BA75D7F007D82E6 /* TREditItemView */,
 			);
 			name = TREditItem;
 			sourceTree = "<group>";
@@ -440,8 +440,8 @@
 			isa = PBXGroup;
 			children = (
 				EF53D05F1B86637B007873B4 /* TRTrackerView */,
-				EF53D0641B8677E2007873B4 /* TRTrackerPresenter */,
 				EFD8AEB31B965EB300962BA0 /* TRTrackerViewController */,
+				EF53D0641B8677E2007873B4 /* TRTrackerPresenter */,
 				EF53D0651B867811007873B4 /* TRRecordsModel */,
 			);
 			name = TRTracker;
