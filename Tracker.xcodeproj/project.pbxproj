@@ -347,14 +347,6 @@
 			name = TRRecordsModel;
 			sourceTree = "<group>";
 		};
-		EF7C173B1BA738FE000A3947 /* TRColors */ = {
-			isa = PBXGroup;
-			children = (
-				EF7C17391BA7346B000A3947 /* TRColors.swift */,
-			);
-			name = TRColors;
-			sourceTree = "<group>";
-		};
 		EF86B2B21BA0E5360080DC97 /* TRManageItemsView */ = {
 			isa = PBXGroup;
 			children = (
@@ -587,7 +579,7 @@
 		EFE083F11A86A9B100AC9631 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				EF7C173B1BA738FE000A3947 /* TRColors */,
+				EF7C17391BA7346B000A3947 /* TRColors.swift */,
 				EFF5E6011A885BCB00B59CD4 /* Tracker-Bridging-Header.h */,
 				EFA9B5E51B7D6A5B00BAA839 /* Info.plist */,
 				EFE083FC1A86A9B100AC9631 /* Images.xcassets */,
@@ -599,10 +591,6 @@
 			isa = PBXGroup;
 			children = (
 				EFE084091A86A9B100AC9631 /* Supporting Files */,
-				EFE9F63F1BAB43AC00C786FE /* MockItemService.swift */,
-				EF70DE2A1B8D3DBA00CDAFC5 /* MockRecordService.swift */,
-				EFB392901B93609E002EC06C /* MockRecord.swift */,
-				EFB392921B939A92002EC06C /* MockQuery.swift */,
 			);
 			name = TrackItTests;
 			path = TrackerTests;
@@ -613,6 +601,10 @@
 			children = (
 				EFE0840A1A86A9B100AC9631 /* Info.plist */,
 				EF5AB9531B7FFDEE0061286E /* Tracker-Unit-Test-Bridging-Header.h */,
+				EFE9F63F1BAB43AC00C786FE /* MockItemService.swift */,
+				EF70DE2A1B8D3DBA00CDAFC5 /* MockRecordService.swift */,
+				EFB392901B93609E002EC06C /* MockRecord.swift */,
+				EFB392921B939A92002EC06C /* MockQuery.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
