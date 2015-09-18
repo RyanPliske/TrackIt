@@ -2,18 +2,20 @@ import Foundation
 
 class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate, TREditItemTableViewInputCellDelegate, TREditItemTableViewViceCellDelegate {
     private let editItemTableView: UITableView
-    private let itemsModel = TRItemsModel.sharedInstanceOfItemsModel
+    private let itemsModel: TRItemsModel
     private var itemRow: Int?
     private var isNewItem = false
     private enum cellIndex: Int {
         case itemName = 0
         case itemVice = 1
         case itemUnit = 2
+        case itemGoal = 3
     }
     
-    init(view: UITableView, itemRowToPopulateWith: Int?) {
+    init(view: UITableView, itemRowToPopulateWith: Int?, itemsModel: TRItemsModel) {
         self.editItemTableView = view
         self.itemRow = itemRowToPopulateWith
+        self.itemsModel = itemsModel
         if self.itemRow == nil {
             self.isNewItem = true
         }
