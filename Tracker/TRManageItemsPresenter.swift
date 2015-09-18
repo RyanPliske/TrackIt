@@ -58,7 +58,7 @@ class TRManageItemsPresenter: NSObject, UITableViewDataSource, TRManageItemsTabl
     func toggleSwitchChangedValueAtRow(row: Int) {
         let indexPath = NSIndexPath(forRow: row, inSection: 0)
         let cell = itemsTableView.cellForRowAtIndexPath(indexPath) as! TRManageItemsTableViewCell
-        itemsModel.updateItemsActiveStatusAtIndex(row, activeStatus: cell.toggleSwitch.on)
+        itemsModel.updateItemActiveStatusAtIndex(row, activeStatus: cell.toggleSwitch.on)
     }
     
 }

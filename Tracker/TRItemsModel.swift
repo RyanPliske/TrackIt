@@ -66,26 +66,32 @@ class TRItemsModel {
         }
     }
     
-    func updateItemsActiveStatusAtIndex(index: Int, activeStatus: Bool) {
+    func updateItemActiveStatusAtIndex(index: Int, activeStatus: Bool) {
         _allItems[index].activated = activeStatus
         filterItemsByActivated()
         itemService.updateItem(self.allItems[index], activeStatus: activeStatus)
     }
     
-    func updateItemsNameAtIndex(index: Int, name: String) {
+    func updateItemNameAtIndex(index: Int, name: String) {
         _allItems[index].name = name
         itemService.updateItem(self.allItems[index], name: name)
     }
     
-    func updateItemsMeasurementUnitAtIndex(index: Int, unit: String) {
+    func updateItemMeasurementUnitAtIndex(index: Int, unit: String) {
         _allItems[index].measurementUnit = unit
         itemService.updateItem(self.allItems[index], unit: unit)
     }
     
-    func updateItemsViceStatusAtIndex(index: Int, viceStatus: Bool) {
+    func updateItemViceStatusAtIndex(index: Int, viceStatus: Bool) {
         _allItems[index].isAVice = viceStatus
         filterActiveItemsByVice()
         itemService.updateItem(self.allItems[index], viceStatus: viceStatus)
+    }
+    
+    func updateItemGoalAtIndex(index: Int, goal: Int) {
+        _allItems[index].dailyGoal = goal
+        itemService.updateItem(self.allItems[index], goal: goal)
+        
     }
     
     func deleteItemAtIndex(index: Int) {
