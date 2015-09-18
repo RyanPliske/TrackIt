@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		6254712634B63432ADF42F27 /* Pods_TrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43B672E98257AADA6A21AB52 /* Pods_TrackerTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		E17245E75E992DD3BEA241B3 /* Pods_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14D533F76E1CF4A5F5873397 /* Pods_Tracker.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		EF35BA2D1AF3CA9400456D38 /* TRTrackableItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF35BA2C1AF3CA9300456D38 /* TRTrackableItems.swift */; };
+		EF35BA2D1AF3CA9400456D38 /* TRPreloadedItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF35BA2C1AF3CA9300456D38 /* TRPreloadedItems.swift */; };
 		EF35BA301AF3D29400456D38 /* TRRecordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF35BA2F1AF3D29400456D38 /* TRRecordType.swift */; };
 		EF3779A01B8ECB2500D6FB97 /* TREditTracksViewController+UISearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF37799F1B8ECB2500D6FB97 /* TREditTracksViewController+UISearchBarDelegate.swift */; };
 		EF3779A21B8ECB7300D6FB97 /* TREditTracksViewController+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3779A11B8ECB7300D6FB97 /* TREditTracksViewController+UITableViewDataSource.swift */; };
@@ -62,7 +62,7 @@
 		EFB392961B93A22D002EC06C /* TRRecordSortManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF70DE261B8D147E00CDAFC5 /* TRRecordSortManager.swift */; };
 		EFB392971B93A231002EC06C /* TRRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF378F561B891CFA00235464 /* TRRecord.swift */; };
 		EFB392981B93A25B002EC06C /* TRRecordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF35BA2F1AF3D29400456D38 /* TRRecordType.swift */; };
-		EFB392991B93A26D002EC06C /* TRTrackableItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF35BA2C1AF3CA9300456D38 /* TRTrackableItems.swift */; };
+		EFB392991B93A26D002EC06C /* TRPreloadedItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF35BA2C1AF3CA9300456D38 /* TRPreloadedItems.swift */; };
 		EFB3929A1B93A295002EC06C /* TRDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCF9D91AFA9318004DEDB9 /* TRDateFormatter.swift */; };
 		EFB3929B1B93A2A3002EC06C /* TRCurrentDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCF9DB1AFA9C26004DEDB9 /* TRCurrentDate.swift */; };
 		EFC9CD6B1B7D606800060D54 /* TRTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC9CD6A1B7D606800060D54 /* TRTrackerView.swift */; };
@@ -119,7 +119,7 @@
 		9198402C4F9A83F2B6788988 /* Pods_TrackIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrackIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC2BB2303B972E6E8E70A1CC /* Pods-TrackItTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackItTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrackItTests/Pods-TrackItTests.release.xcconfig"; sourceTree = "<group>"; };
 		D7A920A77FFCC7D29D4F4D54 /* Pods_TrackItTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrackItTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EF35BA2C1AF3CA9300456D38 /* TRTrackableItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRTrackableItems.swift; sourceTree = "<group>"; };
+		EF35BA2C1AF3CA9300456D38 /* TRPreloadedItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRPreloadedItems.swift; sourceTree = "<group>"; };
 		EF35BA2F1AF3D29400456D38 /* TRRecordType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRRecordType.swift; sourceTree = "<group>"; };
 		EF37799F1B8ECB2500D6FB97 /* TREditTracksViewController+UISearchBarDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TREditTracksViewController+UISearchBarDelegate.swift"; sourceTree = "<group>"; };
 		EF3779A11B8ECB7300D6FB97 /* TREditTracksViewController+UITableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TREditTracksViewController+UITableViewDataSource.swift"; sourceTree = "<group>"; };
@@ -355,7 +355,7 @@
 				EF86B2B91BA0FC5C0080DC97 /* TRItemsModel.swift */,
 				EF86B2BD1BA1055C0080DC97 /* TRItemService.swift */,
 				EF86B2BB1BA0FDBA0080DC97 /* TRItem.swift */,
-				EF35BA2C1AF3CA9300456D38 /* TRTrackableItems.swift */,
+				EF35BA2C1AF3CA9300456D38 /* TRPreloadedItems.swift */,
 			);
 			name = TRItemsModel;
 			sourceTree = "<group>";
@@ -841,7 +841,7 @@
 				EFF328DB1B87C218001B9E84 /* TREditTracksTableView.swift in Sources */,
 				EFE083F41A86A9B100AC9631 /* TRAppDelegate.swift in Sources */,
 				EFA1EF921BA788D0007D82E6 /* TREditItemTableViewInputCell.swift in Sources */,
-				EF35BA2D1AF3CA9400456D38 /* TRTrackableItems.swift in Sources */,
+				EF35BA2D1AF3CA9400456D38 /* TRPreloadedItems.swift in Sources */,
 				EF4BF8C51B966F6C00B2AAA1 /* TRSettingsViewController+UITableViewDataSource.swift in Sources */,
 				EFA1EF8C1BA75BB6007D82E6 /* TREditItemViewController.swift in Sources */,
 				EF44E7C51B87E64F0088242C /* TREditTracksViewController.swift in Sources */,
@@ -892,7 +892,7 @@
 				EF41496B1BA8ED2200428F48 /* TRItemsModel.swift in Sources */,
 				EFB392941B93A1E7002EC06C /* TRRrecordsModel.swift in Sources */,
 				EFFDD9641B8BB9090062FFCE /* TRRecordsModelTests.swift in Sources */,
-				EFB392991B93A26D002EC06C /* TRTrackableItems.swift in Sources */,
+				EFB392991B93A26D002EC06C /* TRPreloadedItems.swift in Sources */,
 				EFB392931B939A92002EC06C /* MockQuery.swift in Sources */,
 				EFFDD9651B8BB9090062FFCE /* TRRecordServiceTests.swift in Sources */,
 				EFA45C071BAB9AC800EAFB76 /* TRRecordService.swift in Sources */,

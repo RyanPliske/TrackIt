@@ -39,7 +39,7 @@ class TRManageItemsPresenter: NSObject, UITableViewDataSource, TRManageItemsTabl
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        if indexPath.row <= TRTrackableItems.allItems.count {
+        if indexPath.row <= TRPreloadedItems.allItems.count {
             return false
         } else {
             return true

@@ -40,10 +40,10 @@ class TRItemsModel {
     }
     
     private func saveAllItems() {
-        for item in TRTrackableItems.sinfulItems {
+        for item in TRPreloadedItems.sinfulItems {
             itemService.createItemWithName(item, isAVice: true, measureUnit: nil)
         }
-        for (_, items) in TRTrackableItems.regularItems {
+        for (_, items) in TRPreloadedItems.regularItems {
             let itemName = items["name"]! as String
             let itemMeasureUnit = items["unit"]! as String
             itemService.createItemWithName(itemName, isAVice: false, measureUnit: itemMeasureUnit)

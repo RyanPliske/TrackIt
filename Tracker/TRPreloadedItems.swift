@@ -1,6 +1,6 @@
 import Foundation
 
-struct TRTrackableItems {
+struct TRPreloadedItems {
     static var regularItems: Dictionary = [
         0: ["name" : "Workouts", "unit" : "none"],
         1: ["name" : "Protein", "unit" : "grams"],
