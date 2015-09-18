@@ -329,18 +329,8 @@
 			isa = PBXGroup;
 			children = (
 				EF77AD611B9FB747009DE5A4 /* TRRecordsModel */,
-				EF35BA2C1AF3CA9300456D38 /* TRTrackableItems.swift */,
 			);
 			name = TRTrackerModel;
-			sourceTree = "<group>";
-		};
-		EF77AD601B9FB731009DE5A4 /* TRRecord */ = {
-			isa = PBXGroup;
-			children = (
-				EF378F561B891CFA00235464 /* TRRecord.swift */,
-				EF35BA2F1AF3D29400456D38 /* TRRecordType.swift */,
-			);
-			name = TRRecord;
 			sourceTree = "<group>";
 		};
 		EF77AD611B9FB747009DE5A4 /* TRRecordsModel */ = {
@@ -351,7 +341,8 @@
 				EF70DE261B8D147E00CDAFC5 /* TRRecordSortManager.swift */,
 				EFF85C691B8261FA00F766DB /* TRRecordService.swift */,
 				EFF07F3A1B8399A000ED6520 /* TRRecordServiceTests.swift */,
-				EF77AD601B9FB731009DE5A4 /* TRRecord */,
+				EF378F561B891CFA00235464 /* TRRecord.swift */,
+				EF35BA2F1AF3D29400456D38 /* TRRecordType.swift */,
 			);
 			name = TRRecordsModel;
 			sourceTree = "<group>";
@@ -386,6 +377,7 @@
 				EF86B2B91BA0FC5C0080DC97 /* TRItemsModel.swift */,
 				EF86B2BD1BA1055C0080DC97 /* TRItemService.swift */,
 				EF86B2BB1BA0FDBA0080DC97 /* TRItem.swift */,
+				EF35BA2C1AF3CA9300456D38 /* TRTrackableItems.swift */,
 			);
 			name = TRItemsModel;
 			sourceTree = "<group>";
@@ -529,6 +521,7 @@
 			isa = PBXGroup;
 			children = (
 				EFE083F51A86A9B100AC9631 /* TRTrackerViewController.swift */,
+				EF1FA9461B7E64ED00AC9095 /* TRChooseableDate */,
 			);
 			name = TRTrackerViewController;
 			sourceTree = "<group>";
@@ -578,12 +571,10 @@
 			children = (
 				EFE083F31A86A9B100AC9631 /* TRAppDelegate.swift */,
 				EFE083F91A86A9B100AC9631 /* Main.storyboard */,
-				EF7C173B1BA738FE000A3947 /* TRColors */,
 				EFD8AEA81B96486100962BA0 /* TRSettings */,
 				EFA1EF871BA75B47007D82E6 /* TREditItem */,
 				EF4BF8C11B966DB700B2AAA1 /* TRManageItems */,
 				EFF328D91B87C1F5001B9E84 /* TREditTracks */,
-				EF1FA9461B7E64ED00AC9095 /* TRChooseableDate */,
 				EFC9CD671B7D249B00060D54 /* TRTracker */,
 				EFD8AEB41B965F4600962BA0 /* TRStats */,
 				EFE083F11A86A9B100AC9631 /* Supporting Files */,
@@ -596,6 +587,7 @@
 		EFE083F11A86A9B100AC9631 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EF7C173B1BA738FE000A3947 /* TRColors */,
 				EFF5E6011A885BCB00B59CD4 /* Tracker-Bridging-Header.h */,
 				EFA9B5E51B7D6A5B00BAA839 /* Info.plist */,
 				EFE083FC1A86A9B100AC9631 /* Images.xcassets */,
