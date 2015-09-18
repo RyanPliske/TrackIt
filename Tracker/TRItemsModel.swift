@@ -14,13 +14,13 @@ class TRItemsModel {
     
     private var itemService: TRItemService
     
-    private init(itemService: TRItemService) {
+    init(itemService: TRItemService) {
         self.itemService = itemService
         TRItem()
-        self.checkForItems()
+        self.checkForItems(nil)
     }
     
-    private func checkForItems() {
+    private func checkForItems(completion: (() -> ())?) {
         weak var weakSelf = self
         itemService.readAllItemsFromPhone {
             (objects, error) -> Void in
@@ -28,6 +28,9 @@ class TRItemsModel {
                 if (items.count != 0) {
                     weakSelf?._allItems = items
                     weakSelf?.filterItemsByActivated()
+                    if let completionBlock = completion {
+                        completionBlock()
+                    }
                     return
                 }
             }
@@ -37,10 +40,10 @@ class TRItemsModel {
     }
     
     private func saveAllItems() {
-        for item in TRTrackableItems.sinfulItems {
+        for item in TRPreloadedItems.sinfulItems {
             itemService.createItemWithName(item, isAVice: true, measureUnit: nil)
         }
-        for (_, items) in TRTrackableItems.regularItems {
+        for (_, items) in TRPreloadedItems.regularItems {
             let itemName = items["name"]! as String
             let itemMeasureUnit = items["unit"]! as String
             itemService.createItemWithName(itemName, isAVice: false, measureUnit: itemMeasureUnit)
@@ -48,25 +51,66 @@ class TRItemsModel {
         weak var weakSelf = self
         itemService.saveAll { (success, error) -> Void in
             if success {
-                weakSelf?.checkForItems()
+                weakSelf?.checkForItems(nil)
             }
         }
     }
     
-    func updateItemsActiveStatusAtIndex(index: Int, activeStatus: Bool) {
+    func createItemWithName(itemName: String, completion: (()->())?) {
+        itemService.createItemWithName(itemName, isAVice: false, measureUnit: nil)
+        weak var weakSelf = self
+        itemService.saveAll { (success, error) -> Void in
+            if success {
+                weakSelf?.checkForItems(completion)
+            }
+        }
+    }
+    
+    func updateItemActiveStatusAtIndex(index: Int, activeStatus: Bool) {
         _allItems[index].activated = activeStatus
         filterItemsByActivated()
         itemService.updateItem(self.allItems[index], activeStatus: activeStatus)
     }
     
-    func updateItemsNameAtIndex(index: Int, name: String) {
+    func updateItemNameAtIndex(index: Int, name: String) {
         _allItems[index].name = name
         itemService.updateItem(self.allItems[index], name: name)
     }
     
-    func updateItemsMeasurementUnitAtIndex(index: Int, unit: String) {
-        _allItems[index].measurementUnit = unit
+    func updateItemViceStatusAtIndex(index: Int, viceStatus: Bool) {
+        _allItems[index].isAVice = viceStatus
+        filterActiveItemsByVice()
+        itemService.updateItem(self.allItems[index], viceStatus: viceStatus)
+    }
+    
+    func updateItemMeasurementUnitAtIndex(index: Int, unit: String?) {
+        if let aUnit = unit {
+            _allItems[index].measurementUnit = aUnit
+        } else {
+            _allItems[index]["unit"] = NSNull()
+        }
         itemService.updateItem(self.allItems[index], unit: unit)
+    }
+    
+    func updateItemGoalAtIndex(index: Int, goal: Int?) {
+        if let aGoal = goal {
+            _allItems[index].dailyGoal = aGoal
+        } else {
+            _allItems[index]["dailyGoal"] = NSNull()
+        }
+        itemService.updateItem(self.allItems[index], goal: goal)
+        
+    }
+    
+    func deleteItemAtIndex(index: Int) {
+        let itemToDelete = _allItems[index]
+        _allItems = _allItems.filter { $0 !== itemToDelete }
+        weak var weakSelf = self
+        itemService.deleteItemFromPhone(itemToDelete) { (success, error) -> Void in
+            if success {
+                weakSelf?.checkForItems(nil)
+            }
+        }
     }
     
     private func deleteAllItems() {

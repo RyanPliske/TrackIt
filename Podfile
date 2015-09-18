@@ -5,6 +5,8 @@ target 'Tracker' do
     pod 'Parse', '1.8.2'
     pod 'Fabric'
     pod 'Crashlytics'
+    pod 'TPKeyboardAvoiding'
+    pod 'HTPressableButton'
 end
 
 target 'TrackerTests' do

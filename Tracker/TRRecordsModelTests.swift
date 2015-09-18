@@ -2,11 +2,14 @@ import XCTest
 
 class TRRecordsModelTests: XCTestCase {
     let mockRecordService = MockRecordService()
+    let mockItemService = MockItemService()
+    var itemsModel: TRItemsModel?
     var testObject: TRRecordsModel!
     
     override func setUp() {
         super.setUp()
-        testObject = TRRecordsModel(recordService: self.mockRecordService)
+        itemsModel = TRItemsModel(itemService: self.mockItemService)
+        testObject = TRRecordsModel(recordService: self.mockRecordService, itemsModel: itemsModel!)
     }
     
     func testWhencreateRecordUsingRowIsCalled_ThenCreateRecordWithItemIsCalledOnTheRecordService() {
@@ -17,7 +20,7 @@ class TRRecordsModelTests: XCTestCase {
     
     func testWhenCreatingRecord_TheCorrectParametersAreUsed() {
         let row = 0
-        let expectedItemName = TRTrackableItems.allItems[row]
+        let expectedItemName = itemsModel?.allItems[row].name
         let expectedItemQuantity = 4
         let itemType = TRRecordType.TrackAction
         let expectedItemType = itemType.description

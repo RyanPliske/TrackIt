@@ -9,6 +9,7 @@ class TRRecordsModel {
     // MARK: Private Properties
     private let recordSortManager = TRRecordSortManager()
     private let recordService: TRRecordService
+    private let itemsModel: TRItemsModel
     
     // MARK: Public Properties
     var records: [TRRecord] {
@@ -24,8 +25,9 @@ class TRRecordsModel {
     }
     
     // MARK: Public Methods
-    init(recordService: TRRecordService) {
+    init(recordService: TRRecordService, itemsModel: TRItemsModel) {
         self.recordService = recordService
+        self.itemsModel = itemsModel
         TRRecord()
     }
     
@@ -33,9 +35,9 @@ class TRRecordsModel {
         var item: String
         switch (type) {
         case .TrackAction:
-            item = TRItemsModel.sharedInstanceOfItemsModel.activeItems[row].name
+            item = itemsModel.activeItems[row].name
         case .TrackUrge:
-            item = TRItemsModel.sharedInstanceOfItemsModel.activeSinfulItems[row].name
+            item = itemsModel.activeSinfulItems[row].name
         }
         
         let itemQuantity = quantityRow + 1

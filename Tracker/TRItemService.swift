@@ -16,6 +16,13 @@ class TRItemService {
         itemsToSave.append(item)
     }
     
+    func saveAll(completion: PFBooleanResultBlock?) {
+        if let completionBlock = completion {
+            TRItem.pinAllInBackground(itemsToSave, block: completionBlock)
+            itemsToSave.removeAll()
+        }
+    }
+    
     func readAllItemsFromPhone(completion: PFArrayResultBlock?) {
         let BackgroundRetrievalCompletion: PFArrayResultBlock = {
             (objects: [AnyObject]?, error: NSError?) in
@@ -33,24 +40,44 @@ class TRItemService {
         item.pinInBackgroundWithBlock(nil)
     }
     
+    func updateItem(item: TRItem, viceStatus: Bool) {
+        item.isAVice = viceStatus
+        item.pinInBackgroundWithBlock(nil)
+    }
+    
     func updateItem(item: TRItem, name: String) {
         item.name = name
         item.pinInBackgroundWithBlock(nil)
     }
     
-    func updateItem(item: TRItem, unit: String) {
-        item.measurementUnit = unit
+    func updateItem(item: TRItem, unit: String?) {
+        if let aUnit = unit {
+            item.measurementUnit = aUnit
+        } else {
+            item["unit"] = NSNull()
+        }
         item.pinInBackgroundWithBlock(nil)
+    }
+    
+    func updateItem(item: TRItem, goal: Int?) {
+        if let aGoal = goal {
+            item.dailyGoal = aGoal
+        } else {
+           item["dailyGoal"] = NSNull()
+        }
+        item.pinInBackgroundWithBlock(nil)
+    }
+    
+    func deleteItemFromPhone(item: TRItem, completion: PFBooleanResultBlock?) {
+        if let completionBlock = completion {
+            item.unpinInBackgroundWithBlock(completionBlock)
+        } else {
+            item.unpinInBackgroundWithBlock(nil)
+        }
     }
     
     func deleteAllItemsFromPhone() {
         TRItem.unpinAllObjects()
-    }
-    
-    func saveAll(completion: PFBooleanResultBlock?) {
-        if let completionBlock = completion {
-            TRItem.pinAllInBackground(itemsToSave, block: completionBlock)
-        }
     }
     
 }

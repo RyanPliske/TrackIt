@@ -19,7 +19,7 @@ extension TRTrackerPresenter: UIPickerViewDataSource {
             }
         }
         else {
-            return TRTrackableItems.ListOfQuantities.count
+            return TRPreloadedItems.ListOfQuantities.count
         }
     }
     
@@ -41,9 +41,9 @@ extension TRTrackerPresenter: UIPickerViewDataSource {
         }
         else {
             if row == selectedItemOfSecondColumn {
-                return NSAttributedString(string: TRTrackableItems.ListOfQuantities[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.TRBabyBlue()])
+                return NSAttributedString(string: TRPreloadedItems.ListOfQuantities[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.TRBabyBlue()])
             }
-            return NSAttributedString(string: TRTrackableItems.ListOfQuantities[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.whiteColor()])
+            return NSAttributedString(string: TRPreloadedItems.ListOfQuantities[row] as String, attributes: [NSForegroundColorAttributeName:UIColor.whiteColor()])
         }
     }
 }

@@ -66,4 +66,13 @@ class TRItem: PFObject, PFSubclassing {
         }
     }
     
+    var dailyGoal: Int? {
+        get {
+            return self["dailyGoal"] as? Int
+        }
+        set {
+            self["dailyGoal"] = newValue
+        }
+    }
+    
 }

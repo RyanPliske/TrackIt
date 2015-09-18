@@ -5,7 +5,7 @@
 //  Created by Thanakron Tandavas on 4/20/2557 BE.
 //  Copyright (c) 2557 He Rin Kim & Thanakron Tandavas. All rights reserved.
 //
-#import <UIKit/UIKit.h>
+
 /**
  * Height of the default shadow in percentage is calculated from the button height
  */

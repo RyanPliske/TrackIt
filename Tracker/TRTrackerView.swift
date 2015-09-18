@@ -1,4 +1,5 @@
 import UIKit
+import HTPressableButton
 
 protocol TRTrackerViewDelegate {
     func userWantsToTrackAction()
@@ -11,9 +12,9 @@ protocol TRTrackerViewObserver {
     func displayEditableTracks()
 }
 
-class TRTrackerView: UIView {
+class TRTrackerView: UIView, TRKeyboardToolbarDelegate {
     let todaysDateButton = TRTodaysDateButton(frame: CGRectMake(0, 50, 300, 50))
-    let hiddenPickerViewTextField = UITextField(frame: CGRectZero)
+    let hiddenPickerViewTextField = TRHiddenTextField(frame: CGRectZero)
     let itemPickerView = UIPickerView()
     let editRecordsButton = TREditTracksButton(frame: CGRectMake(0.0, 0.0, 100.0, 30.0))
     var trackButton = TRTrackerButton(frame: CGRectMake(30.0, 150.0, 260.0, 50.0), buttonStyle: HTPressableButtonStyle.Rounded, trackingType: .TrackAction)
@@ -45,18 +46,19 @@ class TRTrackerView: UIView {
         // hiddenPickerViewTextField
         itemPickerView.backgroundColor = UIColor.blackColor()
         hiddenPickerViewTextField.inputView = itemPickerView
-        hiddenPickerViewTextField.inputAccessoryView = TRToolbar(frame: CGRectMake(0.0, 0.0, 320.0, 44.0), parentView: self)
-        hiddenPickerViewTextField.valueForKey("textInputTraits")?.setValue(UIColor.clearColor(), forKey: "insertionPointColor")
+        let doneToolbarView = TRKeyboardToolbar()
+        doneToolbarView.toolbarDelegate = self
+        hiddenPickerViewTextField.inputAccessoryView = doneToolbarView
         addSubview(hiddenPickerViewTextField)
         addConstraintsForHiddenTextField()
     }
     
     // MARK: User Interaction
-    func userCanceledPicking(sender: UIBarButtonItem) {
+    func TRKeyboardToolbarCanceled() {
         hiddenPickerViewTextField.resignFirstResponder()
     }
     
-    func userPickedAnItemToTrack(sender: UIBarButtonItem) {
+    func TRKeyboardToolbarDone() {
         hiddenPickerViewTextField.resignFirstResponder()
         self.delegate?.userPickedAnItemToTrack()
     }
@@ -81,7 +83,7 @@ class TRTrackerView: UIView {
     
     // MARK: Setters
     func setToolBarForTrackingTitle(text: String) {
-        let toolBar = hiddenPickerViewTextField.inputAccessoryView as! TRToolbar
+        let toolBar = hiddenPickerViewTextField.inputAccessoryView as! TRKeyboardToolbar
         toolBar.items![2].title = text
     }
     

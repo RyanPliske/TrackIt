@@ -2,13 +2,13 @@ import Foundation
 
 class TREditItemViewController: UIViewController {
     
-    @IBOutlet weak var itemTableView: TRSettingsTableView!
+    @IBOutlet weak var itemTableView: UITableView!
 
     private var editItemPresenter: TREditItemPresenter!
     var itemRowToPopulateWith: Int?
     
     override func viewDidLoad() {
-        editItemPresenter = TREditItemPresenter(view: itemTableView, itemRowToPopulateWith: itemRowToPopulateWith)
+        editItemPresenter = TREditItemPresenter(view: itemTableView, itemRowToPopulateWith: itemRowToPopulateWith, itemsModel: TRItemsModel.sharedInstanceOfItemsModel)
         let pageTitle = itemRowToPopulateWith != nil ? "Item" : "New Item"
         title = pageTitle
     }
