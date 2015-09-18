@@ -53,7 +53,7 @@
 		EFA45C061BAB9AC800EAFB76 /* TRRecordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA45C051BAB9AC800EAFB76 /* TRRecordService.swift */; settings = {ASSET_TAGS = (); }; };
 		EFA45C071BAB9AC800EAFB76 /* TRRecordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA45C051BAB9AC800EAFB76 /* TRRecordService.swift */; settings = {ASSET_TAGS = (); }; };
 		EFA45C091BABA0A900EAFB76 /* TRManageItemsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA45C081BABA0A900EAFB76 /* TRManageItemsPresenter.swift */; settings = {ASSET_TAGS = (); }; };
-		EFA45C0C1BABD32500EAFB76 /* TRDoneAndCancelToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA45C0B1BABD32500EAFB76 /* TRDoneAndCancelToolbar.swift */; settings = {ASSET_TAGS = (); }; };
+		EFA45C0C1BABD32500EAFB76 /* TRKeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA45C0B1BABD32500EAFB76 /* TRKeyboardToolbar.swift */; settings = {ASSET_TAGS = (); }; };
 		EFA9B5E81B7D7EBD00BAA839 /* TRTrackerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA9B5E71B7D7EBD00BAA839 /* TRTrackerPresenter.swift */; };
 		EFA9B5EA1B7D811800BAA839 /* TRRrecordsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA9B5E91B7D811800BAA839 /* TRRrecordsModel.swift */; };
 		EFB392911B93609E002EC06C /* MockRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB392901B93609E002EC06C /* MockRecord.swift */; };
@@ -178,7 +178,7 @@
 		EFA1EF941BA78D26007D82E6 /* TREditItemTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREditItemTextField.swift; sourceTree = "<group>"; };
 		EFA45C051BAB9AC800EAFB76 /* TRRecordService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRRecordService.swift; sourceTree = "<group>"; };
 		EFA45C081BABA0A900EAFB76 /* TRManageItemsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRManageItemsPresenter.swift; sourceTree = "<group>"; };
-		EFA45C0B1BABD32500EAFB76 /* TRDoneAndCancelToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRDoneAndCancelToolbar.swift; sourceTree = "<group>"; };
+		EFA45C0B1BABD32500EAFB76 /* TRKeyboardToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRKeyboardToolbar.swift; sourceTree = "<group>"; };
 		EFA9B5E51B7D6A5B00BAA839 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EFA9B5E71B7D7EBD00BAA839 /* TRTrackerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRTrackerPresenter.swift; sourceTree = "<group>"; };
 		EFA9B5E91B7D811800BAA839 /* TRRrecordsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRRrecordsModel.swift; sourceTree = "<group>"; };
@@ -410,7 +410,7 @@
 				EFA1EF911BA788D0007D82E6 /* TREditItemTableViewInputCell.swift */,
 				EF9A004E1BA8B6C7009FF92E /* TREditItemTableViewViceCell.swift */,
 				EFA1EF941BA78D26007D82E6 /* TREditItemTextField.swift */,
-				EFA45C0B1BABD32500EAFB76 /* TRDoneAndCancelToolbar.swift */,
+				EFA45C0B1BABD32500EAFB76 /* TRKeyboardToolbar.swift */,
 			);
 			name = TREditItemView;
 			sourceTree = "<group>";
@@ -820,7 +820,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF86B2B41BA0E56F0080DC97 /* TRManageItemsTableViewCell.swift in Sources */,
-				EFA45C0C1BABD32500EAFB76 /* TRDoneAndCancelToolbar.swift in Sources */,
+				EFA45C0C1BABD32500EAFB76 /* TRKeyboardToolbar.swift in Sources */,
 				EFE9F6431BAB4DE600C786FE /* TRHiddenTextField.swift in Sources */,
 				EFA1EF901BA75E77007D82E6 /* TREditItemPresenter.swift in Sources */,
 				EF3D9FB81B850E8E009042CA /* NSDate+CL.m in Sources */,
