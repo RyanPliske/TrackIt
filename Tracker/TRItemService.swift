@@ -50,8 +50,12 @@ class TRItemService {
         item.pinInBackgroundWithBlock(nil)
     }
     
-    func updateItem(item: TRItem, unit: String) {
-        item.measurementUnit = unit
+    func updateItem(item: TRItem, unit: String?) {
+        if let aUnit = unit {
+            item.measurementUnit = aUnit
+        } else {
+            item["unit"] = NSNull()
+        }
         item.pinInBackgroundWithBlock(nil)
     }
     

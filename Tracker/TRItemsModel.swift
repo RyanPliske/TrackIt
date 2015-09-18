@@ -77,15 +77,19 @@ class TRItemsModel {
         itemService.updateItem(self.allItems[index], name: name)
     }
     
-    func updateItemMeasurementUnitAtIndex(index: Int, unit: String) {
-        _allItems[index].measurementUnit = unit
-        itemService.updateItem(self.allItems[index], unit: unit)
-    }
-    
     func updateItemViceStatusAtIndex(index: Int, viceStatus: Bool) {
         _allItems[index].isAVice = viceStatus
         filterActiveItemsByVice()
         itemService.updateItem(self.allItems[index], viceStatus: viceStatus)
+    }
+    
+    func updateItemMeasurementUnitAtIndex(index: Int, unit: String?) {
+        if let aUnit = unit {
+            _allItems[index].measurementUnit = aUnit
+        } else {
+            _allItems[index]["unit"] = NSNull()
+        }
+        itemService.updateItem(self.allItems[index], unit: unit)
     }
     
     func updateItemGoalAtIndex(index: Int, goal: Int?) {

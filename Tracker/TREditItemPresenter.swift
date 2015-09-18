@@ -154,7 +154,11 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
             if row == cellIndex.itemName.rawValue {
                 itemsModel.updateItemNameAtIndex(itemRow!, name: text)
             } else if row == cellIndex.itemUnit.rawValue {
-                itemsModel.updateItemMeasurementUnitAtIndex(itemRow!, unit: text)
+                if text.isEmpty {
+                    itemsModel.updateItemMeasurementUnitAtIndex(itemRow!, unit: nil)
+                } else {
+                   itemsModel.updateItemMeasurementUnitAtIndex(itemRow!, unit: text)
+                }
             } else if row == cellIndex.itemGoal.rawValue {
                 if let goal = Int(text) {
                     itemsModel.updateItemGoalAtIndex(itemRow!, goal: goal)
