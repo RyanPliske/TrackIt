@@ -508,6 +508,7 @@
                                             <constraint firstAttribute="trailing" secondItem="11O-KI-d0W" secondAttribute="trailing" constant="25" id="lTf-S4-Gov"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="viceLabel" destination="U8i-FI-xBK" id="eFX-bl-oNd"/>
                                             <outlet property="viceSwitch" destination="11O-KI-d0W" id="c5t-KZ-Bn4"/>
                                         </connections>
                                     </tableViewCell>

@@ -35,6 +35,8 @@ class TREditItemTableViewInputCell: TRSettingsTableViewCell, UITextFieldDelegate
     
     func setTextFieldUserInteraction(enabled: Bool) {
         textField?.userInteractionEnabled = enabled
+        textField?.alpha = enabled ? 1.0 : 0.5
+        itemLabel?.alpha = enabled ? 1.0 : 0.5
     }
     
     func setTextFieldKeyboardTypeToNumberPad() {

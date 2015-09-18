@@ -7,6 +7,7 @@ protocol TREditItemTableViewViceCellDelegate {
 class TREditItemTableViewViceCell: TRSettingsTableViewCell {
     
     @IBOutlet private weak var viceSwitch: UISwitch!
+    @IBOutlet private weak var viceLabel: UILabel!
     var viceSwitchDelegate: TREditItemTableViewViceCellDelegate?
     var viceSwitchState: Bool {
         return viceSwitch.on
@@ -18,6 +19,8 @@ class TREditItemTableViewViceCell: TRSettingsTableViewCell {
     
     func setViewSwitchUserInteraction(enabled: Bool) {
         viceSwitch.userInteractionEnabled = enabled
+        viceSwitch.alpha = enabled ? 1.0 : 0.5
+        viceLabel.alpha = enabled ? 1.0 : 0.5
     }
     
     @IBAction func viceSwitchPressed(sender: AnyObject) {
