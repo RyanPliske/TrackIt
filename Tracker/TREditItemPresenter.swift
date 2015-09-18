@@ -85,7 +85,7 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
                 if isNewItem {
                     inputCell.setTextFieldUserInteraction(false)
                 } else {
-                    let textFieldText = (itemsModel.allItems[itemRow!].dailyGoal == 0) ? "" : "\(itemsModel.allItems[itemRow!].dailyGoal)"
+                    let textFieldText = (itemsModel.allItems[itemRow!].dailyGoal == nil) ? "" : "\(itemsModel.allItems[itemRow!].dailyGoal!)"
                     inputCell.setTextFieldTextWithText(textFieldText)
                 }
             }
@@ -158,6 +158,8 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
             } else if row == cellIndex.itemGoal.rawValue {
                 if let goal = Int(text) {
                     itemsModel.updateItemGoalAtIndex(itemRow!, goal: goal)
+                } else if text.isEmpty {
+                    itemsModel.updateItemGoalAtIndex(itemRow!, goal: nil)
                 }
             }
         }

@@ -55,8 +55,12 @@ class TRItemService {
         item.pinInBackgroundWithBlock(nil)
     }
     
-    func updateItem(item: TRItem, goal: Int) {
-        item.dailyGoal = goal
+    func updateItem(item: TRItem, goal: Int?) {
+        if let aGoal = goal {
+            item.dailyGoal = aGoal
+        } else {
+           item["dailyGoal"] = NSNull()
+        }
         item.pinInBackgroundWithBlock(nil)
     }
     

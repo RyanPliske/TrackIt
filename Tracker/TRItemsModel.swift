@@ -88,8 +88,12 @@ class TRItemsModel {
         itemService.updateItem(self.allItems[index], viceStatus: viceStatus)
     }
     
-    func updateItemGoalAtIndex(index: Int, goal: Int) {
-        _allItems[index].dailyGoal = goal
+    func updateItemGoalAtIndex(index: Int, goal: Int?) {
+        if let aGoal = goal {
+            _allItems[index].dailyGoal = aGoal
+        } else {
+            _allItems[index]["dailyGoal"] = NSNull()
+        }
         itemService.updateItem(self.allItems[index], goal: goal)
         
     }
