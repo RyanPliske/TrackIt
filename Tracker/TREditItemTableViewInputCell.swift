@@ -4,7 +4,7 @@ protocol TREditItemTableViewInputCellDelegate {
     func textFieldChangedAtRow(row: Int, text: String)
 }
 
-class TREditItemTableViewInputCell: TRSettingsTableViewCell, UITextFieldDelegate {
+class TREditItemTableViewInputCell: TRSettingsTableViewCell, UITextFieldDelegate, TRKeyboardToolbarDelegate {
     
     @IBOutlet private weak var itemLabel: UILabel!
     @IBOutlet private weak var textField: UITextField!{
@@ -39,21 +39,16 @@ class TREditItemTableViewInputCell: TRSettingsTableViewCell, UITextFieldDelegate
     
     func setTextFieldKeyboardTypeToNumberPad() {
         textField?.keyboardType = UIKeyboardType.NumberPad
-        let doneButtonView = UIToolbar()
-        doneButtonView.sizeToFit()
-        doneButtonView.barStyle = UIBarStyle.Black
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "doneTapped")
-        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
-        let cancelButton = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: "cancelTapped")
-        doneButtonView.setItems([cancelButton, flexibleSpace, doneButton], animated: false)
-        textField?.inputAccessoryView = doneButtonView
+        let doneToolbarView = TRKeyboardToolbar()
+        doneToolbarView.toolbarDelegate = self
+        textField?.inputAccessoryView = doneToolbarView
     }
     
-    func doneTapped() {
+    func TRKeyboardToolbarDone() {
         textField?.resignFirstResponder()
     }
     
-    func cancelTapped() {
+    func TRKeyboardToolbarCanceled() {
         skipDelegating = true
         textField?.resignFirstResponder()
         textField?.text = storedText

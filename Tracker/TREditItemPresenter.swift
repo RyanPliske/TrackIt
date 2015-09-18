@@ -79,13 +79,14 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
             cell = tableView.dequeueReusableCellWithIdentifier("userInputCell") as! TREditItemTableViewInputCell
             if let inputCell = cell as? TREditItemTableViewInputCell {
                 inputCell.setLabelWithText("Set a Daily Goal:")
-                let textFieldText = (itemsModel.allItems[itemRow!].dailyGoal == 0) ? "" : "\(itemsModel.allItems[itemRow!].dailyGoal)"
-                inputCell.setTextFieldTextWithText(textFieldText)
                 inputCell.setTextFieldTagWith(indexPath.row)
                 inputCell.setTextFieldKeyboardTypeToNumberPad()
                 inputCell.textFieldDelegate = self
                 if isNewItem {
                     inputCell.setTextFieldUserInteraction(false)
+                } else {
+                    let textFieldText = (itemsModel.allItems[itemRow!].dailyGoal == 0) ? "" : "\(itemsModel.allItems[itemRow!].dailyGoal)"
+                    inputCell.setTextFieldTextWithText(textFieldText)
                 }
             }
         case cellIndex.itemVice.rawValue:

@@ -33,7 +33,6 @@
 		EF53D05C1B862CC0007873B4 /* TREditTracksButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53D05B1B862CC0007873B4 /* TREditTracksButton.swift */; };
 		EF53D05E1B866019007873B4 /* TRTrackerView+Layouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53D05D1B866019007873B4 /* TRTrackerView+Layouts.swift */; };
 		EF53D0611B8663BB007873B4 /* TRTodaysDateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53D0601B8663BB007873B4 /* TRTodaysDateButton.swift */; };
-		EF53D0631B866616007873B4 /* TRToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53D0621B866616007873B4 /* TRToolbar.swift */; };
 		EF649E421B54A10D004431C6 /* TRChooseableDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF649E411B54A10D004431C6 /* TRChooseableDateViewController.swift */; };
 		EF6A8B4D1B3B91470012312E /* TRTrackerPresenter+UIPickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6A8B4C1B3B91470012312E /* TRTrackerPresenter+UIPickerViewDelegate.swift */; };
 		EF6A8B4F1B3B91E60012312E /* TRTrackerPresenter+UIPickerViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6A8B4E1B3B91E60012312E /* TRTrackerPresenter+UIPickerViewDataSource.swift */; };
@@ -54,6 +53,7 @@
 		EFA45C061BAB9AC800EAFB76 /* TRRecordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA45C051BAB9AC800EAFB76 /* TRRecordService.swift */; settings = {ASSET_TAGS = (); }; };
 		EFA45C071BAB9AC800EAFB76 /* TRRecordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA45C051BAB9AC800EAFB76 /* TRRecordService.swift */; settings = {ASSET_TAGS = (); }; };
 		EFA45C091BABA0A900EAFB76 /* TRManageItemsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA45C081BABA0A900EAFB76 /* TRManageItemsPresenter.swift */; settings = {ASSET_TAGS = (); }; };
+		EFA45C0C1BABD32500EAFB76 /* TRDoneAndCancelToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA45C0B1BABD32500EAFB76 /* TRDoneAndCancelToolbar.swift */; settings = {ASSET_TAGS = (); }; };
 		EFA9B5E81B7D7EBD00BAA839 /* TRTrackerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA9B5E71B7D7EBD00BAA839 /* TRTrackerPresenter.swift */; };
 		EFA9B5EA1B7D811800BAA839 /* TRRrecordsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA9B5E91B7D811800BAA839 /* TRRrecordsModel.swift */; };
 		EFB392911B93609E002EC06C /* MockRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB392901B93609E002EC06C /* MockRecord.swift */; };
@@ -147,7 +147,6 @@
 		EF53D05B1B862CC0007873B4 /* TREditTracksButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREditTracksButton.swift; sourceTree = "<group>"; };
 		EF53D05D1B866019007873B4 /* TRTrackerView+Layouts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TRTrackerView+Layouts.swift"; sourceTree = "<group>"; };
 		EF53D0601B8663BB007873B4 /* TRTodaysDateButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRTodaysDateButton.swift; sourceTree = "<group>"; };
-		EF53D0621B866616007873B4 /* TRToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRToolbar.swift; sourceTree = "<group>"; };
 		EF5AB94E1B7FF91B0061286E /* TRRecordsModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRRecordsModelTests.swift; sourceTree = "<group>"; };
 		EF5AB9531B7FFDEE0061286E /* Tracker-Unit-Test-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Tracker-Unit-Test-Bridging-Header.h"; sourceTree = "<group>"; };
 		EF649E411B54A10D004431C6 /* TRChooseableDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRChooseableDateViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +178,7 @@
 		EFA1EF941BA78D26007D82E6 /* TREditItemTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREditItemTextField.swift; sourceTree = "<group>"; };
 		EFA45C051BAB9AC800EAFB76 /* TRRecordService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRRecordService.swift; sourceTree = "<group>"; };
 		EFA45C081BABA0A900EAFB76 /* TRManageItemsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRManageItemsPresenter.swift; sourceTree = "<group>"; };
+		EFA45C0B1BABD32500EAFB76 /* TRDoneAndCancelToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRDoneAndCancelToolbar.swift; sourceTree = "<group>"; };
 		EFA9B5E51B7D6A5B00BAA839 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EFA9B5E71B7D7EBD00BAA839 /* TRTrackerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRTrackerPresenter.swift; sourceTree = "<group>"; };
 		EFA9B5E91B7D811800BAA839 /* TRRrecordsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRRrecordsModel.swift; sourceTree = "<group>"; };
@@ -311,7 +311,6 @@
 				EF53D05B1B862CC0007873B4 /* TREditTracksButton.swift */,
 				EFCA44AD1AF2BD430012AE52 /* TRTrackerButton.swift */,
 				EF53D0601B8663BB007873B4 /* TRTodaysDateButton.swift */,
-				EF53D0621B866616007873B4 /* TRToolbar.swift */,
 				EFE9F6421BAB4DE600C786FE /* TRHiddenTextField.swift */,
 			);
 			name = TRTrackerView;
@@ -411,6 +410,7 @@
 				EFA1EF911BA788D0007D82E6 /* TREditItemTableViewInputCell.swift */,
 				EF9A004E1BA8B6C7009FF92E /* TREditItemTableViewViceCell.swift */,
 				EFA1EF941BA78D26007D82E6 /* TREditItemTextField.swift */,
+				EFA45C0B1BABD32500EAFB76 /* TRDoneAndCancelToolbar.swift */,
 			);
 			name = TREditItemView;
 			sourceTree = "<group>";
@@ -820,6 +820,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF86B2B41BA0E56F0080DC97 /* TRManageItemsTableViewCell.swift in Sources */,
+				EFA45C0C1BABD32500EAFB76 /* TRDoneAndCancelToolbar.swift in Sources */,
 				EFE9F6431BAB4DE600C786FE /* TRHiddenTextField.swift in Sources */,
 				EFA1EF901BA75E77007D82E6 /* TREditItemPresenter.swift in Sources */,
 				EF3D9FB81B850E8E009042CA /* NSDate+CL.m in Sources */,
@@ -846,7 +847,6 @@
 				EF44E7C51B87E64F0088242C /* TREditTracksViewController.swift in Sources */,
 				EFFCF9DC1AFA9C26004DEDB9 /* TRCurrentDate.swift in Sources */,
 				EF7C173A1BA7346B000A3947 /* TRColors.swift in Sources */,
-				EF53D0631B866616007873B4 /* TRToolbar.swift in Sources */,
 				EF3D9FB61B850E8E009042CA /* DailyCalendarView.m in Sources */,
 				EFA1EF951BA78D26007D82E6 /* TREditItemTextField.swift in Sources */,
 				EF3779A21B8ECB7300D6FB97 /* TREditTracksViewController+UITableViewDataSource.swift in Sources */,
