@@ -51,12 +51,13 @@
 		EFA1EF901BA75E77007D82E6 /* TREditItemPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA1EF8F1BA75E77007D82E6 /* TREditItemPresenter.swift */; };
 		EFA1EF921BA788D0007D82E6 /* TREditItemTableViewInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA1EF911BA788D0007D82E6 /* TREditItemTableViewInputCell.swift */; };
 		EFA1EF951BA78D26007D82E6 /* TREditItemTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA1EF941BA78D26007D82E6 /* TREditItemTextField.swift */; };
+		EFA45C061BAB9AC800EAFB76 /* TRRecordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA45C051BAB9AC800EAFB76 /* TRRecordService.swift */; settings = {ASSET_TAGS = (); }; };
+		EFA45C071BAB9AC800EAFB76 /* TRRecordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA45C051BAB9AC800EAFB76 /* TRRecordService.swift */; settings = {ASSET_TAGS = (); }; };
 		EFA9B5E81B7D7EBD00BAA839 /* TRTrackerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA9B5E71B7D7EBD00BAA839 /* TRTrackerPresenter.swift */; };
 		EFA9B5EA1B7D811800BAA839 /* TRRrecordsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA9B5E91B7D811800BAA839 /* TRRrecordsModel.swift */; };
 		EFB392911B93609E002EC06C /* MockRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB392901B93609E002EC06C /* MockRecord.swift */; };
 		EFB392931B939A92002EC06C /* MockQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB392921B939A92002EC06C /* MockQuery.swift */; };
 		EFB392941B93A1E7002EC06C /* TRRrecordsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA9B5E91B7D811800BAA839 /* TRRrecordsModel.swift */; };
-		EFB392951B93A229002EC06C /* TRRecordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF85C691B8261FA00F766DB /* TRRecordService.swift */; };
 		EFB392961B93A22D002EC06C /* TRRecordSortManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF70DE261B8D147E00CDAFC5 /* TRRecordSortManager.swift */; };
 		EFB392971B93A231002EC06C /* TRRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF378F561B891CFA00235464 /* TRRecord.swift */; };
 		EFB392981B93A25B002EC06C /* TRRecordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF35BA2F1AF3D29400456D38 /* TRRecordType.swift */; };
@@ -75,7 +76,6 @@
 		EFE9F6431BAB4DE600C786FE /* TRHiddenTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9F6421BAB4DE600C786FE /* TRHiddenTextField.swift */; settings = {ASSET_TAGS = (); }; };
 		EFF328DB1B87C218001B9E84 /* TREditTracksTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF328DA1B87C218001B9E84 /* TREditTracksTableView.swift */; };
 		EFF328DD1B87C5C6001B9E84 /* TREditTracksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF328DC1B87C5C6001B9E84 /* TREditTracksTableViewCell.swift */; };
-		EFF85C6A1B8261FA00F766DB /* TRRecordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF85C691B8261FA00F766DB /* TRRecordService.swift */; };
 		EFFCF9DA1AFA9318004DEDB9 /* TRDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCF9D91AFA9318004DEDB9 /* TRDateFormatter.swift */; };
 		EFFCF9DC1AFA9C26004DEDB9 /* TRCurrentDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCF9DB1AFA9C26004DEDB9 /* TRCurrentDate.swift */; };
 		EFFDD9641B8BB9090062FFCE /* TRRecordsModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5AB94E1B7FF91B0061286E /* TRRecordsModelTests.swift */; };
@@ -176,6 +176,7 @@
 		EFA1EF8F1BA75E77007D82E6 /* TREditItemPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREditItemPresenter.swift; sourceTree = "<group>"; };
 		EFA1EF911BA788D0007D82E6 /* TREditItemTableViewInputCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREditItemTableViewInputCell.swift; sourceTree = "<group>"; };
 		EFA1EF941BA78D26007D82E6 /* TREditItemTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREditItemTextField.swift; sourceTree = "<group>"; };
+		EFA45C051BAB9AC800EAFB76 /* TRRecordService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRRecordService.swift; sourceTree = "<group>"; };
 		EFA9B5E51B7D6A5B00BAA839 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EFA9B5E71B7D7EBD00BAA839 /* TRTrackerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRTrackerPresenter.swift; sourceTree = "<group>"; };
 		EFA9B5E91B7D811800BAA839 /* TRRrecordsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRRrecordsModel.swift; sourceTree = "<group>"; };
@@ -200,7 +201,6 @@
 		EFF328DA1B87C218001B9E84 /* TREditTracksTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREditTracksTableView.swift; sourceTree = "<group>"; };
 		EFF328DC1B87C5C6001B9E84 /* TREditTracksTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREditTracksTableViewCell.swift; sourceTree = "<group>"; };
 		EFF5E6011A885BCB00B59CD4 /* Tracker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tracker-Bridging-Header.h"; sourceTree = "<group>"; };
-		EFF85C691B8261FA00F766DB /* TRRecordService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TRRecordService.swift; path = ../TRRecordService.swift; sourceTree = "<group>"; };
 		EFFCF9D91AFA9318004DEDB9 /* TRDateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRDateFormatter.swift; sourceTree = "<group>"; };
 		EFFCF9DB1AFA9C26004DEDB9 /* TRCurrentDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCurrentDate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -325,21 +325,13 @@
 			name = TRTrackerPresenter;
 			sourceTree = "<group>";
 		};
-		EF53D0651B867811007873B4 /* TRTrackerModel */ = {
-			isa = PBXGroup;
-			children = (
-				EF77AD611B9FB747009DE5A4 /* TRRecordsModel */,
-			);
-			name = TRTrackerModel;
-			sourceTree = "<group>";
-		};
-		EF77AD611B9FB747009DE5A4 /* TRRecordsModel */ = {
+		EF53D0651B867811007873B4 /* TRRecordsModel */ = {
 			isa = PBXGroup;
 			children = (
 				EFA9B5E91B7D811800BAA839 /* TRRrecordsModel.swift */,
 				EF5AB94E1B7FF91B0061286E /* TRRecordsModelTests.swift */,
 				EF70DE261B8D147E00CDAFC5 /* TRRecordSortManager.swift */,
-				EFF85C691B8261FA00F766DB /* TRRecordService.swift */,
+				EFA45C051BAB9AC800EAFB76 /* TRRecordService.swift */,
 				EFF07F3A1B8399A000ED6520 /* TRRecordServiceTests.swift */,
 				EF378F561B891CFA00235464 /* TRRecord.swift */,
 				EF35BA2F1AF3D29400456D38 /* TRRecordType.swift */,
@@ -450,7 +442,7 @@
 				EF53D05F1B86637B007873B4 /* TRTrackerView */,
 				EF53D0641B8677E2007873B4 /* TRTrackerPresenter */,
 				EFD8AEB31B965EB300962BA0 /* TRTrackerViewController */,
-				EF53D0651B867811007873B4 /* TRTrackerModel */,
+				EF53D0651B867811007873B4 /* TRRecordsModel */,
 			);
 			name = TRTracker;
 			sourceTree = "<group>";
@@ -838,6 +830,7 @@
 				EF3D9FB81B850E8E009042CA /* NSDate+CL.m in Sources */,
 				EF35BA301AF3D29400456D38 /* TRRecordType.swift in Sources */,
 				EF86B2BE1BA1055C0080DC97 /* TRItemService.swift in Sources */,
+				EFA45C061BAB9AC800EAFB76 /* TRRecordService.swift in Sources */,
 				EF3D9FBD1B85146F009042CA /* TRTrackerPresenter+TRDateChooserObserver.swift in Sources */,
 				EF6A8B4F1B3B91E60012312E /* TRTrackerPresenter+UIPickerViewDataSource.swift in Sources */,
 				EF3D9FBB1B850E8E009042CA /* UIImage+CL.m in Sources */,
@@ -854,7 +847,6 @@
 				EFA1EF921BA788D0007D82E6 /* TREditItemTableViewInputCell.swift in Sources */,
 				EF35BA2D1AF3CA9400456D38 /* TRTrackableItems.swift in Sources */,
 				EF4BF8C51B966F6C00B2AAA1 /* TRSettingsViewController+UITableViewDataSource.swift in Sources */,
-				EFF85C6A1B8261FA00F766DB /* TRRecordService.swift in Sources */,
 				EFA1EF8C1BA75BB6007D82E6 /* TREditItemViewController.swift in Sources */,
 				EF44E7C51B87E64F0088242C /* TREditTracksViewController.swift in Sources */,
 				EFFCF9DC1AFA9C26004DEDB9 /* TRCurrentDate.swift in Sources */,
@@ -900,7 +892,6 @@
 				EF41496C1BA8ED3F00428F48 /* TRItem.swift in Sources */,
 				EFB3929A1B93A295002EC06C /* TRDateFormatter.swift in Sources */,
 				EFB3929B1B93A2A3002EC06C /* TRCurrentDate.swift in Sources */,
-				EFB392951B93A229002EC06C /* TRRecordService.swift in Sources */,
 				EFB392971B93A231002EC06C /* TRRecord.swift in Sources */,
 				EF41496B1BA8ED2200428F48 /* TRItemsModel.swift in Sources */,
 				EFB392941B93A1E7002EC06C /* TRRrecordsModel.swift in Sources */,
@@ -908,6 +899,7 @@
 				EFB392991B93A26D002EC06C /* TRTrackableItems.swift in Sources */,
 				EFB392931B939A92002EC06C /* MockQuery.swift in Sources */,
 				EFFDD9651B8BB9090062FFCE /* TRRecordServiceTests.swift in Sources */,
+				EFA45C071BAB9AC800EAFB76 /* TRRecordService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
