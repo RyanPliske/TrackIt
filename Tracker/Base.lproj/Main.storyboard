@@ -12,7 +12,7 @@
         </mutableArray>
     </customFonts>
     <scenes>
-        <!--Tracker View Controller-->
+        <!--T-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="currentContext" id="9pv-A4-QxB" customClass="TRTrackerViewController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -25,10 +25,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hen-NF-7Nj" customClass="TPKeyboardAvoidingScrollView">
-                                <rect key="frame" x="0.0" y="84" width="375" height="583"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <view alpha="0.79999999999999982" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b09-XM-ycc" userLabel="TrackerView" customClass="TRTrackerView" customModule="Tracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="583"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="425" id="t6G-kz-c7Q"/>
@@ -55,11 +55,12 @@
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="Hen-NF-7Nj" secondAttribute="bottom" id="LPS-AO-Yfb"/>
                             <constraint firstItem="Hen-NF-7Nj" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="Pc5-L8-zPO"/>
                             <constraint firstItem="Hen-NF-7Nj" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailing" id="V6B-tc-9fe"/>
-                            <constraint firstItem="Hen-NF-7Nj" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="20" id="edm-fy-tsA"/>
+                            <constraint firstItem="Hen-NF-7Nj" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="edm-fy-tsA"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="7fm-mJ-UdE">
+                    <navigationItem key="navigationItem" title="T" id="7fm-mJ-UdE">
                         <barButtonItem key="rightBarButtonItem" image="full__0000s_0091_config" id="obX-u2-58N">
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="jNl-ID-ZvX" kind="show" identifier="showSettings" id="R5y-tI-CJR"/>
                             </connections>
@@ -200,13 +201,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="50" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="jLY-zk-90h" customClass="TPKeyboardAvoidingTableView">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jLY-zk-90h" customClass="TPKeyboardAvoidingTableView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="settings" id="eWP-oY-MpG" customClass="TRSettingsTableViewCell" customModule="Tracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="74" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="92" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eWP-oY-MpG" id="wLe-jD-6ai">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="50"/>
@@ -234,9 +235,9 @@
                         </subviews>
                         <color key="backgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="jLY-zk-90h" firstAttribute="bottom" secondItem="dCk-HZ-5fS" secondAttribute="top" id="HVg-kd-MeG"/>
-                            <constraint firstItem="jLY-zk-90h" firstAttribute="top" secondItem="5Wn-JH-nGM" secondAttribute="bottom" id="JWk-9c-ebo"/>
+                            <constraint firstItem="jLY-zk-90h" firstAttribute="centerY" secondItem="O9h-Pa-pET" secondAttribute="centerY" id="AJY-CL-G6t"/>
                             <constraint firstItem="jLY-zk-90h" firstAttribute="left" secondItem="O9h-Pa-pET" secondAttribute="left" id="det-mj-MBG"/>
+                            <constraint firstItem="jLY-zk-90h" firstAttribute="height" secondItem="O9h-Pa-pET" secondAttribute="height" id="mYp-dd-uMb"/>
                             <constraint firstItem="jLY-zk-90h" firstAttribute="right" secondItem="O9h-Pa-pET" secondAttribute="right" id="v6y-CT-B3c"/>
                         </constraints>
                     </view>
@@ -265,7 +266,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Jj-LB-1SC" customClass="TPKeyboardAvoidingTableView">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <prototypes>
@@ -310,10 +311,10 @@
                         </subviews>
                         <color key="backgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="4Jj-LB-1SC" firstAttribute="top" secondItem="K59-xG-gh1" secondAttribute="bottom" id="1zP-Fa-og3"/>
-                            <constraint firstItem="4Jj-LB-1SC" firstAttribute="bottom" secondItem="roZ-4S-zlg" secondAttribute="top" id="Bkm-Tx-xKP"/>
+                            <constraint firstItem="4Jj-LB-1SC" firstAttribute="centerY" secondItem="tpo-LP-uiC" secondAttribute="centerY" id="N3A-vY-D8G"/>
                             <constraint firstItem="4Jj-LB-1SC" firstAttribute="left" secondItem="tpo-LP-uiC" secondAttribute="left" id="W39-A5-dhw"/>
                             <constraint firstItem="4Jj-LB-1SC" firstAttribute="right" secondItem="tpo-LP-uiC" secondAttribute="right" id="Wd2-nf-9eP"/>
+                            <constraint firstItem="4Jj-LB-1SC" firstAttribute="height" secondItem="tpo-LP-uiC" secondAttribute="height" id="t7Z-lf-niJ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pVv-aV-PxA"/>
@@ -340,7 +341,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GFv-pJ-DdA" userLabel="itemTableView" customClass="TPKeyboardAvoidingTableView">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <prototypes>
@@ -424,9 +425,9 @@
                         </subviews>
                         <color key="backgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="GFv-pJ-DdA" firstAttribute="height" secondItem="BbF-XA-DKY" secondAttribute="height" id="FiA-5z-ZXs"/>
                             <constraint firstItem="GFv-pJ-DdA" firstAttribute="right" secondItem="BbF-XA-DKY" secondAttribute="right" id="NlM-y2-NxR"/>
-                            <constraint firstItem="GFv-pJ-DdA" firstAttribute="top" secondItem="ioo-dF-KLk" secondAttribute="bottom" id="Zax-kx-PHo"/>
-                            <constraint firstItem="GFv-pJ-DdA" firstAttribute="bottom" secondItem="h1Q-13-RaV" secondAttribute="top" id="d4m-U5-xpp"/>
+                            <constraint firstItem="GFv-pJ-DdA" firstAttribute="centerY" secondItem="BbF-XA-DKY" secondAttribute="centerY" id="nyO-bA-pvF"/>
                             <constraint firstItem="GFv-pJ-DdA" firstAttribute="left" secondItem="BbF-XA-DKY" secondAttribute="left" id="x7T-Kk-QZX"/>
                         </constraints>
                     </view>

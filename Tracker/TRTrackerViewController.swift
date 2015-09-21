@@ -17,7 +17,7 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
         trackerView.observer = self
         dateViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
         dateViewController.dateObserver = self.trackerPresenter
-        self.tabBarController?.tabBar.tintColor = UIColor.TRBabyBlue()
+        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Avenir", size: 25.0)!]
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
