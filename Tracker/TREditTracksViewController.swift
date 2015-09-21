@@ -11,7 +11,7 @@ class TREditTracksViewController: UIViewController {
         recordsModel = TRRecordsModel.sharedInstanceOfRecordsModel
         editTracksTableView.dataSource = self
         recordSearchBar.delegate = self
-        title = "TrackIt"
+        title = "Tracks"
         navigationItem.rightBarButtonItem = self.editButtonItem()
         if let navController = navigationController {
             navController.navigationBar.barStyle = UIBarStyle.BlackTranslucent
