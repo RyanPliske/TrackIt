@@ -1,5 +1,5 @@
 import Foundation
 
 class TRSettingsModel {
-    var settings = ["Edit Items"]
+    var settings = ["Edit Items", "Edit Tracks"]
 }

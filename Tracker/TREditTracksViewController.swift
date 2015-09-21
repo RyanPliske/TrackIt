@@ -1,23 +1,18 @@
 import UIKit
 
-protocol TREditTracksObserver {
-    func dismissEditTracks()
-}
-
 class TREditTracksViewController: UIViewController {
-    var editTracksObserver: TREditTracksObserver?
-    var recordsModel: TRRecordsModel?
+    var recordsModel: TRRecordsModel!
     @IBOutlet weak var editTracksTableView: TREditTracksTableView!
     @IBOutlet weak var itemTypeSegmentedControl: UISegmentedControl!
     @IBOutlet weak var recordSearchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        recordsModel = TRRecordsModel.sharedInstanceOfRecordsModel
         editTracksTableView.dataSource = self
         recordSearchBar.delegate = self
         title = "TrackIt"
         navigationItem.rightBarButtonItem = self.editButtonItem()
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Done, target: self, action: "dismissEditTracks")
         if let navController = navigationController {
             navController.navigationBar.barStyle = UIBarStyle.BlackTranslucent
             navController.navigationBar.barTintColor = UIColor.clearColor()
@@ -29,7 +24,7 @@ class TREditTracksViewController: UIViewController {
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        recordsModel?.sortType = TRRecordType.TrackAction
+        recordsModel.sortType = TRRecordType.TrackAction
         view.endEditing(true)
     }
     
@@ -53,16 +48,12 @@ class TREditTracksViewController: UIViewController {
     
     @IBAction func segmentControlPressed(sender: AnyObject) {
         if (itemTypeSegmentedControl.selectedSegmentIndex == 0) {
-            recordsModel?.sortType = TRRecordType.TrackAction
+            recordsModel.sortType = TRRecordType.TrackAction
             editTracksTableView.reloadData()
         } else {
-            recordsModel?.sortType = TRRecordType.TrackUrge
+            recordsModel.sortType = TRRecordType.TrackUrge
             editTracksTableView.reloadData()
         }
-    }
-
-    func dismissEditTracks() {
-        editTracksObserver?.dismissEditTracks()
     }
     
 }

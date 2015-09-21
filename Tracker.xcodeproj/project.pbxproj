@@ -27,7 +27,7 @@
 		EF41496D1BA8ED4800428F48 /* TRItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF86B2BD1BA1055C0080DC97 /* TRItemService.swift */; settings = {ASSET_TAGS = (); }; };
 		EF44E7C51B87E64F0088242C /* TREditTracksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF44E7C41B87E64F0088242C /* TREditTracksViewController.swift */; };
 		EF4BF8C31B966E0300B2AAA1 /* TRManageItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4BF8C21B966E0300B2AAA1 /* TRManageItemsViewController.swift */; };
-		EF4BF8C51B966F6C00B2AAA1 /* TRSettingsViewController+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4BF8C41B966F6C00B2AAA1 /* TRSettingsViewController+UITableViewDataSource.swift */; };
+		EF4BF8C51B966F6C00B2AAA1 /* TRSettingsPresenter+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4BF8C41B966F6C00B2AAA1 /* TRSettingsPresenter+UITableViewDataSource.swift */; };
 		EF4BF8C71B966FC300B2AAA1 /* TRSettingsViewController+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4BF8C61B966FC300B2AAA1 /* TRSettingsViewController+UITableViewDelegate.swift */; };
 		EF52F2451A8735CF00315B35 /* TRSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF52F2441A8735CF00315B35 /* TRSettingsViewController.swift */; };
 		EF53D05C1B862CC0007873B4 /* TREditTracksButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53D05B1B862CC0007873B4 /* TREditTracksButton.swift */; };
@@ -141,7 +141,7 @@
 		EF3D9FBC1B85146F009042CA /* TRTrackerPresenter+TRDateChooserObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TRTrackerPresenter+TRDateChooserObserver.swift"; sourceTree = "<group>"; };
 		EF44E7C41B87E64F0088242C /* TREditTracksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREditTracksViewController.swift; sourceTree = "<group>"; };
 		EF4BF8C21B966E0300B2AAA1 /* TRManageItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRManageItemsViewController.swift; sourceTree = "<group>"; };
-		EF4BF8C41B966F6C00B2AAA1 /* TRSettingsViewController+UITableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TRSettingsViewController+UITableViewDataSource.swift"; sourceTree = "<group>"; };
+		EF4BF8C41B966F6C00B2AAA1 /* TRSettingsPresenter+UITableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TRSettingsPresenter+UITableViewDataSource.swift"; sourceTree = "<group>"; };
 		EF4BF8C61B966FC300B2AAA1 /* TRSettingsViewController+UITableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TRSettingsViewController+UITableViewDelegate.swift"; sourceTree = "<group>"; };
 		EF52F2441A8735CF00315B35 /* TRSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRSettingsViewController.swift; sourceTree = "<group>"; };
 		EF53D05B1B862CC0007873B4 /* TREditTracksButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREditTracksButton.swift; sourceTree = "<group>"; };
@@ -453,27 +453,13 @@
 		EFD8AEA81B96486100962BA0 /* TRSettings */ = {
 			isa = PBXGroup;
 			children = (
-				EFD8AEB01B965E7500962BA0 /* TRSettingsView */,
-				EFD8AEB51B965F9400962BA0 /* TRSettingsViewController */,
-				EFD8AEAD1B965AAA00962BA0 /* TRSettingsModel */,
-			);
-			name = TRSettings;
-			sourceTree = "<group>";
-		};
-		EFD8AEAD1B965AAA00962BA0 /* TRSettingsModel */ = {
-			isa = PBXGroup;
-			children = (
+				EFD8AEAB1B9658C000962BA0 /* TRSettingsTableViewCell.swift */,
+				EF52F2441A8735CF00315B35 /* TRSettingsViewController.swift */,
+				EF4BF8C61B966FC300B2AAA1 /* TRSettingsViewController+UITableViewDelegate.swift */,
+				EF4BF8C41B966F6C00B2AAA1 /* TRSettingsPresenter+UITableViewDataSource.swift */,
 				EFD8AEAE1B965C0200962BA0 /* TRSettingsModel.swift */,
 			);
-			name = TRSettingsModel;
-			sourceTree = "<group>";
-		};
-		EFD8AEB01B965E7500962BA0 /* TRSettingsView */ = {
-			isa = PBXGroup;
-			children = (
-				EFD8AEAB1B9658C000962BA0 /* TRSettingsTableViewCell.swift */,
-			);
-			name = TRSettingsView;
+			name = TRSettings;
 			sourceTree = "<group>";
 		};
 		EFD8AEB11B965E8C00962BA0 /* TREditTracksViewController */ = {
@@ -511,16 +497,6 @@
 				EFE083F71A86A9B100AC9631 /* TRStatsViewController.swift */,
 			);
 			name = TRStats;
-			sourceTree = "<group>";
-		};
-		EFD8AEB51B965F9400962BA0 /* TRSettingsViewController */ = {
-			isa = PBXGroup;
-			children = (
-				EF52F2441A8735CF00315B35 /* TRSettingsViewController.swift */,
-				EF4BF8C41B966F6C00B2AAA1 /* TRSettingsViewController+UITableViewDataSource.swift */,
-				EF4BF8C61B966FC300B2AAA1 /* TRSettingsViewController+UITableViewDelegate.swift */,
-			);
-			name = TRSettingsViewController;
 			sourceTree = "<group>";
 		};
 		EFE083E51A86A9B100AC9631 = {
@@ -842,7 +818,7 @@
 				EFE083F41A86A9B100AC9631 /* TRAppDelegate.swift in Sources */,
 				EFA1EF921BA788D0007D82E6 /* TREditItemTableViewInputCell.swift in Sources */,
 				EF35BA2D1AF3CA9400456D38 /* TRPreloadedItems.swift in Sources */,
-				EF4BF8C51B966F6C00B2AAA1 /* TRSettingsViewController+UITableViewDataSource.swift in Sources */,
+				EF4BF8C51B966F6C00B2AAA1 /* TRSettingsPresenter+UITableViewDataSource.swift in Sources */,
 				EFA1EF8C1BA75BB6007D82E6 /* TREditItemViewController.swift in Sources */,
 				EF44E7C51B87E64F0088242C /* TREditTracksViewController.swift in Sources */,
 				EFFCF9DC1AFA9C26004DEDB9 /* TRCurrentDate.swift in Sources */,

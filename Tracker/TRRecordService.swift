@@ -16,9 +16,9 @@ class TRRecordService {
     private func saveRecordToPhoneWithRecord(record: TRRecord, completion: TRCreateRecordCompletion?) {
         let BackgroundSaveCompletion: PFBooleanResultBlock = {
             (success, error) in
-            if (error == nil && completion != nil) {
+            if let completionBlock = completion where (error == nil) {
                 print("Record saved.")
-                completion!()
+                completionBlock()
             }
         }
         record.pinInBackgroundWithBlock(BackgroundSaveCompletion)

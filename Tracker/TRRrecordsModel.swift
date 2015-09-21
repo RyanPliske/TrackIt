@@ -6,6 +6,7 @@ typealias TRSearchCompletion = () -> Void
 
 class TRRecordsModel {
     
+    static let sharedInstanceOfRecordsModel = TRRecordsModel(recordService: TRRecordService(), itemsModel: TRItemsModel.sharedInstanceOfItemsModel)
     // MARK: Private Properties
     private let recordSortManager = TRRecordSortManager()
     private let recordService: TRRecordService
@@ -29,6 +30,7 @@ class TRRecordsModel {
         self.recordService = recordService
         self.itemsModel = itemsModel
         TRRecord()
+        self.readAllRecords()
     }
     
     func createRecordUsingRow(row: Int, quantityRow: Int, type: TRRecordType, date: NSDate) {

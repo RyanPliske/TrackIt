@@ -1,23 +1,17 @@
 import UIKit
 import QuartzCore
 
-class TRTrackerViewController: UIViewController, TRTrackerViewObserver, TREditTracksObserver {
+class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
     
     @IBOutlet private weak var trackerView: TRTrackerView!
     private var trackerPresenter: TRTrackerPresenter!
     private var recordService = TRRecordService()
-    private var recordsModel: TRRecordsModel?
+    private var recordsModel: TRRecordsModel!
     private let dateViewController = TRChooseableDateViewController()
-    
-    required init?(coder aDecoder: NSCoder) {
-        
-        super.init(coder: aDecoder)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        recordsModel = TRRecordsModel(recordService: self.recordService, itemsModel: TRItemsModel.sharedInstanceOfItemsModel)
-        recordsModel?.readAllRecords()
+        recordsModel = TRRecordsModel.sharedInstanceOfRecordsModel
         trackerPresenter = TRTrackerPresenter(view: self.trackerView, model: self.recordsModel!)
         setNeedsStatusBarAppearanceUpdate()
         trackerView.observer = self
@@ -39,18 +33,5 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver, TREditTr
             popOver.sourceRect = self.trackerView.todaysDateButton.frame
             self.presentViewController(dateViewController, animated: true, completion: nil)
         }
-    }
-    
-    func displayEditableTracks() {
-        let editTracksViewController = self.storyboard?.instantiateViewControllerWithIdentifier("EditTracksViewController") as! TREditTracksViewController
-        editTracksViewController.editTracksObserver = self
-        editTracksViewController.recordsModel = recordsModel
-        let navController = UINavigationController(rootViewController: editTracksViewController)
-        self.presentViewController(navController, animated: true, completion: nil)
-    }
-    
-    // MARK: TREditTracksObserver
-    func dismissEditTracks() {
-        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }
