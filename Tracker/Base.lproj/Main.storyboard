@@ -59,6 +59,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="T" id="7fm-mJ-UdE">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="rEv-89-55J"/>
                         <barButtonItem key="rightBarButtonItem" image="full__0000s_0091_config" id="obX-u2-58N">
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>

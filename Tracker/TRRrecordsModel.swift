@@ -57,11 +57,6 @@ class TRRecordsModel {
         recordService.createRecordWithItem(item, quantity: itemQuantity, itemType: type, date: date, completion: blockCompletion)
     }
     
-    func readAllRecords() {
-        grabAllTracks()
-        grabAllUrges()
-    }
-    
     func searchRecordsFor(searchText: String, completion: TRSearchCompletion?) {
         if let completionBlock = completion {
             grabAllRecordsContaining(searchText, completion: completionBlock)
@@ -74,6 +69,11 @@ class TRRecordsModel {
     }
     
     // MARK: Private Helpers
+    private func readAllRecords() {
+        grabAllTracks()
+        grabAllUrges()
+    }
+    
     private func grabAllTracks() {
         grabRecordsWithSortType(TRRecordType.TrackAction)
     }
