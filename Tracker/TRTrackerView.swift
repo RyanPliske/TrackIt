@@ -12,7 +12,7 @@ protocol TRTrackerViewObserver {
 }
 
 class TRTrackerView: UIView, TRKeyboardToolbarDelegate {
-    let todaysDateButton = TRTodaysDateButton(frame: CGRectMake(0, 50, 300, 50))
+    @IBOutlet weak var todaysDateButton: TRTodaysDateButton!
     let hiddenPickerViewTextField = TRHiddenTextField(frame: CGRectZero)
     let itemPickerView = UIPickerView()
     var trackButton = TRTrackerButton(frame: CGRectMake(30.0, 150.0, 260.0, 50.0), buttonStyle: HTPressableButtonStyle.Rounded, trackingType: .TrackAction)
@@ -24,11 +24,6 @@ class TRTrackerView: UIView, TRKeyboardToolbarDelegate {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        // todaysDateButton
-        todaysDateButton.addTarget(self, action: "todaysDateButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
-        setTodaysDateButtonLabelWithText(TRDateFormatter.descriptionForToday)
-        addSubview(todaysDateButton)
-        addConstraintsForTodaysDateButton()
         // trackButton
         trackButton.addTarget(self, action: "trackButtonTapped", forControlEvents: UIControlEvents.TouchUpInside)
         addSubview(trackButton)
@@ -45,6 +40,11 @@ class TRTrackerView: UIView, TRKeyboardToolbarDelegate {
         hiddenPickerViewTextField.inputAccessoryView = doneToolbarView
         addSubview(hiddenPickerViewTextField)
         addConstraintsForHiddenTextField()
+    }
+    
+    override func willMoveToWindow(newWindow: UIWindow?) {
+        super.willMoveToWindow(newWindow)
+        setTodaysDateButtonLabelWithText(TRDateFormatter.descriptionForToday)
     }
     
     // MARK: User Interaction
@@ -67,7 +67,7 @@ class TRTrackerView: UIView, TRKeyboardToolbarDelegate {
         setToolBarForTrackingTitle("Track Urge")
     }
     
-    func todaysDateButtonPressed() {
+    @IBAction func todaysDateButtonPressed() {
         self.observer?.displayDateChooser()
     }
     

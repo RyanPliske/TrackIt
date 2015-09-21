@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="HelveticaNeue.ttc">
@@ -29,15 +30,27 @@
                                 <subviews>
                                     <view alpha="0.79999999999999982" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b09-XM-ycc" userLabel="TrackerView" customClass="TRTrackerView" customModule="Tracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jMm-R1-hOo" customClass="TRTodaysDateButton" customModule="Tracker" customModuleProvider="target">
+                                                <rect key="frame" x="19" y="0.0" width="337" height="53"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="30"/>
+                                                <state key="normal" title="June 16, 1988">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="todaysDateButtonPressed" destination="b09-XM-ycc" eventType="touchUpInside" id="cbA-Zm-WOY"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="425" id="t6G-kz-c7Q"/>
+                                            <constraint firstItem="jMm-R1-hOo" firstAttribute="width" secondItem="b09-XM-ycc" secondAttribute="width" multiplier="0.9" id="LSB-Dx-3ts"/>
+                                            <constraint firstItem="jMm-R1-hOo" firstAttribute="centerX" secondItem="b09-XM-ycc" secondAttribute="centerX" id="Qhi-KS-di5"/>
+                                            <constraint firstItem="jMm-R1-hOo" firstAttribute="top" secondItem="b09-XM-ycc" secondAttribute="top" id="dr5-uf-JOR"/>
                                         </constraints>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="t6G-kz-c7Q"/>
-                                            </mask>
-                                        </variation>
+                                        <connections>
+                                            <outlet property="todaysDateButton" destination="jMm-R1-hOo" id="rjS-P0-ufB"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                                 <constraints>
