@@ -1,4 +1,5 @@
 import Foundation
+import Spring
 
 protocol TRTrackerTableViewCellDelegate {
     func plusButtonPressedAt(row: Int)
@@ -6,7 +7,7 @@ protocol TRTrackerTableViewCellDelegate {
 
 class TRTrackerTableViewCell: UITableViewCell {
     @IBOutlet private weak var itemLabel: UILabel!
-    @IBOutlet private weak var plusButton: UIButton!
+    @IBOutlet private weak var plusButton: SpringButton!
     var statsView: UIView?
     var delegate: TRTrackerTableViewCellDelegate?
     
@@ -27,5 +28,7 @@ class TRTrackerTableViewCell: UITableViewCell {
     
     @IBAction func plusButtonPressed(sender: AnyObject) {
         self.delegate?.plusButtonPressedAt(plusButton.tag)
+        plusButton.animation = "pop"
+        plusButton.animate()
     }
 }
