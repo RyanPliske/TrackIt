@@ -1,5 +1,10 @@
 import Foundation
 
 class TRTrackerTableViewCell: UITableViewCell {
-    @IBOutlet weak var itemLabel: UILabel!
+    @IBOutlet private weak var itemLabel: UILabel!
+    
+    func setItemLabelTextWith(itemName: String) {
+        self.itemLabel.text = itemName
+    }
+    
 }

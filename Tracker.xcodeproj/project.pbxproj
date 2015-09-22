@@ -37,7 +37,7 @@
 		EF70DE2B1B8D3DBA00CDAFC5 /* MockRecordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF70DE2A1B8D3DBA00CDAFC5 /* MockRecordService.swift */; };
 		EF70DE2D1B8D480D00CDAFC5 /* TREditTracksTableViewCellDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF70DE2C1B8D480D00CDAFC5 /* TREditTracksTableViewCellDecorator.swift */; };
 		EF7C173A1BA7346B000A3947 /* TRColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7C17391BA7346B000A3947 /* TRColors.swift */; };
-		EF802E151B8A9A1900C51C33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFE083F91A86A9B100AC9631 /* Main.storyboard */; };
+		EF802E151B8A9A1900C51C33 /* TRMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFE083F91A86A9B100AC9631 /* TRMain.storyboard */; };
 		EF86B2B41BA0E56F0080DC97 /* TRManageItemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF86B2B31BA0E56E0080DC97 /* TRManageItemsTableViewCell.swift */; };
 		EF86B2BA1BA0FC5C0080DC97 /* TRItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF86B2B91BA0FC5C0080DC97 /* TRItemsModel.swift */; };
 		EF86B2BC1BA0FDBA0080DC97 /* TRItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF86B2BB1BA0FDBA0080DC97 /* TRItem.swift */; };
@@ -188,7 +188,7 @@
 		EFE083F31A86A9B100AC9631 /* TRAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRAppDelegate.swift; sourceTree = "<group>"; };
 		EFE083F51A86A9B100AC9631 /* TRTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRTrackerViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		EFE083F71A86A9B100AC9631 /* TRStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRStatsViewController.swift; sourceTree = "<group>"; };
-		EFE083FA1A86A9B100AC9631 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EFE083FA1A86A9B100AC9631 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TRMain.storyboard; sourceTree = "<group>"; };
 		EFE083FC1A86A9B100AC9631 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EFE084051A86A9B100AC9631 /* Tracker.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tracker.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFE0840A1A86A9B100AC9631 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -519,7 +519,7 @@
 			isa = PBXGroup;
 			children = (
 				EFE083F31A86A9B100AC9631 /* TRAppDelegate.swift */,
-				EFE083F91A86A9B100AC9631 /* Main.storyboard */,
+				EFE083F91A86A9B100AC9631 /* TRMain.storyboard */,
 				EFC9CD671B7D249B00060D54 /* TRTracker */,
 				EFF328D91B87C1F5001B9E84 /* TREditTracks */,
 				EFD8AEA81B96486100962BA0 /* TRSettings */,
@@ -664,7 +664,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF802E151B8A9A1900C51C33 /* Main.storyboard in Resources */,
+				EF802E151B8A9A1900C51C33 /* TRMain.storyboard in Resources */,
 				EFE083FD1A86A9B100AC9631 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -886,12 +886,12 @@
 			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
-		EFE083F91A86A9B100AC9631 /* Main.storyboard */ = {
+		EFE083F91A86A9B100AC9631 /* TRMain.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				EFE083FA1A86A9B100AC9631 /* Base */,
 			);
-			name = Main.storyboard;
+			name = TRMain.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

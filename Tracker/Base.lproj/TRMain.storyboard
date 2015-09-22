@@ -492,7 +492,7 @@
         <!--Track-->
         <scene sceneID="tHo-Vb-0ew">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eTT-b3-ti9" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navController" automaticallyAdjustsScrollViewInsets="NO" id="eTT-b3-ti9" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Track" image="full__0000s_0106_note" id="PFS-KQ-b5k"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>

@@ -13,6 +13,7 @@ class TRTrackerPresenter: NSObject, TRTrackerViewDelegate, UITableViewDataSource
         recordsModel = model
         super.init()
         self.trackerView.delegate = self
+        self.trackerView.trackerTableView.dataSource = self
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -25,7 +26,12 @@ class TRTrackerPresenter: NSObject, TRTrackerViewDelegate, UITableViewDataSource
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("trackerItems") as! TRTrackerTableViewCell
+        if let aCell = cell as? TRTrackerTableViewCell {
+            aCell.setItemLabelTextWith(itemsModel.activeItems[indexPath.row].name)
+        }
         return cell
     }
+    
+    
     
 }

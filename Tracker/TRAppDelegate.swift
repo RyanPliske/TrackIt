@@ -17,6 +17,11 @@ class TRAppDelegate: UIResponder, UIApplicationDelegate {
             clientKey: "ErKp2ZiaCImNSpiUQaCXWEAtClBou0b4qrBk7anU")
         PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions, block: nil)
         TRItemsModel.sharedInstanceOfItemsModel
+        weak var weakSelf = self
+        TRRecordsModel.sharedInstanceOfRecordsModel.readAllRecords { () -> Void in
+            let trackerViewController = UIStoryboard(name: "TRMain", bundle: nil).instantiateViewControllerWithIdentifier("navController")
+            weakSelf?.window?.rootViewController = trackerViewController
+        }
         return true
     }
 }
