@@ -52,14 +52,10 @@ class TRTrackerView: UIView, UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath == pathToReload {
-            pathToReload = nil
-        } else {
-            pathToReload = indexPath
-        }
-        trackerTableView.beginUpdates()
-        trackerTableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-        trackerTableView.endUpdates()
-        trackerTableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Top, animated: true)
+        pathToReload = indexPath == pathToReload ? nil : indexPath
+        tableView.beginUpdates()
+        tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+        tableView.endUpdates()
+        tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Top, animated: true)
     }
 }
