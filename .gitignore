@@ -3,5 +3,6 @@
 *.mode2v3
 *.perspectivev3
 *.xcuserstate
-project.xcworkspace/
+Tracker.xcworkspace/
 xcuserdata/
+Pods/
