@@ -11,7 +11,7 @@ protocol TRTrackerViewObserver {
 }
 
 class TRTrackerView: UIView {
-    @IBOutlet weak var todaysDateButton: TRTodaysDateButton!
+    @IBOutlet weak var todaysDateButton: UIButton!
     @IBOutlet weak var trackerTableView: UITableView!
     
     var delegate: TRTrackerViewDelegate?

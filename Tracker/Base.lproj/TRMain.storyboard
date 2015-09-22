@@ -21,98 +21,73 @@
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
+                    <view key="view" contentMode="scaleToFill" id="tsR-hK-woN" customClass="TRTrackerView" customModule="Tracker" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hen-NF-7Nj" customClass="TPKeyboardAvoidingScrollView">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <subviews>
-                                    <view alpha="0.79999999999999982" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b09-XM-ycc" userLabel="TrackerView" customClass="TRTrackerView" customModule="Tracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                                        <subviews>
-                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="BgH-C2-Kl1">
-                                                <rect key="frame" x="165" y="326" width="45" height="45"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="45" id="4OX-te-IEg"/>
-                                                    <constraint firstAttribute="height" constant="45" id="6Gr-D1-NSj"/>
-                                                </constraints>
-                                            </activityIndicatorView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jMm-R1-hOo" customClass="TRTodaysDateButton" customModule="Tracker" customModuleProvider="target">
-                                                <rect key="frame" x="19" y="0.0" width="337" height="53"/>
-                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="30"/>
-                                                <state key="normal" title="June 16, 1988">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="todaysDateButtonPressed" destination="b09-XM-ycc" eventType="touchUpInside" id="cbA-Zm-WOY"/>
-                                                </connections>
-                                            </button>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Elt-Uh-2qj">
-                                                <rect key="frame" x="5" y="93" width="365" height="510"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="trackerItems" rowHeight="50" id="BHp-H0-CJH" customClass="TRTrackerTableViewCell" customModule="Tracker" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="28" width="365" height="50"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
-                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BHp-H0-CJH" id="Vqo-Nd-b2b">
-                                                            <rect key="frame" x="0.0" y="0.0" width="365" height="49"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bT1-vX-V4Z">
-                                                                    <rect key="frame" x="13" y="14" width="42" height="21"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                            <constraints>
-                                                                <constraint firstItem="bT1-vX-V4Z" firstAttribute="leading" secondItem="Vqo-Nd-b2b" secondAttribute="leadingMargin" constant="5" id="QUH-bO-FxJ"/>
-                                                                <constraint firstItem="bT1-vX-V4Z" firstAttribute="centerY" secondItem="Vqo-Nd-b2b" secondAttribute="centerY" id="mJb-sR-T9X"/>
-                                                            </constraints>
-                                                        </tableViewCellContentView>
-                                                        <connections>
-                                                            <outlet property="itemLabel" destination="bT1-vX-V4Z" id="uAj-HP-CNM"/>
-                                                        </connections>
-                                                    </tableViewCell>
-                                                </prototypes>
-                                            </tableView>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="Elt-Uh-2qj" secondAttribute="trailing" constant="5" id="512-ZK-b9T"/>
-                                            <constraint firstItem="Elt-Uh-2qj" firstAttribute="leading" secondItem="b09-XM-ycc" secondAttribute="leading" constant="5" id="8iB-Q3-Ub7"/>
-                                            <constraint firstItem="Elt-Uh-2qj" firstAttribute="top" secondItem="jMm-R1-hOo" secondAttribute="bottom" constant="40" id="BiL-dw-Cv8"/>
-                                            <constraint firstAttribute="bottom" secondItem="Elt-Uh-2qj" secondAttribute="bottom" id="FFV-hP-gfW"/>
-                                            <constraint firstItem="BgH-C2-Kl1" firstAttribute="centerX" secondItem="Elt-Uh-2qj" secondAttribute="centerX" id="IrS-OJ-AsZ"/>
-                                            <constraint firstItem="jMm-R1-hOo" firstAttribute="width" secondItem="b09-XM-ycc" secondAttribute="width" multiplier="0.9" id="LSB-Dx-3ts"/>
-                                            <constraint firstItem="BgH-C2-Kl1" firstAttribute="centerY" secondItem="Elt-Uh-2qj" secondAttribute="centerY" id="NGG-uQ-922"/>
-                                            <constraint firstItem="jMm-R1-hOo" firstAttribute="centerX" secondItem="b09-XM-ycc" secondAttribute="centerX" id="Qhi-KS-di5"/>
-                                            <constraint firstItem="jMm-R1-hOo" firstAttribute="top" secondItem="b09-XM-ycc" secondAttribute="top" id="dr5-uf-JOR"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="todaysDateButton" destination="jMm-R1-hOo" id="rjS-P0-ufB"/>
-                                            <outlet property="trackerTableView" destination="Elt-Uh-2qj" id="kIq-Aw-XJG"/>
-                                        </connections>
-                                    </view>
-                                </subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="BgH-C2-Kl1">
+                                <rect key="frame" x="165" y="380" width="45" height="45"/>
                                 <constraints>
-                                    <constraint firstItem="b09-XM-ycc" firstAttribute="height" secondItem="Hen-NF-7Nj" secondAttribute="height" id="8MQ-cK-Ob8"/>
-                                    <constraint firstItem="b09-XM-ycc" firstAttribute="top" secondItem="Hen-NF-7Nj" secondAttribute="top" id="Ncp-7V-Aqg"/>
-                                    <constraint firstAttribute="bottom" secondItem="b09-XM-ycc" secondAttribute="bottom" id="Wbd-2G-cSM"/>
-                                    <constraint firstAttribute="trailing" secondItem="b09-XM-ycc" secondAttribute="trailing" id="ZZZ-iI-RII"/>
-                                    <constraint firstAttribute="centerX" secondItem="b09-XM-ycc" secondAttribute="centerX" id="fsC-KM-Sit"/>
-                                    <constraint firstItem="b09-XM-ycc" firstAttribute="leading" secondItem="Hen-NF-7Nj" secondAttribute="leading" id="wSp-eC-Ofl"/>
+                                    <constraint firstAttribute="width" constant="45" id="4OX-te-IEg"/>
+                                    <constraint firstAttribute="height" constant="45" id="6Gr-D1-NSj"/>
                                 </constraints>
-                            </scrollView>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jMm-R1-hOo">
+                                <rect key="frame" x="19" y="74" width="337" height="53"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="30"/>
+                                <state key="normal" title="June 16, 1988">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="todaysDateButtonPressed" destination="tsR-hK-woN" eventType="touchUpInside" id="WQs-5N-Ynb"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Elt-Uh-2qj">
+                                <rect key="frame" x="16" y="137" width="343" height="530"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="trackerItems" rowHeight="50" id="BHp-H0-CJH" customClass="TRTrackerTableViewCell" customModule="Tracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BHp-H0-CJH" id="Vqo-Nd-b2b">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bT1-vX-V4Z">
+                                                    <rect key="frame" x="13" y="14" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="bT1-vX-V4Z" firstAttribute="leading" secondItem="Vqo-Nd-b2b" secondAttribute="leadingMargin" constant="5" id="QUH-bO-FxJ"/>
+                                                <constraint firstItem="bT1-vX-V4Z" firstAttribute="centerY" secondItem="Vqo-Nd-b2b" secondAttribute="centerY" id="mJb-sR-T9X"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="itemLabel" destination="bT1-vX-V4Z" id="uAj-HP-CNM"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="Hen-NF-7Nj" secondAttribute="bottom" id="LPS-AO-Yfb"/>
-                            <constraint firstItem="Hen-NF-7Nj" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="Pc5-L8-zPO"/>
-                            <constraint firstItem="Hen-NF-7Nj" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailing" id="V6B-tc-9fe"/>
-                            <constraint firstItem="Hen-NF-7Nj" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="edm-fy-tsA"/>
+                            <constraint firstItem="BgH-C2-Kl1" firstAttribute="centerY" secondItem="Elt-Uh-2qj" secondAttribute="centerY" id="270-se-d8w"/>
+                            <constraint firstItem="BgH-C2-Kl1" firstAttribute="centerX" secondItem="Elt-Uh-2qj" secondAttribute="centerX" id="4ZY-Q8-FHD"/>
+                            <constraint firstItem="jMm-R1-hOo" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="10" id="6mt-GE-BYu"/>
+                            <constraint firstItem="Elt-Uh-2qj" firstAttribute="top" secondItem="jMm-R1-hOo" secondAttribute="bottom" constant="10" id="C1u-cW-niQ"/>
+                            <constraint firstItem="Elt-Uh-2qj" firstAttribute="bottom" secondItem="4ug-Mw-9AY" secondAttribute="top" id="GdR-Hd-qS3"/>
+                            <constraint firstItem="jMm-R1-hOo" firstAttribute="width" secondItem="tsR-hK-woN" secondAttribute="width" multiplier="0.9" id="Ocz-WX-XqV"/>
+                            <constraint firstItem="Elt-Uh-2qj" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="YAQ-ba-fbu"/>
+                            <constraint firstItem="Elt-Uh-2qj" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="uX1-Fo-Ta0"/>
+                            <constraint firstItem="jMm-R1-hOo" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="veZ-ZY-FWX"/>
                         </constraints>
+                        <connections>
+                            <outlet property="todaysDateButton" destination="jMm-R1-hOo" id="fJA-hz-lmp"/>
+                            <outlet property="trackerTableView" destination="Elt-Uh-2qj" id="nr4-PF-ESP"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="T" id="7fm-mJ-UdE">
                         <barButtonItem key="backBarButtonItem" title="Back" id="rEv-89-55J"/>
@@ -126,7 +101,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="activityMonitor" destination="BgH-C2-Kl1" id="osk-uG-AFO"/>
-                        <outlet property="trackerView" destination="b09-XM-ycc" id="IDt-dZ-Anz"/>
+                        <outlet property="trackerView" destination="tsR-hK-woN" id="Sgf-TP-6gg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
