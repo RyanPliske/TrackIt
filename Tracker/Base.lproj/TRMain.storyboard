@@ -504,23 +504,6 @@
             </objects>
             <point key="canvasLocation" x="566.5" y="-244.5"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="DO1-zl-8Yp">
-            <objects>
-                <viewController id="fXS-V8-34a" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="o3X-E2-vVA"/>
-                        <viewControllerLayoutGuide type="bottom" id="Uff-F9-xbL"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="cy7-XW-zxy">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MFV-40-5RI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
     </scenes>
     <resources>
         <image name="full__0000s_0091_config" width="25" height="25"/>
