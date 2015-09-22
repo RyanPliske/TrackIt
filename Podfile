@@ -6,6 +6,7 @@ target 'Tracker' do
     pod 'Fabric'
     pod 'Crashlytics'
     pod 'TPKeyboardAvoiding'
+    pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift2'
 end
 
 target 'TrackerTests' do
