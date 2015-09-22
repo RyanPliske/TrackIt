@@ -1,8 +1,14 @@
 import Foundation
 
+protocol TRTrackerTableViewCellDelegate {
+    func plusButtonPressedAt(row: Int)
+}
+
 class TRTrackerTableViewCell: UITableViewCell {
     @IBOutlet private weak var itemLabel: UILabel!
+    @IBOutlet private weak var plusButton: UIButton!
     var statsView: UIView?
+    var delegate: TRTrackerTableViewCellDelegate?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -15,4 +21,11 @@ class TRTrackerTableViewCell: UITableViewCell {
         self.itemLabel.attributedText = NSAttributedString(string: itemName.uppercaseString, attributes: [NSKernAttributeName: 1.7])
     }
     
+    func setTagsForCellWith(tag: Int) {
+        self.plusButton.tag = tag
+    }
+    
+    @IBAction func plusButtonPressed(sender: AnyObject) {
+        self.delegate?.plusButtonPressedAt(plusButton.tag)
+    }
 }

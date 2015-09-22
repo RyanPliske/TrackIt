@@ -1,13 +1,14 @@
 import UIKit
 
 protocol TRTrackerViewDelegate {
+    func trackItemAt(row: Int)
 }
 
 protocol TRTrackerViewObserver {
     func displayDateChooser()
 }
 
-class TRTrackerView: UIView, UITableViewDelegate {
+class TRTrackerView: UIView, UITableViewDelegate, TRTrackerTableViewCellDelegate {
     @IBOutlet weak var todaysDateButton: UIButton!
     @IBOutlet weak var trackerTableView: UITableView! {
         didSet {
@@ -26,6 +27,10 @@ class TRTrackerView: UIView, UITableViewDelegate {
     
     @IBAction func todaysDateButtonPressed() {
         self.observer?.displayDateChooser()
+    }
+    
+    func plusButtonPressedAt(row: Int) {
+        self.delegate?.trackItemAt(row)
     }
     
     // MARK: Setters

@@ -32,7 +32,7 @@ class TRRecordsModel {
         TRRecord()
     }
     
-    func createRecordUsingRow(row: Int, quantityRow: Int, type: TRRecordType, date: NSDate) {
+    func createRecordUsingRow(row: Int, quantity: Int, type: TRRecordType, date: NSDate) {
         var item: String
         switch (type) {
         case .TrackAction:
@@ -40,8 +40,6 @@ class TRRecordsModel {
         case .TrackUrge:
             item = itemsModel.activeSinfulItems[row].name
         }
-        
-        let itemQuantity = quantityRow + 1
         
         weak var weakSelf = self
         let blockCompletion: TRCreateRecordCompletion = {
@@ -53,7 +51,7 @@ class TRRecordsModel {
             }
         }
         
-        recordService.createRecordWithItem(item, quantity: itemQuantity, itemType: type, date: date, completion: blockCompletion)
+        recordService.createRecordWithItem(item, quantity: quantity, itemType: type, date: date, completion: blockCompletion)
     }
     
     func readAllRecords(completion: TRSearchCompletion?) {

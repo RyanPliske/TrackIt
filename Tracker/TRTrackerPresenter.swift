@@ -29,8 +29,16 @@ class TRTrackerPresenter: NSObject, TRTrackerViewDelegate, UITableViewDataSource
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("trackerItems") as! TRTrackerTableViewCell
         cell.setItemLabelTextWith(itemsModel.activeItems[indexPath.section].name)
+        cell.setTagsForCellWith(indexPath.section)
+        cell.delegate = trackerView
         cell.backgroundColor = TRTrackerTableViewCellColorGenerator.colorFor(indexPath.section)
         return cell
+    }
+    
+    // MARK: TRTrackerViewDelegate
+    
+    func trackItemAt(row: Int) {
+        recordsModel.createRecordUsingRow(row, quantity: 1, type: TRRecordType.TrackAction, date: datetoTrack)
     }
     
 }

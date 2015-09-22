@@ -62,6 +62,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="64T-tC-Stf">
                                                     <rect key="frame" x="308" y="18" width="22" height="22"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <connections>
+                                                        <action selector="plusButtonPressed:" destination="BHp-H0-CJH" eventType="touchUpInside" id="vu8-ef-w6b"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -73,6 +76,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="itemLabel" destination="bT1-vX-V4Z" id="uAj-HP-CNM"/>
+                                            <outlet property="plusButton" destination="64T-tC-Stf" id="Lqa-aG-bJx"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
