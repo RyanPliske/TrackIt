@@ -28,6 +28,10 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
         navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Avenir", size: 25.0)!]
     }
     
+    override func viewWillAppear(animated: Bool) {
+        trackerView.trackerTableView.reloadData()
+    }
+    
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent;
     }

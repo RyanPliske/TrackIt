@@ -3,7 +3,7 @@ import Foundation
 class TRTrackerPresenter: NSObject, TRTrackerViewDelegate, UITableViewDataSource {
     let trackerView: TRTrackerView
     let recordsModel: TRRecordsModel
-    let itemsModel = TRItemsModel.sharedInstanceOfItemsModel
+    lazy var itemsModel = TRItemsModel.sharedInstanceOfItemsModel
     var datetoTrack = NSDate()
     var trackingType : TRRecordType = .TrackAction
 
@@ -17,21 +17,17 @@ class TRTrackerPresenter: NSObject, TRTrackerViewDelegate, UITableViewDataSource
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemsModel.activeItems.count
+        return 1
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return itemsModel.activeItems.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("trackerItems") as! TRTrackerTableViewCell
-        if let aCell = cell as? TRTrackerTableViewCell {
-            aCell.setItemLabelTextWith(itemsModel.activeItems[indexPath.row].name)
-        }
+        cell.setItemLabelTextWith(itemsModel.activeItems[indexPath.section].name)
         return cell
     }
-    
-    
     
 }
