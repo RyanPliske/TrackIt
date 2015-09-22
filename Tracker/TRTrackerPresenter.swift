@@ -7,37 +7,14 @@ class TRTrackerPresenter: NSObject, TRTrackerViewDelegate {
     let recordsModel: TRRecordsModel
     let itemsModel = TRItemsModel.sharedInstanceOfItemsModel
     var datetoTrack = NSDate()
+    var trackingType : TRRecordType = .TrackAction
 
-    var selectedItemOfFirstColumn = 0 {
-        didSet {
-            self.trackerView.itemPickerView.selectRow(selectedItemOfFirstColumn, inComponent: 0, animated: false)
-        }
-    }
-    
-    var selectedItemOfSecondColumn = 0 {
-        didSet {
-            self.trackerView.itemPickerView.selectRow(selectedItemOfSecondColumn, inComponent: 1, animated: false)
-        }
-    }
-    
-    var trackingType : TRRecordType = .TrackAction {
-        didSet {
-            self.trackerView.itemPickerView.reloadAllComponents()
-            selectedItemOfFirstColumn = 0
-            if trackingType == .TrackAction {
-                selectedItemOfSecondColumn = 0
-            }
-            self.trackerView.hiddenPickerViewTextField.becomeFirstResponder()
-        }
-    }
     
     init(view: TRTrackerView, model: TRRecordsModel) {
         trackerView = view
         recordsModel = model
         super.init()
         self.trackerView.delegate = self
-        self.trackerView.itemPickerView.dataSource = self
-        self.trackerView.itemPickerView.delegate = self
     }
     
     // MARK: TRTrackerViewDelegate
@@ -50,6 +27,6 @@ class TRTrackerPresenter: NSObject, TRTrackerViewDelegate {
     }
     
     func userPickedAnItemToTrack() {
-        self.recordsModel.createRecordUsingRow(selectedItemOfFirstColumn, quantityRow: selectedItemOfSecondColumn, type: trackingType, date: self.datetoTrack)
+//        self.recordsModel.createRecordUsingRow(selectedItemOfFirstColumn, quantityRow: selectedItemOfSecondColumn, type: trackingType, date: self.datetoTrack)
     }
 }
