@@ -57,8 +57,9 @@ class TRTrackerView: UIView, UITableViewDelegate {
         } else {
             pathToReload = indexPath
         }
+        trackerTableView.beginUpdates()
         trackerTableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+        trackerTableView.endUpdates()
         trackerTableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Top, animated: true)
-        
     }
 }
