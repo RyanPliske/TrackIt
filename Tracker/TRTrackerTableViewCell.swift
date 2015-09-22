@@ -12,7 +12,7 @@ class TRTrackerTableViewCell: UITableViewCell {
     }
     
     func setItemLabelTextWith(itemName: String) {
-        self.itemLabel.text = itemName
+        self.itemLabel.attributedText = NSAttributedString(string: itemName.uppercaseString, attributes: [NSKernAttributeName: 1.7])
     }
     
 }

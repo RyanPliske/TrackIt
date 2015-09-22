@@ -64,6 +64,7 @@
 		EFC9CD6B1B7D606800060D54 /* TRTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC9CD6A1B7D606800060D54 /* TRTrackerView.swift */; };
 		EFD8AEAC1B9658C000962BA0 /* TRSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD8AEAB1B9658C000962BA0 /* TRSettingsTableViewCell.swift */; };
 		EFD8AEAF1B965C0200962BA0 /* TRSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD8AEAE1B965C0200962BA0 /* TRSettingsModel.swift */; };
+		EFDDA9591BB12AA30052ED78 /* TRTrackerTableViewCellColorGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDDA9581BB12AA30052ED78 /* TRTrackerTableViewCellColorGenerator.swift */; settings = {ASSET_TAGS = (); }; };
 		EFE083F41A86A9B100AC9631 /* TRAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE083F31A86A9B100AC9631 /* TRAppDelegate.swift */; };
 		EFE083F61A86A9B100AC9631 /* TRTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE083F51A86A9B100AC9631 /* TRTrackerViewController.swift */; };
 		EFE083F81A86A9B100AC9631 /* TRStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE083F71A86A9B100AC9631 /* TRStatsViewController.swift */; };
@@ -180,6 +181,7 @@
 		EFC9CD6A1B7D606800060D54 /* TRTrackerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRTrackerView.swift; sourceTree = "<group>"; };
 		EFD8AEAB1B9658C000962BA0 /* TRSettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRSettingsTableViewCell.swift; sourceTree = "<group>"; };
 		EFD8AEAE1B965C0200962BA0 /* TRSettingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRSettingsModel.swift; sourceTree = "<group>"; };
+		EFDDA9581BB12AA30052ED78 /* TRTrackerTableViewCellColorGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRTrackerTableViewCellColorGenerator.swift; sourceTree = "<group>"; };
 		EFE083EE1A86A9B100AC9631 /* Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFE083F31A86A9B100AC9631 /* TRAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRAppDelegate.swift; sourceTree = "<group>"; };
 		EFE083F51A86A9B100AC9631 /* TRTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRTrackerViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
@@ -302,6 +304,7 @@
 				EFF8FB7C1BB0E53F00E2A379 /* TRTrackerTableViewCell.swift */,
 				EF53D05B1B862CC0007873B4 /* TREditTracksButton.swift */,
 				EFE9F6421BAB4DE600C786FE /* TRHiddenTextField.swift */,
+				EFDDA9581BB12AA30052ED78 /* TRTrackerTableViewCellColorGenerator.swift */,
 			);
 			name = TRTrackerView;
 			sourceTree = "<group>";
@@ -793,6 +796,7 @@
 				EFA45C061BAB9AC800EAFB76 /* TRRecordService.swift in Sources */,
 				EF3D9FBD1B85146F009042CA /* TRTrackerPresenter+TRDateChooserObserver.swift in Sources */,
 				EF3D9FBB1B850E8E009042CA /* UIImage+CL.m in Sources */,
+				EFDDA9591BB12AA30052ED78 /* TRTrackerTableViewCellColorGenerator.swift in Sources */,
 				EF649E421B54A10D004431C6 /* TRChooseableDateViewController.swift in Sources */,
 				EF3779A01B8ECB2500D6FB97 /* TREditTracksViewController+UISearchBarDelegate.swift in Sources */,
 				EFD8AEAC1B9658C000962BA0 /* TRSettingsTableViewCell.swift in Sources */,
