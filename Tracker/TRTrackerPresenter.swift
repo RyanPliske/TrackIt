@@ -1,8 +1,6 @@
 import Foundation
-/**
-The `TRTrackerPresenter` class is designed to act as the mediator between the TRTrackerView and TRRecordsModel.
-*/
-class TRTrackerPresenter: NSObject, TRTrackerViewDelegate {
+
+class TRTrackerPresenter: NSObject, TRTrackerViewDelegate, UITableViewDataSource {
     let trackerView: TRTrackerView
     let recordsModel: TRRecordsModel
     let itemsModel = TRItemsModel.sharedInstanceOfItemsModel
@@ -17,16 +15,17 @@ class TRTrackerPresenter: NSObject, TRTrackerViewDelegate {
         self.trackerView.delegate = self
     }
     
-    // MARK: TRTrackerViewDelegate
-    func userWantsToTrackAction(){
-        trackingType = .TrackAction
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return itemsModel.activeItems.count
     }
     
-    func userWantsToTrackUrge(){
-        trackingType = .TrackUrge
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
     }
     
-    func userPickedAnItemToTrack() {
-//        self.recordsModel.createRecordUsingRow(selectedItemOfFirstColumn, quantityRow: selectedItemOfSecondColumn, type: trackingType, date: self.datetoTrack)
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("trackerItems") as! TRTrackerTableViewCell
+        return cell
     }
+    
 }

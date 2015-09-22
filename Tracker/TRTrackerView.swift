@@ -1,9 +1,9 @@
 import UIKit
 
 protocol TRTrackerViewDelegate {
-    func userWantsToTrackAction()
-    func userWantsToTrackUrge()
-    func userPickedAnItemToTrack()
+//    func userWantsToTrackAction()
+//    func userWantsToTrackUrge()
+//    func userPickedAnItemToTrack()
 }
 
 protocol TRTrackerViewObserver {
@@ -12,6 +12,7 @@ protocol TRTrackerViewObserver {
 
 class TRTrackerView: UIView {
     @IBOutlet weak var todaysDateButton: TRTodaysDateButton!
+        @IBOutlet weak var trackerTableView: UITableView!
     
     var delegate: TRTrackerViewDelegate?
     var observer: TRTrackerViewObserver?
@@ -19,15 +20,6 @@ class TRTrackerView: UIView {
     override func willMoveToWindow(newWindow: UIWindow?) {
         super.willMoveToWindow(newWindow)
         setTodaysDateButtonLabelWithText(TRDateFormatter.descriptionForToday)
-    }
-    
-    // MARK: User Interaction
-    func trackButtonTapped() {
-        self.delegate?.userWantsToTrackAction()
-    }
-    
-    func trackUrgeButtonTapped() {
-        self.delegate?.userWantsToTrackUrge()
     }
     
     @IBAction func todaysDateButtonPressed() {

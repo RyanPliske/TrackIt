@@ -41,15 +41,49 @@
                                                     <action selector="todaysDateButtonPressed" destination="b09-XM-ycc" eventType="touchUpInside" id="cbA-Zm-WOY"/>
                                                 </connections>
                                             </button>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Elt-Uh-2qj">
+                                                <rect key="frame" x="5" y="93" width="365" height="510"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <prototypes>
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="trackerItems" rowHeight="50" id="BHp-H0-CJH" customClass="TRTrackerTableViewCell" customModule="Tracker" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="28" width="365" height="50"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BHp-H0-CJH" id="Vqo-Nd-b2b">
+                                                            <rect key="frame" x="0.0" y="0.0" width="365" height="49"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bT1-vX-V4Z">
+                                                                    <rect key="frame" x="13" y="11" width="42" height="21"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="bT1-vX-V4Z" firstAttribute="leading" secondItem="Vqo-Nd-b2b" secondAttribute="leadingMargin" constant="5" id="QUH-bO-FxJ"/>
+                                                                <constraint firstItem="bT1-vX-V4Z" firstAttribute="centerY" secondItem="Vqo-Nd-b2b" secondAttribute="centerY" id="mJb-sR-T9X"/>
+                                                            </constraints>
+                                                        </tableViewCellContentView>
+                                                        <connections>
+                                                            <outlet property="itemLabel" destination="bT1-vX-V4Z" id="uAj-HP-CNM"/>
+                                                        </connections>
+                                                    </tableViewCell>
+                                                </prototypes>
+                                            </tableView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="Elt-Uh-2qj" secondAttribute="trailing" constant="5" id="512-ZK-b9T"/>
+                                            <constraint firstItem="Elt-Uh-2qj" firstAttribute="leading" secondItem="b09-XM-ycc" secondAttribute="leading" constant="5" id="8iB-Q3-Ub7"/>
+                                            <constraint firstItem="Elt-Uh-2qj" firstAttribute="top" secondItem="jMm-R1-hOo" secondAttribute="bottom" constant="40" id="BiL-dw-Cv8"/>
+                                            <constraint firstAttribute="bottom" secondItem="Elt-Uh-2qj" secondAttribute="bottom" id="FFV-hP-gfW"/>
                                             <constraint firstItem="jMm-R1-hOo" firstAttribute="width" secondItem="b09-XM-ycc" secondAttribute="width" multiplier="0.9" id="LSB-Dx-3ts"/>
                                             <constraint firstItem="jMm-R1-hOo" firstAttribute="centerX" secondItem="b09-XM-ycc" secondAttribute="centerX" id="Qhi-KS-di5"/>
                                             <constraint firstItem="jMm-R1-hOo" firstAttribute="top" secondItem="b09-XM-ycc" secondAttribute="top" id="dr5-uf-JOR"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="todaysDateButton" destination="jMm-R1-hOo" id="rjS-P0-ufB"/>
+                                            <outlet property="trackerTableView" destination="Elt-Uh-2qj" id="kIq-Aw-XJG"/>
                                         </connections>
                                     </view>
                                 </subviews>
