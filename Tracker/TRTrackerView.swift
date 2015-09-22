@@ -1,9 +1,6 @@
 import UIKit
 
 protocol TRTrackerViewDelegate {
-//    func userWantsToTrackAction()
-//    func userWantsToTrackUrge()
-//    func userPickedAnItemToTrack()
 }
 
 protocol TRTrackerViewObserver {
@@ -17,7 +14,7 @@ class TRTrackerView: UIView, UITableViewDelegate {
             self.trackerTableView.delegate = self
         }
     }
-    
+    var pathToReload: NSIndexPath?
     var delegate: TRTrackerViewDelegate?
     var observer: TRTrackerViewObserver?
     
@@ -45,5 +42,23 @@ class TRTrackerView: UIView, UITableViewDelegate {
         view.sizeToFit()
         view.backgroundColor = UIColor.clearColor()
         return view
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if let path = pathToReload where path == indexPath {
+            return 400
+        }
+        return 60
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath == pathToReload {
+            pathToReload = nil
+        } else {
+            pathToReload = indexPath
+        }
+        trackerTableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+        trackerTableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
+        
     }
 }

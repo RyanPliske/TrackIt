@@ -53,16 +53,16 @@
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bT1-vX-V4Z">
-                                                    <rect key="frame" x="13" y="14" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bT1-vX-V4Z">
+                                                    <rect key="frame" x="13" y="18" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="bT1-vX-V4Z" firstAttribute="top" secondItem="Vqo-Nd-b2b" secondAttribute="topMargin" constant="10" id="0Ag-wQ-30e"/>
                                                 <constraint firstItem="bT1-vX-V4Z" firstAttribute="leading" secondItem="Vqo-Nd-b2b" secondAttribute="leadingMargin" constant="5" id="QUH-bO-FxJ"/>
-                                                <constraint firstItem="bT1-vX-V4Z" firstAttribute="centerY" secondItem="Vqo-Nd-b2b" secondAttribute="centerY" id="mJb-sR-T9X"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

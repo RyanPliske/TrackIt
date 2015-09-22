@@ -16,6 +16,8 @@ class TRTrackerPresenter: NSObject, TRTrackerViewDelegate, UITableViewDataSource
         self.trackerView.trackerTableView.dataSource = self
     }
     
+    // MARK: UITableViewDataSource
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
