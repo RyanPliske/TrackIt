@@ -63,7 +63,6 @@
 		EFB3929A1B93A295002EC06C /* TRDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCF9D91AFA9318004DEDB9 /* TRDateFormatter.swift */; };
 		EFB3929B1B93A2A3002EC06C /* TRCurrentDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCF9DB1AFA9C26004DEDB9 /* TRCurrentDate.swift */; };
 		EFC9CD6B1B7D606800060D54 /* TRTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC9CD6A1B7D606800060D54 /* TRTrackerView.swift */; };
-		EFCA44AE1AF2BD430012AE52 /* TRTrackerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA44AD1AF2BD430012AE52 /* TRTrackerButton.swift */; };
 		EFD8AEAC1B9658C000962BA0 /* TRSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD8AEAB1B9658C000962BA0 /* TRSettingsTableViewCell.swift */; };
 		EFD8AEAF1B965C0200962BA0 /* TRSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD8AEAE1B965C0200962BA0 /* TRSettingsModel.swift */; };
 		EFE083F41A86A9B100AC9631 /* TRAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE083F31A86A9B100AC9631 /* TRAppDelegate.swift */; };
@@ -181,7 +180,6 @@
 		EFB392901B93609E002EC06C /* MockRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockRecord.swift; sourceTree = "<group>"; };
 		EFB392921B939A92002EC06C /* MockQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockQuery.swift; sourceTree = "<group>"; };
 		EFC9CD6A1B7D606800060D54 /* TRTrackerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRTrackerView.swift; sourceTree = "<group>"; };
-		EFCA44AD1AF2BD430012AE52 /* TRTrackerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRTrackerButton.swift; sourceTree = "<group>"; };
 		EFD8AEAB1B9658C000962BA0 /* TRSettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRSettingsTableViewCell.swift; sourceTree = "<group>"; };
 		EFD8AEAE1B965C0200962BA0 /* TRSettingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRSettingsModel.swift; sourceTree = "<group>"; };
 		EFE083EE1A86A9B100AC9631 /* Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -305,7 +303,6 @@
 				EFC9CD6A1B7D606800060D54 /* TRTrackerView.swift */,
 				EFF8FB7C1BB0E53F00E2A379 /* TRTrackerTableViewCell.swift */,
 				EF53D05B1B862CC0007873B4 /* TREditTracksButton.swift */,
-				EFCA44AD1AF2BD430012AE52 /* TRTrackerButton.swift */,
 				EF53D0601B8663BB007873B4 /* TRTodaysDateButton.swift */,
 				EFE9F6421BAB4DE600C786FE /* TRHiddenTextField.swift */,
 			);
@@ -839,7 +836,6 @@
 				EF70DE2D1B8D480D00CDAFC5 /* TREditTracksTableViewCellDecorator.swift in Sources */,
 				EF9A004F1BA8B6C7009FF92E /* TREditItemTableViewViceCell.swift in Sources */,
 				EF378F571B891CFA00235464 /* TRRecord.swift in Sources */,
-				EFCA44AE1AF2BD430012AE52 /* TRTrackerButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

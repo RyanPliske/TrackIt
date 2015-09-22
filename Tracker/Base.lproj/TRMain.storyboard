@@ -31,6 +31,13 @@
                                     <view alpha="0.79999999999999982" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b09-XM-ycc" userLabel="TrackerView" customClass="TRTrackerView" customModule="Tracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                         <subviews>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="BgH-C2-Kl1">
+                                                <rect key="frame" x="165" y="326" width="45" height="45"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="45" id="4OX-te-IEg"/>
+                                                    <constraint firstAttribute="height" constant="45" id="6Gr-D1-NSj"/>
+                                                </constraints>
+                                            </activityIndicatorView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jMm-R1-hOo" customClass="TRTodaysDateButton" customModule="Tracker" customModuleProvider="target">
                                                 <rect key="frame" x="19" y="0.0" width="337" height="53"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="30"/>
@@ -52,8 +59,8 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="365" height="49"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bT1-vX-V4Z">
-                                                                    <rect key="frame" x="13" y="11" width="42" height="21"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bT1-vX-V4Z">
+                                                                    <rect key="frame" x="13" y="14" width="42" height="21"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -77,7 +84,9 @@
                                             <constraint firstItem="Elt-Uh-2qj" firstAttribute="leading" secondItem="b09-XM-ycc" secondAttribute="leading" constant="5" id="8iB-Q3-Ub7"/>
                                             <constraint firstItem="Elt-Uh-2qj" firstAttribute="top" secondItem="jMm-R1-hOo" secondAttribute="bottom" constant="40" id="BiL-dw-Cv8"/>
                                             <constraint firstAttribute="bottom" secondItem="Elt-Uh-2qj" secondAttribute="bottom" id="FFV-hP-gfW"/>
+                                            <constraint firstItem="BgH-C2-Kl1" firstAttribute="centerX" secondItem="Elt-Uh-2qj" secondAttribute="centerX" id="IrS-OJ-AsZ"/>
                                             <constraint firstItem="jMm-R1-hOo" firstAttribute="width" secondItem="b09-XM-ycc" secondAttribute="width" multiplier="0.9" id="LSB-Dx-3ts"/>
+                                            <constraint firstItem="BgH-C2-Kl1" firstAttribute="centerY" secondItem="Elt-Uh-2qj" secondAttribute="centerY" id="NGG-uQ-922"/>
                                             <constraint firstItem="jMm-R1-hOo" firstAttribute="centerX" secondItem="b09-XM-ycc" secondAttribute="centerX" id="Qhi-KS-di5"/>
                                             <constraint firstItem="jMm-R1-hOo" firstAttribute="top" secondItem="b09-XM-ycc" secondAttribute="top" id="dr5-uf-JOR"/>
                                         </constraints>
@@ -116,6 +125,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="activityMonitor" destination="BgH-C2-Kl1" id="osk-uG-AFO"/>
                         <outlet property="trackerView" destination="b09-XM-ycc" id="IDt-dZ-Anz"/>
                     </connections>
                 </viewController>

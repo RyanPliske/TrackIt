@@ -1,5 +1,6 @@
 import UIKit
 import QuartzCore
+import HTPressableButton
 
 class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
     
@@ -8,11 +9,19 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
     private var recordService = TRRecordService()
     private var recordsModel: TRRecordsModel!
     private let dateViewController = TRChooseableDateViewController()
+    @IBOutlet weak var activityMonitor: UIActivityIndicatorView!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         recordsModel = TRRecordsModel.sharedInstanceOfRecordsModel
         trackerPresenter = TRTrackerPresenter(view: self.trackerView, model: self.recordsModel!)
+        activityMonitor.startAnimating()
+        weak var weakSelf = self
+        recordsModel.readAllRecords { () -> Void in
+            weakSelf?.trackerView.trackerTableView.reloadData()
+            weakSelf?.activityMonitor.stopAnimating()
+            weakSelf?.activityMonitor.hidden = true
+        }
+        super.viewDidLoad()
         setNeedsStatusBarAppearanceUpdate()
         trackerView.observer = self
         dateViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
