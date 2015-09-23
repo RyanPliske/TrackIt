@@ -58,8 +58,13 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
             if let cell = self.trackerView.trackerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: row)) as? TRTrackerTableViewCell {
                 popOver.sourceView = cell.contentView
                 popOver.sourceRect = cell.moreButtonFrame
+                trackingOptionsTableViewController.delegate = cell
             }
             self.presentViewController(trackingOptionsTableViewController, animated: true, completion: nil)
         }
+    }
+    
+    func dismissTrackingOptions() {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }

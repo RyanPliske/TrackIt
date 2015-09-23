@@ -4,7 +4,7 @@ class TRTrackerPresenter: NSObject, TRTrackerViewDelegate, UITableViewDataSource
     let trackerView: TRTrackerView
     let recordsModel: TRRecordsModel
     lazy var itemsModel = TRItemsModel.sharedInstanceOfItemsModel
-    var datetoTrack = NSDate()
+    var dateToTrack = NSDate()
     var trackingType : TRRecordType = .TrackAction
 
     
@@ -38,7 +38,11 @@ class TRTrackerPresenter: NSObject, TRTrackerViewDelegate, UITableViewDataSource
     // MARK: TRTrackerViewDelegate
     
     func trackItemAtRow(row: Int) {
-        recordsModel.createRecordUsingRow(row, quantity: 1, type: TRRecordType.TrackAction, date: datetoTrack)
+        recordsModel.createRecordUsingRow(row, quantity: 1, type: TRRecordType.TrackAction, date: dateToTrack)
+    }
+    
+    func trackUrgeAtRow(row: Int) {
+        recordsModel.createRecordUsingRow(row, quantity: 1, type: TRRecordType.TrackUrge, date: dateToTrack)
     }
     
 }

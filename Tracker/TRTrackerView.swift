@@ -3,11 +3,13 @@ import Spring
 
 protocol TRTrackerViewDelegate {
     func trackItemAtRow(row: Int)
+    func trackUrgeAtRow(row: Int)
 }
 
 protocol TRTrackerViewObserver {
     func dateChooserWanted()
     func trackingOptionsWantedAtRow(row: Int)
+    func dismissTrackingOptions()
 }
 
 class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
@@ -46,10 +48,7 @@ class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
             dispatch_get_main_queue(), closure)
     }
     
-    // MARK: TRTrackerTableViewCellDelegate
-    
-    func plusButtonPressedAtRow(row: Int) {
-        delegate?.trackItemAtRow(row)
+    private func animateSavedRecord() {
         weak var weakSelf = self
         recordSavedLabel.hidden = false
         
@@ -75,7 +74,21 @@ class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
         }
     }
     
+    // MARK: TRTrackerTableViewCellDelegate
+    
+    func plusButtonPressedAtRow(row: Int) {
+        delegate?.trackItemAtRow(row)
+        animateSavedRecord()
+    }
+    
     func moreButtonPressedAtRow(row: Int) {
         observer?.trackingOptionsWantedAtRow(row)
     }
+    
+    func trackUrgeSelectedForRow(row: Int) {
+        delegate?.trackUrgeAtRow(row)
+        observer?.dismissTrackingOptions()
+        animateSavedRecord()
+    }
+    
 }

@@ -4,9 +4,10 @@ import Spring
 protocol TRTrackerTableViewCellDelegate {
     func plusButtonPressedAtRow(row: Int)
     func moreButtonPressedAtRow(row: Int)
+    func trackUrgeSelectedForRow(row: Int)
 }
 
-class TRTrackerTableViewCell: UITableViewCell {
+class TRTrackerTableViewCell: UITableViewCell, TRTrackingOptionsDelegate {
     @IBOutlet private weak var itemLabel: UILabel!
     @IBOutlet private weak var plusButton: SpringButton!
     @IBOutlet private weak var moreButton: UIButton!
@@ -41,6 +42,11 @@ class TRTrackerTableViewCell: UITableViewCell {
     
     @IBAction func moreButtonPressed(sender: AnyObject) {
         self.delegate?.moreButtonPressedAtRow(plusButton.tag)
+    }
+    
+    // MARK: TRTrackingOptionsDelegate
+    func trackUrge() {
+        self.delegate?.trackUrgeSelectedForRow(plusButton.tag)
     }
     
 }

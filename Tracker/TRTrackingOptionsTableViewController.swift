@@ -1,6 +1,17 @@
 import Foundation
 
+protocol TRTrackingOptionsDelegate {
+    func trackUrge()
+}
+
 class TRTrackingOptionsTableViewController: UITableViewController, UIPopoverPresentationControllerDelegate {
+    
+    var delegate: TRTrackingOptionsDelegate?
+    private enum cellIndex: Int {
+        case trackUrge = 0
+        case trackMultiple
+        static let allCellItems = [trackUrge, trackMultiple]
+    }
     
     init() {
         super.init(style: UITableViewStyle.Plain)
@@ -14,19 +25,25 @@ class TRTrackingOptionsTableViewController: UITableViewController, UIPopoverPres
     }
 
     // Data Source
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
-    }
-    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return cellIndex.allCellItems.count
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
+        if indexPath.row == cellIndex.trackUrge.rawValue {
             return tableView.dequeueReusableCellWithIdentifier("trackUrge")!
-        } else {
-            return tableView.dequeueReusableCellWithIdentifier("trackMultiple")!
+        }
+        return tableView.dequeueReusableCellWithIdentifier("trackMultiple")!
+    }
+    
+    // Delegate
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.row == cellIndex.trackUrge.rawValue {
+            delegate?.trackUrge()
         }
     }
     
