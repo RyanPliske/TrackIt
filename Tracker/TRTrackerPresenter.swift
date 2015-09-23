@@ -37,7 +37,7 @@ class TRTrackerPresenter: NSObject, TRTrackerViewDelegate, UITableViewDataSource
     
     // MARK: TRTrackerViewDelegate
     
-    func trackItemAt(row: Int) {
+    func trackItemAtRow(row: Int) {
         recordsModel.createRecordUsingRow(row, quantity: 1, type: TRRecordType.TrackAction, date: datetoTrack)
     }
     

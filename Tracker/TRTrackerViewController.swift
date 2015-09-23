@@ -7,7 +7,6 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
     private var trackerPresenter: TRTrackerPresenter!
     private var recordService = TRRecordService()
     private var recordsModel: TRRecordsModel!
-    private let dateViewController = TRChooseableDateViewController()
     @IBOutlet weak var activityMonitor: UIActivityIndicatorView!
     
     override func viewDidLoad() {
@@ -16,15 +15,13 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
         activityMonitor.startAnimating()
         weak var weakSelf = self
         recordsModel.readAllRecords { () -> Void in
-            weakSelf?.trackerView.trackerTableView.reloadData()
             weakSelf?.activityMonitor.stopAnimating()
             weakSelf?.activityMonitor.hidden = true
+            weakSelf?.trackerView.trackerTableView.reloadData()
         }
         super.viewDidLoad()
         setNeedsStatusBarAppearanceUpdate()
         trackerView.observer = self
-        dateViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
-        dateViewController.dateObserver = self.trackerPresenter
         navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Avenir", size: 25.0)!]
         navigationController?.navigationBar.tintColor = UIColor.TRMimosaYellow()
     }
@@ -39,13 +36,30 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
     }
     
     // MARK: TRTrackerViewObserver
-    func displayDateChooser() {
-        if let popOver : UIPopoverPresentationController = dateViewController.popoverPresentationController {
+    func dateChooserWanted() {
+        let dateViewController = TRChooseableDateViewController()
+        dateViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
+        dateViewController.dateObserver = self.trackerPresenter
+        if let popOver = dateViewController.popoverPresentationController {
             popOver.permittedArrowDirections = UIPopoverArrowDirection.Up
             popOver.delegate = dateViewController
             popOver.sourceView = self.trackerView
             popOver.sourceRect = self.trackerView.todaysDateButton.frame
             self.presentViewController(dateViewController, animated: true, completion: nil)
+        }
+    }
+    
+    func trackingOptionsWantedAtRow(row: Int) {
+        let trackingOptionsTableViewController = TRTrackingOptionsTableViewController()
+        trackingOptionsTableViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
+        if let popOver = trackingOptionsTableViewController.popoverPresentationController {
+            popOver.permittedArrowDirections = UIPopoverArrowDirection.Up
+            popOver.delegate = trackingOptionsTableViewController
+            if let cell = self.trackerView.trackerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: row)) as? TRTrackerTableViewCell {
+                popOver.sourceView = cell.contentView
+                popOver.sourceRect = cell.moreButtonFrame
+            }
+            self.presentViewController(trackingOptionsTableViewController, animated: true, completion: nil)
         }
     }
 }

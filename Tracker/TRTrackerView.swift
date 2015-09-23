@@ -2,11 +2,12 @@ import UIKit
 import Spring
 
 protocol TRTrackerViewDelegate {
-    func trackItemAt(row: Int)
+    func trackItemAtRow(row: Int)
 }
 
 protocol TRTrackerViewObserver {
-    func displayDateChooser()
+    func dateChooserWanted()
+    func trackingOptionsWantedAtRow(row: Int)
 }
 
 class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
@@ -29,7 +30,7 @@ class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
     }
     
     @IBAction func todaysDateButtonPressed() {
-        self.observer?.displayDateChooser()
+        observer?.dateChooserWanted()
     }
     
     func setTodaysDateButtonLabelWithText(text: String) {
@@ -47,8 +48,8 @@ class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
     
     // MARK: TRTrackerTableViewCellDelegate
     
-    func plusButtonPressedAt(row: Int) {
-        self.delegate?.trackItemAt(row)
+    func plusButtonPressedAtRow(row: Int) {
+        delegate?.trackItemAtRow(row)
         weak var weakSelf = self
         recordSavedLabel.hidden = false
         
@@ -72,5 +73,9 @@ class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
         recordSavedLabel.animateNext { () -> () in
             weakSelf?.delay(1.5, closure: zoomOut)
         }
+    }
+    
+    func moreButtonPressedAtRow(row: Int) {
+        observer?.trackingOptionsWantedAtRow(row)
     }
 }
