@@ -13,19 +13,19 @@ extension UIColor {
         return UIColor(red: 181.0 / 255.0, green: 89.0 / 255.0, blue: 90.0 / 255.0, alpha: 1.0)
     }
     
-    class func TREasterBoy() -> UIColor {
+    class func TREasterBoyBlue() -> UIColor {
         return UIColor(red: 118.0 / 255.0, green: 183.0 / 255.0, blue: 182.0 / 255.0, alpha: 1.0)
     }
     
-    class func TRMimosa() -> UIColor {
+    class func TRMimosaYellow() -> UIColor {
         return UIColor(red: 234.0 / 255.0, green: 184.0 / 255.0, blue: 46.0 / 255.0, alpha: 1.0)
     }
     
-    class func TRHamptonShorts() -> UIColor {
+    class func TRHamptonShortsGreen() -> UIColor {
         return UIColor(red: 159.0 / 255.0, green: 211.0 / 255.0, blue: 127 / 255.0, alpha: 1.0)
     }
 }
 
 struct TRItemColors {
-       static let cellColors = [UIColor.TRPaleRouge(), UIColor.TREasterBoy(), UIColor.TRMimosa(), UIColor.TRHamptonShorts()]
+       static let cellColors = [UIColor.TRPaleRouge(), UIColor.TREasterBoyBlue(), UIColor.TRMimosaYellow(), UIColor.TRHamptonShortsGreen()]
 }

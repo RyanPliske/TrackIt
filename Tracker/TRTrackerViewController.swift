@@ -26,6 +26,7 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
         dateViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
         dateViewController.dateObserver = self.trackerPresenter
         navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Avenir", size: 25.0)!]
+        navigationController?.navigationBar.tintColor = UIColor.TRMimosaYellow()
     }
     
     override func viewWillAppear(animated: Bool) {
