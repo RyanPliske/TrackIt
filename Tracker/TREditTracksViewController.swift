@@ -9,8 +9,9 @@ class TREditTracksViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         recordsModel = TRRecordsModel.sharedInstanceOfRecordsModel
-        editTracksTableView.dataSource = self
         recordSearchBar.delegate = self
+        editTracksTableView.dataSource = self
+        editTracksTableView.delegate = editTracksTableView
         title = "Tracks"
         navigationItem.rightBarButtonItem = self.editButtonItem()
         if let navController = navigationController {
@@ -22,9 +23,9 @@ class TREditTracksViewController: UIViewController {
     }
     
     override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
         recordsModel.sortType = TRRecordType.TrackAction
         view.endEditing(true)
+        super.viewWillDisappear(animated)
     }
     
     override func setEditing(editing: Bool, animated: Bool) {
