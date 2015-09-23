@@ -31,6 +31,7 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
     
     override func viewWillAppear(animated: Bool) {
         trackerView.trackerTableView.reloadData()
+        super.viewWillAppear(animated)
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {

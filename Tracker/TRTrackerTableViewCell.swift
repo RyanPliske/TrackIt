@@ -8,6 +8,7 @@ protocol TRTrackerTableViewCellDelegate {
 class TRTrackerTableViewCell: UITableViewCell {
     @IBOutlet private weak var itemLabel: UILabel!
     @IBOutlet private weak var plusButton: SpringButton!
+    
     var statsView: UIView?
     var delegate: TRTrackerTableViewCellDelegate?
     
@@ -18,12 +19,26 @@ class TRTrackerTableViewCell: UITableViewCell {
         addSubview(statsView!)
     }
     
+    override func awakeFromNib() {
+        if let _ = plusButton {
+            let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "plusButtonLongPressed:")
+            plusButton.addGestureRecognizer(longPressRecognizer)
+        }
+        super.awakeFromNib()
+    }
+    
     func setItemLabelTextWith(itemName: String) {
         self.itemLabel.attributedText = NSAttributedString(string: itemName.uppercaseString, attributes: [NSKernAttributeName: 1.7])
     }
     
     func setTagsForCellWith(tag: Int) {
         self.plusButton.tag = tag
+    }
+    
+    func plusButtonLongPressed(gestureRecognizer: UILongPressGestureRecognizer) {
+        if gestureRecognizer.state == UIGestureRecognizerState.Began {
+            print("Long Press Detected")
+        }
     }
     
     @IBAction func plusButtonPressed(sender: AnyObject) {
