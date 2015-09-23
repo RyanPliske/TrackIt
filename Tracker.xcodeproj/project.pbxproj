@@ -41,6 +41,7 @@
 		EF86B2BA1BA0FC5C0080DC97 /* TRItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF86B2B91BA0FC5C0080DC97 /* TRItemsModel.swift */; };
 		EF86B2BC1BA0FDBA0080DC97 /* TRItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF86B2BB1BA0FDBA0080DC97 /* TRItem.swift */; };
 		EF86B2BE1BA1055C0080DC97 /* TRItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF86B2BD1BA1055C0080DC97 /* TRItemService.swift */; };
+		EF93495B1BB23286005EF50C /* TRTrackerView+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF93495A1BB23286005EF50C /* TRTrackerView+UITableViewDelegate.swift */; settings = {ASSET_TAGS = (); }; };
 		EF9A004F1BA8B6C7009FF92E /* TREditItemTableViewViceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9A004E1BA8B6C7009FF92E /* TREditItemTableViewViceCell.swift */; settings = {ASSET_TAGS = (); }; };
 		EFA1EF8C1BA75BB6007D82E6 /* TREditItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA1EF8B1BA75BB6007D82E6 /* TREditItemViewController.swift */; };
 		EFA1EF901BA75E77007D82E6 /* TREditItemPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA1EF8F1BA75E77007D82E6 /* TREditItemPresenter.swift */; };
@@ -153,6 +154,7 @@
 		EF86B2B91BA0FC5C0080DC97 /* TRItemsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRItemsModel.swift; sourceTree = "<group>"; };
 		EF86B2BB1BA0FDBA0080DC97 /* TRItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRItem.swift; sourceTree = "<group>"; };
 		EF86B2BD1BA1055C0080DC97 /* TRItemService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRItemService.swift; sourceTree = "<group>"; };
+		EF93495A1BB23286005EF50C /* TRTrackerView+UITableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TRTrackerView+UITableViewDelegate.swift"; sourceTree = "<group>"; };
 		EF9A004E1BA8B6C7009FF92E /* TREditItemTableViewViceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TREditItemTableViewViceCell.swift; sourceTree = "<group>"; };
 		EF9FB0681B2A4D5800AD1164 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		EF9FB06A1B2A4D5800AD1164 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				EFC9CD6A1B7D606800060D54 /* TRTrackerView.swift */,
+				EF93495A1BB23286005EF50C /* TRTrackerView+UITableViewDelegate.swift */,
 				EFF8FB7C1BB0E53F00E2A379 /* TRTrackerTableViewCell.swift */,
 				EF53D05B1B862CC0007873B4 /* TREditTracksButton.swift */,
 				EFE9F6421BAB4DE600C786FE /* TRHiddenTextField.swift */,
@@ -834,6 +837,7 @@
 				EF53D05C1B862CC0007873B4 /* TREditTracksButton.swift in Sources */,
 				EFF8FB7D1BB0E53F00E2A379 /* TRTrackerTableViewCell.swift in Sources */,
 				EF70DE2D1B8D480D00CDAFC5 /* TREditTracksTableViewCellDecorator.swift in Sources */,
+				EF93495B1BB23286005EF50C /* TRTrackerView+UITableViewDelegate.swift in Sources */,
 				EF9A004F1BA8B6C7009FF92E /* TREditItemTableViewViceCell.swift in Sources */,
 				EF378F571B891CFA00235464 /* TRRecord.swift in Sources */,
 			);

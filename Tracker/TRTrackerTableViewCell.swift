@@ -29,6 +29,7 @@ class TRTrackerTableViewCell: UITableViewCell {
     @IBAction func plusButtonPressed(sender: AnyObject) {
         self.delegate?.plusButtonPressedAt(plusButton.tag)
         plusButton.animation = "pop"
+        plusButton.force = 5.0
         plusButton.animate()
     }
 }
