@@ -25,10 +25,11 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Urge" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W3a-eO-acT">
                         <rect key="frame" x="56" y="18" width="81" height="24"/>
                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="W3a-eO-acT" firstAttribute="centerY" secondItem="tnJ-0V-zQM" secondAttribute="centerY" id="B2m-gc-i4N"/>
                     <constraint firstItem="W3a-eO-acT" firstAttribute="leading" secondItem="4ag-na-awH" secondAttribute="trailing" constant="14" id="Ggd-i7-EJT"/>
@@ -36,6 +37,7 @@
                     <constraint firstItem="4ag-na-awH" firstAttribute="leading" secondItem="tnJ-0V-zQM" secondAttribute="leadingMargin" constant="14" id="clQ-iw-LE0"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <point key="canvasLocation" x="-257" y="208"/>
         </tableViewCell>
     </objects>

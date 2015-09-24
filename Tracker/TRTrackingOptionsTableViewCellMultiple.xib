@@ -18,15 +18,17 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Multiple" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NGm-fk-rr2">
                         <rect key="frame" x="22" y="18" width="107" height="24"/>
                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="NGm-fk-rr2" firstAttribute="centerY" secondItem="Bsp-pv-6X2" secondAttribute="centerY" id="0tL-XL-ZJK"/>
                     <constraint firstItem="NGm-fk-rr2" firstAttribute="leading" secondItem="Bsp-pv-6X2" secondAttribute="leadingMargin" constant="14" id="j2A-ko-e1i"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="trackIncrementStyleLabel" destination="NGm-fk-rr2" id="Rdi-7O-6YH"/>
             </connections>

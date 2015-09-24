@@ -55,7 +55,8 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
         let incrementByOne = itemsModel.activeItems[row].incrementByOne
         let trackingOptionsTableViewController = TRTrackingOptionsTableViewController(
             associatedItemIsAVice: includeBadHabit,
-            associatedItemIncrementsByOne: incrementByOne)
+            associatedItemIncrementsByOne: incrementByOne,
+            associatedItemRow: row)
         trackingOptionsTableViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
         if let popOver = trackingOptionsTableViewController.popoverPresentationController {
             popOver.permittedArrowDirections = .Right

@@ -10,21 +10,24 @@ class TRTrackingOptionsTableViewController: UITableViewController, UIPopoverPres
     var delegate: TRTrackingOptionsDelegate?
     var associatedItemIsAVice = false
     var associatedItemIncrementsByOne = true
+    var associatedItemRow = 0
     private enum cellIndex: Int {
         case trackUrge = 0
         case trackMultiple
         static let allCellItems = [trackUrge, trackMultiple]
     }
     
-    init(associatedItemIsAVice: Bool, associatedItemIncrementsByOne: Bool) {
+    init(associatedItemIsAVice: Bool, associatedItemIncrementsByOne: Bool, associatedItemRow: Int) {
         super.init(style: UITableViewStyle.Plain)
         self.associatedItemIsAVice = associatedItemIsAVice
         self.associatedItemIncrementsByOne = associatedItemIncrementsByOne
+        self.associatedItemRow = associatedItemRow
         self.preferredContentSize = CGSizeMake(self.view.bounds.width / 2, 90)
         tableView.registerNib(UINib(nibName: "TRTrackingOptionsTableViewCellMultiple", bundle: nil), forCellReuseIdentifier: "trackMultiple")
         if associatedItemIsAVice {
             tableView.registerNib(UINib(nibName: "TRTrackingOptionsTableViewCellUrge", bundle: nil), forCellReuseIdentifier: "trackUrge")
         }
+        tableView.backgroundColor = TRCellColorGenerator.colorFor(associatedItemRow)
     }
 
     required init?(coder aDecoder: NSCoder) {
