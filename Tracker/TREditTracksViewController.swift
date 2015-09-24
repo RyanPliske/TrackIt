@@ -10,6 +10,7 @@ class TREditTracksViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         recordSearchBar.delegate = self
+        recordSearchBar.keyboardAppearance = UIKeyboardAppearance.Dark
         editTracksTableView.dataSource = self
         editTracksTableView.delegate = editTracksTableView
         title = "Tracks"
