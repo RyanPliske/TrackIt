@@ -30,12 +30,12 @@ class TRTrackerPresenter: NSObject, TRTrackerViewDelegate, UITableViewDataSource
         let item = itemsModel.activeItems[indexPath.section]
         var cell: TRTrackerTableViewCell
         if item.incrementByOne {
+            cell = tableView.dequeueReusableCellWithIdentifier("itemWithPlusButton") as! TRTrackerTableViewCellWithPlusButton
+        } else {
             let aCell = tableView.dequeueReusableCellWithIdentifier("itemWithTextField") as! TRTrackerTableViewCellWithTextField
             let placeHolder = item.measurementUnit == "none" ? item.name : item.measurementUnit
             aCell.setTextFieldPlaceHolder(placeHolder)
             cell = aCell
-        } else {
-            cell = tableView.dequeueReusableCellWithIdentifier("itemWithPlusButton") as! TRTrackerTableViewCellWithPlusButton
         }
         cell.setItemLabelTextWith(itemsModel.activeItems[indexPath.section].name)
         cell.setCellAsBadHabit(itemsModel.activeItems[indexPath.section].isAVice)

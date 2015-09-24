@@ -3,7 +3,7 @@ import Parse
 
 class MockItemService : TRItemService {
     
-    override func saveAll(completion: PFBooleanResultBlock?) {
+    override func saveItems(completion: PFBooleanResultBlock?) {
         
     }
     

@@ -35,21 +35,26 @@ class TRItemsModel {
                 }
             }
             weakSelf?.deleteAllItems()
-            weakSelf?.saveAllItems()
+            weakSelf?.preloadItemsToPhone()
         }
     }
     
-    private func saveAllItems() {
+    private func preloadItemsToPhone() {
         for item in TRPreloadedItems.sinfulItems {
-            itemService.createItemWithName(item, isAVice: true, measureUnit: nil)
+            itemService.addItemToSaveWithItemName(item, isAVice: true, measureUnit: nil)
         }
         for (_, items) in TRPreloadedItems.regularItems {
-            let itemName = items["name"]! as String
-            let itemMeasureUnit = items["unit"]! as String
-            itemService.createItemWithName(itemName, isAVice: false, measureUnit: itemMeasureUnit)
+            let itemName = items["name"] as! String
+            let itemMeasureUnit = items["unit"] as! String
+            let incrementByOne = items["increment"] as! Bool
+            if incrementByOne {
+                itemService.addItemToSaveWithItemName(itemName, isAVice: false, measureUnit: itemMeasureUnit)
+            } else {
+                itemService.addItemToSaveWithItemName(itemName, isAVice: false, measureUnit: itemMeasureUnit, incrementByOne: false)
+            }
         }
         weak var weakSelf = self
-        itemService.saveAll { (success, error) -> Void in
+        itemService.saveItems { (success, error) -> Void in
             if success {
                 weakSelf?.checkForItems(nil)
             }
@@ -57,9 +62,9 @@ class TRItemsModel {
     }
     
     func createItemWithName(itemName: String, completion: (()->())?) {
-        itemService.createItemWithName(itemName, isAVice: false, measureUnit: nil)
+        itemService.addItemToSaveWithItemName(itemName, isAVice: false, measureUnit: nil)
         weak var weakSelf = self
-        itemService.saveAll { (success, error) -> Void in
+        itemService.saveItems { (success, error) -> Void in
             if success {
                 weakSelf?.checkForItems(completion)
             }

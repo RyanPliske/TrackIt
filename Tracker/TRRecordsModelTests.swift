@@ -21,7 +21,7 @@ class TRRecordsModelTests: XCTestCase {
     func testWhenCreatingRecord_TheCorrectParametersAreUsed() {
         let row = 0
         let expectedItemName = itemsModel?.allItems[row].name
-        let expectedItemQuantity = 4
+        let expectedItemQuantity : Float = 4.0
         let itemType = TRRecordType.TrackAction
         let expectedItemType = itemType.description
         let itemDate = NSDate()

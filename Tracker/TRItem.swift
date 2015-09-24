@@ -80,7 +80,7 @@ class TRItem: PFObject, PFSubclassing {
             if let increment =  self["incrementByOne"] as? Bool {
                 return increment
             } else {
-                return false
+                return true
             }
         }
         set {

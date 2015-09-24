@@ -5,7 +5,7 @@ class TRItemService {
     
     private var itemsToSave = [TRItem]()
     
-    func createItemWithName(name: String, isAVice: Bool, measureUnit: String?) {
+    func addItemToSaveWithItemName(name: String, isAVice: Bool, measureUnit: String?) {
         let item = TRItem(className: "item")
         item.activated = true
         item.name = name
@@ -16,7 +16,19 @@ class TRItemService {
         itemsToSave.append(item)
     }
     
-    func saveAll(completion: PFBooleanResultBlock?) {
+    func addItemToSaveWithItemName(name: String, isAVice: Bool, measureUnit: String?, incrementByOne: Bool) {
+        let item = TRItem(className: "item")
+        item.activated = true
+        item.name = name
+        item.isAVice = isAVice
+        item.incrementByOne = incrementByOne
+        if let unit = measureUnit {
+            item.measurementUnit = unit
+        }
+        itemsToSave.append(item)
+    }
+    
+    func saveItems(completion: PFBooleanResultBlock?) {
         if let completionBlock = completion {
             TRItem.pinAllInBackground(itemsToSave, block: completionBlock)
             itemsToSave.removeAll()

@@ -4,7 +4,7 @@ class MockRecordService: TRRecordService {
     var createRecordCalled = false
     var createdRecord: MockRecord?
     
-    override func createRecordWithItem(item: String, quantity: Int, itemType: TRRecordType, date: NSDate, completion: TRCreateRecordCompletion?) -> MockRecord {
+    override func createRecordWithItem(item: String, quantity: Float, itemType: TRRecordType, date: NSDate, completion: TRCreateRecordCompletion?) -> MockRecord {
         let record = MockRecord(className: "record")
         record.itemName = item
         record.itemQuantity = quantity
