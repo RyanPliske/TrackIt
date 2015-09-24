@@ -57,7 +57,11 @@ class TRTrackerPresenter: NSObject, TRTrackerViewDelegate, UITableViewDataSource
     
     func trackMultipleSelectedForRow(row: Int) {
         itemsModel.updateItemIncrementalStatusAtIndex(row)
-        trackerView.trackerTableView.reloadSections(NSIndexSet(index: row), withRowAnimation: UITableViewRowAnimation.Right)
+        if itemsModel.activeItems[row].incrementByOne {
+            trackerView.trackerTableView.reloadSections(NSIndexSet(index: row), withRowAnimation: UITableViewRowAnimation.Left)
+        } else {
+            trackerView.trackerTableView.reloadSections(NSIndexSet(index: row), withRowAnimation: UITableViewRowAnimation.Right)
+        }
     }
     
 }
