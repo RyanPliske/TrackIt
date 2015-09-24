@@ -3,7 +3,7 @@ import Foundation
 class TRTrackerPresenter: NSObject, TRTrackerViewDelegate, UITableViewDataSource {
     let trackerView: TRTrackerView
     let recordsModel: TRRecordsModel
-    lazy var itemsModel = TRItemsModel.sharedInstanceOfItemsModel
+    private lazy var itemsModel = TRItemsModel.sharedInstanceOfItemsModel
     var dateToTrack = NSDate()
     var trackingType : TRRecordType = .TrackAction
 

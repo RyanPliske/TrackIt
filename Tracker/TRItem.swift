@@ -45,7 +45,7 @@ class TRItem: PFObject, PFSubclassing {
                 return status
             }
             else {
-                return true
+                return false
             }
         }
         set(newValue) {

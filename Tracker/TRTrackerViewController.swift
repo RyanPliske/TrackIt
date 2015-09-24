@@ -7,6 +7,7 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
     private var trackerPresenter: TRTrackerPresenter!
     private var recordService = TRRecordService()
     private var recordsModel: TRRecordsModel!
+    private lazy var itemsModel = TRItemsModel.sharedInstanceOfItemsModel
     @IBOutlet weak var activityMonitor: UIActivityIndicatorView!
     
     override func viewDidLoad() {
@@ -50,12 +51,13 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
     }
     
     func trackingOptionsWantedAtRow(row: Int) {
-        let trackingOptionsTableViewController = TRTrackingOptionsTableViewController()
+        let isAVice = itemsModel.activeItems[row].isAVice
+        let trackingOptionsTableViewController = TRTrackingOptionsTableViewController(associatedItemIsAVice: isAVice)
         trackingOptionsTableViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
         if let popOver = trackingOptionsTableViewController.popoverPresentationController {
-            popOver.permittedArrowDirections = UIPopoverArrowDirection.Up
+            popOver.permittedArrowDirections = .Right
             popOver.delegate = trackingOptionsTableViewController
-            if let cell = self.trackerView.trackerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: row)) as? TRTrackerTableViewCell {
+            if let cell = trackerView.trackerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: row)) as? TRTrackerTableViewCell {
                 popOver.sourceView = cell.contentView
                 popOver.sourceRect = cell.moreButtonFrame
                 trackingOptionsTableViewController.delegate = cell
