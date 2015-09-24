@@ -51,7 +51,7 @@ class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
             dispatch_get_main_queue(), closure)
     }
     
-    private func animateSavedRecord() {
+    private func animateSavedRecordForRow(row: Int) {
         weak var weakSelf = self
         recordSavedLabel.hidden = false
         
@@ -69,6 +69,7 @@ class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
             }
         }
         
+        recordSavedLabel.textColor = TRCellColorGenerator.colorFor(row)
         recordSavedLabel.animation = "fadeInDown"
         recordSavedLabel.curve = "easeIn"
         recordSavedLabel.force = 0.1
@@ -81,7 +82,7 @@ class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
     
     func plusButtonPressedAtRow(row: Int) {
         delegate?.trackItemAtRow(row)
-        animateSavedRecord()
+        animateSavedRecordForRow(row)
     }
     
     func moreButtonPressedAtRow(row: Int, includeBadHabit: Bool) {
@@ -91,7 +92,7 @@ class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
     func trackUrgeSelectedForRow(row: Int) {
         delegate?.trackUrgeAtRow(row)
         observer?.dismissTrackingOptions()
-        animateSavedRecord()
+        animateSavedRecordForRow(row)
     }
     
     func trackMultipleSelectedForRow(row: Int) {
@@ -101,7 +102,7 @@ class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
     
     func textFieldReturnedWithTextAtRow(row: Int, text: String) {
         delegate?.textFieldReturnedWithTextAtRow(row, text: text)
-        animateSavedRecord()
+        animateSavedRecordForRow(row)
     }
     
 }
