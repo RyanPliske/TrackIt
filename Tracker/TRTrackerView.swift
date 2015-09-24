@@ -1,21 +1,23 @@
 import UIKit
+import TPKeyboardAvoiding
 import Spring
 
 protocol TRTrackerViewDelegate {
     func trackItemAtRow(row: Int)
     func trackUrgeAtRow(row: Int)
+    func trackMultipleSelectedForRow(row: Int)
 }
 
 protocol TRTrackerViewObserver {
     func dateChooserWanted()
-    func trackingOptionsWantedAtRow(row: Int)
+    func trackingOptionsWantedAtRow(row: Int, includeBadHabit: Bool)
     func dismissTrackingOptions()
 }
 
 class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
     @IBOutlet weak var todaysDateButton: UIButton!
     @IBOutlet weak var recordSavedLabel: SpringLabel!
-    @IBOutlet weak var trackerTableView: UITableView! {
+    @IBOutlet weak var trackerTableView: TPKeyboardAvoidingTableView! {
         didSet {
             self.trackerTableView.delegate = self
         }
@@ -81,14 +83,19 @@ class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
         animateSavedRecord()
     }
     
-    func moreButtonPressedAtRow(row: Int) {
-        observer?.trackingOptionsWantedAtRow(row)
+    func moreButtonPressedAtRow(row: Int, includeBadHabit: Bool) {
+        observer?.trackingOptionsWantedAtRow(row, includeBadHabit: includeBadHabit)
     }
     
     func trackUrgeSelectedForRow(row: Int) {
         delegate?.trackUrgeAtRow(row)
         observer?.dismissTrackingOptions()
         animateSavedRecord()
+    }
+    
+    func trackMultipleSelectedForRow(row: Int) {
+        delegate?.trackMultipleSelectedForRow(row)
+        observer?.dismissTrackingOptions()
     }
     
 }

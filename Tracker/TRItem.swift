@@ -75,4 +75,17 @@ class TRItem: PFObject, PFSubclassing {
         }
     }
     
+    var incrementByOne: Bool {
+        get {
+            if let increment =  self["incrementByOne"] as? Bool {
+                return increment
+            } else {
+                return false
+            }
+        }
+        set {
+            self["incrementByOne"] = newValue
+        }
+    }
+    
 }

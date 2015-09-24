@@ -50,9 +50,11 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
         }
     }
     
-    func trackingOptionsWantedAtRow(row: Int) {
-        let isAVice = itemsModel.activeItems[row].isAVice
-        let trackingOptionsTableViewController = TRTrackingOptionsTableViewController(associatedItemIsAVice: isAVice)
+    func trackingOptionsWantedAtRow(row: Int, includeBadHabit: Bool) {
+        let incrementByOne = itemsModel.activeItems[row].incrementByOne
+        let trackingOptionsTableViewController = TRTrackingOptionsTableViewController(
+            associatedItemIsAVice: includeBadHabit,
+            associatedItemIncrementsByOne: incrementByOne)
         trackingOptionsTableViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
         if let popOver = trackingOptionsTableViewController.popoverPresentationController {
             popOver.permittedArrowDirections = .Right

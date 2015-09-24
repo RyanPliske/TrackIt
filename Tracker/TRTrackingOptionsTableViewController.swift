@@ -2,21 +2,24 @@ import Foundation
 
 protocol TRTrackingOptionsDelegate {
     func trackUrge()
+    func trackMultiple()
 }
 
 class TRTrackingOptionsTableViewController: UITableViewController, UIPopoverPresentationControllerDelegate {
     
     var delegate: TRTrackingOptionsDelegate?
     var associatedItemIsAVice = false
+    var associatedItemIncrementsByOne = true
     private enum cellIndex: Int {
         case trackUrge = 0
         case trackMultiple
         static let allCellItems = [trackUrge, trackMultiple]
     }
     
-    init(associatedItemIsAVice: Bool) {
+    init(associatedItemIsAVice: Bool, associatedItemIncrementsByOne: Bool) {
         super.init(style: UITableViewStyle.Plain)
         self.associatedItemIsAVice = associatedItemIsAVice
+        self.associatedItemIncrementsByOne = associatedItemIncrementsByOne
         self.preferredContentSize = CGSizeMake(self.view.bounds.width / 2, 90)
         tableView.registerNib(UINib(nibName: "TRTrackingOptionsTableViewCellMultiple", bundle: nil), forCellReuseIdentifier: "trackMultiple")
         if associatedItemIsAVice {
@@ -50,13 +53,18 @@ class TRTrackingOptionsTableViewController: UITableViewController, UIPopoverPres
         if (indexPath.row == cellIndex.trackUrge.rawValue) && associatedItemIsAVice {
             return tableView.dequeueReusableCellWithIdentifier("trackUrge")!
         }
-        return tableView.dequeueReusableCellWithIdentifier("trackMultiple")!
+        let cell = tableView.dequeueReusableCellWithIdentifier("trackMultiple") as! TRTrackingOptionsTableViewIncrementStyleCell
+        let incrementText = associatedItemIncrementsByOne ? "Track By One": "Track By Many"
+        cell.setIncrementLabel(incrementText)
+        return cell
     }
     
     // Delegate
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row == cellIndex.trackUrge.rawValue && associatedItemIsAVice {
             delegate?.trackUrge()
+        } else {
+            delegate?.trackMultiple()
         }
     }
     

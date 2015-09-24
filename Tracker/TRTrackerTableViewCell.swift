@@ -1,22 +1,22 @@
 import Foundation
-import Spring
 
 protocol TRTrackerTableViewCellDelegate {
     func plusButtonPressedAtRow(row: Int)
-    func moreButtonPressedAtRow(row: Int)
+    func moreButtonPressedAtRow(row: Int, includeBadHabit: Bool)
     func trackUrgeSelectedForRow(row: Int)
+    func trackMultipleSelectedForRow(row: Int)
 }
 
 class TRTrackerTableViewCell: UITableViewCell, TRTrackingOptionsDelegate {
-    @IBOutlet private weak var itemLabel: UILabel!
-    @IBOutlet private weak var plusButton: SpringButton!
-    @IBOutlet private weak var moreButton: UIButton!
-    
-    var statsView: UIView?
     var delegate: TRTrackerTableViewCellDelegate?
     var moreButtonFrame: CGRect {
         return self.moreButton.frame
     }
+    
+    @IBOutlet private weak var itemLabel: UILabel!
+    @IBOutlet private weak var moreButton: UIButton!
+    private var statsView: UIView?
+    private var isAVice = false
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -26,27 +26,28 @@ class TRTrackerTableViewCell: UITableViewCell, TRTrackingOptionsDelegate {
     }
     
     func setItemLabelTextWith(itemName: String) {
-        self.itemLabel.attributedText = NSAttributedString(string: itemName.uppercaseString, attributes: [NSKernAttributeName: 1.7])
+        itemLabel.attributedText = NSAttributedString(string: itemName.uppercaseString, attributes: [NSKernAttributeName: 1.7])
     }
     
     func setTagsForCellWith(tag: Int) {
-        self.plusButton.tag = tag
+        self.tag = tag
     }
     
-    @IBAction func plusButtonPressed(sender: AnyObject) {
-        self.delegate?.plusButtonPressedAtRow(plusButton.tag)
-        plusButton.animation = "pop"
-        plusButton.force = 5.0
-        plusButton.animate()
+    func setCellAsBadHabit(isAVice: Bool) {
+        self.isAVice = isAVice
     }
     
     @IBAction func moreButtonPressed(sender: AnyObject) {
-        self.delegate?.moreButtonPressedAtRow(plusButton.tag)
+        delegate?.moreButtonPressedAtRow(self.tag, includeBadHabit: isAVice)
     }
     
     // MARK: TRTrackingOptionsDelegate
     func trackUrge() {
-        self.delegate?.trackUrgeSelectedForRow(plusButton.tag)
+        delegate?.trackUrgeSelectedForRow(self.tag)
+    }
+    
+    func trackMultiple() {
+        delegate?.trackMultipleSelectedForRow(self.tag)
     }
     
 }

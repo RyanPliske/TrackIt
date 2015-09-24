@@ -45,6 +45,11 @@ class TRItemService {
         item.pinInBackgroundWithBlock(nil)
     }
     
+    func updateItem(item: TRItem, incrementByOne: Bool) {
+        item.incrementByOne = incrementByOne
+        item.pinInBackgroundWithBlock(nil)
+    }
+    
     func updateItem(item: TRItem, name: String) {
         item.name = name
         item.pinInBackgroundWithBlock(nil)
