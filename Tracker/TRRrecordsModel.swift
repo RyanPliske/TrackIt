@@ -38,7 +38,7 @@ class TRRecordsModel {
         case .TrackAction:
             item = itemsModel.activeItems[row].name
         case .TrackUrge:
-            item = itemsModel.activeSinfulItems[row].name
+            item = itemsModel.activeItems[row].name
         }
         
         weak var weakSelf = self
