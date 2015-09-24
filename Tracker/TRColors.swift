@@ -24,6 +24,10 @@ extension UIColor {
     class func TRHamptonShortsGreen() -> UIColor {
         return UIColor(red: 159.0 / 255.0, green: 211.0 / 255.0, blue: 127 / 255.0, alpha: 1.0)
     }
+    
+    class func TRSmokeGrey() -> UIColor {
+        return UIColor(red: 30 / 255.0, green: 30 / 255.0, blue: 30 / 255.0, alpha: 1.0)
+    }
 }
 
 struct TRItemColors {
