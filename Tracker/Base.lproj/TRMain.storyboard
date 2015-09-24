@@ -141,7 +141,7 @@
                                                     </connections>
                                                 </button>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ePn-JR-vyd">
-                                                    <rect key="frame" x="232" y="14" width="66" height="30"/>
+                                                    <rect key="frame" x="212" y="14" width="86" height="30"/>
                                                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert"/>
@@ -153,7 +153,7 @@
                                                 <constraint firstItem="ePn-JR-vyd" firstAttribute="top" secondItem="OBs-Hk-89c" secondAttribute="topMargin" constant="6" id="dSa-Jy-aFd"/>
                                                 <constraint firstItem="wEq-Kd-zbD" firstAttribute="trailing" secondItem="OBs-Hk-89c" secondAttribute="trailing" id="gqJ-Y8-iaj"/>
                                                 <constraint firstItem="wEq-Kd-zbD" firstAttribute="top" secondItem="OBs-Hk-89c" secondAttribute="topMargin" constant="10" id="lYq-WG-Ov1"/>
-                                                <constraint firstItem="ePn-JR-vyd" firstAttribute="leading" secondItem="OBs-Hk-89c" secondAttribute="centerXWithinMargins" constant="60" id="vy0-w1-V96"/>
+                                                <constraint firstItem="ePn-JR-vyd" firstAttribute="leading" secondItem="OBs-Hk-89c" secondAttribute="centerXWithinMargins" constant="40" id="vy0-w1-V96"/>
                                                 <constraint firstItem="pm9-xE-d4s" firstAttribute="top" secondItem="OBs-Hk-89c" secondAttribute="topMargin" constant="14" id="xYu-7I-579"/>
                                             </constraints>
                                         </tableViewCellContentView>

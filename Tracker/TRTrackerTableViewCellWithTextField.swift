@@ -23,6 +23,7 @@ class TRTrackerTableViewCellWithTextField: TRTrackerTableViewCell, UITextFieldDe
     // TRKeyboardToolbarDelegate
     func TRKeyboardToolbarCanceled() {
         itemCountTextField.resignFirstResponder()
+        itemCountTextField.text = nil
     }
     
     func TRKeyboardToolbarDone() {
