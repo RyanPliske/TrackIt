@@ -5,6 +5,7 @@ protocol TRTrackerTableViewCellDelegate {
     func moreButtonPressedAtRow(row: Int, includeBadHabit: Bool)
     func trackUrgeSelectedForRow(row: Int)
     func trackMultipleSelectedForRow(row: Int)
+    func textFieldReturnedWithTextAtRow(row: Int, text: String)
 }
 
 class TRTrackerTableViewCell: UITableViewCell, TRTrackingOptionsDelegate {

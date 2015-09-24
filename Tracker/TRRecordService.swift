@@ -3,7 +3,7 @@ import Parse
 
 class TRRecordService {
     
-    func createRecordWithItem(item: String, quantity: Int, itemType: TRRecordType, date: NSDate, completion: TRCreateRecordCompletion?) -> TRRecord {
+    func createRecordWithItem(item: String, quantity: Float, itemType: TRRecordType, date: NSDate, completion: TRCreateRecordCompletion?) -> TRRecord {
         let record = TRRecord(className: "record")
         record.itemName = item
         record.itemQuantity = quantity

@@ -1,14 +1,14 @@
 import UIKit
 
 class TREditTracksViewController: UIViewController {
-    var recordsModel: TRRecordsModel!
+    lazy var recordsModel = TRRecordsModel.sharedInstanceOfRecordsModel
+    lazy var itemsModel = TRItemsModel.sharedInstanceOfItemsModel
     @IBOutlet weak var editTracksTableView: TREditTracksTableView!
     @IBOutlet weak var itemTypeSegmentedControl: UISegmentedControl!
     @IBOutlet weak var recordSearchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        recordsModel = TRRecordsModel.sharedInstanceOfRecordsModel
         recordSearchBar.delegate = self
         editTracksTableView.dataSource = self
         editTracksTableView.delegate = editTracksTableView

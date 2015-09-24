@@ -1,6 +1,10 @@
 import Foundation
 import Parse
 
+/**
+    TRRecord saves Track Records for a user specified item.
+*/
+
 class TRRecord: PFObject, PFSubclassing {
     // MARK: Parse Setup
     override class func initialize() {
@@ -25,9 +29,9 @@ class TRRecord: PFObject, PFSubclassing {
         }
     }
     
-    var itemQuantity: Int? {
+    var itemQuantity: Float? {
         get {
-            return self["quantity"] as? Int
+            return self["quantity"] as? Float
         }
         set(newValue) {
             self["quantity"] = newValue

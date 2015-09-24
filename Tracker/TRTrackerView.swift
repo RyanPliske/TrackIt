@@ -6,6 +6,7 @@ protocol TRTrackerViewDelegate {
     func trackItemAtRow(row: Int)
     func trackUrgeAtRow(row: Int)
     func trackMultipleSelectedForRow(row: Int)
+    func textFieldReturnedWithTextAtRow(row: Int, text: String)
 }
 
 protocol TRTrackerViewObserver {
@@ -96,6 +97,11 @@ class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
     func trackMultipleSelectedForRow(row: Int) {
         delegate?.trackMultipleSelectedForRow(row)
         observer?.dismissTrackingOptions()
+    }
+    
+    func textFieldReturnedWithTextAtRow(row: Int, text: String) {
+        delegate?.textFieldReturnedWithTextAtRow(row, text: text)
+        animateSavedRecord()
     }
     
 }

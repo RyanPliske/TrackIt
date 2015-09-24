@@ -32,7 +32,7 @@ class TRRecordsModel {
         TRRecord()
     }
     
-    func createRecordUsingRow(row: Int, quantity: Int, type: TRRecordType, date: NSDate) {
+    func createRecordUsingRow(row: Int, quantity: Float, type: TRRecordType, date: NSDate) {
         var item: String
         switch (type) {
         case .TrackAction:

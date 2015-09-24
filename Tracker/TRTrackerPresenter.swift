@@ -55,6 +55,13 @@ class TRTrackerPresenter: NSObject, TRTrackerViewDelegate, UITableViewDataSource
         recordsModel.createRecordUsingRow(row, quantity: 1, type: TRRecordType.TrackUrge, date: dateToTrack)
     }
     
+    func textFieldReturnedWithTextAtRow(row: Int, text: String) {
+        if !text.isEmpty {
+            let quantityFromTextField = Float(text)
+        recordsModel.createRecordUsingRow(row, quantity: quantityFromTextField!, type: TRRecordType.TrackAction, date: dateToTrack)
+        }
+    }
+    
     func trackMultipleSelectedForRow(row: Int) {
         itemsModel.updateItemIncrementalStatusAtIndex(row)
         if itemsModel.activeItems[row].incrementByOne {
