@@ -54,7 +54,7 @@ class TRTrackingOptionsTableViewController: UITableViewController, UIPopoverPres
             return tableView.dequeueReusableCellWithIdentifier("trackUrge")!
         }
         let cell = tableView.dequeueReusableCellWithIdentifier("trackMultiple") as! TRTrackingOptionsTableViewIncrementStyleCell
-        let incrementText = associatedItemIncrementsByOne ? "Track By One": "Track By Many"
+        let incrementText = associatedItemIncrementsByOne ? "Track By Many" : "Track By One"
         cell.setIncrementLabel(incrementText)
         return cell
     }
