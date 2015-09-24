@@ -6,21 +6,15 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
     @IBOutlet private weak var trackerView: TRTrackerView!
     private var trackerPresenter: TRTrackerPresenter!
     private var recordService = TRRecordService()
-    private var recordsModel: TRRecordsModel!
+    private lazy var recordsModel = TRRecordsModel.sharedInstanceOfRecordsModel
     private lazy var itemsModel = TRItemsModel.sharedInstanceOfItemsModel
     @IBOutlet weak var activityMonitor: UIActivityIndicatorView!
     
     override func viewDidLoad() {
-        recordsModel = TRRecordsModel.sharedInstanceOfRecordsModel
-        trackerPresenter = TRTrackerPresenter(view: self.trackerView, model: self.recordsModel!)
-        activityMonitor.startAnimating()
-        weak var weakSelf = self
-        recordsModel.readAllRecords { () -> Void in
-            weakSelf?.activityMonitor.stopAnimating()
-            weakSelf?.activityMonitor.hidden = true
-            weakSelf?.trackerView.trackerTableView.reloadData()
-        }
         super.viewDidLoad()
+        trackerPresenter = TRTrackerPresenter(view: self.trackerView, model: self.recordsModel)
+        activityMonitor.startAnimating()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "itemRetrievalObserved", name: "itemsRetrievedFromDB", object: nil)
         setNeedsStatusBarAppearanceUpdate()
         trackerView.observer = self
         navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Avenir", size: 25.0)!]
@@ -34,6 +28,13 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent;
+    }
+    
+    func itemRetrievalObserved() {
+        activityMonitor.stopAnimating()
+        activityMonitor.hidden = true
+        trackerView.trackerTableView.reloadData()
+
     }
     
     // MARK: TRTrackerViewObserver

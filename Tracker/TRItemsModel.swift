@@ -17,25 +17,8 @@ class TRItemsModel {
     init(itemService: TRItemService) {
         self.itemService = itemService
         TRItem()
-        self.checkForItems(nil)
-    }
-    
-    private func checkForItems(completion: (() -> ())?) {
-        weak var weakSelf = self
-        itemService.readAllItemsFromPhone {
-            (objects, error) -> Void in
-            if let items = objects as? [TRItem] {
-                if (items.count != 0) {
-                    weakSelf?._allItems = items
-                    weakSelf?.filterItemsByActivated()
-                    if let completionBlock = completion {
-                        completionBlock()
-                    }
-                    return
-                }
-            }
-            weakSelf?.deleteAllItems()
-            weakSelf?.preloadItemsToPhone()
+        readItemsFromPhone { () -> () in
+            NSNotificationCenter.defaultCenter().postNotificationName("itemsRetrievedFromDB", object: nil)
         }
     }
     
@@ -56,7 +39,9 @@ class TRItemsModel {
         weak var weakSelf = self
         itemService.saveItems { (success, error) -> Void in
             if success {
-                weakSelf?.checkForItems(nil)
+                weakSelf?.readItemsFromPhone({ () -> () in
+                    NSNotificationCenter.defaultCenter().postNotificationName("itemsRetrievedFromDB", object: nil)
+                })
             }
         }
     }
@@ -66,8 +51,27 @@ class TRItemsModel {
         weak var weakSelf = self
         itemService.saveItems { (success, error) -> Void in
             if success {
-                weakSelf?.checkForItems(completion)
+                weakSelf?.readItemsFromPhone(completion)
             }
+        }
+    }
+    
+    private func readItemsFromPhone(completion: (() -> ())?) {
+        weak var weakSelf = self
+        itemService.readAllItemsFromPhone {
+            (objects, error) -> Void in
+            if let items = objects as? [TRItem] {
+                if (items.count != 0) {
+                    weakSelf?._allItems = items
+                    weakSelf?.filterItemsByActivated()
+                    if let completionBlock = completion {
+                        completionBlock()
+                    }
+                    return
+                }
+            }
+            weakSelf?.deleteAllItems()
+            weakSelf?.preloadItemsToPhone()
         }
     }
     
@@ -119,7 +123,7 @@ class TRItemsModel {
         weak var weakSelf = self
         itemService.deleteItemFromPhone(itemToDelete) { (success, error) -> Void in
             if success {
-                weakSelf?.checkForItems(nil)
+                weakSelf?.readItemsFromPhone(nil)
             }
         }
     }
