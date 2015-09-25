@@ -2,7 +2,7 @@ platform :ios, "8.0"
 use_frameworks!
 
 target 'Tracker' do
-    pod 'Parse', '1.8.2'
+    pod 'Parse'
     pod 'Fabric'
     pod 'Crashlytics'
     pod 'TPKeyboardAvoiding'
@@ -10,7 +10,7 @@ target 'Tracker' do
 end
 
 target 'TrackerTests' do
-    pod 'Parse', '1.8.2'
+    pod 'Parse'
 end
 
 #target 'TrackViaWatch' do

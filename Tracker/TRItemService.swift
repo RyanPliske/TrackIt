@@ -35,9 +35,9 @@ class TRItemService {
         }
     }
     
-    func readAllItemsFromPhone(completion: PFArrayResultBlock?) {
-        let BackgroundRetrievalCompletion: PFArrayResultBlock = {
-            (objects: [AnyObject]?, error: NSError?) in
+    func readAllItemsFromPhone(completion: PFQueryArrayResultBlock?) {
+        let BackgroundRetrievalCompletion: PFQueryArrayResultBlock = {
+            (objects: [PFObject]?, error: NSError?) in
             if let completionBlock = completion {
                 completionBlock(objects, error)
             }
@@ -94,7 +94,11 @@ class TRItemService {
     }
     
     func deleteAllItemsFromPhone() {
-        TRItem.unpinAllObjects()
+        do {
+            try TRItem.unpinAllObjects()
+        } catch {
+            
+        }
     }
     
 }

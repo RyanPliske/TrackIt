@@ -29,8 +29,8 @@ class TRRecordService {
     }
     
     func readAllRecordsFromPhoneWithSortType(sortType: TRRecordType, completion: PFArrayResultBlock) {
-        let BackgroundRetrievalCompletion: PFArrayResultBlock = {
-            (objects: [AnyObject]?, error: NSError?) in
+        let BackgroundRetrievalCompletion: PFQueryArrayResultBlock = {
+            (objects: [PFObject]?, error: NSError?) in
                 completion(objects, error)
         }
         let query = PFQuery(className: "record")
@@ -40,8 +40,8 @@ class TRRecordService {
     }
     
     func readAllRecordsFromPhoneWithSearchText(searchText: String, sortType: TRRecordType, completion: PFArrayResultBlock?) {
-        let BackgroundRetrievalCompletion: PFArrayResultBlock = {
-            (objects: [AnyObject]?, error: NSError?) in
+        let BackgroundRetrievalCompletion: PFQueryArrayResultBlock = {
+            (objects: [PFObject]?, error: NSError?) in
             if let completionBlock = completion {
                 completionBlock(objects, error)
             }
@@ -62,10 +62,18 @@ class TRRecordService {
     }
     
     func deleteAllRecordsFromPhone() {
-        TRRecord.unpinAllObjects()
+        do {
+            try TRRecord.unpinAllObjects()
+        } catch {
+            
+        }
     }
     
     func deleteRecord(record: TRRecord) {
-        record.unpin()
+        do {
+            try record.unpin()
+        } catch {
+            
+        }
     }
 }
