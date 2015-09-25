@@ -4,6 +4,7 @@ PODS:
   - Fabric (1.5.1):
     - Fabric/Base (= 1.5.1)
   - Fabric/Base (1.5.1)
+  - JTCalendar (2.1.4)
   - Parse (1.8.5):
     - Bolts/Tasks (>= 1.2.2)
   - Spring (1.0.3)
@@ -12,6 +13,7 @@ PODS:
 DEPENDENCIES:
   - Crashlytics
   - Fabric
+  - JTCalendar (~> 2.0)
   - Parse
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift2`)
   - TPKeyboardAvoiding
@@ -30,6 +32,7 @@ SPEC CHECKSUMS:
   Bolts: 805a4a87413e49d4a0c2b7d469084cbc46b09342
   Crashlytics: 0e61bdda9def51f1e99720f804eebe94865442b2
   Fabric: 03c3b3fe77e11a2bc31421b989a9c7adaa4779a5
+  JTCalendar: 9b1352c7ec41cc26b19c189d6608ba48060a53d9
   Parse: 17ad8e0677ed682f7f00503860fcda0f4eb74168
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   TPKeyboardAvoiding: ff1ee4e5a5a0c119b965552af8f183868ea20207
