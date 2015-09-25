@@ -69,7 +69,7 @@ class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
             }
         }
         
-        recordSavedLabel.textColor = TRCellColorGenerator.colorFor(row)
+        recordSavedLabel.textColor = TRColorGenerator.colorFor(row)
         recordSavedLabel.animation = "fadeInDown"
         recordSavedLabel.curve = "easeIn"
         recordSavedLabel.force = 0.1

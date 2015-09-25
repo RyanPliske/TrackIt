@@ -41,7 +41,7 @@ class TRTrackerPresenter: NSObject, TRTrackerViewDelegate, UITableViewDataSource
         cell.setCellAsBadHabit(itemsModel.activeItems[indexPath.section].isAVice)
         cell.setTagsForCellWith(indexPath.section)
         cell.delegate = trackerView
-        cell.backgroundColor = TRCellColorGenerator.colorFor(indexPath.section)
+        cell.backgroundColor = TRColorGenerator.colorFor(indexPath.section)
         return cell
     }
     
