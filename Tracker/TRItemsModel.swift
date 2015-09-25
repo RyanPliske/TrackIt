@@ -82,8 +82,8 @@ class TRItemsModel {
     }
     
     func updateItemIncrementalStatusAtIndex(index: Int) {
-        let incrementByOne = !_allItems[index].incrementByOne
-        _allItems[index].incrementByOne = incrementByOne
+        let incrementByOne = !_activeItems[index].incrementByOne
+        _activeItems[index].incrementByOne = incrementByOne
         itemService.updateItem(self.allItems[index], incrementByOne: incrementByOne)
     }
     
