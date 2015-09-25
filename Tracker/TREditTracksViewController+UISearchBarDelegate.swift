@@ -7,7 +7,7 @@ extension TREditTracksViewController: UISearchBarDelegate {
         searchBar.setShowsCancelButton(false, animated: true)
         if let searchText = searchBar.text {
             weak var weakSelf = self
-            recordsModel?.searchRecordsFor(searchText, completion: { () -> Void in
+            recordsModel.searchRecordsFor(searchText, completion: { () -> Void in
                 weakSelf?.editTracksTableView.reloadData()
             })
         }
@@ -17,7 +17,7 @@ extension TREditTracksViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
         searchBar.setShowsCancelButton(false, animated: true)
         searchBar.text = nil
-        recordsModel?.searchMode = false
+        recordsModel.searchMode = false
         editTracksTableView.reloadData()
     }
     

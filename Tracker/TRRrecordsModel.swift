@@ -30,36 +30,40 @@ class TRRecordsModel {
         self.recordService = recordService
         self.itemsModel = itemsModel
         TRRecord()
-        self.readAllRecords()
     }
     
-    func createRecordUsingRow(row: Int, quantityRow: Int, type: TRRecordType, date: NSDate) {
+    func createRecordUsingRow(row: Int, quantity: Float, type: TRRecordType, date: NSDate) {
         var item: String
         switch (type) {
         case .TrackAction:
             item = itemsModel.activeItems[row].name
         case .TrackUrge:
-            item = itemsModel.activeSinfulItems[row].name
+            item = itemsModel.activeItems[row].name
         }
-        
-        let itemQuantity = quantityRow + 1
         
         weak var weakSelf = self
         let blockCompletion: TRCreateRecordCompletion = {
             switch (type) {
             case .TrackAction:
-                weakSelf?.grabAllTracks()
+                weakSelf?.grabAllTracks(nil)
             case .TrackUrge:
-                weakSelf?.grabAllUrges()
+                weakSelf?.grabAllUrges(nil)
             }
         }
         
-        recordService.createRecordWithItem(item, quantity: itemQuantity, itemType: type, date: date, completion: blockCompletion)
+        recordService.createRecordWithItem(item, quantity: quantity, itemType: type, date: date, completion: blockCompletion)
     }
     
-    func readAllRecords() {
-        grabAllTracks()
-        grabAllUrges()
+    func readAllRecords(completion: TRSearchCompletion?) {
+        weak var weakSelf = self
+        grabAllTracks { () -> Void in
+            weakSelf?.grabAllUrges({ () -> Void in
+                if let completionBlock = completion {
+                    completionBlock()
+                }
+            })
+        }
+        
     }
     
     func searchRecordsFor(searchText: String, completion: TRSearchCompletion?) {
@@ -74,15 +78,15 @@ class TRRecordsModel {
     }
     
     // MARK: Private Helpers
-    private func grabAllTracks() {
-        grabRecordsWithSortType(TRRecordType.TrackAction)
+    private func grabAllTracks(completion: TRSearchCompletion?) {
+        grabRecordsWithSortType(TRRecordType.TrackAction, completion: completion)
     }
     
-    private func grabAllUrges() {
-        grabRecordsWithSortType(TRRecordType.TrackUrge)
+    private func grabAllUrges(completion: TRSearchCompletion?) {
+        grabRecordsWithSortType(TRRecordType.TrackUrge, completion: completion)
     }
     
-    private func grabRecordsWithSortType(sortType: TRRecordType) {
+    private func grabRecordsWithSortType(sortType: TRRecordType, completion: TRSearchCompletion?) {
         weak var weakSelf = self
         let recordsRetrievalCompletion: PFArrayResultBlock = {
             (objects: [AnyObject]?, error: NSError?) in
@@ -90,16 +94,22 @@ class TRRecordsModel {
                 switch (sortType) {
                 case .TrackAction:
                     weakSelf?.recordSortManager.tracks = records
+                    if let completionBlock = completion {
+                        completionBlock()
+                    }
                 case .TrackUrge:
                     weakSelf?.recordSortManager.urges = records
+                    if let completionBlock = completion {
+                        completionBlock()
+                    }
                 }
                 
             } else {
                 switch (sortType) {
                 case .TrackAction:
-                    weakSelf?.grabAllTracks()
+                    weakSelf?.grabAllTracks(nil)
                 case .TrackUrge:
-                    weakSelf?.grabAllUrges()
+                    weakSelf?.grabAllUrges(nil)
                 }
             }
         }

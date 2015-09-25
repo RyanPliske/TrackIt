@@ -1,55 +1,74 @@
 import Foundation
-/**
-The `TRTrackerPresenter` class is designed to act as the mediator between the TRTrackerView and TRRecordsModel.
-*/
-class TRTrackerPresenter: NSObject, TRTrackerViewDelegate {
+
+class TRTrackerPresenter: NSObject, TRTrackerViewDelegate, UITableViewDataSource {
     let trackerView: TRTrackerView
     let recordsModel: TRRecordsModel
-    let itemsModel = TRItemsModel.sharedInstanceOfItemsModel
-    var datetoTrack = NSDate()
+    private lazy var itemsModel = TRItemsModel.sharedInstanceOfItemsModel
+    var dateToTrack = NSDate()
+    var trackingType : TRRecordType = .TrackAction
 
-    var selectedItemOfFirstColumn = 0 {
-        didSet {
-            self.trackerView.itemPickerView.selectRow(selectedItemOfFirstColumn, inComponent: 0, animated: false)
-        }
-    }
-    
-    var selectedItemOfSecondColumn = 0 {
-        didSet {
-            self.trackerView.itemPickerView.selectRow(selectedItemOfSecondColumn, inComponent: 1, animated: false)
-        }
-    }
-    
-    var trackingType : TRRecordType = .TrackAction {
-        didSet {
-            self.trackerView.itemPickerView.reloadAllComponents()
-            selectedItemOfFirstColumn = 0
-            if trackingType == .TrackAction {
-                selectedItemOfSecondColumn = 0
-            }
-            self.trackerView.hiddenPickerViewTextField.becomeFirstResponder()
-        }
-    }
     
     init(view: TRTrackerView, model: TRRecordsModel) {
         trackerView = view
         recordsModel = model
         super.init()
         self.trackerView.delegate = self
-        self.trackerView.itemPickerView.dataSource = self
-        self.trackerView.itemPickerView.delegate = self
+        self.trackerView.trackerTableView.dataSource = self
+    }
+    
+    // MARK: UITableViewDataSource
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return itemsModel.activeItems.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let item = itemsModel.activeItems[indexPath.section]
+        var cell: TRTrackerTableViewCell
+        if item.incrementByOne {
+            cell = tableView.dequeueReusableCellWithIdentifier("itemWithPlusButton") as! TRTrackerTableViewCellWithPlusButton
+        } else {
+            let aCell = tableView.dequeueReusableCellWithIdentifier("itemWithTextField") as! TRTrackerTableViewCellWithTextField
+            let placeHolder = item.measurementUnit == "none" ? item.name : item.measurementUnit
+            aCell.setTextFieldPlaceHolder(placeHolder)
+            cell = aCell
+        }
+        cell.setItemLabelTextWith(itemsModel.activeItems[indexPath.section].name)
+        cell.setCellAsBadHabit(itemsModel.activeItems[indexPath.section].isAVice)
+        cell.setTagsForCellWith(indexPath.section)
+        cell.delegate = trackerView
+        cell.backgroundColor = TRCellColorGenerator.colorFor(indexPath.section)
+        return cell
     }
     
     // MARK: TRTrackerViewDelegate
-    func userWantsToTrackAction(){
-        trackingType = .TrackAction
+    
+    func trackItemAtRow(row: Int) {
+        recordsModel.createRecordUsingRow(row, quantity: 1, type: TRRecordType.TrackAction, date: dateToTrack)
     }
     
-    func userWantsToTrackUrge(){
-        trackingType = .TrackUrge
+    func trackUrgeAtRow(row: Int) {
+        recordsModel.createRecordUsingRow(row, quantity: 1, type: TRRecordType.TrackUrge, date: dateToTrack)
     }
     
-    func userPickedAnItemToTrack() {
-        self.recordsModel.createRecordUsingRow(selectedItemOfFirstColumn, quantityRow: selectedItemOfSecondColumn, type: trackingType, date: self.datetoTrack)
+    func textFieldReturnedWithTextAtRow(row: Int, text: String) {
+        if !text.isEmpty {
+            let quantityFromTextField = Float(text)
+        recordsModel.createRecordUsingRow(row, quantity: quantityFromTextField!, type: TRRecordType.TrackAction, date: dateToTrack)
+        }
     }
+    
+    func trackMultipleSelectedForRow(row: Int) {
+        itemsModel.updateItemIncrementalStatusAtIndex(row)
+        if itemsModel.activeItems[row].incrementByOne {
+            trackerView.trackerTableView.reloadSections(NSIndexSet(index: row), withRowAnimation: UITableViewRowAnimation.Left)
+        } else {
+            trackerView.trackerTableView.reloadSections(NSIndexSet(index: row), withRowAnimation: UITableViewRowAnimation.Right)
+        }
+    }
+    
 }

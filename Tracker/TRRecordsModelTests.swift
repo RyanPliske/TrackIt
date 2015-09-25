@@ -14,14 +14,14 @@ class TRRecordsModelTests: XCTestCase {
     
     func testWhencreateRecordUsingRowIsCalled_ThenCreateRecordWithItemIsCalledOnTheRecordService() {
         XCTAssertFalse(mockRecordService.createRecordCalled)
-        testObject.createRecordUsingRow(0, quantityRow: 1, type: .TrackAction, date: NSDate())
+        testObject.createRecordUsingRow(0, quantity: 1.0, type: .TrackAction, date: NSDate())
         XCTAssertTrue(mockRecordService.createRecordCalled)
     }
     
     func testWhenCreatingRecord_TheCorrectParametersAreUsed() {
         let row = 0
         let expectedItemName = itemsModel?.allItems[row].name
-        let expectedItemQuantity = 4
+        let expectedItemQuantity : Float = 4.0
         let itemType = TRRecordType.TrackAction
         let expectedItemType = itemType.description
         let itemDate = NSDate()
@@ -29,7 +29,7 @@ class TRRecordsModelTests: XCTestCase {
         
         testObject.createRecordUsingRow(
             row,
-            quantityRow: expectedItemQuantity - 1,
+            quantity: expectedItemQuantity,
             type: itemType,
             date: itemDate
         )

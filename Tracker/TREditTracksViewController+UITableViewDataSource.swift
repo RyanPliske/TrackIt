@@ -22,11 +22,9 @@ extension TREditTracksViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            if let model = recordsModel {
-                let recordToDelete = model.records[indexPath.row]
-                model.deleteRecordAtRow(recordToDelete)
-                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            }
+            let recordToDelete = recordsModel.records[indexPath.row]
+            recordsModel.deleteRecordAtRow(recordToDelete)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
     }
     

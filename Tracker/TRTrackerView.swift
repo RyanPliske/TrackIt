@@ -1,83 +1,108 @@
 import UIKit
-import HTPressableButton
+import TPKeyboardAvoiding
+import Spring
 
 protocol TRTrackerViewDelegate {
-    func userWantsToTrackAction()
-    func userWantsToTrackUrge()
-    func userPickedAnItemToTrack()
+    func trackItemAtRow(row: Int)
+    func trackUrgeAtRow(row: Int)
+    func trackMultipleSelectedForRow(row: Int)
+    func textFieldReturnedWithTextAtRow(row: Int, text: String)
 }
 
 protocol TRTrackerViewObserver {
-    func displayDateChooser()
+    func dateChooserWanted()
+    func trackingOptionsWantedAtRow(row: Int, includeBadHabit: Bool)
+    func dismissTrackingOptions()
 }
 
-class TRTrackerView: UIView, TRKeyboardToolbarDelegate {
-    let todaysDateButton = TRTodaysDateButton(frame: CGRectMake(0, 50, 300, 50))
-    let hiddenPickerViewTextField = TRHiddenTextField(frame: CGRectZero)
-    let itemPickerView = UIPickerView()
-    var trackButton = TRTrackerButton(frame: CGRectMake(30.0, 150.0, 260.0, 50.0), buttonStyle: HTPressableButtonStyle.Rounded, trackingType: .TrackAction)
-    var trackUrgeButton = TRTrackerButton(frame: CGRectMake(30.0, 150.0, 260.0, 50.0), buttonStyle: HTPressableButtonStyle.Rounded, trackingType: .TrackUrge)
-    
+class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
+    @IBOutlet weak var todaysDateButton: UIButton!
+    @IBOutlet weak var recordSavedLabel: SpringLabel!
+    @IBOutlet weak var trackerTableView: TPKeyboardAvoidingTableView! {
+        didSet {
+            self.trackerTableView.delegate = self
+        }
+    }
+    var pathToReload: NSIndexPath?
     var delegate: TRTrackerViewDelegate?
     var observer: TRTrackerViewObserver?
+    var animations = [Int]()
     
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        // todaysDateButton
-        todaysDateButton.addTarget(self, action: "todaysDateButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
+    override func awakeFromNib() {
+        super.awakeFromNib()
         setTodaysDateButtonLabelWithText(TRDateFormatter.descriptionForToday)
-        addSubview(todaysDateButton)
-        addConstraintsForTodaysDateButton()
-        // trackButton
-        trackButton.addTarget(self, action: "trackButtonTapped", forControlEvents: UIControlEvents.TouchUpInside)
-        addSubview(trackButton)
-        addConstraintsForTrackerButton(trackButton)
-        // trackUrgeButton
-        trackUrgeButton.addTarget(self, action: "trackUrgeButtonTapped", forControlEvents: UIControlEvents.TouchUpInside)
-        addSubview(trackUrgeButton)
-        addConstraintsForTrackerButton(trackUrgeButton)
-        // hiddenPickerViewTextField
-        itemPickerView.backgroundColor = UIColor.blackColor()
-        hiddenPickerViewTextField.inputView = itemPickerView
-        let doneToolbarView = TRKeyboardToolbar()
-        doneToolbarView.toolbarDelegate = self
-        hiddenPickerViewTextField.inputAccessoryView = doneToolbarView
-        addSubview(hiddenPickerViewTextField)
-        addConstraintsForHiddenTextField()
+        trackerTableView.showsVerticalScrollIndicator = false
     }
     
-    // MARK: User Interaction
-    func TRKeyboardToolbarCanceled() {
-        hiddenPickerViewTextField.resignFirstResponder()
-    }
-    
-    func TRKeyboardToolbarDone() {
-        hiddenPickerViewTextField.resignFirstResponder()
-        self.delegate?.userPickedAnItemToTrack()
-    }
-    
-    func trackButtonTapped() {
-        self.delegate?.userWantsToTrackAction()
-        setToolBarForTrackingTitle("Track")
-    }
-    
-    func trackUrgeButtonTapped() {
-        self.delegate?.userWantsToTrackUrge()
-        setToolBarForTrackingTitle("Track Urge")
-    }
-    
-    func todaysDateButtonPressed() {
-        self.observer?.displayDateChooser()
-    }
-    
-    // MARK: Setters
-    func setToolBarForTrackingTitle(text: String) {
-        let toolBar = hiddenPickerViewTextField.inputAccessoryView as! TRKeyboardToolbar
-        toolBar.items![2].title = text
+    @IBAction func todaysDateButtonPressed() {
+        observer?.dateChooserWanted()
     }
     
     func setTodaysDateButtonLabelWithText(text: String) {
         todaysDateButton.setTitle(text, forState: UIControlState.Normal)
     }
+    
+    private func delay(delay:Double, closure:()->()) {
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(delay * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), closure)
+    }
+    
+    private func animateSavedRecordForRow(row: Int) {
+        weak var weakSelf = self
+        recordSavedLabel.hidden = false
+        
+        let animationIndex = animations.count
+        animations.append(animationIndex)
+        
+        func zoomOut() {
+            if weakSelf?.animations.count > 0 {
+                if (weakSelf?.animations.count)! - 1 == (weakSelf?.animations[animationIndex])! {
+                    weakSelf?.recordSavedLabel.animation = "zoomOut"
+                    weakSelf?.recordSavedLabel.force = 1.0
+                    weakSelf?.animations.removeAll()
+                    weakSelf?.recordSavedLabel.animate()
+                }
+            }
+        }
+        
+        recordSavedLabel.textColor = TRCellColorGenerator.colorFor(row)
+        recordSavedLabel.animation = "fadeInDown"
+        recordSavedLabel.curve = "easeIn"
+        recordSavedLabel.force = 0.1
+        recordSavedLabel.animateNext { () -> () in
+            weakSelf?.delay(1.5, closure: zoomOut)
+        }
+    }
+    
+    // MARK: TRTrackerTableViewCellDelegate
+    
+    func plusButtonPressedAtRow(row: Int) {
+        delegate?.trackItemAtRow(row)
+        animateSavedRecordForRow(row)
+    }
+    
+    func moreButtonPressedAtRow(row: Int, includeBadHabit: Bool) {
+        observer?.trackingOptionsWantedAtRow(row, includeBadHabit: includeBadHabit)
+    }
+    
+    func trackUrgeSelectedForRow(row: Int) {
+        delegate?.trackUrgeAtRow(row)
+        observer?.dismissTrackingOptions()
+        animateSavedRecordForRow(row)
+    }
+    
+    func trackMultipleSelectedForRow(row: Int) {
+        delegate?.trackMultipleSelectedForRow(row)
+        observer?.dismissTrackingOptions()
+    }
+    
+    func textFieldReturnedWithTextAtRow(row: Int, text: String) {
+        delegate?.textFieldReturnedWithTextAtRow(row, text: text)
+        animateSavedRecordForRow(row)
+    }
+    
 }

@@ -45,7 +45,7 @@ class TRItem: PFObject, PFSubclassing {
                 return status
             }
             else {
-                return true
+                return false
             }
         }
         set(newValue) {
@@ -72,6 +72,19 @@ class TRItem: PFObject, PFSubclassing {
         }
         set {
             self["dailyGoal"] = newValue
+        }
+    }
+    
+    var incrementByOne: Bool {
+        get {
+            if let increment =  self["incrementByOne"] as? Bool {
+                return increment
+            } else {
+                return true
+            }
+        }
+        set {
+            self["incrementByOne"] = newValue
         }
     }
     

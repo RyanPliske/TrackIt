@@ -1,31 +1,32 @@
 import UIKit
 
 class TREditTracksViewController: UIViewController {
-    var recordsModel: TRRecordsModel!
+    lazy var recordsModel = TRRecordsModel.sharedInstanceOfRecordsModel
+    lazy var itemsModel = TRItemsModel.sharedInstanceOfItemsModel
     @IBOutlet weak var editTracksTableView: TREditTracksTableView!
     @IBOutlet weak var itemTypeSegmentedControl: UISegmentedControl!
     @IBOutlet weak var recordSearchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        recordsModel = TRRecordsModel.sharedInstanceOfRecordsModel
-        editTracksTableView.dataSource = self
         recordSearchBar.delegate = self
-        title = "TrackIt"
+        recordSearchBar.keyboardAppearance = UIKeyboardAppearance.Dark
+        editTracksTableView.dataSource = self
+        editTracksTableView.delegate = editTracksTableView
+        title = "Tracks"
         navigationItem.rightBarButtonItem = self.editButtonItem()
         if let navController = navigationController {
             navController.navigationBar.barStyle = UIBarStyle.BlackTranslucent
             navController.navigationBar.barTintColor = UIColor.clearColor()
-            navController.navigationBar.tintColor = UIColor.TRBabyBlue()
             let navBarHairLineImageView = findHairLineImageViewUnder(navController.navigationBar)
             navBarHairLineImageView?.hidden = true
         }
     }
     
     override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
         recordsModel.sortType = TRRecordType.TrackAction
         view.endEditing(true)
+        super.viewWillDisappear(animated)
     }
     
     override func setEditing(editing: Bool, animated: Bool) {

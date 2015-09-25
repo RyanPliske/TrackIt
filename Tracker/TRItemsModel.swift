@@ -17,10 +17,46 @@ class TRItemsModel {
     init(itemService: TRItemService) {
         self.itemService = itemService
         TRItem()
-        self.checkForItems(nil)
+        readItemsFromPhone { () -> () in
+            NSNotificationCenter.defaultCenter().postNotificationName("itemsRetrievedFromDB", object: nil)
+        }
     }
     
-    private func checkForItems(completion: (() -> ())?) {
+    private func preloadItemsToPhone() {
+        for item in TRPreloadedItems.sinfulItems {
+            itemService.addItemToSaveWithItemName(item, isAVice: true, measureUnit: nil)
+        }
+        for (_, items) in TRPreloadedItems.regularItems {
+            let itemName = items["name"] as! String
+            let itemMeasureUnit = items["unit"] as! String
+            let incrementByOne = items["increment"] as! Bool
+            if incrementByOne {
+                itemService.addItemToSaveWithItemName(itemName, isAVice: false, measureUnit: itemMeasureUnit)
+            } else {
+                itemService.addItemToSaveWithItemName(itemName, isAVice: false, measureUnit: itemMeasureUnit, incrementByOne: false)
+            }
+        }
+        weak var weakSelf = self
+        itemService.saveItems { (success, error) -> Void in
+            if success {
+                weakSelf?.readItemsFromPhone({ () -> () in
+                    NSNotificationCenter.defaultCenter().postNotificationName("itemsRetrievedFromDB", object: nil)
+                })
+            }
+        }
+    }
+    
+    func createItemWithName(itemName: String, completion: (()->())?) {
+        itemService.addItemToSaveWithItemName(itemName, isAVice: false, measureUnit: nil)
+        weak var weakSelf = self
+        itemService.saveItems { (success, error) -> Void in
+            if success {
+                weakSelf?.readItemsFromPhone(completion)
+            }
+        }
+    }
+    
+    private func readItemsFromPhone(completion: (() -> ())?) {
         weak var weakSelf = self
         itemService.readAllItemsFromPhone {
             (objects, error) -> Void in
@@ -35,34 +71,7 @@ class TRItemsModel {
                 }
             }
             weakSelf?.deleteAllItems()
-            weakSelf?.saveAllItems()
-        }
-    }
-    
-    private func saveAllItems() {
-        for item in TRPreloadedItems.sinfulItems {
-            itemService.createItemWithName(item, isAVice: true, measureUnit: nil)
-        }
-        for (_, items) in TRPreloadedItems.regularItems {
-            let itemName = items["name"]! as String
-            let itemMeasureUnit = items["unit"]! as String
-            itemService.createItemWithName(itemName, isAVice: false, measureUnit: itemMeasureUnit)
-        }
-        weak var weakSelf = self
-        itemService.saveAll { (success, error) -> Void in
-            if success {
-                weakSelf?.checkForItems(nil)
-            }
-        }
-    }
-    
-    func createItemWithName(itemName: String, completion: (()->())?) {
-        itemService.createItemWithName(itemName, isAVice: false, measureUnit: nil)
-        weak var weakSelf = self
-        itemService.saveAll { (success, error) -> Void in
-            if success {
-                weakSelf?.checkForItems(completion)
-            }
+            weakSelf?.preloadItemsToPhone()
         }
     }
     
@@ -70,6 +79,12 @@ class TRItemsModel {
         _allItems[index].activated = activeStatus
         filterItemsByActivated()
         itemService.updateItem(self.allItems[index], activeStatus: activeStatus)
+    }
+    
+    func updateItemIncrementalStatusAtIndex(index: Int) {
+        let incrementByOne = !_activeItems[index].incrementByOne
+        _activeItems[index].incrementByOne = incrementByOne
+        itemService.updateItem(self.allItems[index], incrementByOne: incrementByOne)
     }
     
     func updateItemNameAtIndex(index: Int, name: String) {
@@ -108,7 +123,7 @@ class TRItemsModel {
         weak var weakSelf = self
         itemService.deleteItemFromPhone(itemToDelete) { (success, error) -> Void in
             if success {
-                weakSelf?.checkForItems(nil)
+                weakSelf?.readItemsFromPhone(nil)
             }
         }
     }
