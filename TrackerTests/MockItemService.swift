@@ -7,7 +7,7 @@ class MockItemService : TRItemService {
         
     }
     
-    override func readAllItemsFromPhone(completion: PFArrayResultBlock?) {
+    override func readAllItemsFromPhone(completion: PFQueryArrayResultBlock?) {
         let item1 = TRItem(className: "item")
         item1.name = "requiredName"
         let item2 = TRItem(className: "item")
