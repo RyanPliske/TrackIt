@@ -16,14 +16,18 @@ class TRTrackerTableViewCell: UITableViewCell, TRTrackingOptionsDelegate {
     
     @IBOutlet private weak var itemLabel: UILabel!
     @IBOutlet private weak var moreButton: UIButton!
-    private var statsView: UIView?
+    private var statsView: UIView
     private var isAVice = false
     
     required init?(coder aDecoder: NSCoder) {
+        statsView = UIView()
+        statsView.backgroundColor = UIColor.greenColor()
         super.init(coder: aDecoder)
-        statsView = UIView(frame: CGRectMake(0, 60, CGRectGetWidth(self.bounds), 330))
-        statsView!.backgroundColor = UIColor.greenColor()
-        addSubview(statsView!)
+        addSubview(statsView)
+    }
+    
+    override func layoutSubviews() {
+        statsView.frame = CGRectMake(0, 60, CGRectGetWidth(self.bounds), UIScreen.mainScreen().applicationFrame.size.height - 200)
     }
     
     func setItemLabelTextWith(itemName: String) {

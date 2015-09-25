@@ -14,7 +14,7 @@ extension TRTrackerView: UITableViewDelegate {
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if let path = pathToReload where path == indexPath {
-            return 400
+            return UIScreen.mainScreen().applicationFrame.size.height - 120
         }
         return 60
     }
