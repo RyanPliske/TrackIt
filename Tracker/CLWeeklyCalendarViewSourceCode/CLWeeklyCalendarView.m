@@ -58,6 +58,7 @@ static float const CLCalendarSelectedDatePrintFontSizeDefault = 13.f;
 @property (nonatomic, strong) NSDate *startDate;
 @property (nonatomic, strong) NSDate *endDate;
 @property (nonatomic, strong) NSDictionary *arrDailyWeather;
+@property (nonatomic, strong) NSDate *todaysDate;
 
 
 
@@ -72,13 +73,17 @@ static float const CLCalendarSelectedDatePrintFontSizeDefault = 13.f;
 
 @implementation CLWeeklyCalendarView
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithFrame:(CGRect)frame withDate:(NSDate *)date
 {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
         [self addSubview:self.backgroundImageView];
         self.arrDailyWeather = @{};
+        self.todaysDate = date;
+        if (self.todaysDate == nil) {
+            self.todaysDate = [[NSDate alloc] init];
+        }
     }
     return self;
 }
@@ -198,7 +203,7 @@ static float const CLCalendarSelectedDatePrintFontSizeDefault = 13.f;
 -(void)initDailyViews
 {
     CGFloat dailyWidth = self.bounds.size.width/WEEKLY_VIEW_COUNT;
-    NSDate *today = [NSDate new];
+    NSDate *today = self.todaysDate;
     NSDate *dtWeekStart = [today getWeekStartDate:self.weekStartConfig.integerValue];
     self.startDate = dtWeekStart;
     for (UIView *v in [self.dailySubViewContainer subviews]){
@@ -219,7 +224,7 @@ static float const CLCalendarSelectedDatePrintFontSizeDefault = 13.f;
         self.endDate = dt;
     }
     
-    [self dailyCalendarViewDidSelect:[NSDate new]];
+    [self dailyCalendarViewDidSelect:today];
 }
 
 -(UILabel *)dayTitleViewForDate: (NSDate *)date inFrame: (CGRect)frame

@@ -39,7 +39,7 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
     
     // MARK: TRTrackerViewObserver
     func dateChooserWanted() {
-        let dateViewController = TRChooseableDateViewController()
+        let dateViewController = TRChooseableDateViewController(dateToSelect: trackerPresenter.dateToTrack)
         dateViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
         dateViewController.dateObserver = self.trackerPresenter
         if let popOver = dateViewController.popoverPresentationController {
