@@ -28,8 +28,8 @@ class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
     var observer: TRTrackerViewObserver?
     var animations = [Int]()
     
-    override func willMoveToWindow(newWindow: UIWindow?) {
-        super.willMoveToWindow(newWindow)
+    override func awakeFromNib() {
+        super.awakeFromNib()
         setTodaysDateButtonLabelWithText(TRDateFormatter.descriptionForToday)
         trackerTableView.showsVerticalScrollIndicator = false
     }
