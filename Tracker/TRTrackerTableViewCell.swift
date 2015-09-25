@@ -16,12 +16,11 @@ class TRTrackerTableViewCell: UITableViewCell, TRTrackingOptionsDelegate {
     
     @IBOutlet private weak var itemLabel: UILabel!
     @IBOutlet private weak var moreButton: UIButton!
-    private var statsView: UIView
+    private var statsView: TRStatsView
     private var isAVice = false
     
     required init?(coder aDecoder: NSCoder) {
-        statsView = UIView()
-        statsView.backgroundColor = UIColor.greenColor()
+        self.statsView = TRStatsView(frame: CGRectZero)
         super.init(coder: aDecoder)
         addSubview(statsView)
     }
