@@ -1,4 +1,5 @@
 import Foundation
+import JTCalendar
 
 protocol TRTrackerTableViewCellDelegate {
     func plusButtonPressedAtRow(row: Int)
@@ -39,6 +40,10 @@ class TRTrackerTableViewCell: UITableViewCell, TRTrackingOptionsDelegate {
     
     func setCellAsBadHabit(isAVice: Bool) {
         self.isAVice = isAVice
+    }
+    
+    func setupStatsViewWith(calendarManager: JTCalendarManager){
+        self.statsView.calendarManager = calendarManager
     }
     
     @IBAction func moreButtonPressed(sender: AnyObject) {

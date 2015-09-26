@@ -1,10 +1,13 @@
 import Foundation
+import JTCalendar
 
 class TRTrackerPresenter: NSObject, TRTrackerViewDelegate, UITableViewDataSource {
     let trackerView: TRTrackerView
     let recordsModel: TRRecordsModel
     private lazy var itemsModel = TRItemsModel.sharedInstanceOfItemsModel
     var dateToTrack = NSDate()
+    var dateSelectedOnJTCalendar: NSDate?
+    let calendarManager = JTCalendarManager()
     var trackingType : TRRecordType = .TrackAction
 
     
@@ -42,6 +45,8 @@ class TRTrackerPresenter: NSObject, TRTrackerViewDelegate, UITableViewDataSource
         cell.setTagsForCellWith(indexPath.section)
         cell.delegate = trackerView
         cell.backgroundColor = TRColorGenerator.colorFor(indexPath.section)
+        calendarManager.delegate = self
+        cell.setupStatsViewWith(calendarManager)
         return cell
     }
     

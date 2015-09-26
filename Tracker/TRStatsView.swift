@@ -5,7 +5,13 @@ class TRStatsView: UIView {
     
     let calendarMenuView: JTCalendarMenuView
     let calendarContentView: JTHorizontalCalendarView
-    let calendarManager = JTCalendarManager()
+    var calendarManager: JTCalendarManager? {
+        didSet {
+            self.calendarManager!.menuView = calendarMenuView
+            self.calendarManager!.contentView = calendarContentView
+            self.calendarManager!.setDate(NSDate())
+        }
+    }
     
     override init(frame: CGRect) {
         calendarMenuView = JTCalendarMenuView(frame: frame)
@@ -13,9 +19,6 @@ class TRStatsView: UIView {
         super.init(frame: frame)
         addSubview(calendarMenuView)
         addSubview(calendarContentView)
-        calendarManager.menuView = calendarMenuView
-        calendarManager.contentView = calendarContentView
-        calendarManager.setDate(NSDate())
     }
 
     required init?(coder aDecoder: NSCoder) {
