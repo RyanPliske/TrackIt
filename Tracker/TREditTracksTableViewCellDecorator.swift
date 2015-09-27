@@ -6,7 +6,7 @@ class TREditTracksTableViewCellDecorator {
         if let model = recordsModel {
             let item = model.records[indexPath.row].itemName
             let count = model.records[indexPath.row].itemQuantity
-            let date = model.records[indexPath.row].itemDate
+            let date = model.records[indexPath.row].dateDescription
             
             switch (model.sortType) {
             case .TrackAction:
@@ -21,7 +21,7 @@ class TREditTracksTableViewCellDecorator {
                 cell.setCountLabelTextWith("")
             }
             
-            cell.setDateLabelTextWith(date!)
+            cell.setDateLabelTextWith(date)
         }
         return cell
     }

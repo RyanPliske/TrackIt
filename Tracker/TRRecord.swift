@@ -47,12 +47,21 @@ class TRRecord: PFObject, PFSubclassing {
         }
     }
     
-    var itemDate: String? {
+    var dateDescription: String {
         get {
-            return self["date"] as? String
+            return self["dateDescription"] as! String
         }
         set(newValue) {
-            self["date"] = newValue
+            self["dateDescription"] = newValue
+        }
+    }
+    
+    var date: NSDate {
+        get {
+            return self["nsdate"] as! NSDate
+        }
+        set(newValue) {
+            self["nsdate"] = newValue
         }
     }
 }

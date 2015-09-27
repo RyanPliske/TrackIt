@@ -20,10 +20,16 @@ extension TRTrackerView: UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        pathToReload = indexPath == pathToReload ? nil : indexPath
+        if indexPath == pathToReload {
+            pathToReload = nil
+        } else {
+            pathToReload = indexPath
+            delegate?.itemSelectedAtRow(indexPath.section)
+        }
         tableView.beginUpdates()
         tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         tableView.endUpdates()
         tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Top, animated: true)
+
     }
 }

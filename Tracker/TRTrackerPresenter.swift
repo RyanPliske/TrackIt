@@ -1,13 +1,11 @@
 import Foundation
 import JTCalendar
 
-class TRTrackerPresenter: NSObject, TRTrackerViewDelegate, UITableViewDataSource {
+class TRTrackerPresenter: NSObject, UITableViewDataSource {
     let trackerView: TRTrackerView
     let recordsModel: TRRecordsModel
-    private lazy var itemsModel = TRItemsModel.sharedInstanceOfItemsModel
+    lazy var itemsModel = TRItemsModel.sharedInstanceOfItemsModel
     var dateToTrack = NSDate()
-    var dateSelectedOnJTCalendar: NSDate?
-    let calendarManager = JTCalendarManager()
     var trackingType : TRRecordType = .TrackAction
 
     
@@ -45,35 +43,7 @@ class TRTrackerPresenter: NSObject, TRTrackerViewDelegate, UITableViewDataSource
         cell.setTagsForCellWith(indexPath.section)
         cell.delegate = trackerView
         cell.backgroundColor = TRColorGenerator.colorFor(indexPath.section)
-        calendarManager.delegate = self
-        cell.setupStatsViewWith(calendarManager)
         return cell
-    }
-    
-    // MARK: TRTrackerViewDelegate
-    
-    func trackItemAtRow(row: Int) {
-        recordsModel.createRecordUsingRow(row, quantity: 1, type: TRRecordType.TrackAction, date: dateToTrack)
-    }
-    
-    func trackUrgeAtRow(row: Int) {
-        recordsModel.createRecordUsingRow(row, quantity: 1, type: TRRecordType.TrackUrge, date: dateToTrack)
-    }
-    
-    func textFieldReturnedWithTextAtRow(row: Int, text: String) {
-        if !text.isEmpty {
-            let quantityFromTextField = Float(text)
-        recordsModel.createRecordUsingRow(row, quantity: quantityFromTextField!, type: TRRecordType.TrackAction, date: dateToTrack)
-        }
-    }
-    
-    func trackMultipleSelectedForRow(row: Int) {
-        itemsModel.updateItemIncrementalStatusAtIndex(row)
-        if itemsModel.activeItems[row].incrementByOne {
-            trackerView.trackerTableView.reloadSections(NSIndexSet(index: row), withRowAnimation: UITableViewRowAnimation.Left)
-        } else {
-            trackerView.trackerTableView.reloadSections(NSIndexSet(index: row), withRowAnimation: UITableViewRowAnimation.Right)
-        }
     }
     
 }

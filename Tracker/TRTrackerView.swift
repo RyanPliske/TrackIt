@@ -7,6 +7,7 @@ protocol TRTrackerViewDelegate {
     func trackUrgeAtRow(row: Int)
     func trackMultipleSelectedForRow(row: Int)
     func textFieldReturnedWithTextAtRow(row: Int, text: String)
+    func itemSelectedAtRow(row: Int)
 }
 
 protocol TRTrackerViewObserver {

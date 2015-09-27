@@ -19,10 +19,14 @@ class TRTrackerTableViewCell: UITableViewCell, TRTrackingOptionsDelegate {
     @IBOutlet private weak var moreButton: UIButton!
     private var statsView: TRStatsView
     private var isAVice = false
+    let calendarManager = JTCalendarManager()
+    var selectedDatesOnJTCalendar = [String]()
+    var dateSelectedOnJTCalendar: NSDate?
     
     required init?(coder aDecoder: NSCoder) {
-        self.statsView = TRStatsView(frame: CGRectZero)
+        self.statsView = TRStatsView(frame: CGRectZero, _calendarManager: calendarManager)
         super.init(coder: aDecoder)
+        self.calendarManager.delegate = self
         addSubview(statsView)
     }
     
@@ -42,8 +46,10 @@ class TRTrackerTableViewCell: UITableViewCell, TRTrackingOptionsDelegate {
         self.isAVice = isAVice
     }
     
-    func setupStatsViewWith(calendarManager: JTCalendarManager){
-        self.statsView.calendarManager = calendarManager
+    func setSelectedDatesOnCalendarWith(dates: [String]) {
+        selectedDatesOnJTCalendar = dates
+        print(selectedDatesOnJTCalendar)
+        calendarManager.reload()
     }
     
     @IBAction func moreButtonPressed(sender: AnyObject) {
