@@ -9,5 +9,9 @@ class TRTrackerTableViewCellWithPlusButton: TRTrackerTableViewCell {
         plusButton.animation = "pop"
         plusButton.force = 5.0
         plusButton.animate()
+        if let dateSelected = dateSelectedOnJTCalendar {
+            selectedDatesOnJTCalendar.append(TRDateFormatter.descriptionForDate(dateSelected))
+        }
+        calendarManager.reload()
     }
 }
