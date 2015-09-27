@@ -33,7 +33,7 @@ extension TRTrackerPresenter: TRTrackerViewDelegate {
                 let dates = records.map { $0.dateDescription as String }
                 let cell = weakSelf?.trackerView.trackerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: row)) as! TRTrackerTableViewCell
                 print(dates)
-                cell.setSelectedDatesOnCalendarWith(dates)
+                cell.setWhiteDotsOnDatesWith(dates)
 
             }
         }

@@ -51,10 +51,14 @@ class TRTrackerTableViewCell: UITableViewCell, TRTrackingOptionsDelegate {
         calendarManager.reload()
     }
     
-    func setSelectedDatesOnCalendarWith(dates: [String]) {
+    func setWhiteDotsOnDatesWith(dates: [String]) {
         selectedDatesOnJTCalendar = dates
         print(selectedDatesOnJTCalendar)
         calendarManager.reload()
+    }
+    
+    func setSelectedDateOnCalendarWith(selectedDate: NSDate) {
+        dateSelectedOnJTCalendar = selectedDate
     }
     
     @IBAction func moreButtonPressed(sender: AnyObject) {

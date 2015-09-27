@@ -56,6 +56,7 @@
 		EFA45C071BAB9AC800EAFB76 /* TRRecordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA45C051BAB9AC800EAFB76 /* TRRecordService.swift */; settings = {ASSET_TAGS = (); }; };
 		EFA45C091BABA0A900EAFB76 /* TRManageItemsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA45C081BABA0A900EAFB76 /* TRManageItemsPresenter.swift */; settings = {ASSET_TAGS = (); }; };
 		EFA45C0C1BABD32500EAFB76 /* TRKeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA45C0B1BABD32500EAFB76 /* TRKeyboardToolbar.swift */; settings = {ASSET_TAGS = (); }; };
+		EFA5B5B91BB799020013A5F8 /* TRTrackerPresenter+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA5B5B81BB799020013A5F8 /* TRTrackerPresenter+UITableViewDataSource.swift */; settings = {ASSET_TAGS = (); }; };
 		EFA9B5E81B7D7EBD00BAA839 /* TRTrackerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA9B5E71B7D7EBD00BAA839 /* TRTrackerPresenter.swift */; };
 		EFA9B5EA1B7D811800BAA839 /* TRRrecordsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA9B5E91B7D811800BAA839 /* TRRrecordsModel.swift */; };
 		EFB392911B93609E002EC06C /* MockRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB392901B93609E002EC06C /* MockRecord.swift */; };
@@ -186,6 +187,7 @@
 		EFA45C051BAB9AC800EAFB76 /* TRRecordService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRRecordService.swift; sourceTree = "<group>"; };
 		EFA45C081BABA0A900EAFB76 /* TRManageItemsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRManageItemsPresenter.swift; sourceTree = "<group>"; };
 		EFA45C0B1BABD32500EAFB76 /* TRKeyboardToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRKeyboardToolbar.swift; sourceTree = "<group>"; };
+		EFA5B5B81BB799020013A5F8 /* TRTrackerPresenter+UITableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TRTrackerPresenter+UITableViewDataSource.swift"; sourceTree = "<group>"; };
 		EFA9B5E51B7D6A5B00BAA839 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EFA9B5E71B7D7EBD00BAA839 /* TRTrackerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRTrackerPresenter.swift; sourceTree = "<group>"; };
 		EFA9B5E91B7D811800BAA839 /* TRRrecordsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRRrecordsModel.swift; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 			isa = PBXGroup;
 			children = (
 				EFA9B5E71B7D7EBD00BAA839 /* TRTrackerPresenter.swift */,
+				EFA5B5B81BB799020013A5F8 /* TRTrackerPresenter+UITableViewDataSource.swift */,
 				EF1CA9B21BB75B5B0002924D /* TRTrackerPresenter+TRTrackerViewDelegate.swift */,
 				EF3D9FBC1B85146F009042CA /* TRTrackerPresenter+TRDateChooserObserver.swift */,
 			);
@@ -870,6 +873,7 @@
 				EF7C173A1BA7346B000A3947 /* TRColors.swift in Sources */,
 				EF3D9FB61B850E8E009042CA /* DailyCalendarView.m in Sources */,
 				EFA1EF951BA78D26007D82E6 /* TREditItemTextField.swift in Sources */,
+				EFA5B5B91BB799020013A5F8 /* TRTrackerPresenter+UITableViewDataSource.swift in Sources */,
 				EF3779A21B8ECB7300D6FB97 /* TREditTracksViewController+UITableViewDataSource.swift in Sources */,
 				EFD8AEAF1B965C0200962BA0 /* TRSettingsModel.swift in Sources */,
 				EFF328DD1B87C5C6001B9E84 /* TREditTracksTableViewCell.swift in Sources */,

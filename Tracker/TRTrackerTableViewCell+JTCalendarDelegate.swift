@@ -2,16 +2,6 @@ import Foundation
 import JTCalendar
 
 extension TRTrackerTableViewCell: JTCalendarDelegate {
-        func calendar(calendar: JTCalendarManager!, didTouchDayView dayView: UIView!) {
-            if let aDayView = dayView as? JTCalendarDayView {
-                dateSelectedOnJTCalendar = aDayView.date
-                aDayView.circleView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.1, 0.1)
-                UIView.transitionWithView(aDayView, duration: 0.3, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
-                    aDayView.circleView.transform = CGAffineTransformIdentity
-                    self.calendarManager.reload()
-                    }, completion: nil)
-            }
-        }
     
     func calendar(calendar: JTCalendarManager!, prepareDayView dayView: UIView!) {
         if let aDayView = dayView as? JTCalendarDayView {
