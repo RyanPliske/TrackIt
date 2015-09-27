@@ -7,14 +7,14 @@ class MockItemService : TRItemService {
         
     }
     
-    override func readAllItemsFromPhone(completion: PFQueryArrayResultBlock?) {
+    override func readAllItemsFromPhone(completion: TRReadAllItemsCompletion?) {
         let item1 = TRItem(className: "item")
         item1.name = "requiredName"
         let item2 = TRItem(className: "item")
         item2.name = "requiredName"
         let items = [item1, item2]
         if let completionBlock = completion {
-            completionBlock(items, nil)
+            completionBlock(items)
         }
     }
     

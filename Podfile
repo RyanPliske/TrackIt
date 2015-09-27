@@ -12,6 +12,8 @@ end
 
 target 'TrackerTests' do
     pod 'Parse'
+    pod 'Fabric'
+    pod 'Crashlytics'
 end
 
 #target 'TrackViaWatch' do

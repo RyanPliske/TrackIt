@@ -37,6 +37,6 @@ class TRRecordsModelTests: XCTestCase {
         XCTAssertEqual(expectedItemName, mockRecordService.createdRecord?.itemName)
         XCTAssertEqual(expectedItemQuantity, mockRecordService.createdRecord?.itemQuantity)
         XCTAssertEqual(expectedItemType, mockRecordService.createdRecord?.itemType)
-        XCTAssertEqual(expectedItemDate, mockRecordService.createdRecord?.itemDate)
+        XCTAssertEqual(expectedItemDate, mockRecordService.createdRecord?.dateDescription)
     }
 }

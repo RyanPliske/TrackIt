@@ -58,20 +58,18 @@ class TRItemsModel {
     
     private func readItemsFromPhone(completion: (() -> ())?) {
         weak var weakSelf = self
-        itemService.readAllItemsFromPhone {
-            (objects, error) -> Void in
-            if let items = objects as? [TRItem] {
-                if (items.count != 0) {
-                    weakSelf?._allItems = items
-                    weakSelf?.filterItemsByActivated()
-                    if let completionBlock = completion {
-                        completionBlock()
-                    }
-                    return
+        itemService.readAllItemsFromPhone { (items) -> Void in
+            // Items should only be empty upond installation of the app.
+            if items.isEmpty {
+                weakSelf?.deleteAllItems()
+                weakSelf?.preloadItemsToPhone()
+            } else {
+                weakSelf?._allItems = items
+                weakSelf?.filterItemsByActivated()
+                if let completionBlock = completion {
+                    completionBlock()
                 }
             }
-            weakSelf?.deleteAllItems()
-            weakSelf?.preloadItemsToPhone()
         }
     }
     
