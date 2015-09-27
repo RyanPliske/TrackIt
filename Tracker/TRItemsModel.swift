@@ -16,7 +16,6 @@ class TRItemsModel {
     
     init(itemService: TRItemService) {
         self.itemService = itemService
-        TRItem()
         readItemsFromPhone { () -> () in
             NSNotificationCenter.defaultCenter().postNotificationName("itemsRetrievedFromDB", object: nil)
         }
@@ -58,7 +57,7 @@ class TRItemsModel {
     
     private func readItemsFromPhone(completion: (() -> ())?) {
         weak var weakSelf = self
-        itemService.readAllItemsFromPhone { (items) -> Void in
+        itemService.readAllItemsFromPhone { (items: [TRItem]) -> Void in
             // Items should only be empty upond installation of the app.
             if items.isEmpty {
                 weakSelf?.deleteAllItems()

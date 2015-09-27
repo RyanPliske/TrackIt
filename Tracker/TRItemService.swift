@@ -44,11 +44,12 @@ class TRItemService {
             if error != nil {
                 Crashlytics()
                 CLSLogv("Reading Items from phone failed with error: %@", getVaList([error!.description]))
+                NSLog("Reading Items from phone failed with error: %@", error!.description)
             } else {
-                if let items = objects as? [TRItem] {
-                    if let completionBlock = completion {
-                        completionBlock(items)
-                    }
+                // Force a crash if this fails.
+                let items = objects as! [TRItem]
+                if let completionBlock = completion {
+                    completionBlock(items)
                 }
             }
         }

@@ -51,6 +51,13 @@ class TRTrackerTableViewCell: UITableViewCell, TRTrackingOptionsDelegate {
         calendarManager.reload()
     }
     
+    func resetCalendarAfterTrackOccured() {
+        if let dateSelected = dateSelectedOnJTCalendar {
+            selectedDatesOnJTCalendar.append(TRDateFormatter.descriptionForDate(dateSelected))
+        }
+        calendarManager.reload()
+    }
+    
     func setWhiteDotsOnDatesWith(dates: [String]) {
         selectedDatesOnJTCalendar = dates
         print(selectedDatesOnJTCalendar)

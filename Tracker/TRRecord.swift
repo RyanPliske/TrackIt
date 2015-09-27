@@ -6,7 +6,7 @@ import Parse
 */
 
 class TRRecord: PFObject, PFSubclassing {
-    // MARK: Parse Setup
+
     override class func initialize() {
         struct Static {
             static var onceToken: dispatch_once_t = 0;

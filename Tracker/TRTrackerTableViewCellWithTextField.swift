@@ -30,5 +30,6 @@ class TRTrackerTableViewCellWithTextField: TRTrackerTableViewCell, UITextFieldDe
         itemCountTextField.resignFirstResponder()
         delegate?.textFieldReturnedWithTextAtRow(self.tag, text: itemCountTextField.text!)
         itemCountTextField.text = nil
+        resetCalendarAfterTrackOccured()
     }
 }
