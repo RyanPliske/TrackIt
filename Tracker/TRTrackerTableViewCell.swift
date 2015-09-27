@@ -46,6 +46,11 @@ class TRTrackerTableViewCell: UITableViewCell, TRTrackingOptionsDelegate {
         self.isAVice = isAVice
     }
     
+    func resetCalendar() {
+        selectedDatesOnJTCalendar.removeAll()
+        calendarManager.reload()
+    }
+    
     func setSelectedDatesOnCalendarWith(dates: [String]) {
         selectedDatesOnJTCalendar = dates
         print(selectedDatesOnJTCalendar)

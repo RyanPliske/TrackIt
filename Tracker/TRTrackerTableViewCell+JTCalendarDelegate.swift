@@ -28,6 +28,8 @@ extension TRTrackerTableViewCell: JTCalendarDelegate {
             if dateIsIncluded(TRDateFormatter.descriptionForDate(aDayView.date)) {
                 aDayView.dotView.hidden = false
                 aDayView.dotView.backgroundColor = UIColor.whiteColor()
+            } else {
+                aDayView.dotView.hidden = true
             }
             
             aDayView.hidden = aDayView.isFromAnotherMonth ? true : false
