@@ -49,16 +49,20 @@ class TRRecord: PFObject, PFSubclassing {
     
     var dateDescription: String {
         get {
-            return self["dateDescription"] as! String
+            if let date = self["date"] as? String {
+                return date
+            } else {
+                return ""
+            }
         }
         set(newValue) {
-            self["dateDescription"] = newValue
+            self["date"] = newValue
         }
     }
     
-    var date: NSDate {
+    var date: NSDate? {
         get {
-            return self["nsdate"] as! NSDate
+            return self["nsdate"] as? NSDate
         }
         set(newValue) {
             self["nsdate"] = newValue

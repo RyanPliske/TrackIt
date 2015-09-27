@@ -30,11 +30,9 @@ extension TRTrackerPresenter: TRTrackerViewDelegate {
         weak var weakSelf = self
         recordsModel.searchRecordsForItem(itemName) { (objects, error) -> Void in
             if let records = objects as? [TRRecord] {
-                let dates = records.map { $0.dateDescription as String }
+                let dateDescriptions = records.map { $0.dateDescription as String }
                 let cell = weakSelf?.trackerView.trackerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: row)) as! TRTrackerTableViewCell
-                print(dates)
-                cell.setWhiteDotsOnDatesWith(dates)
-
+                cell.setWhiteDotsOnDatesWith(dateDescriptions)
             }
         }
     }
