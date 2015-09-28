@@ -1054,7 +1054,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Tracker;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "1dbc4c84-d82c-4621-81be-3ddab23f4a82";
 				SWIFT_OBJC_BRIDGING_HEADER = "Tracker/Tracker-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1074,7 +1074,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Tracker;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "1dbc4c84-d82c-4621-81be-3ddab23f4a82";
 				SWIFT_OBJC_BRIDGING_HEADER = "Tracker/Tracker-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
