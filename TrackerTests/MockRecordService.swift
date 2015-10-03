@@ -9,16 +9,16 @@ class MockRecordService: TRRecordService {
         record.itemName = item
         record.itemQuantity = quantity
         record.itemType = itemType.description
-        record.itemDate = TRDateFormatter.descriptionForDate(date)
+        record.dateDescription = TRDateFormatter.descriptionForDate(date)
         createRecordCalled = true
         createdRecord = record
         return record
     }
     
-    override func readAllRecordsFromPhoneWithSortType(sortType: TRRecordType, completion: PFArrayResultBlock) {
+    override func readAllRecordsFromPhoneWithSortType(sortType: TRRecordType, completion: PFQueryArrayResultBlock) {
         let record = MockRecord(className: "record")
         var records = [MockRecord]()
         records.append(record)
-        completion(records as [AnyObject]?, nil)
+        completion(records as [PFObject]?, nil)
     }
 }

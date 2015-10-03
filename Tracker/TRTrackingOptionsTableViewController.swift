@@ -27,7 +27,7 @@ class TRTrackingOptionsTableViewController: UITableViewController, UIPopoverPres
         if associatedItemIsAVice {
             tableView.registerNib(UINib(nibName: "TRTrackingOptionsTableViewCellUrge", bundle: nil), forCellReuseIdentifier: "trackUrge")
         }
-        tableView.backgroundColor = TRCellColorGenerator.colorFor(associatedItemRow)
+        tableView.backgroundColor = TRColorGenerator.colorFor(associatedItemRow)
     }
 
     required init?(coder aDecoder: NSCoder) {

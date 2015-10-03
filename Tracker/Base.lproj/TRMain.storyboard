@@ -71,7 +71,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="64T-tC-Stf" customClass="SpringButton" customModule="Spring">
-                                                    <rect key="frame" x="243" y="13" width="40" height="40"/>
+                                                    <rect key="frame" x="253" y="13" width="40" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="hQN-xh-Bx9"/>
                                                         <constraint firstAttribute="width" constant="40" id="zFi-kU-2Ps"/>
@@ -100,7 +100,7 @@
                                             <constraints>
                                                 <constraint firstItem="bT1-vX-V4Z" firstAttribute="top" secondItem="Vqo-Nd-b2b" secondAttribute="topMargin" constant="14" id="0Ag-wQ-30e"/>
                                                 <constraint firstItem="64T-tC-Stf" firstAttribute="top" secondItem="Vqo-Nd-b2b" secondAttribute="topMargin" constant="5" id="OK6-zU-c0B"/>
-                                                <constraint firstItem="64T-tC-Stf" firstAttribute="trailing" secondItem="D7j-YL-SPF" secondAttribute="leading" constant="-30" id="QFU-0y-QWp"/>
+                                                <constraint firstItem="64T-tC-Stf" firstAttribute="trailing" secondItem="D7j-YL-SPF" secondAttribute="leading" constant="-20" id="QFU-0y-QWp"/>
                                                 <constraint firstItem="bT1-vX-V4Z" firstAttribute="leading" secondItem="Vqo-Nd-b2b" secondAttribute="leadingMargin" constant="5" id="QUH-bO-FxJ"/>
                                                 <constraint firstItem="D7j-YL-SPF" firstAttribute="trailing" secondItem="Vqo-Nd-b2b" secondAttribute="trailing" id="Wnj-fs-KiN"/>
                                                 <constraint firstItem="D7j-YL-SPF" firstAttribute="top" secondItem="Vqo-Nd-b2b" secondAttribute="topMargin" constant="10" id="hFQ-Ha-Gem"/>
@@ -141,7 +141,7 @@
                                                     </connections>
                                                 </button>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ePn-JR-vyd">
-                                                    <rect key="frame" x="212" y="14" width="86" height="30"/>
+                                                    <rect key="frame" x="242" y="14" width="56" height="30"/>
                                                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert"/>
@@ -153,7 +153,7 @@
                                                 <constraint firstItem="ePn-JR-vyd" firstAttribute="top" secondItem="OBs-Hk-89c" secondAttribute="topMargin" constant="6" id="dSa-Jy-aFd"/>
                                                 <constraint firstItem="wEq-Kd-zbD" firstAttribute="trailing" secondItem="OBs-Hk-89c" secondAttribute="trailing" id="gqJ-Y8-iaj"/>
                                                 <constraint firstItem="wEq-Kd-zbD" firstAttribute="top" secondItem="OBs-Hk-89c" secondAttribute="topMargin" constant="10" id="lYq-WG-Ov1"/>
-                                                <constraint firstItem="ePn-JR-vyd" firstAttribute="leading" secondItem="OBs-Hk-89c" secondAttribute="centerXWithinMargins" constant="40" id="vy0-w1-V96"/>
+                                                <constraint firstItem="ePn-JR-vyd" firstAttribute="leading" secondItem="OBs-Hk-89c" secondAttribute="centerXWithinMargins" constant="70" id="vy0-w1-V96"/>
                                                 <constraint firstItem="pm9-xE-d4s" firstAttribute="top" secondItem="OBs-Hk-89c" secondAttribute="topMargin" constant="14" id="xYu-7I-579"/>
                                             </constraints>
                                         </tableViewCellContentView>

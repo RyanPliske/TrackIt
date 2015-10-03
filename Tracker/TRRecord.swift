@@ -6,7 +6,13 @@ import Parse
 */
 
 class TRRecord: PFObject, PFSubclassing {
-    // MARK: Parse Setup
+    
+    let itemNameReference = "item"
+    let itemQuantityReference = "quantity"
+    let itemTypeReference = "type"
+    let itemDateDescription = "date"
+    let itemDateReference = "nsdate"
+
     override class func initialize() {
         struct Static {
             static var onceToken: dispatch_once_t = 0;
@@ -22,37 +28,50 @@ class TRRecord: PFObject, PFSubclassing {
     // MARK: Properties
     var itemName: String? {
         get {
-            return self["item"] as? String
+            return self[itemNameReference] as? String
         }
         set(newValue) {
-            self["item"] = newValue
+            self[itemNameReference] = newValue
         }
     }
     
     var itemQuantity: Float? {
         get {
-            return self["quantity"] as? Float
+            return self[itemQuantityReference] as? Float
         }
         set(newValue) {
-            self["quantity"] = newValue
+            self[itemQuantityReference] = newValue
         }
     }
     
     var itemType: String? {
         get {
-            return self["type"] as? String
+            return self[itemTypeReference] as? String
         }
         set(newValue) {
-            self["type"] = newValue
+            self[itemTypeReference] = newValue
         }
     }
     
-    var itemDate: String? {
+    var dateDescription: String {
         get {
-            return self["date"] as? String
+            if let date = self[itemDateDescription] as? String {
+                return date
+            } else {
+                return ""
+            }
         }
         set(newValue) {
-            self["date"] = newValue
+            self[itemDateDescription] = newValue
+        }
+    }
+    
+    var date: NSDate? {
+        get {
+            return self[itemDateReference] as? NSDate
+        }
+        set(newValue) {
+            self[itemDateReference] = newValue
         }
     }
 }

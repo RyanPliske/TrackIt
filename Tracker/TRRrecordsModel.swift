@@ -3,6 +3,7 @@ import Parse
 
 typealias TRCreateRecordCompletion = () -> Void
 typealias TRSearchCompletion = () -> Void
+typealias TRSearchForItemCompletion = ([TRRecord]?, NSError?) -> Void
 
 class TRRecordsModel {
     
@@ -66,6 +67,14 @@ class TRRecordsModel {
         
     }
     
+    func searchRecordsForItem(itemName: String, dateDescription: String, completion: TRSearchForItemCompletion) {
+        recordService.readAllRecordsFromPhoneWithItemName(itemName, dateDescription: dateDescription, completion: completion)
+    }
+    
+    func searchRecordsForItem(itemName: String, completion: TRSearchForItemCompletion) {
+        recordService.readAllRecordsFromPhoneWithItemName(itemName, completion: completion)
+    }
+    
     func searchRecordsFor(searchText: String, completion: TRSearchCompletion?) {
         if let completionBlock = completion {
             grabAllRecordsContaining(searchText, completion: completionBlock)
@@ -88,8 +97,8 @@ class TRRecordsModel {
     
     private func grabRecordsWithSortType(sortType: TRRecordType, completion: TRSearchCompletion?) {
         weak var weakSelf = self
-        let recordsRetrievalCompletion: PFArrayResultBlock = {
-            (objects: [AnyObject]?, error: NSError?) in
+        let recordsRetrievalCompletion: PFQueryArrayResultBlock = {
+            (objects: [PFObject]?, error: NSError?) in
             if let records = objects as? [TRRecord] {
                 switch (sortType) {
                 case .TrackAction:
@@ -127,19 +136,17 @@ class TRRecordsModel {
     
     private func grabRecordsWithSearchText(searchText: String, sortType: TRRecordType, completion: TRSearchCompletion?) {
         weak var weakSelf = self
-        let recordsRetrievalCompletion: PFArrayResultBlock = {
-            (objects: [AnyObject]?, error: NSError?) in
+        let recordsRetrievalCompletion: PFQueryArrayResultBlock = {
+            (objects: [PFObject]?, error: NSError?) in
             if let records = objects as? [TRRecord] {
                 switch (sortType) {
                 case .TrackAction:
                     weakSelf?.recordSortManager.searchResultsForTracks = records
-                    print(records)
                     if let completionBlock = completion {
                         completionBlock()
                     }
                 case .TrackUrge:
                     weakSelf?.recordSortManager.searchResultsForUrges = records
-                    print(records)
                     if let completionBlock = completion {
                         completionBlock()
                     }

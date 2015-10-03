@@ -8,7 +8,8 @@ class TRRecordService {
         record.itemName = item
         record.itemQuantity = quantity
         record.itemType = itemType.description
-        record.itemDate = TRDateFormatter.descriptionForDate(date)
+        record.dateDescription = TRDateFormatter.descriptionForDate(date)
+        record.date = date
         saveRecordToPhoneWithRecord(record, completion: completion)
         return record
     }
@@ -28,9 +29,9 @@ class TRRecordService {
         record.saveEventually(nil)
     }
     
-    func readAllRecordsFromPhoneWithSortType(sortType: TRRecordType, completion: PFArrayResultBlock) {
-        let BackgroundRetrievalCompletion: PFArrayResultBlock = {
-            (objects: [AnyObject]?, error: NSError?) in
+    func readAllRecordsFromPhoneWithSortType(sortType: TRRecordType, completion: PFQueryArrayResultBlock) {
+        let BackgroundRetrievalCompletion: PFQueryArrayResultBlock = {
+            (objects: [PFObject]?, error: NSError?) in
                 completion(objects, error)
         }
         let query = PFQuery(className: "record")
@@ -39,9 +40,42 @@ class TRRecordService {
         query.findObjectsInBackgroundWithBlock(BackgroundRetrievalCompletion)
     }
     
-    func readAllRecordsFromPhoneWithSearchText(searchText: String, sortType: TRRecordType, completion: PFArrayResultBlock?) {
-        let BackgroundRetrievalCompletion: PFArrayResultBlock = {
-            (objects: [AnyObject]?, error: NSError?) in
+    
+    func readAllRecordsFromPhoneWithItemName(itemName: String, dateDescription: String, completion: TRSearchForItemCompletion) {
+        let BackgroundRetrievalCompletion: PFQueryArrayResultBlock = {
+            (objects: [PFObject]?, error: NSError?) in
+            if let records = objects as? [TRRecord] {
+                completion(records, error)
+            }
+        }
+        
+        let query = PFQuery(className: "record")
+        query.fromLocalDatastore()
+        query.whereKey("item", equalTo: itemName)
+        query.whereKey("date", equalTo: dateDescription)
+        query.whereKey("type", equalTo: TRRecordType.TrackAction.description)
+        query.findObjectsInBackgroundWithBlock(BackgroundRetrievalCompletion)
+    }
+    
+    func readAllRecordsFromPhoneWithItemName(itemName: String, completion: TRSearchForItemCompletion) {
+        let BackgroundRetrievalCompletion: PFQueryArrayResultBlock = {
+            (objects: [PFObject]?, error: NSError?) in
+            if let records = objects as? [TRRecord] {
+                completion(records, error)
+            }
+
+        }
+        
+        let query = PFQuery(className: "record")
+        query.fromLocalDatastore()
+        query.whereKey("item", equalTo: itemName)
+        query.whereKey("type", equalTo: TRRecordType.TrackAction.description)
+        query.findObjectsInBackgroundWithBlock(BackgroundRetrievalCompletion)
+    }
+    
+    func readAllRecordsFromPhoneWithSearchText(searchText: String, sortType: TRRecordType, completion: PFQueryArrayResultBlock?) {
+        let BackgroundRetrievalCompletion: PFQueryArrayResultBlock = {
+            (objects: [PFObject]?, error: NSError?) in
             if let completionBlock = completion {
                 completionBlock(objects, error)
             }
@@ -62,10 +96,18 @@ class TRRecordService {
     }
     
     func deleteAllRecordsFromPhone() {
-        TRRecord.unpinAllObjects()
+        do {
+            try TRRecord.unpinAllObjects()
+        } catch {
+            
+        }
     }
     
     func deleteRecord(record: TRRecord) {
-        record.unpin()
+        do {
+            try record.unpin()
+        } catch {
+            
+        }
     }
 }

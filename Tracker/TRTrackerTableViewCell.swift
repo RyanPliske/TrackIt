@@ -1,4 +1,5 @@
 import Foundation
+import JTCalendar
 
 protocol TRTrackerTableViewCellDelegate {
     func plusButtonPressedAtRow(row: Int)
@@ -6,6 +7,7 @@ protocol TRTrackerTableViewCellDelegate {
     func trackUrgeSelectedForRow(row: Int)
     func trackMultipleSelectedForRow(row: Int)
     func textFieldReturnedWithTextAtRow(row: Int, text: String)
+    func calendarDateSelected(date: NSDate)
 }
 
 class TRTrackerTableViewCell: UITableViewCell, TRTrackingOptionsDelegate {
@@ -16,18 +18,43 @@ class TRTrackerTableViewCell: UITableViewCell, TRTrackingOptionsDelegate {
     
     @IBOutlet private weak var itemLabel: UILabel!
     @IBOutlet private weak var moreButton: UIButton!
-    private var statsView: UIView?
+    private var statsView: TRStatsView
     private var isAVice = false
+    typealias itemLabelDescription = (name: String, count: Float)
+    var label: itemLabelDescription = ("", 0.0)
+    let calendarManager = JTCalendarManager()
+    var selectedDatesOnJTCalendar = [String]()
+    var dateSelectedOnJTCalendar: NSDate?
     
     required init?(coder aDecoder: NSCoder) {
+        self.statsView = TRStatsView(frame: CGRectZero, _calendarManager: calendarManager)
         super.init(coder: aDecoder)
-        statsView = UIView(frame: CGRectMake(0, 60, CGRectGetWidth(self.bounds), 330))
-        statsView!.backgroundColor = UIColor.greenColor()
-        addSubview(statsView!)
+        self.calendarManager.delegate = self
+        addSubview(statsView)
     }
     
-    func setItemLabelTextWith(itemName: String) {
-        itemLabel.attributedText = NSAttributedString(string: itemName.uppercaseString, attributes: [NSKernAttributeName: 1.7])
+    override func layoutSubviews() {
+        statsView.frame = CGRectMake(0, 60, CGRectGetWidth(self.bounds), UIScreen.mainScreen().applicationFrame.size.height - 200)
+    }
+    
+    func setItemLabelTextWith(itemName: String, itemCount: Float) {
+        
+        self.label = (itemName, itemCount)
+        let text = NSMutableAttributedString()
+        let attributes = [NSKernAttributeName: 1.7]
+        
+        let itemNameAttributed = NSMutableAttributedString(string: itemName.uppercaseString, attributes: attributes)
+        text.appendAttributedString(itemNameAttributed)
+        
+        let itemCountAttributed: NSMutableAttributedString
+        if itemCount % 1  == 0 {
+            itemCountAttributed = NSMutableAttributedString(string: ": " + Int(itemCount).description, attributes: attributes)
+        } else {
+            itemCountAttributed = NSMutableAttributedString(string: ": " + itemCount.description, attributes: attributes)
+        }
+        text.appendAttributedString(itemCountAttributed)
+        
+        itemLabel.attributedText = text
     }
     
     func setTagsForCellWith(tag: Int) {
@@ -36,6 +63,28 @@ class TRTrackerTableViewCell: UITableViewCell, TRTrackingOptionsDelegate {
     
     func setCellAsBadHabit(isAVice: Bool) {
         self.isAVice = isAVice
+    }
+    
+    func resetCalendar() {
+        selectedDatesOnJTCalendar.removeAll()
+        calendarManager.reload()
+    }
+    
+    func resetCalendarAfterTrackOccured() {
+        if let dateSelected = dateSelectedOnJTCalendar {
+            selectedDatesOnJTCalendar.append(TRDateFormatter.descriptionForDate(dateSelected))
+        }
+        calendarManager.reload()
+    }
+    
+    func setWhiteDotsOnDatesWith(dates: [String]) {
+        selectedDatesOnJTCalendar = dates
+        print(selectedDatesOnJTCalendar)
+        calendarManager.reload()
+    }
+    
+    func setSelectedDateOnCalendarWith(selectedDate: NSDate) {
+        dateSelectedOnJTCalendar = selectedDate
     }
     
     @IBAction func moreButtonPressed(sender: AnyObject) {

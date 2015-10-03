@@ -7,6 +7,8 @@ protocol TRTrackerViewDelegate {
     func trackUrgeAtRow(row: Int)
     func trackMultipleSelectedForRow(row: Int)
     func textFieldReturnedWithTextAtRow(row: Int, text: String)
+    func itemSelectedAtRow(row: Int)
+    func calendarDateSelected(date: NSDate)
 }
 
 protocol TRTrackerViewObserver {
@@ -69,7 +71,7 @@ class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
             }
         }
         
-        recordSavedLabel.textColor = TRCellColorGenerator.colorFor(row)
+        recordSavedLabel.textColor = TRColorGenerator.colorFor(row)
         recordSavedLabel.animation = "fadeInDown"
         recordSavedLabel.curve = "easeIn"
         recordSavedLabel.force = 0.1
@@ -105,4 +107,7 @@ class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
         animateSavedRecordForRow(row)
     }
     
+    func calendarDateSelected(date: NSDate) {
+        delegate?.calendarDateSelected(date)
+    }
 }

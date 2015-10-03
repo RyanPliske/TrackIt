@@ -1,5 +1,8 @@
 import Foundation
 import Parse
+import Crashlytics
+
+typealias TRReadAllItemsCompletion = ([TRItem]) -> Void
 
 class TRItemService {
     
@@ -35,11 +38,19 @@ class TRItemService {
         }
     }
     
-    func readAllItemsFromPhone(completion: PFArrayResultBlock?) {
-        let BackgroundRetrievalCompletion: PFArrayResultBlock = {
-            (objects: [AnyObject]?, error: NSError?) in
-            if let completionBlock = completion {
-                completionBlock(objects, error)
+    func readAllItemsFromPhone(completion: TRReadAllItemsCompletion?) {
+        let BackgroundRetrievalCompletion: PFQueryArrayResultBlock = {
+            (objects: [PFObject]?, error: NSError?) in
+            if error != nil {
+                Crashlytics()
+                CLSLogv("Reading Items from phone failed with error: %@", getVaList([error!.description]))
+                NSLog("Reading Items from phone failed with error: %@", error!.description)
+            } else {
+                // Force a crash if this fails.
+                let items = objects as! [TRItem]
+                if let completionBlock = completion {
+                    completionBlock(items)
+                }
             }
         }
         let query = PFQuery(className: "item")
@@ -94,7 +105,11 @@ class TRItemService {
     }
     
     func deleteAllItemsFromPhone() {
-        TRItem.unpinAllObjects()
+        do {
+            try TRItem.unpinAllObjects()
+        } catch {
+            
+        }
     }
     
 }
