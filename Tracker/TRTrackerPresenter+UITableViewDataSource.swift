@@ -20,7 +20,7 @@ extension TRTrackerPresenter: UITableViewDataSource {
             aCell.setTextFieldPlaceHolder(placeHolder)
             cell = aCell
         }
-        setLabelTextAtSection(item, cell: cell)
+        setLabelTextWithItem(item, cell: cell)
         cell.setCellAsBadHabit(item.isAVice)
         cell.setTagsForCellWith(indexPath.section)
         cell.delegate = trackerView
@@ -29,14 +29,14 @@ extension TRTrackerPresenter: UITableViewDataSource {
         return cell
     }
     
-    private func setLabelTextAtSection(item: TRItem, cell: TRTrackerTableViewCell) {
+    private func setLabelTextWithItem(item: TRItem, cell: TRTrackerTableViewCell) {
         recordsModel.searchRecordsForItem(item.name, dateDescription: TRDateFormatter.descriptionForDate(dateToTrack)) { (records, error) -> Void in
             if let returnedRecords = records {
                 let itemCounts: [Float] = returnedRecords.map { $0.itemQuantity! }
                 let itemCountSum: Float = itemCounts.reduce(0) { $0 + $1 }
                 cell.setItemLabelTextWith(item.name, itemCount: itemCountSum)
             } else {
-                cell.setItemLabelTextWith(item.name, itemCount: nil)
+                cell.setItemLabelTextWith(item.name, itemCount: 0.0)
             }
         }
     }

@@ -19,6 +19,8 @@ class TRTrackerTableViewCell: UITableViewCell, TRTrackingOptionsDelegate {
     @IBOutlet private weak var moreButton: UIButton!
     private var statsView: TRStatsView
     private var isAVice = false
+    typealias itemLabelDescription = (name: String, count: Float)
+    var label: itemLabelDescription = ("", 0.0)
     let calendarManager = JTCalendarManager()
     var selectedDatesOnJTCalendar = [String]()
     var dateSelectedOnJTCalendar: NSDate?
@@ -34,7 +36,9 @@ class TRTrackerTableViewCell: UITableViewCell, TRTrackingOptionsDelegate {
         statsView.frame = CGRectMake(0, 60, CGRectGetWidth(self.bounds), UIScreen.mainScreen().applicationFrame.size.height - 200)
     }
     
-    func setItemLabelTextWith(itemName: String, itemCount: Float?) {
+    func setItemLabelTextWith(itemName: String, itemCount: Float) {
+        
+        self.label = (itemName, itemCount)
         let text = NSMutableAttributedString()
         let attributes = [NSKernAttributeName: 1.7]
         
@@ -42,10 +46,10 @@ class TRTrackerTableViewCell: UITableViewCell, TRTrackingOptionsDelegate {
         text.appendAttributedString(itemNameAttributed)
         
         let itemCountAttributed: NSMutableAttributedString
-        if let count = itemCount where count % 1  == 0 {
-            itemCountAttributed = NSMutableAttributedString(string: ": \(Int(count).description)", attributes: attributes)
+        if itemCount % 1  == 0 {
+            itemCountAttributed = NSMutableAttributedString(string: ": " + Int(itemCount).description, attributes: attributes)
         } else {
-            itemCountAttributed = NSMutableAttributedString(string: ": \((itemCount?.description)!)", attributes: attributes)
+            itemCountAttributed = NSMutableAttributedString(string: ": " + itemCount.description, attributes: attributes)
         }
         text.appendAttributedString(itemCountAttributed)
         
