@@ -34,8 +34,22 @@ class TRTrackerTableViewCell: UITableViewCell, TRTrackingOptionsDelegate {
         statsView.frame = CGRectMake(0, 60, CGRectGetWidth(self.bounds), UIScreen.mainScreen().applicationFrame.size.height - 200)
     }
     
-    func setItemLabelTextWith(itemName: String) {
-        itemLabel.attributedText = NSAttributedString(string: itemName.uppercaseString, attributes: [NSKernAttributeName: 1.7])
+    func setItemLabelTextWith(itemName: String, itemCount: Float?) {
+        let text = NSMutableAttributedString()
+        let attributes = [NSKernAttributeName: 1.7]
+        
+        let itemNameAttributed = NSMutableAttributedString(string: itemName.uppercaseString, attributes: attributes)
+        text.appendAttributedString(itemNameAttributed)
+        
+        let itemCountAttributed: NSMutableAttributedString
+        if let count = itemCount where count % 1  == 0 {
+            itemCountAttributed = NSMutableAttributedString(string: ": \(Int(count).description)", attributes: attributes)
+        } else {
+            itemCountAttributed = NSMutableAttributedString(string: ": \((itemCount?.description)!)", attributes: attributes)
+        }
+        text.appendAttributedString(itemCountAttributed)
+        
+        itemLabel.attributedText = text
     }
     
     func setTagsForCellWith(tag: Int) {

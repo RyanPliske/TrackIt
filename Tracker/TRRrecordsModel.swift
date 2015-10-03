@@ -3,6 +3,7 @@ import Parse
 
 typealias TRCreateRecordCompletion = () -> Void
 typealias TRSearchCompletion = () -> Void
+typealias TRSearchForItemCompletion = ([TRRecord]?, NSError?) -> Void
 
 class TRRecordsModel {
     
@@ -66,11 +67,11 @@ class TRRecordsModel {
         
     }
     
-    func searchRecordsForItem(itemName: String, date: String, completion: PFQueryArrayResultBlock?) {
-        recordService.readAllRecordsFromPhoneWithItemName(itemName, date: date, completion: completion)
+    func searchRecordsForItem(itemName: String, dateDescription: String, completion: TRSearchForItemCompletion) {
+        recordService.readAllRecordsFromPhoneWithItemName(itemName, dateDescription: dateDescription, completion: completion)
     }
     
-    func searchRecordsForItem(itemName: String, completion: PFQueryArrayResultBlock?) {
+    func searchRecordsForItem(itemName: String, completion: TRSearchForItemCompletion) {
         recordService.readAllRecordsFromPhoneWithItemName(itemName, completion: completion)
     }
     

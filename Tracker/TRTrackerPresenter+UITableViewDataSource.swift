@@ -20,12 +20,24 @@ extension TRTrackerPresenter: UITableViewDataSource {
             aCell.setTextFieldPlaceHolder(placeHolder)
             cell = aCell
         }
-        cell.setItemLabelTextWith(itemsModel.activeItems[indexPath.section].name)
-        cell.setCellAsBadHabit(itemsModel.activeItems[indexPath.section].isAVice)
+        setLabelTextAtSection(item, cell: cell)
+        cell.setCellAsBadHabit(item.isAVice)
         cell.setTagsForCellWith(indexPath.section)
         cell.delegate = trackerView
         cell.backgroundColor = TRColorGenerator.colorFor(indexPath.section)
         cell.setSelectedDateOnCalendarWith(dateToTrack)
         return cell
+    }
+    
+    private func setLabelTextAtSection(item: TRItem, cell: TRTrackerTableViewCell) {
+        recordsModel.searchRecordsForItem(item.name, dateDescription: TRDateFormatter.descriptionForDate(dateToTrack)) { (records, error) -> Void in
+            if let returnedRecords = records {
+                let itemCounts: [Float] = returnedRecords.map { $0.itemQuantity! }
+                let itemCountSum: Float = itemCounts.reduce(0) { $0 + $1 }
+                cell.setItemLabelTextWith(item.name, itemCount: itemCountSum)
+            } else {
+                cell.setItemLabelTextWith(item.name, itemCount: nil)
+            }
+        }
     }
 }

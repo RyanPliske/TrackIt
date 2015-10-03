@@ -41,28 +41,31 @@ class TRRecordService {
     }
     
     
-    func readAllRecordsFromPhoneWithItemName(itemName: String, date: String, completion: PFQueryArrayResultBlock?) {
+    func readAllRecordsFromPhoneWithItemName(itemName: String, dateDescription: String, completion: TRSearchForItemCompletion) {
         let BackgroundRetrievalCompletion: PFQueryArrayResultBlock = {
             (objects: [PFObject]?, error: NSError?) in
-            if let completionBlock = completion {
-                completionBlock(objects, error)
+            if let records = objects as? [TRRecord] {
+                completion(records, error)
             }
         }
+        
         let query = PFQuery(className: "record")
         query.fromLocalDatastore()
         query.whereKey("item", equalTo: itemName)
-        query.whereKey("dateDescription", equalTo: date)
+        query.whereKey("date", equalTo: dateDescription)
         query.whereKey("type", equalTo: TRRecordType.TrackAction.description)
         query.findObjectsInBackgroundWithBlock(BackgroundRetrievalCompletion)
     }
     
-    func readAllRecordsFromPhoneWithItemName(itemName: String, completion: PFQueryArrayResultBlock?) {
+    func readAllRecordsFromPhoneWithItemName(itemName: String, completion: TRSearchForItemCompletion) {
         let BackgroundRetrievalCompletion: PFQueryArrayResultBlock = {
             (objects: [PFObject]?, error: NSError?) in
-            if let completionBlock = completion {
-                completionBlock(objects, error)
+            if let records = objects as? [TRRecord] {
+                completion(records, error)
             }
+
         }
+        
         let query = PFQuery(className: "record")
         query.fromLocalDatastore()
         query.whereKey("item", equalTo: itemName)
@@ -80,7 +83,7 @@ class TRRecordService {
         
         let withinDate = PFQuery(className: "record")
         withinDate.fromLocalDatastore()
-        withinDate.whereKey("dateDescription", containsString: searchText)
+        withinDate.whereKey("date", containsString: searchText)
         
         let withinItem = PFQuery(className: "record")
         withinItem.fromLocalDatastore()
