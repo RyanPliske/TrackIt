@@ -10,6 +10,7 @@ extension TRTrackerPresenter: TRDateChooserObserver {
                 cell.calendarManager.reload()
             }
         }
+        trackerView.trackerTableView.reloadData()
         
     }
 }
