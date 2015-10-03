@@ -7,6 +7,7 @@ protocol TRTrackerTableViewCellDelegate {
     func trackUrgeSelectedForRow(row: Int)
     func trackMultipleSelectedForRow(row: Int)
     func textFieldReturnedWithTextAtRow(row: Int, text: String)
+    func calendarDateSelected(date: NSDate)
 }
 
 class TRTrackerTableViewCell: UITableViewCell, TRTrackingOptionsDelegate {

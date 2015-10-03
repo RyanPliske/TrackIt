@@ -8,6 +8,7 @@ protocol TRTrackerViewDelegate {
     func trackMultipleSelectedForRow(row: Int)
     func textFieldReturnedWithTextAtRow(row: Int, text: String)
     func itemSelectedAtRow(row: Int)
+    func calendarDateSelected(date: NSDate)
 }
 
 protocol TRTrackerViewObserver {
@@ -106,4 +107,7 @@ class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
         animateSavedRecordForRow(row)
     }
     
+    func calendarDateSelected(date: NSDate) {
+        delegate?.calendarDateSelected(date)
+    }
 }

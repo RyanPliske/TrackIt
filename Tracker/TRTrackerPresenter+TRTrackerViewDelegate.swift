@@ -36,4 +36,8 @@ extension TRTrackerPresenter: TRTrackerViewDelegate {
             }
         }
     }
+    
+    func calendarDateSelected(date: NSDate) {
+        dateSelectedWithDate(date)
+    }
 }
