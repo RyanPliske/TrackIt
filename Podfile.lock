@@ -1,9 +1,9 @@
 PODS:
   - Bolts/Tasks (1.3.0)
-  - Crashlytics (3.3.1)
-  - Fabric (1.5.1):
-    - Fabric/Base (= 1.5.1)
-  - Fabric/Base (1.5.1)
+  - Crashlytics (3.3.4)
+  - Fabric (1.5.5):
+    - Fabric/Base (= 1.5.5)
+  - Fabric/Base (1.5.5)
   - JTCalendar (2.1.4)
   - Parse (1.8.5):
     - Bolts/Tasks (>= 1.2.2)
@@ -30,8 +30,8 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Bolts: 805a4a87413e49d4a0c2b7d469084cbc46b09342
-  Crashlytics: 0e61bdda9def51f1e99720f804eebe94865442b2
-  Fabric: 03c3b3fe77e11a2bc31421b989a9c7adaa4779a5
+  Crashlytics: 41c082440d2e14da444186fff65e79c0b4b35d4c
+  Fabric: 190bf1a6eb65f7500de1347d027d2e59a7e53db1
   JTCalendar: 9b1352c7ec41cc26b19c189d6608ba48060a53d9
   Parse: 17ad8e0677ed682f7f00503860fcda0f4eb74168
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
