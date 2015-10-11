@@ -8,7 +8,7 @@ class TRTrackerTableViewCellWithPlusButton: TRTrackerTableViewCell {
         self.delegate?.plusButtonPressedAtRow(self.tag)
         plusButton.animation = "pop"
         plusButton.force = 5.0
-        setItemLabelTextWith(label.name, itemCount: ++label.count)
+        updateItemLabelCountWith(1.0)
         plusButton.animate()
         resetCalendarAfterTrackOccured()
     }

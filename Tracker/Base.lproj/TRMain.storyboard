@@ -70,6 +70,12 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yKP-wx-9w9" userLabel="Item Count">
+                                                    <rect key="frame" x="55" y="22" width="9" height="22"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="16"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="64T-tC-Stf" customClass="SpringButton" customModule="Spring">
                                                     <rect key="frame" x="253" y="13" width="40" height="40"/>
                                                     <constraints>
@@ -99,15 +105,18 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="bT1-vX-V4Z" firstAttribute="top" secondItem="Vqo-Nd-b2b" secondAttribute="topMargin" constant="14" id="0Ag-wQ-30e"/>
+                                                <constraint firstItem="yKP-wx-9w9" firstAttribute="top" secondItem="bT1-vX-V4Z" secondAttribute="top" id="F4m-0J-hrW"/>
                                                 <constraint firstItem="64T-tC-Stf" firstAttribute="top" secondItem="Vqo-Nd-b2b" secondAttribute="topMargin" constant="5" id="OK6-zU-c0B"/>
                                                 <constraint firstItem="64T-tC-Stf" firstAttribute="trailing" secondItem="D7j-YL-SPF" secondAttribute="leading" constant="-20" id="QFU-0y-QWp"/>
                                                 <constraint firstItem="bT1-vX-V4Z" firstAttribute="leading" secondItem="Vqo-Nd-b2b" secondAttribute="leadingMargin" constant="5" id="QUH-bO-FxJ"/>
                                                 <constraint firstItem="D7j-YL-SPF" firstAttribute="trailing" secondItem="Vqo-Nd-b2b" secondAttribute="trailing" id="Wnj-fs-KiN"/>
                                                 <constraint firstItem="D7j-YL-SPF" firstAttribute="top" secondItem="Vqo-Nd-b2b" secondAttribute="topMargin" constant="10" id="hFQ-Ha-Gem"/>
+                                                <constraint firstItem="yKP-wx-9w9" firstAttribute="leading" secondItem="bT1-vX-V4Z" secondAttribute="trailing" constant="3" id="x6x-Vv-ygi"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
+                                            <outlet property="itemCountLabel" destination="yKP-wx-9w9" id="UDf-66-Agl"/>
                                             <outlet property="itemLabel" destination="bT1-vX-V4Z" id="uAj-HP-CNM"/>
                                             <outlet property="moreButton" destination="D7j-YL-SPF" id="Oul-Hj-r7I"/>
                                             <outlet property="plusButton" destination="64T-tC-Stf" id="Ld0-iZ-imD"/>
@@ -146,9 +155,17 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert"/>
                                                 </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVD-vP-Cir">
+                                                    <rect key="frame" x="55" y="22" width="9" height="22"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="16"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="PVD-vP-Cir" firstAttribute="leading" secondItem="pm9-xE-d4s" secondAttribute="trailing" constant="3" id="AcE-i2-GgY"/>
                                                 <constraint firstItem="pm9-xE-d4s" firstAttribute="leading" secondItem="OBs-Hk-89c" secondAttribute="leadingMargin" constant="5" id="BZp-vx-5zD"/>
+                                                <constraint firstItem="PVD-vP-Cir" firstAttribute="top" secondItem="pm9-xE-d4s" secondAttribute="top" id="EKU-em-dna"/>
                                                 <constraint firstItem="ePn-JR-vyd" firstAttribute="trailing" secondItem="wEq-Kd-zbD" secondAttribute="leading" constant="-15" id="Tea-VH-2qv"/>
                                                 <constraint firstItem="ePn-JR-vyd" firstAttribute="top" secondItem="OBs-Hk-89c" secondAttribute="topMargin" constant="6" id="dSa-Jy-aFd"/>
                                                 <constraint firstItem="wEq-Kd-zbD" firstAttribute="trailing" secondItem="OBs-Hk-89c" secondAttribute="trailing" id="gqJ-Y8-iaj"/>
@@ -159,8 +176,9 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
+                                            <outlet property="itemCountLabel" destination="PVD-vP-Cir" id="lDx-ao-d9y"/>
                                             <outlet property="itemCountTextField" destination="ePn-JR-vyd" id="piA-CJ-Owf"/>
-                                            <outlet property="itemLabel" destination="pm9-xE-d4s" id="Hjm-ev-YWe"/>
+                                            <outlet property="itemLabel" destination="pm9-xE-d4s" id="yOs-rT-Ted"/>
                                             <outlet property="moreButton" destination="wEq-Kd-zbD" id="NBc-gw-h4c"/>
                                         </connections>
                                     </tableViewCell>

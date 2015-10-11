@@ -6,13 +6,6 @@ class TRStatsView: UIView {
     private let calendarMenuView: JTCalendarMenuView
     private let calendarContentView: JTHorizontalCalendarView
     let calendarManager: JTCalendarManager
-//    var calendarManager: JTCalendarManager? {
-//        didSet {
-//            self.calendarManager!.menuView = calendarMenuView
-//            self.calendarManager!.contentView = calendarContentView
-//            self.calendarManager!.setDate(NSDate())
-//        }
-//    }
     
     init(frame: CGRect, _calendarManager: JTCalendarManager) {
         calendarManager = _calendarManager

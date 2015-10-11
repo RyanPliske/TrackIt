@@ -30,13 +30,12 @@ extension TRTrackerPresenter: UITableViewDataSource {
     }
     
     private func setLabelTextWithItem(item: TRItem, cell: TRTrackerTableViewCell) {
+        cell.setItemNameLabelTextWith(item.name + ":")
         recordsModel.searchRecordsForItem(item.name, dateDescription: TRDateFormatter.descriptionForDate(dateToTrack)) { (records, error) -> Void in
             if let returnedRecords = records {
                 let itemCounts: [Float] = returnedRecords.map { $0.itemQuantity! }
                 let itemCountSum: Float = itemCounts.reduce(0) { $0 + $1 }
-                cell.setItemLabelTextWith(item.name, itemCount: itemCountSum)
-            } else {
-                cell.setItemLabelTextWith(item.name, itemCount: 0.0)
+                cell.setItemLabelCountWith(itemCountSum)
             }
         }
     }
