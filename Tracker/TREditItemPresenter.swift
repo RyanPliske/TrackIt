@@ -9,10 +9,14 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
     private enum cellIndex: Int {
         case itemName = 0
         case itemUnit = 1
-        case itemGoal = 2
-        case itemVice = 3
+        case itemGoal = 3
+        case itemVice = 2
         
-        static let allCellItems = [itemName, itemUnit, itemGoal, itemVice]
+        static var numberOfCells: Int {
+            var count = 0
+            while let _ = cellIndex(rawValue: ++count) {}
+            return count
+        }
     }
     
     init(view: UITableView, itemRowToPopulateWith: Int?, itemsModel: TRItemsModel) {
@@ -47,7 +51,7 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellIndex.allCellItems.count
+        return cellIndex.numberOfCells
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -99,7 +103,6 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
         case cellIndex.itemVice.rawValue:
             cell = tableView.dequeueReusableCellWithIdentifier("badHabitCell") as! TREditItemTableViewViceCell
             if let viceCell = cell as? TREditItemTableViewViceCell {
-                viceCell.bottomBorder.hidden = false
                 let isAVice = isNewItem ? false : itemsModel.allItems[itemRow!].isAVice
                 viceCell.setViceSwitchTo(isAVice)
                 viceCell.viceSwitchDelegate = self
@@ -113,13 +116,16 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
             cell = tableView.dequeueReusableCellWithIdentifier("userInputCell") as! TREditItemTableViewInputCell
             
         }
+        if indexPath.row == cellIndex.numberOfCells - 1 {
+            (cell as! TRSettingsTableViewCell).bottomBorder.hidden = false
+        }
         return cell
     }
     
     // MARK: UITableViewDelegate
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.row == cellIndex.itemVice.rawValue {
-            return 50.0
+            return 60.0
         } else {
             return heightForUserInputCell()
         }
