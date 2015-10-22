@@ -8,6 +8,7 @@ protocol TRTrackerViewDelegate {
     func trackMultipleSelectedForRow(row: Int)
     func textFieldReturnedWithTextAtRow(row: Int, text: String)
     func itemSelectedAtRow(row: Int)
+    func itemAtRowIsOpened(row:Int) -> Bool
 }
 
 protocol TRTrackerViewObserver {
@@ -24,7 +25,7 @@ class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
             self.trackerTableView.delegate = self
         }
     }
-    var pathToReload: NSIndexPath?
+    var rowToReload: Int?
     var delegate: TRTrackerViewDelegate?
     var observer: TRTrackerViewObserver?
     var animations = [Int]()

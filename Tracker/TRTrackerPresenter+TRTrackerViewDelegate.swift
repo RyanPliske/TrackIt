@@ -26,14 +26,10 @@ extension TRTrackerPresenter: TRTrackerViewDelegate {
     }
     
     func itemSelectedAtRow(row: Int) {
-        let itemName = itemsModel.activeItems[row].name
-        weak var weakSelf = self
-        recordsModel.searchRecordsForItem(itemName) { (records, error) -> Void in
-            if let returnedRecords = records {
-                let dateDescriptions = returnedRecords.map { $0.dateDescription as String }
-                let cell = weakSelf?.trackerView.trackerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: row)) as! TRTrackerTableViewCell
-                cell.setWhiteDotsOnDatesWith(dateDescriptions)
-            }
-        }
+        itemsModel.updateItemOpenedStatusAtIndex(row)
+    }
+    
+    func itemAtRowIsOpened(row:Int) -> Bool {
+        return itemsModel.activeItems[row].opened
     }
 }

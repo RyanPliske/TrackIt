@@ -8,7 +8,6 @@ class TRTrackerPresenter: NSObject {
     var dateToTrack = NSDate()
     var trackingType : TRRecordType = .TrackAction
 
-    
     init(view: TRTrackerView, model: TRRecordsModel) {
         trackerView = view
         recordsModel = model

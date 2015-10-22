@@ -13,19 +13,14 @@ extension TRTrackerView: UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if let path = pathToReload where path == indexPath {
+        if delegate!.itemAtRowIsOpened(indexPath.section) {
             return TRTrackerTableViewCellSize.openedHeight
         }
         return TRTrackerTableViewCellSize.closedHeight
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath == pathToReload {
-            pathToReload = nil
-        } else {
-            pathToReload = indexPath
-            delegate?.itemSelectedAtRow(indexPath.section)
-        }
+        delegate?.itemSelectedAtRow(indexPath.section)
         tableView.beginUpdates()
         tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         tableView.endUpdates()

@@ -95,6 +95,10 @@ class TRItemsModel {
         itemService.updateItem(self.allItems[index], viceStatus: viceStatus)
     }
     
+    func updateItemOpenedStatusAtIndex(index: Int) {
+        itemService.updateItem(self._activeItems[index], opened: !self._activeItems[index].opened)
+    }
+    
     func updateItemMeasurementUnitAtIndex(index: Int, unit: String?) {
         if let aUnit = unit {
             _allItems[index].measurementUnit = aUnit
