@@ -25,7 +25,7 @@ class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
             self.trackerTableView.delegate = self
         }
     }
-    var rowToReload: Int?
+
     var delegate: TRTrackerViewDelegate?
     var observer: TRTrackerViewObserver?
     var animations = [Int]()
