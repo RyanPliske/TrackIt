@@ -8,7 +8,6 @@ protocol TRTrackerTableViewCellDelegate {
     func trackUrgeSelectedForRow(row: Int)
     func trackMultipleSelectedForRow(row: Int)
     func textFieldReturnedWithTextAtRow(row: Int, text: String)
-    func calendarDateSelected(date: NSDate)
 }
 
 class TRTrackerTableViewCell: UITableViewCell {
@@ -99,17 +98,17 @@ extension TRTrackerTableViewCell: TRTrackingOptionsDelegate {
 
 extension TRTrackerTableViewCell: JTCalendarDelegate {
     
-    func calendar(calendar: JTCalendarManager!, didTouchDayView dayView: UIView!) {
-        if let aDayView = dayView as? JTCalendarDayView {
-            dateSelectedOnJTCalendar = aDayView.date
-            delegate?.calendarDateSelected(dateSelectedOnJTCalendar!)
-            aDayView.circleView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.1, 0.1)
-            UIView.transitionWithView(aDayView, duration: 0.3, options: .CurveEaseIn, animations: { () -> Void in
-                aDayView.circleView.transform = CGAffineTransformIdentity
-                self.calendarManager.reload()
-                }, completion: nil)
-        }
-    }
+//    func calendar(calendar: JTCalendarManager!, didTouchDayView dayView: UIView!) {
+//        if let aDayView = dayView as? JTCalendarDayView {
+//            dateSelectedOnJTCalendar = aDayView.date
+//            delegate?.calendarDateSelected(dateSelectedOnJTCalendar!)
+//            aDayView.circleView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.1, 0.1)
+//            UIView.transitionWithView(aDayView, duration: 0.3, options: .CurveEaseIn, animations: { () -> Void in
+//                aDayView.circleView.transform = CGAffineTransformIdentity
+//                self.calendarManager.reload()
+//                }, completion: nil)
+//        }
+//    }
     
     func calendar(calendar: JTCalendarManager!, prepareDayView dayView: UIView!) {
         if let aDayView = dayView as? JTCalendarDayView {
