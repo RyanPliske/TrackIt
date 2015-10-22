@@ -14,9 +14,9 @@ extension TRTrackerView: UITableViewDelegate {
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if let path = pathToReload where path == indexPath {
-            return UIScreen.mainScreen().applicationFrame.size.height - 120
+            return TRTrackerTableViewCellSize.openedHeight
         }
-        return 60
+        return TRTrackerTableViewCellSize.closedHeight
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -29,7 +29,5 @@ extension TRTrackerView: UITableViewDelegate {
         tableView.beginUpdates()
         tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         tableView.endUpdates()
-        tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Top, animated: true)
-
     }
 }

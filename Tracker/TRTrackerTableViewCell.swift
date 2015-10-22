@@ -33,7 +33,7 @@ class TRTrackerTableViewCell: UITableViewCell {
     }
     
     override func layoutSubviews() {
-        statsView.frame = CGRectMake(0, 60, CGRectGetWidth(self.bounds), UIScreen.mainScreen().applicationFrame.size.height - 200)
+        statsView.frame = CGRectMake(0, TRTrackerTableViewCellSize.closedHeight, CGRectGetWidth(self.bounds), TRTrackerTableViewCellSize.openedHeight - TRTrackerTableViewCellSize.closedHeight)
     }
     
     func updateItemLabelCountWith(newItemCount: Float) {
@@ -97,18 +97,6 @@ extension TRTrackerTableViewCell: TRTrackingOptionsDelegate {
 }
 
 extension TRTrackerTableViewCell: JTCalendarDelegate {
-    
-//    func calendar(calendar: JTCalendarManager!, didTouchDayView dayView: UIView!) {
-//        if let aDayView = dayView as? JTCalendarDayView {
-//            dateSelectedOnJTCalendar = aDayView.date
-//            delegate?.calendarDateSelected(dateSelectedOnJTCalendar!)
-//            aDayView.circleView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.1, 0.1)
-//            UIView.transitionWithView(aDayView, duration: 0.3, options: .CurveEaseIn, animations: { () -> Void in
-//                aDayView.circleView.transform = CGAffineTransformIdentity
-//                self.calendarManager.reload()
-//                }, completion: nil)
-//        }
-//    }
     
     func calendar(calendar: JTCalendarManager!, prepareDayView dayView: UIView!) {
         if let aDayView = dayView as? JTCalendarDayView {
