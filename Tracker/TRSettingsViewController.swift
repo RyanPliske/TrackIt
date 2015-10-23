@@ -4,6 +4,7 @@ class TRSettingsViewController: UIViewController {
     
     var settingsModel = TRSettingsModel()
     var settingsPresenter: TRSettingsPresenter?
+    var _navigationController: UINavigationController?
     @IBOutlet weak var settingsTableView: UITableView!
 
     override func viewDidLoad() {

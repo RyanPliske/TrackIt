@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="eTT-b3-ti9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
@@ -17,7 +17,7 @@
         <!--T-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="currentContext" id="9pv-A4-QxB" customClass="TRTrackerViewController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TRTrackerViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="currentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9pv-A4-QxB" customClass="TRTrackerViewController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -211,9 +211,6 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="rEv-89-55J"/>
                         <barButtonItem key="rightBarButtonItem" image="full__0000s_0091_config" id="obX-u2-58N">
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <segue destination="jNl-ID-ZvX" kind="show" identifier="showSettings" id="R5y-tI-CJR"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -224,7 +221,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1019.5" y="-244.5"/>
+            <point key="canvasLocation" x="889.5" y="530.5"/>
         </scene>
         <!--Edit Tracks View Controller-->
         <scene sceneID="629-IF-L5U">
@@ -238,12 +235,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="scaleToFill" barStyle="black" placeholder="Search Through Your Records" translatesAutoresizingMaskIntoConstraints="NO" id="QCP-yP-v5L">
+                            <searchBar contentMode="scaleToFill" misplaced="YES" barStyle="black" placeholder="Search Through Your Records" translatesAutoresizingMaskIntoConstraints="NO" id="QCP-yP-v5L">
                                 <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                                 <color key="barTintColor" red="0.074731691919191934" green="0.074731691919191934" blue="0.074731691919191934" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" enablesReturnKeyAutomatically="YES"/>
                             </searchBar>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="yY0-5y-3hh">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="yY0-5y-3hh">
                                 <rect key="frame" x="26" y="134" width="323" height="29"/>
                                 <segments>
                                     <segment title="Tracks"/>
@@ -254,7 +251,7 @@
                                     <action selector="segmentControlPressed:" destination="7Tx-Ke-KiD" eventType="valueChanged" id="ZuZ-O8-dII"/>
                                 </connections>
                             </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FwJ-qE-Jh7" customClass="TREditTracksTableView" customModule="Tracker" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FwJ-qE-Jh7" customClass="TREditTracksTableView" customModule="Tracker" customModuleProvider="target">
                                 <rect key="frame" x="16" y="167" width="343" height="500"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -338,12 +335,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wm5-K6-5hj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1478.5" y="530.5"/>
+            <point key="canvasLocation" x="2290.5" y="530.5"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="8TM-5Y-d0u">
             <objects>
-                <viewController id="jNl-ID-ZvX" customClass="TRSettingsViewController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TRSettingsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jNl-ID-ZvX" customClass="TRSettingsViewController" customModule="Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5Wn-JH-nGM"/>
                         <viewControllerLayoutGuide type="bottom" id="dCk-HZ-5fS"/>
@@ -358,7 +355,7 @@
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="settings" id="eWP-oY-MpG" customClass="TRSettingsTableViewCell" customModule="Tracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eWP-oY-MpG" id="wLe-jD-6ai">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="50"/>
@@ -402,7 +399,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xTt-HB-Sun" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1478.5" y="-244.5"/>
+            <point key="canvasLocation" x="2290.5" y="-244.5"/>
         </scene>
         <!--Manage Items View Controller-->
         <scene sceneID="c2j-7S-2W3">
@@ -422,7 +419,7 @@
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="items" id="GuU-zA-tk5" customClass="TRManageItemsTableViewCell" customModule="Tracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GuU-zA-tk5" id="caY-D3-EZc">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="50"/>
@@ -477,7 +474,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wy8-sB-7s4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1943.5" y="-244.5"/>
+            <point key="canvasLocation" x="2755.5" y="-244.5"/>
         </scene>
         <!--Edit Item View Controller-->
         <scene sceneID="OUX-Z0-pIt">
@@ -497,7 +494,7 @@
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="userInputCell" rowHeight="90" id="hoa-fo-QKM" customClass="TREditItemTableViewInputCell" customModule="Tracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="375" height="90"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hoa-fo-QKM" id="knv-Uu-4yf">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
@@ -536,7 +533,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="badHabitCell" id="567-5f-noH" customClass="TREditItemTableViewViceCell" customModule="Tracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="182" width="375" height="90"/>
+                                        <rect key="frame" x="0.0" y="118" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="567-5f-noH" id="sXW-vq-eoZ">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
@@ -590,32 +587,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kwj-fY-hXl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2381.5" y="-244.5"/>
-        </scene>
-        <!--Track-->
-        <scene sceneID="tHo-Vb-0ew">
-            <objects>
-                <navigationController storyboardIdentifier="navController" automaticallyAdjustsScrollViewInsets="NO" id="eTT-b3-ti9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Track" image="full__0000s_0106_note" id="PFS-KQ-b5k"/>
-                    <toolbarItems/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="POJ-ZX-uL3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="rootViewController" id="mL9-WZ-MF0"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="V6B-DF-bRJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="566.5" y="-244.5"/>
+            <point key="canvasLocation" x="3193.5" y="-244.5"/>
         </scene>
     </scenes>
     <resources>
         <image name="full__0000s_0091_config" width="25" height="25"/>
-        <image name="full__0000s_0106_note" width="23" height="23"/>
         <image name="more-dots" width="64" height="64"/>
         <image name="plus-circle" width="128" height="128"/>
     </resources>

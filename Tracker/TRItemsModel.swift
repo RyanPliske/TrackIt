@@ -76,6 +76,7 @@ class TRItemsModel {
         _allItems[index].activated = activeStatus
         filterItemsByActivated()
         itemService.updateItem(self.allItems[index], activeStatus: activeStatus)
+        NSNotificationCenter.defaultCenter().postNotificationName("ActiveItemsChanged", object: nil)
     }
     
     func updateItemIncrementalStatusAtIndex(index: Int) {
