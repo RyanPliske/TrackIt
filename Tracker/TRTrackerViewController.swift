@@ -4,8 +4,6 @@ import MMDrawerController
 
 class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
     
-    var _navigationController: UINavigationController?
-    
     @IBOutlet private weak var trackerView: TRTrackerView!
     private var trackerPresenter: TRTrackerPresenter!
     private var recordService = TRRecordService()
@@ -19,20 +17,13 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
         trackerPresenter = TRTrackerPresenter(view: self.trackerView, model: self.recordsModel)
         activityMonitor.startAnimating()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "itemRetrievalObserved", name: "itemsRetrievedFromDB", object: nil)
-        setNeedsStatusBarAppearanceUpdate()
         trackerView.observer = self
-        _navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Avenir", size: 25.0)!]
-        _navigationController?.navigationBar.tintColor = UIColor.TRMimosaYellow()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "itemsChanged", name: "ActiveItemsChanged", object: nil)
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         trackerView.trackerTableView.reloadData()
-    }
-    
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent;
     }
     
     func itemsChanged() {

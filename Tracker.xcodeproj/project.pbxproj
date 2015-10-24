@@ -88,6 +88,7 @@
 		EFFCF9DC1AFA9C26004DEDB9 /* TRCurrentDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCF9DB1AFA9C26004DEDB9 /* TRCurrentDate.swift */; };
 		EFFDD9641B8BB9090062FFCE /* TRRecordsModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5AB94E1B7FF91B0061286E /* TRRecordsModelTests.swift */; };
 		EFFDD9651B8BB9090062FFCE /* TRRecordServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF07F3A1B8399A000ED6520 /* TRRecordServiceTests.swift */; };
+		F920E52C1BDC38E300E269F6 /* TRNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F920E52B1BDC38E300E269F6 /* TRNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -219,6 +220,7 @@
 		EFFB1D581BB3427B0003F42F /* TRTrackingOptionsTableViewCellUrge.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRTrackingOptionsTableViewCellUrge.xib; sourceTree = "<group>"; };
 		EFFCF9D91AFA9318004DEDB9 /* TRDateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRDateFormatter.swift; sourceTree = "<group>"; };
 		EFFCF9DB1AFA9C26004DEDB9 /* TRCurrentDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCurrentDate.swift; sourceTree = "<group>"; };
+		F920E52B1BDC38E300E269F6 /* TRNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -576,6 +578,7 @@
 				EFA1EF871BA75B47007D82E6 /* TREditItem */,
 				EFD8AEB41B965F4600962BA0 /* TRStats */,
 				EF0CB4141BB5A55E00D74B83 /* TRColors */,
+				F920E52A1BDC38C000E269F6 /* Utilities */,
 				EFCA44AB1AF2BCD40012AE52 /* Open Sourced Libraries */,
 				EFE083F11A86A9B100AC9631 /* Supporting Files */,
 			);
@@ -633,6 +636,14 @@
 				EF0C1ACA1BB47C5800F3ADB1 /* TRTrackingOptionsTableViewIncrementStyleCell.swift */,
 			);
 			name = TRTrackingOptions;
+			sourceTree = "<group>";
+		};
+		F920E52A1BDC38C000E269F6 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				F920E52B1BDC38E300E269F6 /* TRNavigationController.swift */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -901,6 +912,7 @@
 				EF8D6DD21BCAB8C7007C360B /* TRTrackerTableViewCellWithTextField.swift in Sources */,
 				EF86B2BC1BA0FDBA0080DC97 /* TRItem.swift in Sources */,
 				EF70DE271B8D147E00CDAFC5 /* TRRecordSortManager.swift in Sources */,
+				F920E52C1BDC38E300E269F6 /* TRNavigationController.swift in Sources */,
 				EF4BF8C71B966FC300B2AAA1 /* TRSettingsViewController+UITableViewDelegate.swift in Sources */,
 				EF3D9FBA1B850E8E009042CA /* UIColor+CL.m in Sources */,
 				EFF8FB7D1BB0E53F00E2A379 /* TRTrackerTableViewCell.swift in Sources */,

@@ -6,7 +6,7 @@ import MMDrawerController
 
 @UIApplicationMain
 class TRAppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -18,23 +18,22 @@ class TRAppDelegate: UIResponder, UIApplicationDelegate {
             clientKey: "ErKp2ZiaCImNSpiUQaCXWEAtClBou0b4qrBk7anU")
         PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions, block: nil)
         TRItem.registerSubclass()
-        
+        setRootViewController()
+        return true
+    }
+    
+    private func setRootViewController() {
         let centerViewController = UIStoryboard(name: "TRMain", bundle: nil).instantiateViewControllerWithIdentifier("TRTrackerViewController") as! TRTrackerViewController
-        let firstNavigationController = UINavigationController(rootViewController: centerViewController)
-        firstNavigationController.navigationBar.barTintColor = UIColor.blackColor()
-        centerViewController._navigationController = firstNavigationController
+        let firstNavigationController = TRNavigationController(rootViewController: centerViewController)
         let rightViewController = UIStoryboard(name: "TRMain", bundle: nil).instantiateViewControllerWithIdentifier("TRSettingsViewController") as! TRSettingsViewController
-        let secondNavigationController = UINavigationController(rootViewController: rightViewController)
-        secondNavigationController.navigationBar.barTintColor = UIColor.blackColor()
-        rightViewController._navigationController = secondNavigationController
+        let secondNavigationController = TRNavigationController(rootViewController: rightViewController)
+
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        window?.makeKeyAndVisible()
+        window!.makeKeyAndVisible()
         let drawerController = MMDrawerController(centerViewController: firstNavigationController, rightDrawerViewController: secondNavigationController)
         drawerController.openDrawerGestureModeMask = [.PanningCenterView]
-        
         drawerController.closeDrawerGestureModeMask = [.PanningCenterView, .TapCenterView, .TapNavigationBar, .PanningDrawerView]
-        window?.rootViewController = drawerController
-        return true
+        window!.rootViewController = drawerController
     }
 }
 
