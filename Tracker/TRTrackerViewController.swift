@@ -1,5 +1,6 @@
 import UIKit
 import QuartzCore
+import MMDrawerController
 
 class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
     
@@ -43,6 +44,10 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
         activityMonitor.hidden = true
         trackerView.trackerTableView.reloadData()
 
+    }
+    
+    @IBAction func settingsButtonPressed(sender: AnyObject) {
+        mm_drawerController.toggleDrawerSide(MMDrawerSide.Right, animated: true, completion: nil)
     }
     
     // MARK: TRTrackerViewObserver
