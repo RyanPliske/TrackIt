@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6254712634B63432ADF42F27 /* Pods_TrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43B672E98257AADA6A21AB52 /* Pods_TrackerTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		E17245E75E992DD3BEA241B3 /* Pods_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14D533F76E1CF4A5F5873397 /* Pods_Tracker.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		EF0C1ACB1BB47C5800F3ADB1 /* TRTrackingOptionsTableViewIncrementStyleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C1ACA1BB47C5800F3ADB1 /* TRTrackingOptionsTableViewIncrementStyleCell.swift */; settings = {ASSET_TAGS = (); }; };
-		EF0CB4161BB5B1B500D74B83 /* TRStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0CB4151BB5B1B500D74B83 /* TRStatsView.swift */; settings = {ASSET_TAGS = (); }; };
-		EF1CA9B31BB75B5B0002924D /* TRTrackerPresenter+TRTrackerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1CA9B21BB75B5B0002924D /* TRTrackerPresenter+TRTrackerViewDelegate.swift */; settings = {ASSET_TAGS = (); }; };
+		6254712634B63432ADF42F27 /* Pods_TrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43B672E98257AADA6A21AB52 /* Pods_TrackerTests.framework */; };
+		E17245E75E992DD3BEA241B3 /* Pods_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14D533F76E1CF4A5F5873397 /* Pods_Tracker.framework */; };
+		EF0C1ACB1BB47C5800F3ADB1 /* TRTrackingOptionsTableViewIncrementStyleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C1ACA1BB47C5800F3ADB1 /* TRTrackingOptionsTableViewIncrementStyleCell.swift */; };
+		EF0CB4161BB5B1B500D74B83 /* TRStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0CB4151BB5B1B500D74B83 /* TRStatsView.swift */; };
+		EF1CA9B31BB75B5B0002924D /* TRTrackerPresenter+TRTrackerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1CA9B21BB75B5B0002924D /* TRTrackerPresenter+TRTrackerViewDelegate.swift */; };
 		EF35BA2D1AF3CA9400456D38 /* TRPreloadedItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF35BA2C1AF3CA9300456D38 /* TRPreloadedItems.swift */; };
 		EF35BA301AF3D29400456D38 /* TRRecordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF35BA2F1AF3D29400456D38 /* TRRecordType.swift */; };
 		EF3779A01B8ECB2500D6FB97 /* TREditTracksViewController+UISearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF37799F1B8ECB2500D6FB97 /* TREditTracksViewController+UISearchBarDelegate.swift */; };
@@ -25,9 +25,9 @@
 		EF3D9FBA1B850E8E009042CA /* UIColor+CL.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3D9FB21B850E8E009042CA /* UIColor+CL.m */; };
 		EF3D9FBB1B850E8E009042CA /* UIImage+CL.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3D9FB41B850E8E009042CA /* UIImage+CL.m */; };
 		EF3D9FBD1B85146F009042CA /* TRTrackerPresenter+TRDateChooserObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D9FBC1B85146F009042CA /* TRTrackerPresenter+TRDateChooserObserver.swift */; };
-		EF41496B1BA8ED2200428F48 /* TRItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF86B2B91BA0FC5C0080DC97 /* TRItemsModel.swift */; settings = {ASSET_TAGS = (); }; };
-		EF41496C1BA8ED3F00428F48 /* TRItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF86B2BB1BA0FDBA0080DC97 /* TRItem.swift */; settings = {ASSET_TAGS = (); }; };
-		EF41496D1BA8ED4800428F48 /* TRItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF86B2BD1BA1055C0080DC97 /* TRItemService.swift */; settings = {ASSET_TAGS = (); }; };
+		EF41496B1BA8ED2200428F48 /* TRItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF86B2B91BA0FC5C0080DC97 /* TRItemsModel.swift */; };
+		EF41496C1BA8ED3F00428F48 /* TRItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF86B2BB1BA0FDBA0080DC97 /* TRItem.swift */; };
+		EF41496D1BA8ED4800428F48 /* TRItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF86B2BD1BA1055C0080DC97 /* TRItemService.swift */; };
 		EF44E7C51B87E64F0088242C /* TREditTracksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF44E7C41B87E64F0088242C /* TREditTracksViewController.swift */; };
 		EF4BF8C31B966E0300B2AAA1 /* TRManageItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4BF8C21B966E0300B2AAA1 /* TRManageItemsViewController.swift */; };
 		EF4BF8C51B966F6C00B2AAA1 /* TRSettingsPresenter+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4BF8C41B966F6C00B2AAA1 /* TRSettingsPresenter+UITableViewDataSource.swift */; };
@@ -43,21 +43,21 @@
 		EF86B2BA1BA0FC5C0080DC97 /* TRItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF86B2B91BA0FC5C0080DC97 /* TRItemsModel.swift */; };
 		EF86B2BC1BA0FDBA0080DC97 /* TRItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF86B2BB1BA0FDBA0080DC97 /* TRItem.swift */; };
 		EF86B2BE1BA1055C0080DC97 /* TRItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF86B2BD1BA1055C0080DC97 /* TRItemService.swift */; };
-		EF8D6DD11BCAB8C7007C360B /* TRTrackerTableViewCellWithPlusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8D6DCF1BCAB8C7007C360B /* TRTrackerTableViewCellWithPlusButton.swift */; settings = {ASSET_TAGS = (); }; };
-		EF8D6DD21BCAB8C7007C360B /* TRTrackerTableViewCellWithTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8D6DD01BCAB8C7007C360B /* TRTrackerTableViewCellWithTextField.swift */; settings = {ASSET_TAGS = (); }; };
-		EF93495B1BB23286005EF50C /* TRTrackerView+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF93495A1BB23286005EF50C /* TRTrackerView+UITableViewDelegate.swift */; settings = {ASSET_TAGS = (); }; };
-		EF9A004F1BA8B6C7009FF92E /* TREditItemTableViewViceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9A004E1BA8B6C7009FF92E /* TREditItemTableViewViceCell.swift */; settings = {ASSET_TAGS = (); }; };
+		EF8D6DD11BCAB8C7007C360B /* TRTrackerTableViewCellWithPlusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8D6DCF1BCAB8C7007C360B /* TRTrackerTableViewCellWithPlusButton.swift */; };
+		EF8D6DD21BCAB8C7007C360B /* TRTrackerTableViewCellWithTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8D6DD01BCAB8C7007C360B /* TRTrackerTableViewCellWithTextField.swift */; };
+		EF93495B1BB23286005EF50C /* TRTrackerView+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF93495A1BB23286005EF50C /* TRTrackerView+UITableViewDelegate.swift */; };
+		EF9A004F1BA8B6C7009FF92E /* TREditItemTableViewViceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9A004E1BA8B6C7009FF92E /* TREditItemTableViewViceCell.swift */; };
 		EFA1EF8C1BA75BB6007D82E6 /* TREditItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA1EF8B1BA75BB6007D82E6 /* TREditItemViewController.swift */; };
 		EFA1EF901BA75E77007D82E6 /* TREditItemPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA1EF8F1BA75E77007D82E6 /* TREditItemPresenter.swift */; };
 		EFA1EF921BA788D0007D82E6 /* TREditItemTableViewInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA1EF911BA788D0007D82E6 /* TREditItemTableViewInputCell.swift */; };
 		EFA1EF951BA78D26007D82E6 /* TREditItemTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA1EF941BA78D26007D82E6 /* TREditItemTextField.swift */; };
-		EFA45C061BAB9AC800EAFB76 /* TRRecordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA45C051BAB9AC800EAFB76 /* TRRecordService.swift */; settings = {ASSET_TAGS = (); }; };
-		EFA45C071BAB9AC800EAFB76 /* TRRecordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA45C051BAB9AC800EAFB76 /* TRRecordService.swift */; settings = {ASSET_TAGS = (); }; };
-		EFA45C091BABA0A900EAFB76 /* TRManageItemsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA45C081BABA0A900EAFB76 /* TRManageItemsPresenter.swift */; settings = {ASSET_TAGS = (); }; };
-		EFA45C0C1BABD32500EAFB76 /* TRKeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA45C0B1BABD32500EAFB76 /* TRKeyboardToolbar.swift */; settings = {ASSET_TAGS = (); }; };
-		EFA5B5B91BB799020013A5F8 /* TRTrackerPresenter+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA5B5B81BB799020013A5F8 /* TRTrackerPresenter+UITableViewDataSource.swift */; settings = {ASSET_TAGS = (); }; };
-		EFA6E19A1BD995D000664EDE /* TRTrackerTableViewCellSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA6E1991BD995D000664EDE /* TRTrackerTableViewCellSize.swift */; settings = {ASSET_TAGS = (); }; };
-		EFA6E19D1BD9B01D00664EDE /* TRDrawerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA6E19C1BD9B01D00664EDE /* TRDrawerController.swift */; settings = {ASSET_TAGS = (); }; };
+		EFA45C061BAB9AC800EAFB76 /* TRRecordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA45C051BAB9AC800EAFB76 /* TRRecordService.swift */; };
+		EFA45C071BAB9AC800EAFB76 /* TRRecordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA45C051BAB9AC800EAFB76 /* TRRecordService.swift */; };
+		EFA45C091BABA0A900EAFB76 /* TRManageItemsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA45C081BABA0A900EAFB76 /* TRManageItemsPresenter.swift */; };
+		EFA45C0C1BABD32500EAFB76 /* TRKeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA45C0B1BABD32500EAFB76 /* TRKeyboardToolbar.swift */; };
+		EFA5B5B91BB799020013A5F8 /* TRTrackerPresenter+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA5B5B81BB799020013A5F8 /* TRTrackerPresenter+UITableViewDataSource.swift */; };
+		EFA6E19A1BD995D000664EDE /* TRTrackerTableViewCellSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA6E1991BD995D000664EDE /* TRTrackerTableViewCellSize.swift */; };
+		EFA6E19D1BD9B01D00664EDE /* TRDrawerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA6E19C1BD9B01D00664EDE /* TRDrawerController.swift */; };
 		EFA9B5E81B7D7EBD00BAA839 /* TRTrackerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA9B5E71B7D7EBD00BAA839 /* TRTrackerPresenter.swift */; };
 		EFA9B5EA1B7D811800BAA839 /* TRRrecordsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA9B5E91B7D811800BAA839 /* TRRrecordsModel.swift */; };
 		EFB392911B93609E002EC06C /* MockRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB392901B93609E002EC06C /* MockRecord.swift */; };
@@ -72,18 +72,18 @@
 		EFC9CD6B1B7D606800060D54 /* TRTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC9CD6A1B7D606800060D54 /* TRTrackerView.swift */; };
 		EFD8AEAC1B9658C000962BA0 /* TRSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD8AEAB1B9658C000962BA0 /* TRSettingsTableViewCell.swift */; };
 		EFD8AEAF1B965C0200962BA0 /* TRSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD8AEAE1B965C0200962BA0 /* TRSettingsModel.swift */; };
-		EFDDA9591BB12AA30052ED78 /* TRColorGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDDA9581BB12AA30052ED78 /* TRColorGenerator.swift */; settings = {ASSET_TAGS = (); }; };
+		EFDDA9591BB12AA30052ED78 /* TRColorGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDDA9581BB12AA30052ED78 /* TRColorGenerator.swift */; };
 		EFE083F41A86A9B100AC9631 /* TRAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE083F31A86A9B100AC9631 /* TRAppDelegate.swift */; };
 		EFE083F61A86A9B100AC9631 /* TRTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE083F51A86A9B100AC9631 /* TRTrackerViewController.swift */; };
 		EFE083F81A86A9B100AC9631 /* TRStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE083F71A86A9B100AC9631 /* TRStatsViewController.swift */; };
 		EFE083FD1A86A9B100AC9631 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFE083FC1A86A9B100AC9631 /* Images.xcassets */; };
-		EFE9F6411BAB442100C786FE /* MockItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9F63F1BAB43AC00C786FE /* MockItemService.swift */; settings = {ASSET_TAGS = (); }; };
+		EFE9F6411BAB442100C786FE /* MockItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9F63F1BAB43AC00C786FE /* MockItemService.swift */; };
 		EFF328DB1B87C218001B9E84 /* TREditTracksTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF328DA1B87C218001B9E84 /* TREditTracksTableView.swift */; };
 		EFF328DD1B87C5C6001B9E84 /* TREditTracksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF328DC1B87C5C6001B9E84 /* TREditTracksTableViewCell.swift */; };
-		EFF8FB7D1BB0E53F00E2A379 /* TRTrackerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF8FB7C1BB0E53F00E2A379 /* TRTrackerTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
-		EFFB1D551BB323470003F42F /* TRTrackingOptionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFB1D541BB323470003F42F /* TRTrackingOptionsTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		EFFB1D571BB33ACA0003F42F /* TRTrackingOptionsTableViewCellMultiple.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFFB1D561BB33ACA0003F42F /* TRTrackingOptionsTableViewCellMultiple.xib */; settings = {ASSET_TAGS = (); }; };
-		EFFB1D591BB3427B0003F42F /* TRTrackingOptionsTableViewCellUrge.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFFB1D581BB3427B0003F42F /* TRTrackingOptionsTableViewCellUrge.xib */; settings = {ASSET_TAGS = (); }; };
+		EFF8FB7D1BB0E53F00E2A379 /* TRTrackerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF8FB7C1BB0E53F00E2A379 /* TRTrackerTableViewCell.swift */; };
+		EFFB1D551BB323470003F42F /* TRTrackingOptionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFB1D541BB323470003F42F /* TRTrackingOptionsTableViewController.swift */; };
+		EFFB1D571BB33ACA0003F42F /* TRTrackingOptionsTableViewCellMultiple.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFFB1D561BB33ACA0003F42F /* TRTrackingOptionsTableViewCellMultiple.xib */; };
+		EFFB1D591BB3427B0003F42F /* TRTrackingOptionsTableViewCellUrge.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFFB1D581BB3427B0003F42F /* TRTrackingOptionsTableViewCellUrge.xib */; };
 		EFFCF9DA1AFA9318004DEDB9 /* TRDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCF9D91AFA9318004DEDB9 /* TRDateFormatter.swift */; };
 		EFFCF9DC1AFA9C26004DEDB9 /* TRCurrentDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCF9DB1AFA9C26004DEDB9 /* TRCurrentDate.swift */; };
 		EFFDD9641B8BB9090062FFCE /* TRRecordsModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5AB94E1B7FF91B0061286E /* TRRecordsModelTests.swift */; };
@@ -693,7 +693,6 @@
 				TargetAttributes = {
 					EFE083ED1A86A9B100AC9631 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = CZLFN85575;
 					};
 					EFE084041A86A9B100AC9631 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -983,8 +982,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1030,8 +1029,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1046,7 +1045,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_SWIFT_FLAGS = "-DRELEASE";
-				PROVISIONING_PROFILE = "1dbc4c84-d82c-4621-81be-3ddab23f4a82";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1080,14 +1079,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = Tracker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Tracker;
-				PROVISIONING_PROFILE = "1dbc4c84-d82c-4621-81be-3ddab23f4a82";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Tracker/Tracker-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

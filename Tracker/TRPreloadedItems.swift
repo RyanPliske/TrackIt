@@ -1,7 +1,7 @@
 import Foundation
 
 struct TRPreloadedItems {
-    static var regularItems: Dictionary = [
+    static var regularItems: [Int : Dictionary<String, NSObject>] = [
         0: ["name" : "Workouts", "unit" : "none", "increment" : true],
         1: ["name" : "Protein", "unit" : "grams", "increment" : false],
         2: ["name" : "Calories", "unit" : "kcal", "increment" : false]
