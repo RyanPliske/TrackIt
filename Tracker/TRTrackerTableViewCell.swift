@@ -19,21 +19,19 @@ class TRTrackerTableViewCell: UITableViewCell {
     @IBOutlet private weak var itemLabel: UILabel!
     @IBOutlet private weak var itemCountLabel: UILabel!
     @IBOutlet private weak var moreButton: UIButton!
-    private var statsView: TRStatsView
+    private var dataView: UIView?
     private var isAVice = false
     let calendarManager = JTCalendarManager()
     var selectedDatesOnJTCalendar = [String]()
     var dateSelectedOnJTCalendar: NSDate?
     
     required init?(coder aDecoder: NSCoder) {
-        self.statsView = TRStatsView(frame: CGRectZero, _calendarManager: calendarManager)
         super.init(coder: aDecoder)
         self.calendarManager.delegate = self
-        addSubview(statsView)
     }
     
     override func layoutSubviews() {
-        statsView.frame = CGRectMake(0, TRTrackerTableViewCellSize.closedHeight, CGRectGetWidth(self.bounds), TRTrackerTableViewCellSize.openedHeight - TRTrackerTableViewCellSize.closedHeight)
+        dataView?.frame = CGRectMake(0, TRTrackerTableViewCellSize.closedHeight, CGRectGetWidth(self.bounds), TRTrackerTableViewCellSize.openedHeight - TRTrackerTableViewCellSize.closedHeight)
     }
     
     func updateItemLabelCountWith(newItemCount: Float) {
@@ -57,6 +55,11 @@ class TRTrackerTableViewCell: UITableViewCell {
     
     func setCellAsBadHabit(isAVice: Bool) {
         self.isAVice = isAVice
+    }
+    
+    func setDataView(view: UIView) {
+        self.dataView = view
+        addSubview(self.dataView!)
     }
     
     func resetCalendar() {
