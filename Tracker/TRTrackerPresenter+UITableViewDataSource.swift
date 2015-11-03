@@ -27,34 +27,17 @@ extension TRTrackerPresenter: UITableViewDataSource {
         cell.backgroundColor = TRColorGenerator.colorFor(indexPath.section)
         cell.setSelectedDateOnCalendarWith(dateToTrack)
         
-        let pageViewController = TRPageViewController(transitionStyle: .Scroll, navigationOrientation: .Horizontal, options: nil)
-
-        let firstViewController = modelController.viewControllerAtIndex(0)!
-        pageViewController.setViewControllers([firstViewController], direction: .Forward, animated: true, completion: nil)
-        pageViewController.dataSource = modelController
-        
-        delegate?.addChildViewControllerWith(pageViewController)
-
-        cell.setDataView(pageViewController.view)
-        
-//        let itemName = itemsModel.activeItems[indexPath.section].name
-//        recordsModel.searchRecordsForItem(itemName) { [weak self](records, error) -> Void in
-//            if let returnedRecords = records {
-//                let dateDescriptions = returnedRecords.map { $0.dateDescription as String }
-//                let cell = self?.trackerView.trackerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: indexPath.section)) as! TRTrackerTableViewCell
-//                cell.setWhiteDotsOnDatesWith(dateDescriptions)
-//            }
-//        }
+        let itemName = itemsModel.activeItems[indexPath.section].name
+        weak var weakSelf = self
+        recordsModel.searchRecordsForItem(itemName) { (records, error) -> Void in
+            if let returnedRecords = records {
+                let dateDescriptions = returnedRecords.map { $0.dateDescription as String }
+                let cell = weakSelf?.trackerView.trackerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: indexPath.section)) as! TRTrackerTableViewCell
+                cell.setWhiteDotsOnDatesWith(dateDescriptions)
+            }
+        }
         return cell
     }
-    
-    private var modelController: TRTrackerPageViewDataSource {
-        if _modelController == nil {
-            _modelController = TRTrackerPageViewDataSource()
-        }
-        return _modelController!
-    }
-    
     
     private func setLabelTextWithItem(item: TRItem, cell: TRTrackerTableViewCell) {
         cell.setItemNameLabelTextWith(item.name + ":")

@@ -2,7 +2,7 @@ import UIKit
 import QuartzCore
 import MMDrawerController
 
-class TRTrackerViewController: UIViewController, TRTrackerViewObserver, TRTrackerPresenterDelegate {
+class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
     
     @IBOutlet private weak var trackerView: TRTrackerView!
     private var trackerPresenter: TRTrackerPresenter!
@@ -15,7 +15,6 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver, TRTracke
         super.viewDidLoad()
         TRRecordsModel.sharedInstanceOfRecordsModel.readAllRecords(nil)
         trackerPresenter = TRTrackerPresenter(view: self.trackerView, model: self.recordsModel)
-        trackerPresenter.delegate = self
         activityMonitor.startAnimating()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "itemRetrievalObserved", name: "itemsRetrievedFromDB", object: nil)
         trackerView.observer = self
@@ -77,12 +76,5 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver, TRTracke
     
     func dismissTrackingOptions() {
         self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    //TRTrackerPresenterDelegate
-    func addChildViewControllerWith(viewController: UIPageViewController) {
-        addChildViewController(viewController)
-        viewController.didMoveToParentViewController(self)
-        view.gestureRecognizers = viewController.gestureRecognizers
     }
 }
