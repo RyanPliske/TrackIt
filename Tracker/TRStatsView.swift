@@ -4,29 +4,27 @@ import JTCalendar
 class TRStatsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    let calendarManager: JTCalendarManager
     let pageControl = UIPageControl()
     
     init(frame: CGRect, _calendarManager: JTCalendarManager) {
-        calendarManager = _calendarManager
         super.init(frame: frame)
+        
         let newView = NSBundle.mainBundle().loadNibNamed("TRStatsView", owner: self, options: nil).first as! UIView
         newView.frame = bounds
         newView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         newView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(newView)
         
-        collectionView.backgroundColor = UIColor.darkGrayColor()
         collectionView.registerNib(UINib(nibName: "TRCalendarCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CalendarViewCell")
         collectionView.registerNib(UINib(nibName: "TRGraphCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "GraphViewCell")
         addSubview(collectionView)
+        
         pageControl.numberOfPages = 2
         pageControl.userInteractionEnabled = false
         addSubview(pageControl)
     }
 
     required init?(coder aDecoder: NSCoder) {
-        calendarManager = JTCalendarManager()
         super.init(coder: aDecoder)
     }
     
@@ -58,6 +56,12 @@ class TRStatsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateF
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         return collectionView.bounds.size
+    }
+    
+    //MARK: UIScrollViewDelegate
+    
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        pageControl.currentPage = Int(collectionView.contentOffset.x / CGRectGetWidth(collectionView.frame))
     }
     
 }
