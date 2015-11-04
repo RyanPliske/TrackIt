@@ -28,8 +28,13 @@ class TRTrackerTableViewCell: UITableViewCell {
     required init?(coder aDecoder: NSCoder) {
         self.statsView = TRStatsView(frame: CGRectZero, _calendarManager: calendarManager)
         super.init(coder: aDecoder)
-        self.calendarManager.delegate = self
+        calendarManager.delegate = self
         addSubview(statsView)
+//        statsView.translatesAutoresizingMaskIntoConstraints = false
+//        addConstraint(NSLayoutConstraint(item: statsView, attribute: .CenterX, relatedBy: .Equal, toItem: self, attribute: .CenterX, multiplier: 1.0, constant: 0.0))
+//        addConstraint(NSLayoutConstraint(item: statsView, attribute: .CenterY, relatedBy: .Equal, toItem: self, attribute: .CenterY, multiplier: 1.0, constant: 0.0))
+//        addConstraint(NSLayoutConstraint(item: statsView, attribute: .Width, relatedBy: .Equal, toItem: self, attribute: .Width, multiplier: 1.0, constant: 0.0))
+//        addConstraint(NSLayoutConstraint(item: statsView, attribute: .Height, relatedBy: .Equal, toItem: self, attribute: .Height, multiplier: 1.0, constant: 0.0))
     }
     
     override func layoutSubviews() {

@@ -1,16 +1,28 @@
 import UIKit
 import JTCalendar
 
-class TRStatsView: UIView {
+class TRStatsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    @IBOutlet weak var collectionView: UICollectionView!
     let calendarManager: JTCalendarManager
-    private let contentView = UIView()
+    let pageControl = UIPageControl()
     
     init(frame: CGRect, _calendarManager: JTCalendarManager) {
         calendarManager = _calendarManager
         super.init(frame: frame)
-        contentView.backgroundColor = UIColor.greenColor()
-        addSubview(contentView)
+        let newView = NSBundle.mainBundle().loadNibNamed("TRStatsView", owner: self, options: nil).first as! UIView
+        newView.frame = bounds
+        newView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        newView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(newView)
+        
+        collectionView.backgroundColor = UIColor.darkGrayColor()
+        collectionView.registerNib(UINib(nibName: "TRCalendarCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CalendarViewCell")
+        collectionView.registerNib(UINib(nibName: "TRGraphCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "GraphViewCell")
+        addSubview(collectionView)
+        pageControl.numberOfPages = 2
+        pageControl.userInteractionEnabled = false
+        addSubview(pageControl)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -20,8 +32,32 @@ class TRStatsView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        let calendarContentSize = CGSize(width: CGRectGetWidth(self.bounds), height: CGRectGetHeight(self.bounds))
-        contentView.frame = CGRectMake(0, 0, calendarContentSize.width, calendarContentSize.height)
+        let contentSize = CGSize(width: CGRectGetWidth(self.bounds), height: CGRectGetHeight(self.bounds))
+        collectionView.frame = CGRectMake(0, 0, contentSize.width, contentSize.height)
+        let pageControlSize = CGSize(width: contentSize.width * 0.3, height: contentSize.height * 0.1)
+        pageControl.frame = CGRectMake(CGRectGetMidX(self.bounds) - pageControlSize.width / 2.0, contentSize.height - pageControlSize.height, pageControlSize.width, pageControlSize.height)
+    }
+    
+    //MARK: - UICollectionViewDataSource
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        if indexPath.row == 0 {
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CalendarViewCell", forIndexPath: indexPath) as! TRCalendarCollectionViewCell
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("GraphViewCell", forIndexPath: indexPath) as! TRGraphCollectionViewCell
+            return cell
+        }
+    }
+    
+    //MARK: - UICollectionViewDelegateFlowLayout
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return collectionView.bounds.size
     }
     
 }
