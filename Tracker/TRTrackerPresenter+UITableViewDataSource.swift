@@ -26,16 +26,19 @@ extension TRTrackerPresenter: UITableViewDataSource {
         cell.delegate = trackerView
         cell.backgroundColor = TRColorGenerator.colorFor(indexPath.section)
         cell.setSelectedDateOnCalendarWith(dateToTrack)
-        
-        let itemName = itemsModel.activeItems[indexPath.section].name
-        weak var weakSelf = self
-        recordsModel.searchRecordsForItem(itemName) { (records, error) -> Void in
-            if let returnedRecords = records {
-                let dateDescriptions = returnedRecords.map { $0.dateDescription as String }
-                let cell = weakSelf?.trackerView.trackerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: indexPath.section)) as! TRTrackerTableViewCell
-                cell.setWhiteDotsOnDatesWith(dateDescriptions)
-            }
+        if itemsModel.activeItems[indexPath.section].opened {
+            cell.prepareStatsView()
         }
+        //TODO: Decorate the calendar
+//        let itemName = itemsModel.activeItems[indexPath.section].name
+//        weak var weakSelf = self
+//        recordsModel.searchRecordsForItem(itemName) { (records, error) -> Void in
+//            if let returnedRecords = records {
+//                let dateDescriptions = returnedRecords.map { $0.dateDescription as String }
+//                let cell = weakSelf?.trackerView.trackerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: indexPath.section)) as! TRTrackerTableViewCell
+//                cell.setWhiteDotsOnDatesWith(dateDescriptions)
+//            }
+//        }
         return cell
     }
     

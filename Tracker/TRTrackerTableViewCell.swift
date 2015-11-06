@@ -30,10 +30,11 @@ class TRTrackerTableViewCell: UITableViewCell {
     }
     
     func prepareStatsView() {
-        let newStatsView = TRStatsView(frame: CGRectZero)
-        statsView = newStatsView
-        addSubview(statsView!)
-        layoutIfNeeded()
+        if statsView == nil {
+            statsView = TRStatsView(frame: CGRectZero)
+            addSubview(statsView!)
+            layoutIfNeeded()
+        }
     }
     
     func destroyStatsView() {
