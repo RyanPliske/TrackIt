@@ -19,26 +19,28 @@ class TRTrackerTableViewCell: UITableViewCell {
     @IBOutlet private weak var itemLabel: UILabel!
     @IBOutlet private weak var itemCountLabel: UILabel!
     @IBOutlet private weak var moreButton: UIButton!
-    private var statsView: TRStatsView
+    private var statsView: TRStatsView? 
     private var isAVice = false
-    let calendarManager = JTCalendarManager()
+
     var selectedDatesOnJTCalendar = [String]()
     var dateSelectedOnJTCalendar: NSDate?
     
-    required init?(coder aDecoder: NSCoder) {
-        self.statsView = TRStatsView(frame: CGRectZero, _calendarManager: calendarManager)
-        super.init(coder: aDecoder)
-        calendarManager.delegate = self
-        addSubview(statsView)
-//        statsView.translatesAutoresizingMaskIntoConstraints = false
-//        addConstraint(NSLayoutConstraint(item: statsView, attribute: .CenterX, relatedBy: .Equal, toItem: self, attribute: .CenterX, multiplier: 1.0, constant: 0.0))
-//        addConstraint(NSLayoutConstraint(item: statsView, attribute: .CenterY, relatedBy: .Equal, toItem: self, attribute: .CenterY, multiplier: 1.0, constant: 0.0))
-//        addConstraint(NSLayoutConstraint(item: statsView, attribute: .Width, relatedBy: .Equal, toItem: self, attribute: .Width, multiplier: 1.0, constant: 0.0))
-//        addConstraint(NSLayoutConstraint(item: statsView, attribute: .Height, relatedBy: .Equal, toItem: self, attribute: .Height, multiplier: 1.0, constant: 0.0))
+    override func layoutSubviews() {
+        statsView?.frame = CGRectMake(0, TRTrackerTableViewCellSize.closedHeight, CGRectGetWidth(self.bounds), TRTrackerTableViewCellSize.openedHeight - TRTrackerTableViewCellSize.closedHeight)
     }
     
-    override func layoutSubviews() {
-        statsView.frame = CGRectMake(0, TRTrackerTableViewCellSize.closedHeight, CGRectGetWidth(self.bounds), TRTrackerTableViewCellSize.openedHeight - TRTrackerTableViewCellSize.closedHeight)
+    func prepareStatsView() {
+        let newStatsView = TRStatsView(frame: CGRectZero)
+        statsView = newStatsView
+        addSubview(statsView!)
+        layoutIfNeeded()
+    }
+    
+    func destroyStatsView() {
+        if statsView != nil {
+            statsView!.removeFromSuperview()
+            statsView = nil
+        }
     }
     
     func updateItemLabelCountWith(newItemCount: Float) {
@@ -66,20 +68,17 @@ class TRTrackerTableViewCell: UITableViewCell {
     
     func resetCalendar() {
         selectedDatesOnJTCalendar.removeAll()
-        calendarManager.reload()
     }
     
     func resetCalendarAfterTrackOccured() {
         if let dateSelected = dateSelectedOnJTCalendar {
             selectedDatesOnJTCalendar.append(TRDateFormatter.descriptionForDate(dateSelected))
         }
-        calendarManager.reload()
     }
     
     func setWhiteDotsOnDatesWith(dates: [String]) {
         selectedDatesOnJTCalendar = dates
         print(selectedDatesOnJTCalendar)
-        calendarManager.reload()
     }
     
     func setSelectedDateOnCalendarWith(selectedDate: NSDate) {

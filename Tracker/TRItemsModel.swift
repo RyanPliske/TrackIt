@@ -1,5 +1,9 @@
 import Foundation
 
+protocol TRItemsModelDelegate: class {
+    func itemOpenedStatusChangedAtIndex(index: Int, opened: Bool)
+}
+
 class TRItemsModel {
     
     static let sharedInstanceOfItemsModel = TRItemsModel(itemService: TRItemService())
@@ -11,6 +15,7 @@ class TRItemsModel {
     private var _sinfulItems = [TRItem]()
     var activeRegularItems: [TRItem] { return self._regularItems }
     private var _regularItems = [TRItem]()
+    var delegate: TRItemsModelDelegate!
     
     private var itemService: TRItemService
     
@@ -98,6 +103,8 @@ class TRItemsModel {
     
     func updateItemOpenedStatusAtIndex(index: Int) {
         itemService.updateItem(self._activeItems[index], opened: !self._activeItems[index].opened)
+        // let presenter know that cell has opened/closed
+        delegate.itemOpenedStatusChangedAtIndex(index, opened: self._activeItems[index].opened)
     }
     
     func updateItemMeasurementUnitAtIndex(index: Int, unit: String?) {

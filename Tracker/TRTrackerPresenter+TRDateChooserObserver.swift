@@ -7,7 +7,6 @@ extension TRTrackerPresenter: TRDateChooserObserver {
         if let cells = self.trackerView.trackerTableView.visibleCells as? [TRTrackerTableViewCell] {
             for cell: TRTrackerTableViewCell in cells {
                 cell.setSelectedDateOnCalendarWith(dateToTrack)
-                cell.calendarManager.reload()
             }
         }
         trackerView.trackerTableView.reloadData()

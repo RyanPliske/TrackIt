@@ -1,7 +1,7 @@
 import Foundation
 import JTCalendar
 
-class TRTrackerPresenter: NSObject {
+class TRTrackerPresenter: NSObject, TRItemsModelDelegate {
     let trackerView: TRTrackerView
     let recordsModel: TRRecordsModel
     lazy var itemsModel = TRItemsModel.sharedInstanceOfItemsModel
@@ -14,6 +14,10 @@ class TRTrackerPresenter: NSObject {
         super.init()
         self.trackerView.delegate = self
         self.trackerView.trackerTableView.dataSource = self
+    }
+    
+    func itemOpenedStatusChangedAtIndex(index: Int, opened: Bool) {
+        trackerView.itemOpenedStatusChangedAtIndex(index, opened: opened)
     }
     
 }

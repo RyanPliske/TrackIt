@@ -80,6 +80,21 @@ class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
         }
     }
     
+    // MARK: TRTrackerPresenter Calls
+    
+    func itemOpenedStatusChangedAtIndex(index: Int, opened: Bool) {
+        let indexPath = NSIndexPath(forRow: 0, inSection: index)
+        trackerTableView.beginUpdates()
+        trackerTableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+        trackerTableView.endUpdates()
+
+        if opened {
+            (trackerTableView.cellForRowAtIndexPath(indexPath) as! TRTrackerTableViewCell).prepareStatsView()
+        } else {
+            (trackerTableView.cellForRowAtIndexPath(indexPath) as! TRTrackerTableViewCell).destroyStatsView()
+        }
+    }
+    
     // MARK: TRTrackerTableViewCellDelegate
     
     func plusButtonPressedAtRow(row: Int) {

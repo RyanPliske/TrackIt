@@ -21,8 +21,5 @@ extension TRTrackerView: UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         delegate?.itemSelectedAtRow(indexPath.section)
-        tableView.beginUpdates()
-        tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-        tableView.endUpdates()
     }
 }

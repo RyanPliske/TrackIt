@@ -6,7 +6,7 @@ class TRStatsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateF
     @IBOutlet weak var collectionView: UICollectionView!
     let pageControl = UIPageControl()
     
-    init(frame: CGRect, _calendarManager: JTCalendarManager) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
         
         let newView = NSBundle.mainBundle().loadNibNamed("TRStatsView", owner: self, options: nil).first as! UIView

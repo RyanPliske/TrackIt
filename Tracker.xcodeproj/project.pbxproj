@@ -94,6 +94,8 @@
 		F9448A491BE97381004815F4 /* TRCalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9448A481BE97381004815F4 /* TRCalendarCollectionViewCell.swift */; };
 		F9448A4B1BE97396004815F4 /* TRGraphCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9448A4A1BE97396004815F4 /* TRGraphCollectionViewCell.swift */; };
 		F9448A4D1BE974B2004815F4 /* TRStatsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9448A4C1BE974B2004815F4 /* TRStatsView.xib */; };
+		F9ED786C1BEA58F800CDA948 /* TRCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ED786B1BEA58F800CDA948 /* TRCalendarView.swift */; };
+		F9ED786E1BEADAF800CDA948 /* TRWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ED786D1BEADAF800CDA948 /* TRWeekView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -231,6 +233,8 @@
 		F9448A481BE97381004815F4 /* TRCalendarCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		F9448A4A1BE97396004815F4 /* TRGraphCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRGraphCollectionViewCell.swift; sourceTree = "<group>"; };
 		F9448A4C1BE974B2004815F4 /* TRStatsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRStatsView.xib; sourceTree = "<group>"; };
+		F9ED786B1BEA58F800CDA948 /* TRCalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCalendarView.swift; sourceTree = "<group>"; };
+		F9ED786D1BEADAF800CDA948 /* TRWeekView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRWeekView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -665,6 +669,8 @@
 				F9448A431BE9713F004815F4 /* TRCalendarCollectionViewCell.xib */,
 				F9448A4A1BE97396004815F4 /* TRGraphCollectionViewCell.swift */,
 				F9448A461BE9729C004815F4 /* TRGraphCollectionViewCell.xib */,
+				F9ED786B1BEA58F800CDA948 /* TRCalendarView.swift */,
+				F9ED786D1BEADAF800CDA948 /* TRWeekView.swift */,
 			);
 			name = Stats;
 			sourceTree = "<group>";
@@ -727,6 +733,7 @@
 				TargetAttributes = {
 					EFE083ED1A86A9B100AC9631 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 5G2K5KWCP8;
 					};
 					EFE084041A86A9B100AC9631 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -911,6 +918,7 @@
 				EFA9B5EA1B7D811800BAA839 /* TRRrecordsModel.swift in Sources */,
 				EFF328DB1B87C218001B9E84 /* TREditTracksTableView.swift in Sources */,
 				EFE083F41A86A9B100AC9631 /* TRAppDelegate.swift in Sources */,
+				F9ED786C1BEA58F800CDA948 /* TRCalendarView.swift in Sources */,
 				EFA1EF921BA788D0007D82E6 /* TREditItemTableViewInputCell.swift in Sources */,
 				EF35BA2D1AF3CA9400456D38 /* TRPreloadedItems.swift in Sources */,
 				EF4BF8C51B966F6C00B2AAA1 /* TRSettingsPresenter+UITableViewDataSource.swift in Sources */,
@@ -926,6 +934,7 @@
 				EF3779A21B8ECB7300D6FB97 /* TREditTracksViewController+UITableViewDataSource.swift in Sources */,
 				EFD8AEAF1B965C0200962BA0 /* TRSettingsModel.swift in Sources */,
 				EFF328DD1B87C5C6001B9E84 /* TREditTracksTableViewCell.swift in Sources */,
+				F9ED786E1BEADAF800CDA948 /* TRWeekView.swift in Sources */,
 				EFE083F61A86A9B100AC9631 /* TRTrackerViewController.swift in Sources */,
 				EF52F2451A8735CF00315B35 /* TRSettingsViewController.swift in Sources */,
 				EF86B2BA1BA0FC5C0080DC97 /* TRItemsModel.swift in Sources */,
@@ -1104,7 +1113,7 @@
 				INFOPLIST_FILE = Tracker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Tracker.ryan;
 				PRODUCT_NAME = Tracker;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Tracker/Tracker-Bridging-Header.h";
@@ -1125,7 +1134,7 @@
 				INFOPLIST_FILE = Tracker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Tracker.ryan;
 				PRODUCT_NAME = Tracker;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Tracker/Tracker-Bridging-Header.h";
