@@ -2,13 +2,15 @@ import UIKit
 
 class TRWeekView: UIView {
     
-    var daysOfThisWeek = []
+    var daysOfThisWeek = [TRDay]()
     
-    private var dayLabels = [UILabel]()
+    private var dayLabels = [TRDayView]()
     
     init(daysOfTheWeek: [Int]) {
         super.init(frame: CGRectZero)
-        daysOfThisWeek = daysOfTheWeek
+        for day in daysOfTheWeek {
+            daysOfThisWeek.append(TRDay(dayIndex: day))
+        }
         drawWeek()
     }
 
@@ -29,14 +31,30 @@ class TRWeekView: UIView {
         }
     }
     
+    func reDrawWeek() {
+        for label in dayLabels {
+            label.removeFromSuperview()
+        }
+        dayLabels.removeAll()
+        drawWeek()
+    }
+    
+    
+    func drawCheckMarkFor() {
+        
+    }
+    
+    
     private func drawWeek() {
-        for indexOfDay in daysOfThisWeek {
-            let dayLabel = UILabel()
-            dayLabel.textAlignment = NSTextAlignment.Center
-            dayLabel.textColor = UIColor.whiteColor()
-            dayLabel.text = "\(indexOfDay)"
-            addSubview(dayLabel)
-            dayLabels.append(dayLabel)
+        for day in daysOfThisWeek {
+            let indexOfDay = day.dayIndex
+            let dayView = TRDayView()
+            dayView.setDayLabelWith("\(indexOfDay)")
+            if day.goalMet {
+                dayView.addCheckMark()
+            }
+            addSubview(dayView)
+            dayLabels.append(dayView)
         }
     }
     

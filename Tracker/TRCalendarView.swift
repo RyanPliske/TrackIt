@@ -10,7 +10,7 @@ class TRCalendarView: UIView {
     let week6: [Int] = []
     var weekViews = [TRWeekView]()
     
-    
+    let successDays = [1, 15, 16, 25]
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -20,6 +20,7 @@ class TRCalendarView: UIView {
         super.init(coder: aDecoder)
         let weeksOfTheMonth = [week1, week2, week3, week4, week5, week6]
         drawWeeks(weeksOfTheMonth)
+        drawSuccessDays(successDays)
     }
     
     override func layoutSubviews() {
@@ -41,6 +42,19 @@ class TRCalendarView: UIView {
             addSubview(weekView)
         }
         layoutIfNeeded()
+    }
+    
+    private func drawSuccessDays(successDays: [Int]) {
+        for view in weekViews {
+            for day in view.daysOfThisWeek {
+                let success = successDays.filter { $0 == day.dayIndex }
+                if !success.isEmpty {
+                    day.goalMet = true
+                }
+            }
+            view.reDrawWeek()
+        }
+
     }
     
 }
