@@ -94,7 +94,6 @@
 		F9448A491BE97381004815F4 /* TRCalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9448A481BE97381004815F4 /* TRCalendarCollectionViewCell.swift */; };
 		F9448A4B1BE97396004815F4 /* TRGraphCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9448A4A1BE97396004815F4 /* TRGraphCollectionViewCell.swift */; };
 		F9448A4D1BE974B2004815F4 /* TRStatsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9448A4C1BE974B2004815F4 /* TRStatsView.xib */; };
-		F95D39971BED9FAC0018018F /* TRDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95D39961BED9FAC0018018F /* TRDay.swift */; };
 		F95D39991BEDAE6E0018018F /* TRDayLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95D39981BEDAE6E0018018F /* TRDayLabel.swift */; };
 		F9ED786C1BEA58F800CDA948 /* TRCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ED786B1BEA58F800CDA948 /* TRCalendarView.swift */; };
 		F9ED786E1BEADAF800CDA948 /* TRWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ED786D1BEADAF800CDA948 /* TRWeekView.swift */; };
@@ -235,7 +234,6 @@
 		F9448A481BE97381004815F4 /* TRCalendarCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		F9448A4A1BE97396004815F4 /* TRGraphCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRGraphCollectionViewCell.swift; sourceTree = "<group>"; };
 		F9448A4C1BE974B2004815F4 /* TRStatsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRStatsView.xib; sourceTree = "<group>"; };
-		F95D39961BED9FAC0018018F /* TRDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRDay.swift; sourceTree = "<group>"; };
 		F95D39981BEDAE6E0018018F /* TRDayLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRDayLabel.swift; sourceTree = "<group>"; };
 		F9ED786B1BEA58F800CDA948 /* TRCalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCalendarView.swift; sourceTree = "<group>"; };
 		F9ED786D1BEADAF800CDA948 /* TRWeekView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRWeekView.swift; sourceTree = "<group>"; };
@@ -675,7 +673,6 @@
 				F9448A461BE9729C004815F4 /* TRGraphCollectionViewCell.xib */,
 				F9ED786B1BEA58F800CDA948 /* TRCalendarView.swift */,
 				F9ED786D1BEADAF800CDA948 /* TRWeekView.swift */,
-				F95D39961BED9FAC0018018F /* TRDay.swift */,
 				F95D39981BEDAE6E0018018F /* TRDayLabel.swift */,
 			);
 			name = Stats;
@@ -943,7 +940,6 @@
 				EFF328DD1B87C5C6001B9E84 /* TREditTracksTableViewCell.swift in Sources */,
 				F9ED786E1BEADAF800CDA948 /* TRWeekView.swift in Sources */,
 				EFE083F61A86A9B100AC9631 /* TRTrackerViewController.swift in Sources */,
-				F95D39971BED9FAC0018018F /* TRDay.swift in Sources */,
 				EF52F2451A8735CF00315B35 /* TRSettingsViewController.swift in Sources */,
 				EF86B2BA1BA0FC5C0080DC97 /* TRItemsModel.swift in Sources */,
 				EFC9CD6B1B7D606800060D54 /* TRTrackerView.swift in Sources */,

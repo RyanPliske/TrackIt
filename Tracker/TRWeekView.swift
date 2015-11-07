@@ -2,21 +2,15 @@ import UIKit
 
 class TRWeekView: UIView {
     
-    var daysOfThisWeek = [TRDay]()
-    
-    private var dayLabels = [TRDayView]()
+    var dayViews = [TRDayView]()
     
     init(daysOfTheWeek: [Int]) {
         super.init(frame: CGRectZero)
-        for day in daysOfTheWeek {
-            daysOfThisWeek.append(TRDay(dayIndex: day))
-        }
-        drawWeek()
+        drawWeekFor(daysOfTheWeek)
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        drawWeek()
     }
     
     override func layoutSubviews() {
@@ -25,36 +19,17 @@ class TRWeekView: UIView {
         let dayWidth = CGRectGetWidth(self.bounds) / 7
         let dayHeight = CGRectGetHeight(self.bounds)
         
-        for label in dayLabels {
+        for label in dayViews {
             label.frame = CGRectMake(x, 0, dayWidth, dayHeight)
             x += dayWidth
         }
     }
     
-    func reDrawWeek() {
-        for label in dayLabels {
-            label.removeFromSuperview()
-        }
-        dayLabels.removeAll()
-        drawWeek()
-    }
-    
-    
-    func drawCheckMarkFor() {
-        
-    }
-    
-    
-    private func drawWeek() {
-        for day in daysOfThisWeek {
-            let indexOfDay = day.dayIndex
-            let dayView = TRDayView()
-            dayView.setDayLabelWith("\(indexOfDay)")
-            if day.goalMet {
-                dayView.addCheckMark()
-            }
+    private func drawWeekFor(daysOfThisWeek: [Int]) {
+        for dayIndex in daysOfThisWeek {
+            let dayView = TRDayView(dayIndex: dayIndex)
             addSubview(dayView)
-            dayLabels.append(dayView)
+            dayViews.append(dayView)
         }
     }
     

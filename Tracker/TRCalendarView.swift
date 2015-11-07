@@ -46,13 +46,12 @@ class TRCalendarView: UIView {
     
     private func drawSuccessDays(successDays: [Int]) {
         for view in weekViews {
-            for day in view.daysOfThisWeek {
-                let success = successDays.filter { $0 == day.dayIndex }
+            for dayView in view.dayViews {
+                let success = successDays.filter { $0 == dayView.dayIndex }
                 if !success.isEmpty {
-                    day.goalMet = true
+                    dayView.goalMet = true
                 }
             }
-            view.reDrawWeek()
         }
 
     }
