@@ -17,17 +17,8 @@ class TRWeekView: UIView {
         drawWeek()
     }
     
-    func drawWeek() {
-        for indexOfDay in daysOfThisWeek {
-            let dayLabel = UILabel()
-            dayLabel.text = "\(indexOfDay)"
-            dayLabel.backgroundColor = UIColor.greenColor()
-            addSubview(dayLabel)
-            dayLabels.append(dayLabel)
-        }
-    }
-    
     override func layoutSubviews() {
+        super.layoutSubviews()
         var x: CGFloat = 0
         let dayWidth = CGRectGetWidth(self.bounds) / 7
         let dayHeight = CGRectGetHeight(self.bounds)
@@ -35,6 +26,17 @@ class TRWeekView: UIView {
         for label in dayLabels {
             label.frame = CGRectMake(x, 0, dayWidth, dayHeight)
             x += dayWidth
+        }
+    }
+    
+    private func drawWeek() {
+        for indexOfDay in daysOfThisWeek {
+            let dayLabel = UILabel()
+            dayLabel.textAlignment = NSTextAlignment.Center
+            dayLabel.textColor = UIColor.whiteColor()
+            dayLabel.text = "\(indexOfDay)"
+            addSubview(dayLabel)
+            dayLabels.append(dayLabel)
         }
     }
     

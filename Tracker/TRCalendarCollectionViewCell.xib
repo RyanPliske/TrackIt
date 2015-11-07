@@ -17,7 +17,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aJc-De-1GM" customClass="TRCalendarView" customModule="Tracker" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="353" height="105"/>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                 </subviews>
                 <animations/>
