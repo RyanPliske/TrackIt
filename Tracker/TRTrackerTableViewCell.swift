@@ -1,16 +1,20 @@
 import Foundation
 import Spring
 
-protocol TRTrackerTableViewCellDelegate {
+@objc protocol TRTrackerTableViewCellDelegate: class {
     func plusButtonPressedAtRow(row: Int)
-    func moreButtonPressedAtRow(row: Int, includeBadHabit: Bool)
     func trackUrgeSelectedForRow(row: Int)
     func trackMultipleSelectedForRow(row: Int)
     func textFieldReturnedWithTextAtRow(row: Int, text: String)
+    
+    optional func moreButtonPressedAtRow(row: Int, includeBadHabit: Bool)
+    
+    //Properties
+    func tracksForRow(row: Int) -> TRTracks
 }
 
 class TRTrackerTableViewCell: UITableViewCell {
-    var delegate: TRTrackerTableViewCellDelegate?
+    weak var delegate: TRTrackerTableViewCellDelegate!
     var moreButtonFrame: CGRect {
         return self.moreButton.frame
     }
@@ -85,16 +89,16 @@ class TRTrackerTableViewCell: UITableViewCell {
     }
     
     @IBAction func moreButtonPressed(sender: AnyObject) {
-        delegate?.moreButtonPressedAtRow(self.tag, includeBadHabit: isAVice)
+        delegate.moreButtonPressedAtRow?(self.tag, includeBadHabit: isAVice)
     }
 }
 
 extension TRTrackerTableViewCell: TRTrackingOptionsDelegate {
     func trackUrge() {
-        delegate?.trackUrgeSelectedForRow(self.tag)
+        delegate.trackUrgeSelectedForRow(self.tag)
     }
     
     func trackMultiple() {
-        delegate?.trackMultipleSelectedForRow(self.tag)
+        delegate.trackMultipleSelectedForRow(self.tag)
     }
 }

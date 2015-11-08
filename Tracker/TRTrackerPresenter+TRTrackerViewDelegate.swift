@@ -1,11 +1,11 @@
 import Foundation
 
 extension TRTrackerPresenter: TRTrackerViewDelegate {
-    func trackItemAtRow(row: Int) {
+    func plusButtonPressedAtRow(row: Int) {
         recordsModel.createRecordUsingRow(row, quantity: 1, type: TRRecordType.TrackAction, date: dateToTrack)
     }
     
-    func trackUrgeAtRow(row: Int) {
+    func trackUrgeSelectedForRow(row: Int) {
         recordsModel.createRecordUsingRow(row, quantity: 1, type: TRRecordType.TrackUrge, date: dateToTrack)
     }
     
@@ -23,6 +23,10 @@ extension TRTrackerPresenter: TRTrackerViewDelegate {
         } else {
             trackerView.trackerTableView.reloadSections(NSIndexSet(index: row), withRowAnimation: UITableViewRowAnimation.Right)
         }
+    }
+    
+    func tracksForRow(row: Int) -> TRTracks {
+        return TRTracks()
     }
     
     func itemSelectedAtRow(row: Int) {

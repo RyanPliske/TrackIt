@@ -2,11 +2,7 @@ import UIKit
 import TPKeyboardAvoiding
 import Spring
 
-protocol TRTrackerViewDelegate {
-    func trackItemAtRow(row: Int)
-    func trackUrgeAtRow(row: Int)
-    func trackMultipleSelectedForRow(row: Int)
-    func textFieldReturnedWithTextAtRow(row: Int, text: String)
+protocol TRTrackerViewDelegate: class, TRTrackerTableViewCellDelegate {
     func itemSelectedAtRow(row: Int)
     func itemAtRowIsOpened(row:Int) -> Bool
 }
@@ -26,7 +22,7 @@ class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
         }
     }
 
-    var delegate: TRTrackerViewDelegate?
+    var delegate: TRTrackerViewDelegate!
     var observer: TRTrackerViewObserver?
     var animations = [Int]()
     
@@ -93,7 +89,7 @@ class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
     // MARK: TRTrackerTableViewCellDelegate
     
     func plusButtonPressedAtRow(row: Int) {
-        delegate?.trackItemAtRow(row)
+        delegate.plusButtonPressedAtRow(row)
         animateSavedRecordForRow(row)
     }
     
@@ -102,18 +98,22 @@ class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
     }
     
     func trackUrgeSelectedForRow(row: Int) {
-        delegate?.trackUrgeAtRow(row)
+        delegate.trackUrgeSelectedForRow(row)
         observer?.dismissTrackingOptions()
         animateSavedRecordForRow(row)
     }
     
     func trackMultipleSelectedForRow(row: Int) {
-        delegate?.trackMultipleSelectedForRow(row)
+        delegate.trackMultipleSelectedForRow(row)
         observer?.dismissTrackingOptions()
     }
     
     func textFieldReturnedWithTextAtRow(row: Int, text: String) {
-        delegate?.textFieldReturnedWithTextAtRow(row, text: text)
+        delegate.textFieldReturnedWithTextAtRow(row, text: text)
         animateSavedRecordForRow(row)
+    }
+    
+    func tracksForRow(row: Int) -> TRTracks {
+        return TRTracks()
     }
 }

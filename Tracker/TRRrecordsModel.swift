@@ -4,6 +4,7 @@ import Parse
 typealias TRCreateRecordCompletion = () -> Void
 typealias TRSearchCompletion = () -> Void
 typealias TRSearchForItemCompletion = ([TRRecord]?, NSError?) -> Void
+typealias TRTracks = [NSDate : Int]
 
 class TRRecordsModel {
     

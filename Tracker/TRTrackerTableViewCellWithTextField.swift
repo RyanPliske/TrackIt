@@ -29,7 +29,7 @@ class TRTrackerTableViewCellWithTextField: TRTrackerTableViewCell, UITextFieldDe
     func TRKeyboardToolbarDone() {
         itemCountTextField.resignFirstResponder()
         let text = itemCountTextField.text!
-        delegate?.textFieldReturnedWithTextAtRow(tag, text: text)
+        delegate.textFieldReturnedWithTextAtRow(tag, text: text)
         updateItemLabelCountWith(Float(text)!)
         itemCountTextField.text = nil
         resetCalendarAfterTrackOccured()
