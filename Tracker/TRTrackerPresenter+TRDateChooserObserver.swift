@@ -5,11 +5,10 @@ extension TRTrackerPresenter: TRDateChooserObserver {
         self.trackerView.setTodaysDateButtonLabelWithText(TRDateFormatter.descriptionForDate(date))
         self.dateToTrack = date
         if let cells = self.trackerView.trackerTableView.visibleCells as? [TRTrackerTableViewCell] {
-            for cell: TRTrackerTableViewCell in cells {
-                cell.setSelectedDateOnCalendarWith(dateToTrack)
+            for cell in cells {
+                cell.resetSelectedDateOnCalendarWith(dateToTrack)
             }
         }
         trackerView.trackerTableView.reloadData()
-        
     }
 }

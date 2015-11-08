@@ -87,8 +87,9 @@ class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
         trackerTableView.beginUpdates()
         trackerTableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         trackerTableView.endUpdates()
-
-        if !opened {
+        if opened {
+            (trackerTableView.cellForRowAtIndexPath(indexPath) as! TRTrackerTableViewCell).prepareStatsView()
+        } else {
             (trackerTableView.cellForRowAtIndexPath(indexPath) as! TRTrackerTableViewCell).destroyStatsView()
         }
     }
