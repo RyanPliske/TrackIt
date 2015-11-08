@@ -16,8 +16,8 @@ class TRTrackerPresenter: NSObject, TRItemsModelDelegate {
         self.trackerView.trackerTableView.dataSource = self
     }
     
-    func itemOpenedStatusChangedAtIndex(index: Int, opened: Bool) {
-        trackerView.itemOpenedStatusChangedAtIndex(index, opened: opened)
+    func itemOpenedStatusChangedAtIndex(index: Int) {
+        trackerView.itemOpenedStatusChangedAtIndex(index)
     }
     
 }

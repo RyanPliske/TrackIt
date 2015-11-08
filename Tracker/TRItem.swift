@@ -79,17 +79,6 @@ class TRItem: PFObject, PFSubclassing {
         }
     }
     
-    var opened: Bool {
-        get {
-            if let opened =  self["opened"] as? Bool {
-                return opened
-            } else {
-                return false
-            }
-        }
-        set {
-            self["opened"] = newValue
-        }
-    }
+    var opened = false
     
 }

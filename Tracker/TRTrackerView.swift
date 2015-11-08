@@ -82,7 +82,7 @@ class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
     
     // MARK: TRTrackerPresenter Calls
     
-    func itemOpenedStatusChangedAtIndex(index: Int, opened: Bool) {
+    func itemOpenedStatusChangedAtIndex(index: Int) {
         let indexPath = NSIndexPath(forRow: 0, inSection: index)
         trackerTableView.beginUpdates()
         trackerTableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
