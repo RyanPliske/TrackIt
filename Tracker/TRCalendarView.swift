@@ -12,13 +12,10 @@ class TRCalendarView: UIView {
     
     let successDays = [1, 15, 16, 25]
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        let weeksOfTheMonth = [week1, week2, week3, week4, week5, week6]
+        let monthGenerator = TRMonthGenerator(trackingDate: NSDate())
+        let weeksOfTheMonth = [monthGenerator.week1, monthGenerator.week2, monthGenerator.week3, monthGenerator.week4, monthGenerator.week5, monthGenerator.week6]
         drawWeeks(weeksOfTheMonth)
         drawSuccessDays(successDays)
     }
@@ -45,8 +42,8 @@ class TRCalendarView: UIView {
     }
     
     private func drawSuccessDays(successDays: [Int]) {
-        for view in weekViews {
-            for dayView in view.dayViews {
+        for weekView in weekViews {
+            for dayView in weekView.dayViews {
                 let success = successDays.filter { $0 == dayView.dayIndex }
                 if !success.isEmpty {
                     dayView.goalMet = true

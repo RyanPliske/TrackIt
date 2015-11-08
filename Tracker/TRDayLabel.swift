@@ -55,7 +55,9 @@ class TRDayView: UIView {
     private func setDayLabel() {
         dayLabel.textAlignment = NSTextAlignment.Center
         dayLabel.textColor = UIColor.whiteColor()
-        dayLabel.text = "\(dayIndex)"
+        if dayIndex != 0 {
+            dayLabel.text = "\(dayIndex)"
+        }
         addSubview(dayLabel)
     }
     
