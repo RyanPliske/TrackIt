@@ -1,23 +1,23 @@
 import UIKit
 
 class TRCalendarView: UIView {
+
+    var trackingDate: NSDate!
     
-    let week1: [Int] = [1, 2, 3, 4, 5, 6, 7]
-    let week2: [Int] = [8, 9, 10, 11, 12, 13, 14]
-    let week3: [Int] = [15, 16, 17, 18, 19, 20, 21]
-    let week4: [Int] = [22, 23, 24, 25, 26, 27, 28]
-    let week5: [Int] = [29, 30]
-    let week6: [Int] = []
-    var weekViews = [TRWeekView]()
+    private let successDays = [1, 15, 16, 25]
+    private var weekViews = [TRWeekView]()
     
-    let successDays = [1, 15, 16, 25]
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        let monthGenerator = TRMonthGenerator(trackingDate: NSDate())
+    init(trackingDate: NSDate) {
+        self.trackingDate = trackingDate
+        super.init(frame: CGRectZero)
+        let monthGenerator = TRMonthGenerator(trackingDate: trackingDate)
         let weeksOfTheMonth = [monthGenerator.week1, monthGenerator.week2, monthGenerator.week3, monthGenerator.week4, monthGenerator.week5, monthGenerator.week6]
         drawWeeks(weeksOfTheMonth)
         drawSuccessDays(successDays)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
     
     override func layoutSubviews() {

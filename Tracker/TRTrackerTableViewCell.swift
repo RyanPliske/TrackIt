@@ -23,7 +23,7 @@ class TRTrackerTableViewCell: UITableViewCell {
     private var isAVice = false
 
     var selectedDatesOnJTCalendar = [String]()
-    var dateSelectedOnJTCalendar: NSDate?
+    var dateSelectedOnJTCalendar: NSDate!
     
     override func layoutSubviews() {
         statsView?.frame = CGRectMake(0, TRTrackerTableViewCellSize.closedHeight, CGRectGetWidth(self.bounds), TRTrackerTableViewCellSize.openedHeight - TRTrackerTableViewCellSize.closedHeight)
@@ -31,7 +31,7 @@ class TRTrackerTableViewCell: UITableViewCell {
     
     func prepareStatsView() {
         if statsView == nil {
-            statsView = TRStatsView(frame: CGRectZero)
+            statsView = TRStatsView(frame: CGRectZero, trackingDate: dateSelectedOnJTCalendar)
             addSubview(statsView!)
             layoutIfNeeded()
         }
@@ -98,46 +98,5 @@ extension TRTrackerTableViewCell: TRTrackingOptionsDelegate {
     
     func trackMultiple() {
         delegate?.trackMultipleSelectedForRow(self.tag)
-    }
-}
-
-extension TRTrackerTableViewCell: JTCalendarDelegate {
-    
-    func calendar(calendar: JTCalendarManager!, prepareDayView dayView: UIView!) {
-        if let aDayView = dayView as? JTCalendarDayView {
-            //Dot View
-            if dateIsIncluded(TRDateFormatter.descriptionForDate(aDayView.date)) {
-                aDayView.dotView.hidden = false
-                aDayView.dotView.backgroundColor = UIColor.whiteColor()
-            } else {
-                aDayView.dotView.hidden = true
-            }
-            // Blue Circle View
-            if let selectedDate = dateSelectedOnJTCalendar where calendar.dateHelper.date(selectedDate, isTheSameDayThan: aDayView.date) {
-                aDayView.circleView.hidden = false
-                aDayView.circleView.backgroundColor = UIColor.whiteColor()
-                aDayView.textLabel.textColor = UIColor.TRBabyBlue()
-                aDayView.dotView.backgroundColor = UIColor.TRBabyBlue()
-            }
-                // White Circle View for today
-            else if calendar.dateHelper.date(NSDate(), isTheSameDayThan: aDayView.date) {
-                aDayView.circleView.hidden = false
-                aDayView.circleView.backgroundColor = UIColor.TRBabyBlue()
-                aDayView.textLabel.textColor = UIColor.whiteColor()
-                aDayView.dotView.backgroundColor = UIColor.whiteColor()
-            }
-            else {
-                aDayView.circleView.hidden = true
-                aDayView.textLabel.textColor = UIColor.blackColor()
-            }
-            
-            aDayView.hidden = aDayView.isFromAnotherMonth ? true : false
-            
-        }
-    }
-    
-    private func dateIsIncluded(date: String) -> Bool {
-        let dates = selectedDatesOnJTCalendar.filter { $0 == date }
-        return dates.isEmpty ? false : true
     }
 }

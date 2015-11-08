@@ -5,8 +5,10 @@ class TRStatsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateF
     
     @IBOutlet weak var collectionView: UICollectionView!
     let pageControl = UIPageControl()
+    var trackingDate: NSDate!
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, trackingDate: NSDate) {
+        self.trackingDate = trackingDate
         super.init(frame: frame)
         
         let newView = NSBundle.mainBundle().loadNibNamed("TRStatsView", owner: self, options: nil).first as! UIView
@@ -15,7 +17,7 @@ class TRStatsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateF
         newView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(newView)
         
-        collectionView.registerNib(UINib(nibName: "TRCalendarCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CalendarViewCell")
+        collectionView.registerClass(TRCalendarCollectionViewCell.self, forCellWithReuseIdentifier: "CalendarViewCell")
         collectionView.registerNib(UINib(nibName: "TRGraphCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "GraphViewCell")
         addSubview(collectionView)
         
@@ -45,6 +47,7 @@ class TRStatsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateF
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         if indexPath.row == 0 {
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CalendarViewCell", forIndexPath: indexPath) as! TRCalendarCollectionViewCell
+            cell.setupWith(trackingDate)
             return cell
         } else {
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier("GraphViewCell", forIndexPath: indexPath) as! TRGraphCollectionViewCell
