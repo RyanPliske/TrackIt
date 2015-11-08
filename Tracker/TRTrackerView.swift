@@ -87,6 +87,7 @@ class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
         trackerTableView.beginUpdates()
         trackerTableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         trackerTableView.endUpdates()
+        trackerTableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Top, animated: true)
     }
     
     // MARK: TRTrackerTableViewCellDelegate
