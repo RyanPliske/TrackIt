@@ -26,6 +26,12 @@ extension TRTrackerPresenter: UITableViewDataSource {
         cell.delegate = trackerView
         cell.backgroundColor = TRColorGenerator.colorFor(indexPath.section)
         cell.setSelectedDateOnCalendarWith(dateToTrack)
+        if item.opened {
+            cell.destroyStatsView()
+            cell.prepareStatsView()
+        } else {
+            cell.destroyStatsView()
+        }
         return cell
     }
     

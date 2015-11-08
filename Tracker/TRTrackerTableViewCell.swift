@@ -85,13 +85,6 @@ class TRTrackerTableViewCell: UITableViewCell {
         dateSelectedOnJTCalendar = selectedDate
     }
     
-    func resetSelectedDateOnCalendarWith(selectedDate: NSDate) {
-        // TODO: check if selectedDate is different month than dateSelected
-        dateSelectedOnJTCalendar = selectedDate
-        destroyStatsView()
-        prepareStatsView()
-    }
-    
     @IBAction func moreButtonPressed(sender: AnyObject) {
         delegate?.moreButtonPressedAtRow(self.tag, includeBadHabit: isAVice)
     }
