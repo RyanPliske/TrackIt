@@ -577,7 +577,7 @@
                                             <outlet property="textField" destination="qEG-cd-epp" id="TDc-Es-hMN"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="goalCell" rowHeight="90" id="gJ7-iI-zoN" userLabel="goalCell" customClass="TREditItemTableViewInputCell" customModule="Tracker" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="goalCell" rowHeight="90" id="gJ7-iI-zoN" userLabel="goalCell" customClass="TREditItemTableViewInputGoalCell" customModule="Tracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="118" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gJ7-iI-zoN" id="nYd-YQ-coP">
@@ -608,6 +608,9 @@
                                                     <state key="normal" title="Max">
                                                         <color key="titleColor" red="0.91764705882352937" green="0.72156862745098038" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="maxButtonPressed:" destination="gJ7-iI-zoN" eventType="touchUpInside" id="CnB-A3-diy"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="da7-3v-sxQ">
                                                     <rect key="frame" x="231" y="42" width="30" height="30"/>
@@ -615,6 +618,9 @@
                                                     <state key="normal" title="Min">
                                                         <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="minButtonPressed:" destination="gJ7-iI-zoN" eventType="touchUpInside" id="0U0-4E-Tj9"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <animations/>
@@ -641,6 +647,8 @@
                                         <animations/>
                                         <connections>
                                             <outlet property="itemLabel" destination="KR0-hP-2Gn" id="FKV-pV-pu2"/>
+                                            <outlet property="maxButton" destination="gs9-t0-iOL" id="dcK-hN-if7"/>
+                                            <outlet property="minButton" destination="da7-3v-sxQ" id="Szd-Cq-OIv"/>
                                             <outlet property="textField" destination="EFD-hr-51D" id="i6Z-qR-NNc"/>
                                         </connections>
                                     </tableViewCell>
