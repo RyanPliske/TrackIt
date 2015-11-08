@@ -577,8 +577,75 @@
                                             <outlet property="textField" destination="qEG-cd-epp" id="TDc-Es-hMN"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="badHabitCell" id="567-5f-noH" customClass="TREditItemTableViewViceCell" customModule="Tracker" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="goalCell" rowHeight="90" id="gJ7-iI-zoN" userLabel="goalCell" customClass="TREditItemTableViewInputCell" customModule="Tracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="118" width="375" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gJ7-iI-zoN" id="nYd-YQ-coP">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="751" verticalHuggingPriority="751" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Label:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="KR0-hP-2Gn">
+                                                    <rect key="frame" x="33" y="18" width="319" height="14"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="EFD-hr-51D" customClass="TREditItemTextField" customModule="Tracker" customModuleProvider="target">
+                                                    <rect key="frame" x="33" y="42" width="113" height="30"/>
+                                                    <animations/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="b8b-po-ciw"/>
+                                                    </constraints>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                </textField>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gs9-t0-iOL">
+                                                    <rect key="frame" x="173" y="42" width="30" height="30"/>
+                                                    <animations/>
+                                                    <state key="normal" title="Max">
+                                                        <color key="titleColor" red="0.91764705882352937" green="0.72156862745098038" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="da7-3v-sxQ">
+                                                    <rect key="frame" x="231" y="42" width="30" height="30"/>
+                                                    <animations/>
+                                                    <state key="normal" title="Min">
+                                                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="EFD-hr-51D" firstAttribute="trailing" secondItem="nYd-YQ-coP" secondAttribute="centerXWithinMargins" id="1cY-JG-8bz"/>
+                                                <constraint firstItem="da7-3v-sxQ" firstAttribute="leading" secondItem="gs9-t0-iOL" secondAttribute="trailing" constant="28" id="BOQ-Ax-pWz"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="EFD-hr-51D" secondAttribute="bottom" constant="10" id="CIS-wH-ras"/>
+                                                <constraint firstItem="EFD-hr-51D" firstAttribute="top" secondItem="KR0-hP-2Gn" secondAttribute="bottom" constant="10" id="Dbv-aT-sON"/>
+                                                <constraint firstItem="EFD-hr-51D" firstAttribute="width" secondItem="nYd-YQ-coP" secondAttribute="width" multiplier="0.3" id="GCJ-2e-M75"/>
+                                                <constraint firstItem="gs9-t0-iOL" firstAttribute="leading" secondItem="EFD-hr-51D" secondAttribute="trailing" constant="27" id="XGv-o0-bpW"/>
+                                                <constraint firstItem="da7-3v-sxQ" firstAttribute="top" secondItem="EFD-hr-51D" secondAttribute="top" id="Xwv-LQ-9vC"/>
+                                                <constraint firstItem="KR0-hP-2Gn" firstAttribute="top" secondItem="nYd-YQ-coP" secondAttribute="topMargin" constant="10" id="ZnE-Co-OYF"/>
+                                                <constraint firstItem="KR0-hP-2Gn" firstAttribute="leading" secondItem="nYd-YQ-coP" secondAttribute="leadingMargin" constant="25" id="cjo-ZX-bpC"/>
+                                                <constraint firstItem="EFD-hr-51D" firstAttribute="leading" secondItem="KR0-hP-2Gn" secondAttribute="leading" id="hyj-mg-GUK"/>
+                                                <constraint firstItem="KR0-hP-2Gn" firstAttribute="trailing" secondItem="nYd-YQ-coP" secondAttribute="trailingMargin" constant="-15" id="wYg-xg-zMa"/>
+                                                <constraint firstItem="gs9-t0-iOL" firstAttribute="top" secondItem="EFD-hr-51D" secondAttribute="top" id="xb3-u2-mJx"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="1cY-JG-8bz"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                        <connections>
+                                            <outlet property="itemLabel" destination="KR0-hP-2Gn" id="FKV-pV-pu2"/>
+                                            <outlet property="textField" destination="EFD-hr-51D" id="i6Z-qR-NNc"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="badHabitCell" id="567-5f-noH" customClass="TREditItemTableViewViceCell" customModule="Tracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="208" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="567-5f-noH" id="sXW-vq-eoZ">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>

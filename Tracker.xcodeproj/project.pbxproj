@@ -75,7 +75,6 @@
 		EFDDA9591BB12AA30052ED78 /* TRColorGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDDA9581BB12AA30052ED78 /* TRColorGenerator.swift */; };
 		EFE083F41A86A9B100AC9631 /* TRAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE083F31A86A9B100AC9631 /* TRAppDelegate.swift */; };
 		EFE083F61A86A9B100AC9631 /* TRTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE083F51A86A9B100AC9631 /* TRTrackerViewController.swift */; };
-		EFE083F81A86A9B100AC9631 /* TRStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE083F71A86A9B100AC9631 /* TRStatsViewController.swift */; };
 		EFE083FD1A86A9B100AC9631 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFE083FC1A86A9B100AC9631 /* Images.xcassets */; };
 		EFE9F6411BAB442100C786FE /* MockItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9F63F1BAB43AC00C786FE /* MockItemService.swift */; };
 		EFF328DB1B87C218001B9E84 /* TREditTracksTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF328DA1B87C218001B9E84 /* TREditTracksTableView.swift */; };
@@ -214,7 +213,6 @@
 		EFE083EE1A86A9B100AC9631 /* Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFE083F31A86A9B100AC9631 /* TRAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRAppDelegate.swift; sourceTree = "<group>"; };
 		EFE083F51A86A9B100AC9631 /* TRTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRTrackerViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
-		EFE083F71A86A9B100AC9631 /* TRStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRStatsViewController.swift; sourceTree = "<group>"; };
 		EFE083FA1A86A9B100AC9631 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TRMain.storyboard; sourceTree = "<group>"; };
 		EFE083FC1A86A9B100AC9631 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EFE084051A86A9B100AC9631 /* Tracker.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tracker.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -554,14 +552,6 @@
 			name = TRTrackerViewController;
 			sourceTree = "<group>";
 		};
-		EFD8AEB41B965F4600962BA0 /* TRStats */ = {
-			isa = PBXGroup;
-			children = (
-				EFE083F71A86A9B100AC9631 /* TRStatsViewController.swift */,
-			);
-			name = TRStats;
-			sourceTree = "<group>";
-		};
 		EFE083E51A86A9B100AC9631 = {
 			isa = PBXGroup;
 			children = (
@@ -596,8 +586,6 @@
 				EFD8AEA81B96486100962BA0 /* TRSettings */,
 				EF4BF8C11B966DB700B2AAA1 /* TRManageItems */,
 				EFA1EF871BA75B47007D82E6 /* TREditItem */,
-				EFD8AEB41B965F4600962BA0 /* TRStats */,
-				EF0CB4141BB5A55E00D74B83 /* TRColors */,
 				F920E52A1BDC38C000E269F6 /* Utilities */,
 				EFCA44AB1AF2BCD40012AE52 /* Open Sourced Libraries */,
 				EFE083F11A86A9B100AC9631 /* Supporting Files */,
@@ -661,6 +649,7 @@
 		F920E52A1BDC38C000E269F6 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				EF0CB4141BB5A55E00D74B83 /* TRColors */,
 				F920E52B1BDC38E300E269F6 /* TRNavigationController.swift */,
 				F9D16B661BEFA00800A391C7 /* NSDate+Extension.swift */,
 			);
@@ -924,7 +913,6 @@
 				EFD8AEAC1B9658C000962BA0 /* TRSettingsTableViewCell.swift in Sources */,
 				EF4BF8C31B966E0300B2AAA1 /* TRManageItemsViewController.swift in Sources */,
 				EF0CB4161BB5B1B500D74B83 /* TRStatsView.swift in Sources */,
-				EFE083F81A86A9B100AC9631 /* TRStatsViewController.swift in Sources */,
 				EFFCF9DA1AFA9318004DEDB9 /* TRDateFormatter.swift in Sources */,
 				EFA9B5EA1B7D811800BAA839 /* TRRrecordsModel.swift in Sources */,
 				F95D39991BEDAE6E0018018F /* TRDayLabel.swift in Sources */,

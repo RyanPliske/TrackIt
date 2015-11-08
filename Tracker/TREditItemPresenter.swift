@@ -87,7 +87,7 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
                 }
             }
         case cellIndex.itemGoal.rawValue:
-            cell = tableView.dequeueReusableCellWithIdentifier("userInputCell") as! TREditItemTableViewInputCell
+            cell = tableView.dequeueReusableCellWithIdentifier("goalCell") as! TREditItemTableViewInputCell
             if let inputCell = cell as? TREditItemTableViewInputCell {
                 inputCell.setLabelWithText("Set a Daily Goal:")
                 inputCell.setTextFieldTagWith(indexPath.row)
@@ -126,7 +126,8 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.row == cellIndex.itemVice.rawValue {
             return 60.0
-        } else {
+        }
+        else {
             return heightForUserInputCell()
         }
     }
