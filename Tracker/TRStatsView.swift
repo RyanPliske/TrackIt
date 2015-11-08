@@ -1,5 +1,4 @@
 import UIKit
-import JTCalendar
 
 class TRStatsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     

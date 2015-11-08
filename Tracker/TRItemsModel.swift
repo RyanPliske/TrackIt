@@ -128,7 +128,6 @@ class TRItemsModel {
     func updateItemDailyGoalTypeAtIndex(index: Int, goalType: DailyGoalType) {
         _allItems[index].dailyGoalType = goalType
         let itemToUpdate = _allItems[index]
-        print(itemToUpdate)
         itemService.updateItem(itemToUpdate, dailyGoalType: goalType)
     }
     

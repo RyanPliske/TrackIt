@@ -1,5 +1,4 @@
 import Foundation
-import JTCalendar
 
 class TRTrackerPresenter: NSObject, TRItemsModelDelegate {
     let trackerView: TRTrackerView

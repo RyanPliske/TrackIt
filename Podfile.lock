@@ -4,7 +4,6 @@ PODS:
   - Fabric (1.5.5):
     - Fabric/Base (= 1.5.5)
   - Fabric/Base (1.5.5)
-  - JTCalendar (2.1.4)
   - MMDrawerController (0.5.7):
     - MMDrawerController/Core (= 0.5.7)
     - MMDrawerController/MMDrawerBarButtonItem (= 0.5.7)
@@ -25,7 +24,6 @@ PODS:
 DEPENDENCIES:
   - Crashlytics
   - Fabric
-  - JTCalendar (~> 2.0)
   - MMDrawerController (~> 0.5.7)
   - Parse
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift2`)
@@ -45,7 +43,6 @@ SPEC CHECKSUMS:
   Bolts: 0e9bce58b9b9f5e8a7a4d47b16d2fabec289072b
   Crashlytics: 41c082440d2e14da444186fff65e79c0b4b35d4c
   Fabric: 190bf1a6eb65f7500de1347d027d2e59a7e53db1
-  JTCalendar: 9b1352c7ec41cc26b19c189d6608ba48060a53d9
   MMDrawerController: 7a4cf8e25596bf2434e03ce50d22a8608ddee6a1
   Parse: 54a965c8c19a6dde90284ab654dbcc77ef8c001b
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7

@@ -1,5 +1,4 @@
 import Foundation
-import JTCalendar
 import Spring
 
 protocol TRTrackerTableViewCellDelegate {
