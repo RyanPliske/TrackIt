@@ -1,19 +1,29 @@
 import UIKit
 
+protocol TRDayViewDelegate: class {
+    var currentDayIndex: Int { get }
+}
+
 class TRDayView: UIView {
     
     let dayIndex: Int
+    var currentDayIndex: Int {
+        return delegate.currentDayIndex
+    }
+    
     var goalMet = false {
         didSet {
             goalMet ? addCheckMark() : addXMark()
         }
     }
     
-    weak private var goalView: UIView?
     private let dayLabel = UILabel()
+    private weak var goalView: UIView?
+    private weak var delegate: TRDayViewDelegate!
     
-    init(dayIndex: Int) {
+    init(dayIndex: Int, withDelegate delegate: TRDayViewDelegate) {
         self.dayIndex = dayIndex
+        self.delegate = delegate
         super.init(frame: CGRectZero)
         setDayLabel()
     }
@@ -54,7 +64,7 @@ class TRDayView: UIView {
     
     private func setDayLabel() {
         dayLabel.textAlignment = NSTextAlignment.Center
-        dayLabel.textColor = UIColor.whiteColor()
+        dayLabel.textColor = dayIndex <= currentDayIndex ? UIColor.whiteColor() : UIColor.darkGrayColor()
         if dayIndex != 0 {
             dayLabel.text = "\(dayIndex)"
         }

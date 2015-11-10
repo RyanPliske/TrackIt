@@ -1,10 +1,19 @@
 import UIKit
 
-class TRWeekView: UIView {
+protocol TRWeekViewDelegate: TRDayViewDelegate {
+    
+}
+
+class TRWeekView: UIView, TRDayViewDelegate {
     
     var dayViews = [TRDayView]()
+    var currentDayIndex: Int {
+        return delegate.currentDayIndex
+    }
+    weak var delegate: TRWeekViewDelegate!
     
-    init(daysOfTheWeek: [Int]) {
+    init(daysOfTheWeek: [Int], withDelegate delegate: TRWeekViewDelegate) {
+        self.delegate = delegate
         super.init(frame: CGRectZero)
         drawWeekFor(daysOfTheWeek)
     }
@@ -27,7 +36,7 @@ class TRWeekView: UIView {
     
     private func drawWeekFor(daysOfThisWeek: [Int]) {
         for dayIndex in daysOfThisWeek {
-            let dayView = TRDayView(dayIndex: dayIndex)
+            let dayView = TRDayView(dayIndex: dayIndex, withDelegate: self)
             addSubview(dayView)
             dayViews.append(dayView)
         }

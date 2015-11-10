@@ -4,13 +4,16 @@ protocol TRCalendarViewDelegate: class {
     var successDays: [Int] { get }
 }
 
-class TRCalendarView: UIView {
+class TRCalendarView: UIView, TRWeekViewDelegate {
 
     var trackingDate: NSDate!
     weak var delegate: TRCalendarViewDelegate! {
         didSet {
             drawSuccessDays(delegate.successDays)
         }
+    }
+    var currentDayIndex: Int {
+        return TRDateFormatter.dayOfDate(trackingDate)
     }
     private var weekViews = [TRWeekView]()
     
@@ -40,7 +43,7 @@ class TRCalendarView: UIView {
     
     private func drawWeeks(weeksOfTheMonth: [NSArray]) {
         for week in weeksOfTheMonth {
-            let weekView = TRWeekView(daysOfTheWeek: week as! [Int])
+            let weekView = TRWeekView(daysOfTheWeek: week as! [Int], withDelegate: self)
             weekViews.append(weekView)
             addSubview(weekView)
         }
@@ -50,10 +53,11 @@ class TRCalendarView: UIView {
     private func drawSuccessDays(successDays: [Int]) {
         for weekView in weekViews {
             for dayView in weekView.dayViews {
-                let success = successDays.filter { $0 == dayView.dayIndex }
-                if !success.isEmpty {
-                    dayView.goalMet = true
+                if dayView.dayIndex > currentDayIndex || dayView.dayIndex == 0 {
+                    continue
                 }
+                let success = successDays.filter { $0 == dayView.dayIndex }
+                dayView.goalMet = success.isEmpty ? false : true
             }
         }
 
