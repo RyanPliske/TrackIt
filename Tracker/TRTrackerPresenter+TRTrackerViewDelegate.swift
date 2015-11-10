@@ -27,7 +27,7 @@ extension TRTrackerPresenter: TRTrackerViewDelegate {
     
     func successDaysForRow(row: Int) -> [Int] {
         let itemToLookUp = itemsModel.activeItems[row]
-        return recordsModel.successDaysForItem(itemToLookUp, forDate: dateToTrack, withGoal:itemToLookUp.dailyGoal!)
+        return recordsModel.successDaysForItem(itemToLookUp, forDate: dateToTrack, withGoal:itemToLookUp.dailyGoal!, forGoalType: itemToLookUp.dailyGoalType)
     }
     
     func itemSelectedAtRow(row: Int) {

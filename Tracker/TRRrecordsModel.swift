@@ -82,7 +82,7 @@ class TRRecordsModel {
         }
     }
     
-    func successDaysForItem(item: TRItem, forDate date: NSDate, withGoal goal: Int) -> [Int] {
+    func successDaysForItem(item: TRItem, forDate date: NSDate, withGoal goal: Int, forGoalType goalType: DailyGoalType) -> [Int] {
         var records = recordService.readAllRecordsFromPhoneWithItemName(item.name, monthName: TRDateFormatter.monthOfDate(date), yearName: TRDateFormatter.yearOfDate(date))
         if records.isEmpty {
             return []
@@ -98,9 +98,22 @@ class TRRecordsModel {
                     break
                 }
             }
-            print(tracks)
-            
-            return [1, 4, 10, 27]
+            var successDays = [Int]()
+            switch (goalType) {
+            case .Max:
+                for (indexOfDay, count) in tracks {
+                    if Int(count) <= goal {
+                        successDays.append(indexOfDay)
+                    }
+                }
+            case .Min:
+                for (indexOfDay, count) in tracks {
+                    if Int(count) >= goal {
+                        successDays.append(indexOfDay)
+                    }
+                }
+            }
+            return successDays
         }
     }
     
