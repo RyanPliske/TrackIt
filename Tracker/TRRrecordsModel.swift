@@ -4,7 +4,7 @@ import Parse
 typealias TRCreateRecordCompletion = () -> Void
 typealias TRSearchCompletion = () -> Void
 typealias TRSearchForItemCompletion = ([TRRecord]?, NSError?) -> Void
-typealias TRTracks = [NSDate : Int]
+typealias TRTracks = [NSDate : Float]
 
 class TRRecordsModel {
     
@@ -80,6 +80,28 @@ class TRRecordsModel {
         if let completionBlock = completion {
             grabAllRecordsContaining(searchText, completion: completionBlock)
         }
+    }
+    
+    func tracksForItem(item: TRItem) -> TRTracks {
+        var records = recordService.readAllRecordsFromPhoneWithItemName(item.name)
+        if records.isEmpty {
+            return TRTracks()
+        } else {
+            var tracks = TRTracks()
+            for var index = 0; index < records.count; index++ {
+                let date = records[index].date
+                let quantities = records.filter { $0.date == date }.map { $0.itemQuantity }
+                let sum = quantities.reduce(0, combine: +)
+                tracks[date!] = sum
+                records = records.filter { $0.date != date }
+            }
+            
+            return tracks
+        }
+    }
+    
+    func successDaysForItem(item: TRItem) -> [Int] {
+        return [1, 4, 10, 27]
     }
     
     func deleteRecordAtRow(record: TRRecord) {

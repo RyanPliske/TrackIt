@@ -11,10 +11,10 @@ class TREditTracksTableViewCellDecorator {
             switch (model.sortType) {
             case .TrackAction:
                 cell.setItemLabelTextWith(item! + ":")
-                if let itemCount = count where itemCount % 1 == 0 {
-                    cell.setCountLabelTextWith((Int(itemCount).description))
+                if count % 1 == 0 {
+                    cell.setCountLabelTextWith((Int(count).description))
                 } else {
-                    cell.setCountLabelTextWith((count?.description)!)
+                    cell.setCountLabelTextWith(count.description)
                 }
             case .TrackUrge:
                 cell.setItemLabelTextWith(item!)

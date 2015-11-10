@@ -35,9 +35,13 @@ class TRRecord: PFObject, PFSubclassing {
         }
     }
     
-    var itemQuantity: Float? {
+    var itemQuantity: Float {
         get {
-            return self[itemQuantityReference] as? Float
+            if let quantity = self[itemQuantityReference] as? Float {
+                return quantity
+            } else {
+                return 0.0
+            }
         }
         set(newValue) {
             self[itemQuantityReference] = newValue

@@ -6,17 +6,17 @@ import Spring
     func trackUrgeSelectedForRow(row: Int)
     func trackMultipleSelectedForRow(row: Int)
     func textFieldReturnedWithTextAtRow(row: Int, text: String)
-    
+    func successDaysForRow(row: Int) -> [Int]
     optional func moreButtonPressedAtRow(row: Int, includeBadHabit: Bool)
-    
-    //Properties
-    func tracksForRow(row: Int) -> TRTracks
 }
 
-class TRTrackerTableViewCell: UITableViewCell {
+class TRTrackerTableViewCell: UITableViewCell, TRStatsViewDelegate {
     weak var delegate: TRTrackerTableViewCellDelegate!
     var moreButtonFrame: CGRect {
         return self.moreButton.frame
+    }
+    var successDays: [Int] {
+        return delegate.successDaysForRow(self.tag)
     }
     
     @IBOutlet private weak var itemLabel: UILabel!
@@ -35,6 +35,7 @@ class TRTrackerTableViewCell: UITableViewCell {
     func prepareStatsView() {
         if statsView == nil {
             statsView = TRStatsView(frame: CGRectZero, trackingDate: dateSelectedOnJTCalendar)
+            statsView!.delegate = self
             addSubview(statsView!)
             layoutIfNeeded()
         }

@@ -1,10 +1,18 @@
 import UIKit
 
-class TRStatsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+protocol TRStatsViewDelegate : class {
+    var successDays: [Int] { get }
+}
+
+class TRStatsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, TRCalendarCollectionViewCellDelegate {
     
+    weak var delegate: TRStatsViewDelegate!
     @IBOutlet weak var collectionView: UICollectionView!
     let pageControl = UIPageControl()
     var trackingDate: NSDate!
+    var successDays: [Int] {
+        return delegate.successDays
+    }
     
     init(frame: CGRect, trackingDate: NSDate) {
         self.trackingDate = trackingDate
@@ -46,6 +54,7 @@ class TRStatsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateF
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         if indexPath.row == 0 {
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CalendarViewCell", forIndexPath: indexPath) as! TRCalendarCollectionViewCell
+            cell.delegate = self
             cell.setupWith(trackingDate)
             return cell
         } else {

@@ -1,10 +1,17 @@
 import UIKit
 
+protocol TRCalendarViewDelegate: class {
+    var successDays: [Int] { get }
+}
+
 class TRCalendarView: UIView {
 
     var trackingDate: NSDate!
-    
-    private let successDays = [1, 15, 16, 25]
+    weak var delegate: TRCalendarViewDelegate! {
+        didSet {
+            drawSuccessDays(delegate.successDays)
+        }
+    }
     private var weekViews = [TRWeekView]()
     
     init(trackingDate: NSDate) {
@@ -13,7 +20,6 @@ class TRCalendarView: UIView {
         let monthGenerator = TRMonthGenerator(trackingDate: trackingDate)
         let weeksOfTheMonth = [monthGenerator.week1, monthGenerator.week2, monthGenerator.week3, monthGenerator.week4, monthGenerator.week5, monthGenerator.week6]
         drawWeeks(weeksOfTheMonth)
-        drawSuccessDays(successDays)
     }
     
     required init?(coder aDecoder: NSCoder) {
