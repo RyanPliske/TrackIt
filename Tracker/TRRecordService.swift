@@ -73,11 +73,19 @@ class TRRecordService {
         query.findObjectsInBackgroundWithBlock(BackgroundRetrievalCompletion)
     }
     
-    func readAllRecordsFromPhoneWithItemName(itemName: String) -> [TRRecord] {
-        let query = PFQuery(className: "record")
+    func readAllRecordsFromPhoneWithItemName(itemName: String, monthName: String, yearName: String) -> [TRRecord] {
+        let withinDate = PFQuery(className: "record")
+        withinDate.fromLocalDatastore()
+        withinDate.whereKey("item", containsString: monthName)
+        withinDate.whereKey("item", containsString: yearName)
+        
+        let withinItem = PFQuery(className: "record")
+        withinItem.fromLocalDatastore()
+        withinItem.whereKey("item", equalTo: itemName)
+        withinItem.whereKey("type", equalTo: TRRecordType.TrackAction.description)
+        
+        let query = PFQuery.orQueryWithSubqueries([withinDate, withinItem])
         query.fromLocalDatastore()
-        query.whereKey("item", equalTo: itemName)
-        query.whereKey("type", equalTo: TRRecordType.TrackAction.description)
         do {
             let records = try query.findObjects() as! [TRRecord]
             return records

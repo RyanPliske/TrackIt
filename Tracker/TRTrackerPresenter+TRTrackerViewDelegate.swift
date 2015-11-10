@@ -25,14 +25,9 @@ extension TRTrackerPresenter: TRTrackerViewDelegate {
         }
     }
     
-    func tracksForRow(row: Int) -> TRTracks {
-        let itemToLookUp = itemsModel.activeItems[row]
-        return recordsModel.tracksForItem(itemToLookUp)
-    }
-    
     func successDaysForRow(row: Int) -> [Int] {
         let itemToLookUp = itemsModel.activeItems[row]
-        return recordsModel.successDaysForItem(itemToLookUp)
+        return recordsModel.successDaysForItem(itemToLookUp, forDate: dateToTrack, withGoal:itemToLookUp.dailyGoal!)
     }
     
     func itemSelectedAtRow(row: Int) {

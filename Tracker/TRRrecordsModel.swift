@@ -4,7 +4,7 @@ import Parse
 typealias TRCreateRecordCompletion = () -> Void
 typealias TRSearchCompletion = () -> Void
 typealias TRSearchForItemCompletion = ([TRRecord]?, NSError?) -> Void
-typealias TRTracks = [NSDate : Float]
+typealias TRTracks = [Int : Float]
 
 class TRRecordsModel {
     
@@ -82,26 +82,26 @@ class TRRecordsModel {
         }
     }
     
-    func tracksForItem(item: TRItem) -> TRTracks {
-        var records = recordService.readAllRecordsFromPhoneWithItemName(item.name)
+    func successDaysForItem(item: TRItem, forDate date: NSDate, withGoal goal: Int) -> [Int] {
+        var records = recordService.readAllRecordsFromPhoneWithItemName(item.name, monthName: TRDateFormatter.monthOfDate(date), yearName: TRDateFormatter.yearOfDate(date))
         if records.isEmpty {
-            return TRTracks()
+            return []
         } else {
             var tracks = TRTracks()
-            for var index = 0; index < records.count; index++ {
-                let date = records[index].date
-                let quantities = records.filter { $0.date == date }.map { $0.itemQuantity }
-                let sum = quantities.reduce(0, combine: +)
-                tracks[date!] = sum
-                records = records.filter { $0.date != date }
+            for record in records {
+                let indexOfDay: Int = TRDateFormatter.dayOfDate(record.date!)
+                let quantitiesForDay = records.filter { TRDateFormatter.dayOfDate($0.date!) ==  indexOfDay }.map { $0.itemQuantity }
+                let sumForDay = quantitiesForDay.reduce(0, combine: +)
+                tracks[indexOfDay] = sumForDay
+                records = records.filter { TRDateFormatter.dayOfDate($0.date!) != indexOfDay }
+                if records.isEmpty {
+                    break
+                }
             }
+            print(tracks)
             
-            return tracks
+            return [1, 4, 10, 27]
         }
-    }
-    
-    func successDaysForItem(item: TRItem) -> [Int] {
-        return [1, 4, 10, 27]
     }
     
     func deleteRecordAtRow(record: TRRecord) {
