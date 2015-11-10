@@ -1,7 +1,7 @@
 import UIKit
 
 protocol TRStatsViewDelegate : class {
-    var successDays: [Int] { get }
+    var recordedDays: TRRecordedDays { get }
 }
 
 class TRStatsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, TRCalendarCollectionViewCellDelegate {
@@ -10,8 +10,8 @@ class TRStatsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateF
     @IBOutlet weak var collectionView: UICollectionView!
     let pageControl = UIPageControl()
     var trackingDate: NSDate!
-    var successDays: [Int] {
-        return delegate.successDays
+    var recordedDays: TRRecordedDays {
+        return delegate.recordedDays
     }
     
     init(frame: CGRect, trackingDate: NSDate) {

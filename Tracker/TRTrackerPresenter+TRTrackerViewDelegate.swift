@@ -25,9 +25,9 @@ extension TRTrackerPresenter: TRTrackerViewDelegate {
         }
     }
     
-    func successDaysForRow(row: Int) -> [Int] {
+    func recordedDaysForRow(row: Int) -> TRRecordedDays {
         let itemToLookUp = itemsModel.activeItems[row]
-        return recordsModel.successDaysForItem(itemToLookUp, forDate: dateToTrack, withGoal:itemToLookUp.dailyGoal!, forGoalType: itemToLookUp.dailyGoalType)
+        return recordsModel.recordedDaysForItem(itemToLookUp, forDate: dateToTrack, withGoal: itemToLookUp.dailyGoal!, forGoalType: itemToLookUp.dailyGoalType)
     }
     
     func itemSelectedAtRow(row: Int) {
@@ -36,5 +36,9 @@ extension TRTrackerPresenter: TRTrackerViewDelegate {
     
     func itemAtRowIsOpened(row:Int) -> Bool {
         return itemsModel.activeItems[row].opened
+    }
+    
+    func moreButtonPressedAtRow(row: Int, includeBadHabit: Bool) {
+        // do nothing for now, this is needed for protocol
     }
 }

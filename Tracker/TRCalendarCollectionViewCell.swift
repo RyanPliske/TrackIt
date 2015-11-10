@@ -1,19 +1,18 @@
 import UIKit
 
 protocol TRCalendarCollectionViewCellDelegate: class {
-    var successDays: [Int] { get }
+    var recordedDays: TRRecordedDays { get }
 }
 
 class TRCalendarCollectionViewCell: UICollectionViewCell, TRCalendarViewDelegate {
-    var successDays: [Int] {
-       return delegate.successDays
+    var recordedDays: TRRecordedDays {
+       return delegate.recordedDays
     }
     weak var delegate: TRCalendarCollectionViewCellDelegate!
     private var calendarView: TRCalendarView!
     
     func setupWith(trackingDate: NSDate) {
-        calendarView = TRCalendarView(trackingDate: trackingDate)
-        calendarView.delegate = self
+        calendarView = TRCalendarView(trackingDate: trackingDate, withDelegate: self)
         contentView.addSubview(calendarView)
     }
     

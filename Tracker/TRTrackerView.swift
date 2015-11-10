@@ -113,7 +113,7 @@ class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
         animateSavedRecordForRow(row)
     }
     
-    func successDaysForRow(row: Int) -> [Int] {
-        return delegate.successDaysForRow(row)
+    func recordedDaysForRow(row: Int) -> TRRecordedDays {
+        return delegate.recordedDaysForRow(row)
     }
 }

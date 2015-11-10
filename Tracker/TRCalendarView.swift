@@ -1,28 +1,27 @@
 import UIKit
 
 protocol TRCalendarViewDelegate: class {
-    var successDays: [Int] { get }
+    var recordedDays: TRRecordedDays { get }
 }
 
 class TRCalendarView: UIView, TRWeekViewDelegate {
 
     var trackingDate: NSDate!
-    weak var delegate: TRCalendarViewDelegate! {
-        didSet {
-            drawSuccessDays(delegate.successDays)
-        }
-    }
     var currentDayIndex: Int {
-        return TRDateFormatter.dayOfDate(trackingDate)
+        return TRDateFormatter.dayOfDate(NSDate())
     }
-    private var weekViews = [TRWeekView]()
     
-    init(trackingDate: NSDate) {
+    private var weekViews = [TRWeekView]()
+    private weak var delegate: TRCalendarViewDelegate!
+    
+    init(trackingDate: NSDate, withDelegate delegate: TRCalendarViewDelegate) {
+        self.delegate = delegate
         self.trackingDate = trackingDate
         super.init(frame: CGRectZero)
         let monthGenerator = TRMonthGenerator(trackingDate: trackingDate)
         let weeksOfTheMonth = [monthGenerator.week1, monthGenerator.week2, monthGenerator.week3, monthGenerator.week4, monthGenerator.week5, monthGenerator.week6]
         drawWeeks(weeksOfTheMonth)
+        addGoalSymbolForDays(delegate.recordedDays)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -50,14 +49,19 @@ class TRCalendarView: UIView, TRWeekViewDelegate {
         layoutIfNeeded()
     }
     
-    private func drawSuccessDays(successDays: [Int]) {
+    private func addGoalSymbolForDays(recordedDays: TRRecordedDays) {
+        print(recordedDays)
         for weekView in weekViews {
             for dayView in weekView.dayViews {
                 if dayView.dayIndex > currentDayIndex || dayView.dayIndex == 0 {
                     continue
                 }
-                let success = successDays.filter { $0 == dayView.dayIndex }
-                dayView.goalMet = success.isEmpty ? false : true
+                let matchFound = recordedDays.days.filter { $0 == dayView.dayIndex }.isEmpty
+                if recordedDays.dailyGoalType == DailyGoalType.Max {
+                    dayView.goalMet = matchFound ? true : false
+                } else {
+                    dayView.goalMet = matchFound ? false : true
+                }
             }
         }
 
