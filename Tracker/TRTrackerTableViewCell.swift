@@ -10,7 +10,7 @@ protocol TRTrackerTableViewCellDelegate: class {
     func moreButtonPressedAtRow(row: Int, includeBadHabit: Bool)
 }
 
-class TRTrackerTableViewCell: UITableViewCell, TRStatsViewDelegate {
+class TRTrackerTableViewCell: UITableViewCell, TRStatsModelDelegate {
     weak var delegate: TRTrackerTableViewCellDelegate!
     var moreButtonFrame: CGRect {
         return self.moreButton.frame
@@ -22,29 +22,31 @@ class TRTrackerTableViewCell: UITableViewCell, TRStatsViewDelegate {
     @IBOutlet private weak var itemLabel: UILabel!
     @IBOutlet private weak var itemCountLabel: UILabel!
     @IBOutlet private weak var moreButton: UIButton!
-    private var statsView: TRStatsView? 
+    private var statsPresenter: TRStatsPresenter!
+    private var statsModel: TRStatsModel!
     private var isAVice = false
 
     var selectedDatesOnJTCalendar = [String]()
     var dateSelectedOnJTCalendar: NSDate!
     
     override func layoutSubviews() {
-        statsView?.frame = CGRectMake(0, TRTrackerTableViewCellSize.closedHeight, CGRectGetWidth(self.bounds), TRTrackerTableViewCellSize.openedHeight - TRTrackerTableViewCellSize.closedHeight)
+        statsPresenter?.statsView.frame = CGRectMake(0, TRTrackerTableViewCellSize.closedHeight, CGRectGetWidth(self.bounds), TRTrackerTableViewCellSize.openedHeight - TRTrackerTableViewCellSize.closedHeight)
     }
     
     func prepareStatsView() {
-        if statsView == nil {
-            statsView = TRStatsView(frame: CGRectZero, trackingDate: dateSelectedOnJTCalendar)
-            statsView!.delegate = self
-            addSubview(statsView!)
+        if statsPresenter == nil {
+            statsModel = TRStatsModel(withDelegate: self)
+            statsPresenter = TRStatsPresenter(withStatsView: TRStatsView(frame: CGRectZero, trackingDate: dateSelectedOnJTCalendar), withStatsModel: statsModel)
+            addSubview(statsPresenter.statsView)
             layoutIfNeeded()
         }
     }
     
     func destroyStatsView() {
-        if statsView != nil {
-            statsView!.removeFromSuperview()
-            statsView = nil
+        if statsPresenter != nil {
+            statsPresenter.statsView.removeFromSuperview()
+            statsPresenter = nil
+            statsModel = nil
         }
     }
     
