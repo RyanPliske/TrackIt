@@ -92,7 +92,7 @@ class TRRecordsModel {
         switch (goalType) {
         case .Max:
             for (indexOfDay, count) in tracks {
-                if Int(count) >= goal {
+                if Int(count) > goal {
                     failureDays.append(indexOfDay)
                 } else {
                     successDays.append(indexOfDay)
@@ -100,7 +100,7 @@ class TRRecordsModel {
             }
         case .Min:
             for (indexOfDay, count) in tracks {
-                if Int(count) <= goal {
+                if Int(count) < goal {
                     failureDays.append(indexOfDay)
                 } else {
                     successDays.append(indexOfDay)

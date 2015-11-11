@@ -5,19 +5,25 @@ protocol TRCalendarCollectionViewCellDelegate: class {
 }
 
 class TRCalendarCollectionViewCell: UICollectionViewCell, TRCalendarViewDelegate {
-    var recordedDays: TRRecordedDays {
-       return delegate.recordedDays
-    }
+
     weak var delegate: TRCalendarCollectionViewCellDelegate!
     private var calendarView: TRCalendarView!
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        calendarView.frame = self.bounds
+    }
+    
+    var recordedDays: TRRecordedDays {
+        return delegate.recordedDays
+    }
     
     func setupWith(trackingDate: NSDate) {
         calendarView = TRCalendarView(trackingDate: trackingDate, withDelegate: self)
         contentView.addSubview(calendarView)
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        calendarView.frame = self.bounds
+    func redrawGoalSymbols() {
+        calendarView.redrawGoalSymbols()
     }
 }

@@ -11,7 +11,9 @@ protocol TRTrackerTableViewCellDelegate: class {
 }
 
 class TRTrackerTableViewCell: UITableViewCell, TRStatsModelDelegate {
+    
     weak var delegate: TRTrackerTableViewCellDelegate!
+    var dateSelectedOnJTCalendar: NSDate!
     var moreButtonFrame: CGRect {
         return self.moreButton.frame
     }
@@ -25,9 +27,6 @@ class TRTrackerTableViewCell: UITableViewCell, TRStatsModelDelegate {
     private var statsPresenter: TRStatsPresenter!
     private var statsModel: TRStatsModel!
     private var isAVice = false
-
-    var selectedDatesOnJTCalendar = [String]()
-    var dateSelectedOnJTCalendar: NSDate!
     
     override func layoutSubviews() {
         statsPresenter?.statsView.frame = CGRectMake(0, TRTrackerTableViewCellSize.closedHeight, CGRectGetWidth(self.bounds), TRTrackerTableViewCellSize.openedHeight - TRTrackerTableViewCellSize.closedHeight)
@@ -73,18 +72,9 @@ class TRTrackerTableViewCell: UITableViewCell, TRStatsModelDelegate {
         self.isAVice = isAVice
     }
     
-    func resetCalendar() {
-        selectedDatesOnJTCalendar.removeAll()
-    }
-    
     func resetCalendarAfterTrackOccured() {
-        if let dateSelected = dateSelectedOnJTCalendar {
-            selectedDatesOnJTCalendar.append(TRDateFormatter.descriptionForDate(dateSelected))
-        }
-    }
-    
-    func setWhiteDotsOnDatesWith(dates: [String]) {
-        selectedDatesOnJTCalendar = dates
+        let cell = statsPresenter.statsView.collectionView.cellForItemAtIndexPath(NSIndexPath(forRow: self.tag, inSection: 0)) as! TRCalendarCollectionViewCell
+//        cell.redrawGoalSymbols()
     }
     
     func setSelectedDateOnCalendarWith(selectedDate: NSDate) {
