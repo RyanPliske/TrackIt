@@ -1,18 +1,28 @@
 import Foundation
 
 extension TRTrackerPresenter: TRTrackerViewDelegate {
-    func plusButtonPressedAtRow(row: Int) {
-        recordsModel.createRecordUsingRow(row, quantity: 1, type: TRRecordType.TrackAction, date: dateToTrack)
+    
+    func plusButtonPressedAtRow(row: Int, completion: TRCreateRecordCompletion) {
+        recordsModel.createRecordUsingRow(row, quantity: 1, type: TRRecordType.TrackAction, date: dateToTrack, withCompletion: {
+            () in
+            completion()
+        })
     }
     
-    func trackUrgeSelectedForRow(row: Int) {
-        recordsModel.createRecordUsingRow(row, quantity: 1, type: TRRecordType.TrackUrge, date: dateToTrack)
+    func trackUrgeSelectedForRow(row: Int, completion: TRCreateRecordCompletion) {
+        recordsModel.createRecordUsingRow(row, quantity: 1, type: TRRecordType.TrackUrge, date: dateToTrack, withCompletion: {
+            () in
+            completion()
+        })
     }
     
-    func textFieldReturnedWithTextAtRow(row: Int, text: String) {
+    func textFieldReturnedWithTextAtRow(row: Int, text: String, completion: TRCreateRecordCompletion) {
         if !text.isEmpty {
             let quantityFromTextField = Float(text)
-            recordsModel.createRecordUsingRow(row, quantity: quantityFromTextField!, type: TRRecordType.TrackAction, date: dateToTrack)
+            recordsModel.createRecordUsingRow(row, quantity: quantityFromTextField!, type: TRRecordType.TrackAction, date: dateToTrack, withCompletion: {
+                () in
+                completion()
+            })
         }
     }
     

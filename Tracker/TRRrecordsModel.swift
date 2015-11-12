@@ -35,7 +35,7 @@ class TRRecordsModel {
         TRRecord()
     }
     
-    func createRecordUsingRow(row: Int, quantity: Float, type: TRRecordType, date: NSDate) {
+    func createRecordUsingRow(row: Int, quantity: Float, type: TRRecordType, date: NSDate, withCompletion completion: TRCreateRecordCompletion) {
         var item: String
         switch (type) {
         case .TrackAction:
@@ -52,6 +52,7 @@ class TRRecordsModel {
             case .TrackUrge:
                 weakSelf?.grabAllUrges(nil)
             }
+            completion()
         }
         
         recordService.createRecordWithItem(item, quantity: quantity, itemType: type, date: date, completion: blockCompletion)

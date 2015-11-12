@@ -2,10 +2,10 @@ import Foundation
 import Spring
 
 protocol TRTrackerTableViewCellDelegate: class {
-    func plusButtonPressedAtRow(row: Int)
-    func trackUrgeSelectedForRow(row: Int)
+    func plusButtonPressedAtRow(row: Int, completion: TRCreateRecordCompletion)
+    func trackUrgeSelectedForRow(row: Int, completion: TRCreateRecordCompletion)
     func trackMultipleSelectedForRow(row: Int)
-    func textFieldReturnedWithTextAtRow(row: Int, text: String)
+    func textFieldReturnedWithTextAtRow(row: Int, text: String, completion: TRCreateRecordCompletion)
     func recordedDaysForRow(row: Int) -> TRRecordedDays
     func moreButtonPressedAtRow(row: Int, includeBadHabit: Bool)
 }
@@ -74,7 +74,7 @@ class TRTrackerTableViewCell: UITableViewCell, TRStatsModelDelegate {
     
     func resetCalendarAfterTrackOccured() {
         let cell = statsPresenter.statsView.collectionView.cellForItemAtIndexPath(NSIndexPath(forRow: self.tag, inSection: 0)) as! TRCalendarCollectionViewCell
-//        cell.redrawGoalSymbols()
+        cell.redrawGoalSymbols()
     }
     
     func setSelectedDateOnCalendarWith(selectedDate: NSDate) {
@@ -88,7 +88,9 @@ class TRTrackerTableViewCell: UITableViewCell, TRStatsModelDelegate {
 
 extension TRTrackerTableViewCell: TRTrackingOptionsDelegate {
     func trackUrge() {
-        delegate.trackUrgeSelectedForRow(self.tag)
+        delegate.trackUrgeSelectedForRow(self.tag) { [weak self]() -> Void in
+            self?.resetCalendarAfterTrackOccured()
+        }
     }
     
     func trackMultiple() {

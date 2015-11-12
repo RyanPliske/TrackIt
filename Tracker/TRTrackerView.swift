@@ -88,8 +88,10 @@ class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
     
     // MARK: TRTrackerTableViewCellDelegate
     
-    func plusButtonPressedAtRow(row: Int) {
-        delegate.plusButtonPressedAtRow(row)
+    func plusButtonPressedAtRow(row: Int, completion: TRCreateRecordCompletion) {
+        delegate.plusButtonPressedAtRow(row) { () -> Void in
+            completion()
+        }
         animateSavedRecordForRow(row)
     }
     
@@ -97,8 +99,10 @@ class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
         observer?.trackingOptionsWantedAtRow(row, includeBadHabit: includeBadHabit)
     }
     
-    func trackUrgeSelectedForRow(row: Int) {
-        delegate.trackUrgeSelectedForRow(row)
+    func trackUrgeSelectedForRow(row: Int, completion: TRCreateRecordCompletion) {
+        delegate.trackUrgeSelectedForRow(row) { () -> Void in
+            completion()
+        }
         observer?.dismissTrackingOptions()
         animateSavedRecordForRow(row)
     }
@@ -108,8 +112,10 @@ class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
         observer?.dismissTrackingOptions()
     }
     
-    func textFieldReturnedWithTextAtRow(row: Int, text: String) {
-        delegate.textFieldReturnedWithTextAtRow(row, text: text)
+    func textFieldReturnedWithTextAtRow(row: Int, text: String, completion: TRCreateRecordCompletion) {
+        delegate.textFieldReturnedWithTextAtRow(row, text: text) { () -> Void in
+            completion()
+        }
         animateSavedRecordForRow(row)
     }
     
