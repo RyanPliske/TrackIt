@@ -127,15 +127,14 @@ class TRRecordsModel {
             return nil
         }
         var tracks = TRTracks()
-        for record in records {
-            let indexOfDay: Int = TRDateFormatter.dayOfDate(record.date!)
+
+        for var index = records.count - 1; index >= 0; --index {
+            let indexOfDay: Int = TRDateFormatter.dayOfDate(records[index].date!)
             let quantitiesForDay = records.filter { TRDateFormatter.dayOfDate($0.date!) ==  indexOfDay }.map { $0.itemQuantity }
             let sumForDay = quantitiesForDay.reduce(0, combine: +)
             tracks[indexOfDay] = sumForDay
             records = records.filter { TRDateFormatter.dayOfDate($0.date!) != indexOfDay }
-            if records.isEmpty {
-                break
-            }
+            index = records.count
         }
         return tracks
     }
