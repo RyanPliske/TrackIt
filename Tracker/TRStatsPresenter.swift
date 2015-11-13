@@ -15,4 +15,8 @@ class TRStatsPresenter: TRStatsViewDelegate {
         return statsModel.recordedDays
     }
     
+    var itemIndex: Int {
+        return statsModel.itemIndex
+    }
+    
 }

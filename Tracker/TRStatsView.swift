@@ -2,17 +2,15 @@ import UIKit
 
 protocol TRStatsViewDelegate : class {
     var recordedDays: TRRecordedDays { get }
+    var itemIndex: Int { get }
 }
 
-class TRStatsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, TRCalendarCollectionViewCellDelegate {
+class TRStatsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, TRCalendarCollectionViewCellDelegate  {
     
     weak var delegate: TRStatsViewDelegate!
     @IBOutlet weak var collectionView: UICollectionView!
     let pageControl = UIPageControl()
     var trackingDate: NSDate!
-    var recordedDays: TRRecordedDays {
-        return delegate.recordedDays
-    }
     
     init(frame: CGRect, trackingDate: NSDate) {
         self.trackingDate = trackingDate
@@ -45,6 +43,10 @@ class TRStatsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateF
         pageControl.frame = CGRectMake(CGRectGetMidX(self.bounds) - pageControlSize.width / 2.0, contentSize.height - pageControlSize.height, pageControlSize.width, pageControlSize.height)
     }
     
+    var recordedDays: TRRecordedDays {
+        return delegate.recordedDays
+    }
+    
     //MARK: - UICollectionViewDataSource
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -53,12 +55,13 @@ class TRStatsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateF
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         if indexPath.row == 0 {
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("GraphViewCell", forIndexPath: indexPath) as! TRGraphCollectionViewCell
+            cell.setStartColor(TRColorGenerator.colorFor(delegate.itemIndex))
+            return cell
+        } else {
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CalendarViewCell", forIndexPath: indexPath) as! TRCalendarCollectionViewCell
             cell.delegate = self
             cell.setupWith(trackingDate)
-            return cell
-        } else {
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("GraphViewCell", forIndexPath: indexPath) as! TRGraphCollectionViewCell
             return cell
         }
     }

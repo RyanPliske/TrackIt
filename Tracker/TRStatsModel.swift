@@ -2,6 +2,7 @@ import Foundation
 
 protocol TRStatsModelDelegate: class {
     var recordedDays: TRRecordedDays { get }
+    var tag: Int { get }
 }
 
 class TRStatsModel {
@@ -16,6 +17,8 @@ class TRStatsModel {
         return delegate.recordedDays
     }
     
-
+    var itemIndex: Int {
+        return delegate.tag
+    }
     
 }
