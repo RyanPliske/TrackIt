@@ -13,24 +13,11 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="353" height="105"/>
                 <autoresizingMask key="autoresizingMask"/>
-                <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aJc-De-1GM" customClass="TRCalendarView" customModule="Tracker" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="353" height="105"/>
-                        <animations/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </view>
-                </subviews>
                 <animations/>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <animations/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstAttribute="bottom" secondItem="aJc-De-1GM" secondAttribute="bottom" id="Ea0-iv-0y6"/>
-                <constraint firstItem="aJc-De-1GM" firstAttribute="leading" secondItem="rkl-zB-Sn4" secondAttribute="leading" id="GhL-UE-9f6"/>
-                <constraint firstAttribute="trailing" secondItem="aJc-De-1GM" secondAttribute="trailing" id="Ul8-75-DhP"/>
-                <constraint firstItem="aJc-De-1GM" firstAttribute="top" secondItem="rkl-zB-Sn4" secondAttribute="top" id="os7-hv-Wv4"/>
-            </constraints>
             <size key="customSize" width="353" height="105"/>
             <point key="canvasLocation" x="534.5" y="280.5"/>
         </collectionViewCell>

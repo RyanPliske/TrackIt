@@ -7,6 +7,7 @@ protocol TRCalendarCollectionViewCellDelegate: class {
 class TRCalendarCollectionViewCell: UICollectionViewCell, TRCalendarViewDelegate {
 
     weak var delegate: TRCalendarCollectionViewCellDelegate!
+    
     private var calendarView: TRCalendarView!
     
     override func layoutSubviews() {

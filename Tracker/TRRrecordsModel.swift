@@ -127,7 +127,6 @@ class TRRecordsModel {
             return nil
         }
         var tracks = TRTracks()
-
         for var index = records.count - 1; index >= 0; --index {
             let indexOfDay: Int = TRDateFormatter.dayOfDate(records[index].date!)
             let quantitiesForDay = records.filter { TRDateFormatter.dayOfDate($0.date!) ==  indexOfDay }.map { $0.itemQuantity }

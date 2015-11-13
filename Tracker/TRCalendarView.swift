@@ -54,7 +54,6 @@ class TRCalendarView: UIView, TRWeekViewDelegate {
     }
     
     private func addGoalSymbolForDays(recordedDays: TRRecordedDays) {
-        print(recordedDays)
         for weekView in weekViews {
             for dayView in weekView.dayViews {
                 if dayView.dayIndex > currentDayIndex || dayView.dayIndex == 0 {
