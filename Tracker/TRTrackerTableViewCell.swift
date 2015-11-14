@@ -29,13 +29,16 @@ class TRTrackerTableViewCell: UITableViewCell, TRStatsModelDelegate {
     private var isAVice = false
     
     override func layoutSubviews() {
+        super.layoutSubviews()
+        self.layer.cornerRadius = 5.0
         statsPresenter?.statsView.frame = CGRectMake(0, TRTrackerTableViewCellSize.closedHeight, CGRectGetWidth(self.bounds), TRTrackerTableViewCellSize.openedHeight - TRTrackerTableViewCellSize.closedHeight)
     }
     
     func prepareStatsView() {
         if statsPresenter == nil {
             statsModel = TRStatsModel(withDelegate: self)
-            statsPresenter = TRStatsPresenter(withStatsView: TRStatsView(frame: CGRectZero, trackingDate: dateSelectedOnJTCalendar), withStatsModel: statsModel)
+            statsPresenter = TRStatsPresenter(withStatsModel: statsModel)
+            statsPresenter.statsView = TRStatsView(frame: CGRectZero, trackingDate: dateSelectedOnJTCalendar, delegate: statsPresenter)
             addSubview(statsPresenter.statsView)
             layoutIfNeeded()
         }
@@ -73,8 +76,11 @@ class TRTrackerTableViewCell: UITableViewCell, TRStatsModelDelegate {
     }
     
     func resetCalendarAfterTrackOccured() {
-        let cell = statsPresenter.statsView.collectionView.cellForItemAtIndexPath(NSIndexPath(forRow: self.tag, inSection: 0)) as! TRCalendarCollectionViewCell
-        cell.redrawGoalSymbols()
+        let item = TRItemsModel.sharedInstanceOfItemsModel.activeItems[tag]
+        if item.dailyGoal != nil {
+            let cell = statsPresenter.statsView.collectionView.cellForItemAtIndexPath(NSIndexPath(forRow: tag, inSection: 0)) as! TRCalendarCollectionViewCell
+            cell.redrawGoalSymbols()
+        }
     }
     
     func setSelectedDateOnCalendarWith(selectedDate: NSDate) {

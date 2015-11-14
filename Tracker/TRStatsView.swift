@@ -12,8 +12,9 @@ class TRStatsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateF
     let pageControl = UIPageControl()
     var trackingDate: NSDate!
     
-    init(frame: CGRect, trackingDate: NSDate) {
+    init(frame: CGRect, trackingDate: NSDate, delegate: TRStatsViewDelegate) {
         self.trackingDate = trackingDate
+        self.delegate = delegate
         super.init(frame: frame)
         
         let newView = NSBundle.mainBundle().loadNibNamed("TRStatsView", owner: self, options: nil).first as! UIView
@@ -26,7 +27,8 @@ class TRStatsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateF
         collectionView.registerNib(UINib(nibName: "TRGraphCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "GraphViewCell")
         addSubview(collectionView)
         
-        pageControl.numberOfPages = 2
+        pageControl.numberOfPages = self.numberOfPages
+        pageControl.hidesForSinglePage = true
         pageControl.userInteractionEnabled = false
         addSubview(pageControl)
     }
@@ -47,10 +49,18 @@ class TRStatsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateF
         return delegate.recordedDays
     }
     
+    var numberOfPages: Int {
+        let item = TRItemsModel.sharedInstanceOfItemsModel.activeItems[delegate.itemIndex]
+        if let _ = item.dailyGoal {
+            return 2
+        }
+        return 1
+    }
+    
     //MARK: - UICollectionViewDataSource
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return numberOfPages
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
