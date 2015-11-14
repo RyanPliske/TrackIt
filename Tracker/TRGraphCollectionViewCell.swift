@@ -8,4 +8,8 @@ class TRGraphCollectionViewCell: UICollectionViewCell {
         graphView.startColor = color
     }
     
+    func setDelegate(delegate: TRGraphViewDelegate) {
+        graphView.delegate = delegate
+    }
+    
 }

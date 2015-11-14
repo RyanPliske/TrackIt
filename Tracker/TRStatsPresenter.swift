@@ -17,4 +17,8 @@ class TRStatsPresenter: TRStatsViewDelegate {
         return statsModel.itemIndex
     }
     
+    var graphPoints: [Int] {
+        return statsModel.graphPoints
+    }
+    
 }

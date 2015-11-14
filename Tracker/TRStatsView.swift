@@ -3,9 +3,10 @@ import UIKit
 protocol TRStatsViewDelegate : class {
     var recordedDays: TRRecordedDays { get }
     var itemIndex: Int { get }
+    var graphPoints: [Int] { get }
 }
 
-class TRStatsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, TRCalendarCollectionViewCellDelegate  {
+class TRStatsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, TRCalendarCollectionViewCellDelegate, TRGraphViewDelegate  {
     
     weak var delegate: TRStatsViewDelegate!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -57,6 +58,10 @@ class TRStatsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateF
         return 1
     }
     
+    var graphPoints: [Int] {
+        return delegate.graphPoints
+    }
+    
     //MARK: - UICollectionViewDataSource
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -67,6 +72,7 @@ class TRStatsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateF
         if indexPath.row == 0 {
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier("GraphViewCell", forIndexPath: indexPath) as! TRGraphCollectionViewCell
             cell.setStartColor(TRColorGenerator.colorFor(delegate.itemIndex))
+            cell.setDelegate(self)
             return cell
         } else {
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CalendarViewCell", forIndexPath: indexPath) as! TRCalendarCollectionViewCell
