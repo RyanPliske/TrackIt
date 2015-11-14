@@ -1,5 +1,5 @@
 import Foundation
 
-class TRSettingsModel {
-    var settings = ["Edit Items", "Edit Tracks"]
+struct TRSettingsModel {
+    static let settings = ["Manage Items", "Edit Tracks"]
 }

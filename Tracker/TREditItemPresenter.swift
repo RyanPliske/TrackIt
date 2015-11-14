@@ -99,8 +99,10 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
                     let textFieldText = (itemsModel.allItems[itemRow].dailyGoal == nil) ? "" : "\(itemsModel.allItems[itemRow].dailyGoal!)"
                     inputCell.setTextFieldTextWithText(textFieldText)
                 }
-                inputCell.tag = itemRow
-                inputCell.setDailyGoalType(itemsModel.allItems[itemRow].dailyGoalType)
+                if let row = itemRow {
+                    inputCell.tag = row
+                    inputCell.setDailyGoalType(itemsModel.allItems[row].dailyGoalType)
+                }
             }
         case cellIndex.itemVice.rawValue:
             cell = tableView.dequeueReusableCellWithIdentifier("badHabitCell") as! TREditItemTableViewViceCell

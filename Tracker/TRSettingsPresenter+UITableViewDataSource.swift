@@ -2,11 +2,9 @@ import Foundation
 
 class TRSettingsPresenter: NSObject, UITableViewDataSource {
     
-    private let settingsModel: TRSettingsModel
     private let settingsView: UITableView
     
-    init(settingsModel: TRSettingsModel, settingsView: UITableView) {
-        self.settingsModel = settingsModel
+    init(settingsView: UITableView) {
         self.settingsView = settingsView
     }
     
@@ -15,7 +13,7 @@ class TRSettingsPresenter: NSObject, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return settingsModel.settings.count
+        return TRSettingsModel.settings.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -23,10 +21,10 @@ class TRSettingsPresenter: NSObject, UITableViewDataSource {
         let cell: TRSettingsTableViewCell = tableView.dequeueReusableCellWithIdentifier("settings") as! TRSettingsTableViewCell
         if (indexPath.row == 0) {
             cell.topBorder.hidden = false
-        } else if (indexPath.row == settingsModel.settings.count - 1) {
+        } else if (indexPath.row == TRSettingsModel.settings.count - 1) {
             cell.bottomBorder.hidden = false
         }
-        cell.setSettingNameWith(settingsModel.settings[indexPath.row])
+        cell.setSettingNameWith(TRSettingsModel.settings[indexPath.row])
         return cell
     }
     

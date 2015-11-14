@@ -2,14 +2,13 @@ import UIKit
 
 class TRSettingsViewController: UIViewController {
     
-    var settingsModel = TRSettingsModel()
     var settingsPresenter: TRSettingsPresenter?
     @IBOutlet weak var settingsTableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Settings"
-        settingsPresenter = TRSettingsPresenter(settingsModel: settingsModel, settingsView: settingsTableView)
+        settingsPresenter = TRSettingsPresenter(settingsView: settingsTableView)
         settingsTableView.dataSource = self.settingsPresenter
         settingsTableView.delegate = self
     }
