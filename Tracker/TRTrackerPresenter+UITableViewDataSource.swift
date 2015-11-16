@@ -26,15 +26,11 @@ extension TRTrackerPresenter: UITableViewDataSource {
         cell.delegate = trackerView
         cell.backgroundColor = TRColorGenerator.colorFor(indexPath.section)
         cell.setSelectedDateOnCalendarWith(dateToTrack)
-        
-        let itemName = itemsModel.activeItems[indexPath.section].name
-        weak var weakSelf = self
-        recordsModel.searchRecordsForItem(itemName) { (records, error) -> Void in
-            if let returnedRecords = records {
-                let dateDescriptions = returnedRecords.map { $0.dateDescription as String }
-                let cell = weakSelf?.trackerView.trackerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: indexPath.section)) as! TRTrackerTableViewCell
-                cell.setWhiteDotsOnDatesWith(dateDescriptions)
-            }
+        if item.opened {
+            cell.destroyStatsView()
+            cell.prepareStatsView()
+        } else {
+            cell.destroyStatsView()
         }
         return cell
     }
@@ -43,7 +39,7 @@ extension TRTrackerPresenter: UITableViewDataSource {
         cell.setItemNameLabelTextWith(item.name + ":")
         recordsModel.searchRecordsForItem(item.name, dateDescription: TRDateFormatter.descriptionForDate(dateToTrack)) { (records, error) -> Void in
             if let returnedRecords = records {
-                let itemCounts: [Float] = returnedRecords.map { $0.itemQuantity! }
+                let itemCounts: [Float] = returnedRecords.map { $0.itemQuantity }
                 let itemCountSum: Float = itemCounts.reduce(0) { $0 + $1 }
                 cell.setItemLabelCountWith(itemCountSum)
             }

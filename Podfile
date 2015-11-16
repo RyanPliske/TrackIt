@@ -7,7 +7,6 @@ target 'Tracker' do
     pod 'Crashlytics'
     pod 'TPKeyboardAvoiding'
     pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift2'
-    pod 'JTCalendar', '~> 2.0'
     pod 'MMDrawerController', '~> 0.5.7'
 end
 

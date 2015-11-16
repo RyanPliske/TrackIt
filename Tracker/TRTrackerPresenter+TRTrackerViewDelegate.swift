@@ -1,18 +1,28 @@
 import Foundation
 
 extension TRTrackerPresenter: TRTrackerViewDelegate {
-    func trackItemAtRow(row: Int) {
-        recordsModel.createRecordUsingRow(row, quantity: 1, type: TRRecordType.TrackAction, date: dateToTrack)
+    
+    func plusButtonPressedAtRow(row: Int, completion: TRCreateRecordCompletion) {
+        recordsModel.createRecordUsingRow(row, quantity: 1, type: TRRecordType.TrackAction, date: dateToTrack, withCompletion: {
+            () in
+            completion()
+        })
     }
     
-    func trackUrgeAtRow(row: Int) {
-        recordsModel.createRecordUsingRow(row, quantity: 1, type: TRRecordType.TrackUrge, date: dateToTrack)
+    func trackUrgeSelectedForRow(row: Int, completion: TRCreateRecordCompletion) {
+        recordsModel.createRecordUsingRow(row, quantity: 1, type: TRRecordType.TrackUrge, date: dateToTrack, withCompletion: {
+            () in
+            completion()
+        })
     }
     
-    func textFieldReturnedWithTextAtRow(row: Int, text: String) {
+    func textFieldReturnedWithTextAtRow(row: Int, text: String, completion: TRCreateRecordCompletion) {
         if !text.isEmpty {
             let quantityFromTextField = Float(text)
-            recordsModel.createRecordUsingRow(row, quantity: quantityFromTextField!, type: TRRecordType.TrackAction, date: dateToTrack)
+            recordsModel.createRecordUsingRow(row, quantity: quantityFromTextField!, type: TRRecordType.TrackAction, date: dateToTrack, withCompletion: {
+                () in
+                completion()
+            })
         }
     }
     
@@ -25,11 +35,26 @@ extension TRTrackerPresenter: TRTrackerViewDelegate {
         }
     }
     
+//    func recordedDaysForRow(row: Int) -> TRRecordedDays {
+//        let itemToLookUp = itemsModel.activeItems[row]
+//        return recordsModel.recordedDaysForItem(itemToLookUp, forDate: dateToTrack, withGoal: itemToLookUp.dailyGoal!, forGoalType: itemToLookUp.dailyGoalType)
+//    }
+    
+    func recordedMonthlyTracksForRow(row: Int) -> TRTracks {
+        let itemToLookUp = itemsModel.activeItems[row]
+        
+        return []
+    }
+    
     func itemSelectedAtRow(row: Int) {
         itemsModel.updateItemOpenedStatusAtIndex(row)
     }
     
     func itemAtRowIsOpened(row:Int) -> Bool {
         return itemsModel.activeItems[row].opened
+    }
+    
+    func moreButtonPressedAtRow(row: Int, includeBadHabit: Bool) {
+        // do nothing for now, this is needed for protocol
     }
 }

@@ -1,5 +1,9 @@
 import Foundation
 
+protocol TRItemsModelDelegate: class {
+    func itemOpenedStatusChangedAtIndex(index: Int)
+}
+
 class TRItemsModel {
     
     static let sharedInstanceOfItemsModel = TRItemsModel(itemService: TRItemService())
@@ -11,6 +15,7 @@ class TRItemsModel {
     private var _sinfulItems = [TRItem]()
     var activeRegularItems: [TRItem] { return self._regularItems }
     private var _regularItems = [TRItem]()
+    var delegate: TRItemsModelDelegate!
     
     private var itemService: TRItemService
     
@@ -97,7 +102,8 @@ class TRItemsModel {
     }
     
     func updateItemOpenedStatusAtIndex(index: Int) {
-        itemService.updateItem(self._activeItems[index], opened: !self._activeItems[index].opened)
+        self._activeItems[index].opened = !self._activeItems[index].opened
+        delegate.itemOpenedStatusChangedAtIndex(index)
     }
     
     func updateItemMeasurementUnitAtIndex(index: Int, unit: String?) {
@@ -117,6 +123,12 @@ class TRItemsModel {
         }
         itemService.updateItem(self.allItems[index], goal: goal)
         
+    }
+    
+    func updateItemDailyGoalTypeAtIndex(index: Int, goalType: DailyGoalType) {
+        _allItems[index].dailyGoalType = goalType
+        let itemToUpdate = _allItems[index]
+        itemService.updateItem(itemToUpdate, dailyGoalType: goalType)
     }
     
     func deleteItemAtIndex(index: Int) {

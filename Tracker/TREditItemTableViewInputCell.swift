@@ -1,18 +1,18 @@
 import UIKit
 
-protocol TREditItemTableViewInputCellDelegate {
+protocol TREditItemTableViewInputCellDelegate: TREditItemTableViewInputGoalCellDelegate {
     func textFieldChangedAtRow(row: Int, text: String)
 }
 
 class TREditItemTableViewInputCell: TRSettingsTableViewCell, UITextFieldDelegate, TRKeyboardToolbarDelegate {
     
     @IBOutlet private weak var itemLabel: UILabel!
-    @IBOutlet private weak var textField: UITextField!{
+    @IBOutlet weak var textField: UITextField!{
         didSet {
             textField?.delegate = self
         }
     }
-    var textFieldDelegate: TREditItemTableViewInputCellDelegate?
+    weak var cellDelegate: TREditItemTableViewInputCellDelegate!
     var skipDelegating = false
     var storedText: String?
     
@@ -64,7 +64,7 @@ class TREditItemTableViewInputCell: TRSettingsTableViewCell, UITextFieldDelegate
             return
         }
         textField.resignFirstResponder()
-        textFieldDelegate?.textFieldChangedAtRow(textField.tag, text: textField.text!)
+        cellDelegate.textFieldChangedAtRow(textField.tag, text: textField.text!)
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

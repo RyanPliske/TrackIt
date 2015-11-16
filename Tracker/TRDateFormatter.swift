@@ -27,4 +27,22 @@ class TRDateFormatter {
         formatter.dateFormat = "MMMM dd, YYYY"
         return formatter.stringFromDate(date)
     }
+    
+    static func dayOfDate(date: NSDate) -> Int {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "dd"
+        return Int(formatter.stringFromDate(date))!
+    }
+    
+    static func monthOfDate(date: NSDate) -> String {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "MMMM"
+        return formatter.stringFromDate(date)
+    }
+    
+    static func yearOfDate(date: NSDate) -> String {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "YYYY"
+        return formatter.stringFromDate(date)
+    }
 }

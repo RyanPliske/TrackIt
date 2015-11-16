@@ -1,39 +1,57 @@
 import Foundation
-import JTCalendar
 import Spring
 
-protocol TRTrackerTableViewCellDelegate {
-    func plusButtonPressedAtRow(row: Int)
-    func moreButtonPressedAtRow(row: Int, includeBadHabit: Bool)
-    func trackUrgeSelectedForRow(row: Int)
+protocol TRTrackerTableViewCellDelegate: class {
+    func plusButtonPressedAtRow(row: Int, completion: TRCreateRecordCompletion)
+    func trackUrgeSelectedForRow(row: Int, completion: TRCreateRecordCompletion)
     func trackMultipleSelectedForRow(row: Int)
-    func textFieldReturnedWithTextAtRow(row: Int, text: String)
+    func textFieldReturnedWithTextAtRow(row: Int, text: String, completion: TRCreateRecordCompletion)
+    func recordedMonthlyTracksForRow(row: Int) -> TRTracks
+    func moreButtonPressedAtRow(row: Int, includeBadHabit: Bool)
 }
 
-class TRTrackerTableViewCell: UITableViewCell {
-    var delegate: TRTrackerTableViewCellDelegate?
-    var moreButtonFrame: CGRect {
-        return self.moreButton.frame
-    }
+class TRTrackerTableViewCell: UITableViewCell, TRStatsModelDelegate {
+    
+    weak var delegate: TRTrackerTableViewCellDelegate!
+    var dateSelectedOnJTCalendar: NSDate!
     
     @IBOutlet private weak var itemLabel: UILabel!
     @IBOutlet private weak var itemCountLabel: UILabel!
     @IBOutlet private weak var moreButton: UIButton!
-    private var statsView: TRStatsView
+    private var statsPresenter: TRStatsPresenter!
+    private var statsModel: TRStatsModel!
     private var isAVice = false
-    let calendarManager = JTCalendarManager()
-    var selectedDatesOnJTCalendar = [String]()
-    var dateSelectedOnJTCalendar: NSDate?
-    
-    required init?(coder aDecoder: NSCoder) {
-        self.statsView = TRStatsView(frame: CGRectZero, _calendarManager: calendarManager)
-        super.init(coder: aDecoder)
-        self.calendarManager.delegate = self
-        addSubview(statsView)
-    }
     
     override func layoutSubviews() {
-        statsView.frame = CGRectMake(0, TRTrackerTableViewCellSize.closedHeight, CGRectGetWidth(self.bounds), TRTrackerTableViewCellSize.openedHeight - TRTrackerTableViewCellSize.closedHeight)
+        super.layoutSubviews()
+        self.layer.cornerRadius = 5.0
+        statsPresenter?.statsView.frame = CGRectMake(0, TRTrackerTableViewCellSize.closedHeight, CGRectGetWidth(self.bounds), TRTrackerTableViewCellSize.openedHeight - TRTrackerTableViewCellSize.closedHeight)
+    }
+    
+    var moreButtonFrame: CGRect {
+        return self.moreButton.frame
+    }
+
+    var recordedTracksForTheMonth: TRTracks {
+        return delegate.recordedMonthlyTracksForRow(self.tag)
+    }
+    
+    func prepareStatsView() {
+        if statsPresenter == nil {
+            statsModel = TRStatsModel(withDelegate: self)
+            statsPresenter = TRStatsPresenter(withStatsModel: statsModel)
+            statsPresenter.statsView = TRStatsView(frame: CGRectZero, trackingDate: dateSelectedOnJTCalendar, delegate: statsPresenter)
+            addSubview(statsPresenter.statsView)
+            layoutIfNeeded()
+        }
+    }
+    
+    func destroyStatsView() {
+        if statsPresenter != nil {
+            statsPresenter.statsView.removeFromSuperview()
+            statsPresenter = nil
+            statsModel = nil
+        }
     }
     
     func updateItemLabelCountWith(newItemCount: Float) {
@@ -59,22 +77,12 @@ class TRTrackerTableViewCell: UITableViewCell {
         self.isAVice = isAVice
     }
     
-    func resetCalendar() {
-        selectedDatesOnJTCalendar.removeAll()
-        calendarManager.reload()
-    }
-    
     func resetCalendarAfterTrackOccured() {
-        if let dateSelected = dateSelectedOnJTCalendar {
-            selectedDatesOnJTCalendar.append(TRDateFormatter.descriptionForDate(dateSelected))
+        let item = TRItemsModel.sharedInstanceOfItemsModel.activeItems[tag]
+        if item.dailyGoal != nil {
+            let cell = statsPresenter.statsView.collectionView.cellForItemAtIndexPath(NSIndexPath(forRow: tag, inSection: 0)) as! TRCalendarCollectionViewCell
+            cell.redrawGoalSymbols()
         }
-        calendarManager.reload()
-    }
-    
-    func setWhiteDotsOnDatesWith(dates: [String]) {
-        selectedDatesOnJTCalendar = dates
-        print(selectedDatesOnJTCalendar)
-        calendarManager.reload()
     }
     
     func setSelectedDateOnCalendarWith(selectedDate: NSDate) {
@@ -82,57 +90,18 @@ class TRTrackerTableViewCell: UITableViewCell {
     }
     
     @IBAction func moreButtonPressed(sender: AnyObject) {
-        delegate?.moreButtonPressedAtRow(self.tag, includeBadHabit: isAVice)
+        delegate.moreButtonPressedAtRow(self.tag, includeBadHabit: isAVice)
     }
 }
 
 extension TRTrackerTableViewCell: TRTrackingOptionsDelegate {
     func trackUrge() {
-        delegate?.trackUrgeSelectedForRow(self.tag)
-    }
-    
-    func trackMultiple() {
-        delegate?.trackMultipleSelectedForRow(self.tag)
-    }
-}
-
-extension TRTrackerTableViewCell: JTCalendarDelegate {
-    
-    func calendar(calendar: JTCalendarManager!, prepareDayView dayView: UIView!) {
-        if let aDayView = dayView as? JTCalendarDayView {
-            //Dot View
-            if dateIsIncluded(TRDateFormatter.descriptionForDate(aDayView.date)) {
-                aDayView.dotView.hidden = false
-                aDayView.dotView.backgroundColor = UIColor.whiteColor()
-            } else {
-                aDayView.dotView.hidden = true
-            }
-            // Blue Circle View
-            if let selectedDate = dateSelectedOnJTCalendar where calendar.dateHelper.date(selectedDate, isTheSameDayThan: aDayView.date) {
-                aDayView.circleView.hidden = false
-                aDayView.circleView.backgroundColor = UIColor.whiteColor()
-                aDayView.textLabel.textColor = UIColor.TRBabyBlue()
-                aDayView.dotView.backgroundColor = UIColor.TRBabyBlue()
-            }
-                // White Circle View for today
-            else if calendar.dateHelper.date(NSDate(), isTheSameDayThan: aDayView.date) {
-                aDayView.circleView.hidden = false
-                aDayView.circleView.backgroundColor = UIColor.TRBabyBlue()
-                aDayView.textLabel.textColor = UIColor.whiteColor()
-                aDayView.dotView.backgroundColor = UIColor.whiteColor()
-            }
-            else {
-                aDayView.circleView.hidden = true
-                aDayView.textLabel.textColor = UIColor.blackColor()
-            }
-            
-            aDayView.hidden = aDayView.isFromAnotherMonth ? true : false
-            
+        delegate.trackUrgeSelectedForRow(self.tag) { [weak self]() -> Void in
+            self?.resetCalendarAfterTrackOccured()
         }
     }
     
-    private func dateIsIncluded(date: String) -> Bool {
-        let dates = selectedDatesOnJTCalendar.filter { $0 == date }
-        return dates.isEmpty ? false : true
+    func trackMultiple() {
+        delegate.trackMultipleSelectedForRow(self.tag)
     }
 }

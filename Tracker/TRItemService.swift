@@ -68,11 +68,6 @@ class TRItemService {
         item.pinInBackgroundWithBlock(nil)
     }
     
-    func updateItem(item: TRItem, opened: Bool) {
-        item.opened = opened
-        item.pinInBackgroundWithBlock(nil)
-    }
-    
     func updateItem(item: TRItem, incrementByOne: Bool) {
         item.incrementByOne = incrementByOne
         item.pinInBackgroundWithBlock(nil)
@@ -98,6 +93,11 @@ class TRItemService {
         } else {
            item["dailyGoal"] = NSNull()
         }
+        item.pinInBackgroundWithBlock(nil)
+    }
+    
+    func updateItem(item: TRItem, dailyGoalType: DailyGoalType) {
+        item.dailyGoalType = dailyGoalType
         item.pinInBackgroundWithBlock(nil)
     }
     

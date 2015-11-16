@@ -13,11 +13,12 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        TRRecordsModel.sharedInstanceOfRecordsModel.readAllRecords(nil)
-        trackerPresenter = TRTrackerPresenter(view: self.trackerView, model: self.recordsModel)
+        recordsModel.readAllRecords(nil)
+        trackerPresenter = TRTrackerPresenter(view: trackerView, model: recordsModel)
         activityMonitor.startAnimating()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "itemRetrievalObserved", name: "itemsRetrievedFromDB", object: nil)
         trackerView.observer = self
+        itemsModel.delegate = trackerPresenter
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "itemRetrievalObserved", name: "itemsRetrievedFromDB", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "itemsChanged", name: "ActiveItemsChanged", object: nil)
     }
     

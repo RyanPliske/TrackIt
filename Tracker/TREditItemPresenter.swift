@@ -3,7 +3,7 @@ import Foundation
 class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate, TREditItemTableViewInputCellDelegate, TREditItemTableViewViceCellDelegate {
     private let editItemTableView: UITableView
     private let itemsModel: TRItemsModel
-    private var itemRow: Int?
+    private var itemRow: Int!
     private var isNewItem = false
     private var isPreloadedItem = false
     private enum cellIndex: Int {
@@ -62,10 +62,10 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
             if let inputCell = cell as? TREditItemTableViewInputCell {
                 inputCell.topBorder.hidden = false
                 inputCell.setLabelWithText("Name:")
-                let textFieldText = isNewItem ? "" : itemsModel.allItems[itemRow!].name
+                let textFieldText = isNewItem ? "" : itemsModel.allItems[itemRow].name
                 inputCell.setTextFieldTextWithText(textFieldText)
                 inputCell.setTextFieldTagWith(indexPath.row)
-                inputCell.textFieldDelegate = self
+                inputCell.cellDelegate = self
                 if isNewItem {
                     inputCell.setTextFieldAsFirstResponder()
                 } else if isPreloadedItem {
@@ -76,10 +76,10 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
             cell = tableView.dequeueReusableCellWithIdentifier("userInputCell") as! TREditItemTableViewInputCell
             if let inputCell = cell as? TREditItemTableViewInputCell {
                 inputCell.setLabelWithText("Measure Unit:")
-                let textFieldText = isNewItem ? "" : itemsModel.allItems[itemRow!].measurementUnit
+                let textFieldText = isNewItem ? "" : itemsModel.allItems[itemRow].measurementUnit
                 inputCell.setTextFieldTextWithText(textFieldText)
                 inputCell.setTextFieldTagWith(indexPath.row)
-                inputCell.textFieldDelegate = self
+                inputCell.cellDelegate = self
                 if isNewItem {
                     inputCell.setTextFieldUserInteraction(false)
                 } else if isPreloadedItem {
@@ -87,23 +87,27 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
                 }
             }
         case cellIndex.itemGoal.rawValue:
-            cell = tableView.dequeueReusableCellWithIdentifier("userInputCell") as! TREditItemTableViewInputCell
-            if let inputCell = cell as? TREditItemTableViewInputCell {
+            cell = tableView.dequeueReusableCellWithIdentifier("goalCell") as! TREditItemTableViewInputGoalCell
+            if let inputCell = cell as? TREditItemTableViewInputGoalCell {
                 inputCell.setLabelWithText("Set a Daily Goal:")
                 inputCell.setTextFieldTagWith(indexPath.row)
                 inputCell.setTextFieldKeyboardTypeToNumberPad()
-                inputCell.textFieldDelegate = self
+                inputCell.cellDelegate = self
                 if isNewItem {
                     inputCell.setTextFieldUserInteraction(false)
                 } else {
-                    let textFieldText = (itemsModel.allItems[itemRow!].dailyGoal == nil) ? "" : "\(itemsModel.allItems[itemRow!].dailyGoal!)"
+                    let textFieldText = (itemsModel.allItems[itemRow].dailyGoal == nil) ? "" : "\(itemsModel.allItems[itemRow].dailyGoal!)"
                     inputCell.setTextFieldTextWithText(textFieldText)
+                }
+                if let row = itemRow {
+                    inputCell.tag = row
+                    inputCell.setDailyGoalType(itemsModel.allItems[row].dailyGoalType)
                 }
             }
         case cellIndex.itemVice.rawValue:
             cell = tableView.dequeueReusableCellWithIdentifier("badHabitCell") as! TREditItemTableViewViceCell
             if let viceCell = cell as? TREditItemTableViewViceCell {
-                let isAVice = isNewItem ? false : itemsModel.allItems[itemRow!].isAVice
+                let isAVice = isNewItem ? false : itemsModel.allItems[itemRow].isAVice
                 viceCell.setViceSwitchTo(isAVice)
                 viceCell.viceSwitchDelegate = self
                 if isNewItem {
@@ -126,7 +130,8 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.row == cellIndex.itemVice.rawValue {
             return 60.0
-        } else {
+        }
+        else {
             return heightForUserInputCell()
         }
     }
@@ -167,27 +172,31 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
             }
         } else {
             if row == cellIndex.itemName.rawValue {
-                itemsModel.updateItemNameAtIndex(itemRow!, name: text)
+                itemsModel.updateItemNameAtIndex(itemRow, name: text)
             } else if row == cellIndex.itemUnit.rawValue {
                 if text.isEmpty {
-                    itemsModel.updateItemMeasurementUnitAtIndex(itemRow!, unit: nil)
+                    itemsModel.updateItemMeasurementUnitAtIndex(itemRow, unit: nil)
                 } else {
-                   itemsModel.updateItemMeasurementUnitAtIndex(itemRow!, unit: text)
+                   itemsModel.updateItemMeasurementUnitAtIndex(itemRow, unit: text)
                 }
             } else if row == cellIndex.itemGoal.rawValue {
                 if let goal = Int(text) {
-                    itemsModel.updateItemGoalAtIndex(itemRow!, goal: goal)
+                    itemsModel.updateItemGoalAtIndex(itemRow, goal: goal)
                 } else if text.isEmpty {
-                    itemsModel.updateItemGoalAtIndex(itemRow!, goal: nil)
+                    itemsModel.updateItemGoalAtIndex(itemRow, goal: nil)
                 }
             }
         }
     }
     
+    func dailyGoalTypeChangedAtRow(row: Int, goalType: DailyGoalType) {
+        itemsModel.updateItemDailyGoalTypeAtIndex(row, goalType: goalType)
+    }
+    
     // MARK: TREditItemTableViewViceCellDelegate
     func toggleSwitchChangedValueAtRow() {
         if let badHabitCell = editItemTableView.cellForRowAtIndexPath(NSIndexPath(forRow: cellIndex.itemVice.rawValue, inSection: 0)) as? TREditItemTableViewViceCell {
-            itemsModel.updateItemViceStatusAtIndex(itemRow!, viceStatus: badHabitCell.viceSwitchState)
+            itemsModel.updateItemViceStatusAtIndex(itemRow, viceStatus: badHabitCell.viceSwitchState)
         }
     }
     
