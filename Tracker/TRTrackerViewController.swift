@@ -1,5 +1,6 @@
 import UIKit
 import QuartzCore
+import MMDrawerController
 
 class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
     
@@ -12,23 +13,22 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        TRRecordsModel.sharedInstanceOfRecordsModel.readAllRecords(nil)
-        trackerPresenter = TRTrackerPresenter(view: self.trackerView, model: self.recordsModel)
+        recordsModel.readAllRecords(nil)
+        trackerPresenter = TRTrackerPresenter(view: trackerView, model: recordsModel)
         activityMonitor.startAnimating()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "itemRetrievalObserved", name: "itemsRetrievedFromDB", object: nil)
-        setNeedsStatusBarAppearanceUpdate()
         trackerView.observer = self
-        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Avenir", size: 25.0)!]
-        navigationController?.navigationBar.tintColor = UIColor.TRMimosaYellow()
+        itemsModel.delegate = trackerPresenter
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "itemRetrievalObserved", name: "itemsRetrievedFromDB", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "itemsChanged", name: "ActiveItemsChanged", object: nil)
     }
     
     override func viewWillAppear(animated: Bool) {
-        trackerView.trackerTableView.reloadData()
         super.viewWillAppear(animated)
+        trackerView.trackerTableView.reloadData()
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent;
+    func itemsChanged() {
+        trackerView.trackerTableView.reloadData()
     }
     
     func itemRetrievalObserved() {
@@ -36,6 +36,10 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
         activityMonitor.hidden = true
         trackerView.trackerTableView.reloadData()
 
+    }
+    
+    @IBAction func settingsButtonPressed(sender: AnyObject) {
+        mm_drawerController.toggleDrawerSide(MMDrawerSide.Right, animated: true, completion: nil)
     }
     
     // MARK: TRTrackerViewObserver

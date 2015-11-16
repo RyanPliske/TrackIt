@@ -2,13 +2,9 @@ import UIKit
 import TPKeyboardAvoiding
 import Spring
 
-protocol TRTrackerViewDelegate {
-    func trackItemAtRow(row: Int)
-    func trackUrgeAtRow(row: Int)
-    func trackMultipleSelectedForRow(row: Int)
-    func textFieldReturnedWithTextAtRow(row: Int, text: String)
+protocol TRTrackerViewDelegate: class, TRTrackerTableViewCellDelegate {
     func itemSelectedAtRow(row: Int)
-    func calendarDateSelected(date: NSDate)
+    func itemAtRowIsOpened(row:Int) -> Bool
 }
 
 protocol TRTrackerViewObserver {
@@ -25,8 +21,8 @@ class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
             self.trackerTableView.delegate = self
         }
     }
-    var pathToReload: NSIndexPath?
-    var delegate: TRTrackerViewDelegate?
+
+    var delegate: TRTrackerViewDelegate!
     var observer: TRTrackerViewObserver?
     var animations = [Int]()
     
@@ -80,10 +76,22 @@ class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
         }
     }
     
+    // MARK: TRTrackerPresenter Calls
+    
+    func itemOpenedStatusChangedAtIndex(index: Int) {
+        let indexPath = NSIndexPath(forRow: 0, inSection: index)
+        trackerTableView.beginUpdates()
+        trackerTableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+        trackerTableView.endUpdates()
+        trackerTableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Top, animated: true)
+    }
+    
     // MARK: TRTrackerTableViewCellDelegate
     
-    func plusButtonPressedAtRow(row: Int) {
-        delegate?.trackItemAtRow(row)
+    func plusButtonPressedAtRow(row: Int, completion: TRCreateRecordCompletion) {
+        delegate.plusButtonPressedAtRow(row) { () -> Void in
+            completion()
+        }
         animateSavedRecordForRow(row)
     }
     
@@ -91,23 +99,29 @@ class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
         observer?.trackingOptionsWantedAtRow(row, includeBadHabit: includeBadHabit)
     }
     
-    func trackUrgeSelectedForRow(row: Int) {
-        delegate?.trackUrgeAtRow(row)
+    func trackUrgeSelectedForRow(row: Int, completion: TRCreateRecordCompletion) {
+        delegate.trackUrgeSelectedForRow(row) { () -> Void in
+            completion()
+        }
         observer?.dismissTrackingOptions()
         animateSavedRecordForRow(row)
     }
     
     func trackMultipleSelectedForRow(row: Int) {
-        delegate?.trackMultipleSelectedForRow(row)
+        delegate.trackMultipleSelectedForRow(row)
         observer?.dismissTrackingOptions()
     }
     
-    func textFieldReturnedWithTextAtRow(row: Int, text: String) {
-        delegate?.textFieldReturnedWithTextAtRow(row, text: text)
+    func textFieldReturnedWithTextAtRow(row: Int, text: String, completion: TRCreateRecordCompletion) {
+        delegate.textFieldReturnedWithTextAtRow(row, text: text) { () -> Void in
+            completion()
+        }
         animateSavedRecordForRow(row)
     }
     
-    func calendarDateSelected(date: NSDate) {
-        delegate?.calendarDateSelected(date)
+    func recordedMonthlyTracksForRow(row: Int) -> TRTracks {
+        return delegate.recordedMonthlyTracksForRow(row)
     }
+    
+    
 }

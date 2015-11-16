@@ -1,60 +1,72 @@
 import Foundation
-import JTCalendar
+import Spring
 
-protocol TRTrackerTableViewCellDelegate {
-    func plusButtonPressedAtRow(row: Int)
-    func moreButtonPressedAtRow(row: Int, includeBadHabit: Bool)
-    func trackUrgeSelectedForRow(row: Int)
+protocol TRTrackerTableViewCellDelegate: class {
+    func plusButtonPressedAtRow(row: Int, completion: TRCreateRecordCompletion)
+    func trackUrgeSelectedForRow(row: Int, completion: TRCreateRecordCompletion)
     func trackMultipleSelectedForRow(row: Int)
-    func textFieldReturnedWithTextAtRow(row: Int, text: String)
-    func calendarDateSelected(date: NSDate)
+    func textFieldReturnedWithTextAtRow(row: Int, text: String, completion: TRCreateRecordCompletion)
+    func recordedMonthlyTracksForRow(row: Int) -> TRTracks
+    func moreButtonPressedAtRow(row: Int, includeBadHabit: Bool)
 }
 
-class TRTrackerTableViewCell: UITableViewCell, TRTrackingOptionsDelegate {
-    var delegate: TRTrackerTableViewCellDelegate?
+class TRTrackerTableViewCell: UITableViewCell, TRStatsModelDelegate {
+    
+    weak var delegate: TRTrackerTableViewCellDelegate!
+    var dateSelectedOnJTCalendar: NSDate!
+    
+    @IBOutlet private weak var itemLabel: UILabel!
+    @IBOutlet private weak var itemCountLabel: UILabel!
+    @IBOutlet private weak var moreButton: UIButton!
+    private var statsPresenter: TRStatsPresenter!
+    private var statsModel: TRStatsModel!
+    private var isAVice = false
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.layer.cornerRadius = 5.0
+        statsPresenter?.statsView.frame = CGRectMake(0, TRTrackerTableViewCellSize.closedHeight, CGRectGetWidth(self.bounds), TRTrackerTableViewCellSize.openedHeight - TRTrackerTableViewCellSize.closedHeight)
+    }
+    
     var moreButtonFrame: CGRect {
         return self.moreButton.frame
     }
-    
-    @IBOutlet private weak var itemLabel: UILabel!
-    @IBOutlet private weak var moreButton: UIButton!
-    private var statsView: TRStatsView
-    private var isAVice = false
-    typealias itemLabelDescription = (name: String, count: Float)
-    var label: itemLabelDescription = ("", 0.0)
-    let calendarManager = JTCalendarManager()
-    var selectedDatesOnJTCalendar = [String]()
-    var dateSelectedOnJTCalendar: NSDate?
-    
-    required init?(coder aDecoder: NSCoder) {
-        self.statsView = TRStatsView(frame: CGRectZero, _calendarManager: calendarManager)
-        super.init(coder: aDecoder)
-        self.calendarManager.delegate = self
-        addSubview(statsView)
+
+    var recordedTracksForTheMonth: TRTracks {
+        return delegate.recordedMonthlyTracksForRow(self.tag)
     }
     
-    override func layoutSubviews() {
-        statsView.frame = CGRectMake(0, 60, CGRectGetWidth(self.bounds), UIScreen.mainScreen().applicationFrame.size.height - 200)
-    }
-    
-    func setItemLabelTextWith(itemName: String, itemCount: Float) {
-        
-        self.label = (itemName, itemCount)
-        let text = NSMutableAttributedString()
-        let attributes = [NSKernAttributeName: 1.7]
-        
-        let itemNameAttributed = NSMutableAttributedString(string: itemName.uppercaseString, attributes: attributes)
-        text.appendAttributedString(itemNameAttributed)
-        
-        let itemCountAttributed: NSMutableAttributedString
-        if itemCount % 1  == 0 {
-            itemCountAttributed = NSMutableAttributedString(string: ": " + Int(itemCount).description, attributes: attributes)
-        } else {
-            itemCountAttributed = NSMutableAttributedString(string: ": " + itemCount.description, attributes: attributes)
+    func prepareStatsView() {
+        if statsPresenter == nil {
+            statsModel = TRStatsModel(withDelegate: self)
+            statsPresenter = TRStatsPresenter(withStatsModel: statsModel)
+            statsPresenter.statsView = TRStatsView(frame: CGRectZero, trackingDate: dateSelectedOnJTCalendar, delegate: statsPresenter)
+            addSubview(statsPresenter.statsView)
+            layoutIfNeeded()
         }
-        text.appendAttributedString(itemCountAttributed)
-        
-        itemLabel.attributedText = text
+    }
+    
+    func destroyStatsView() {
+        if statsPresenter != nil {
+            statsPresenter.statsView.removeFromSuperview()
+            statsPresenter = nil
+            statsModel = nil
+        }
+    }
+    
+    func updateItemLabelCountWith(newItemCount: Float) {
+        if let currentCount = Float(itemCountLabel.text!) {
+            let totalCount = currentCount + newItemCount
+            itemCountLabel.text = newItemCount % 1  == 0 ? Int(totalCount).description : totalCount.description
+        }
+    }
+    
+    func setItemLabelCountWith(itemCount: Float) {
+        itemCountLabel.text = itemCount % 1  == 0 ? Int(itemCount).description : itemCount.description
+    }
+    
+    func setItemNameLabelTextWith(itemName: String) {
+        itemLabel.attributedText = NSAttributedString(string: itemName.uppercaseString, attributes: [NSKernAttributeName: 1.7])
     }
     
     func setTagsForCellWith(tag: Int) {
@@ -65,22 +77,12 @@ class TRTrackerTableViewCell: UITableViewCell, TRTrackingOptionsDelegate {
         self.isAVice = isAVice
     }
     
-    func resetCalendar() {
-        selectedDatesOnJTCalendar.removeAll()
-        calendarManager.reload()
-    }
-    
     func resetCalendarAfterTrackOccured() {
-        if let dateSelected = dateSelectedOnJTCalendar {
-            selectedDatesOnJTCalendar.append(TRDateFormatter.descriptionForDate(dateSelected))
+        let item = TRItemsModel.sharedInstanceOfItemsModel.activeItems[tag]
+        if item.dailyGoal != nil {
+            let cell = statsPresenter.statsView.collectionView.cellForItemAtIndexPath(NSIndexPath(forRow: tag, inSection: 0)) as! TRCalendarCollectionViewCell
+            cell.redrawGoalSymbols()
         }
-        calendarManager.reload()
-    }
-    
-    func setWhiteDotsOnDatesWith(dates: [String]) {
-        selectedDatesOnJTCalendar = dates
-        print(selectedDatesOnJTCalendar)
-        calendarManager.reload()
     }
     
     func setSelectedDateOnCalendarWith(selectedDate: NSDate) {
@@ -88,16 +90,18 @@ class TRTrackerTableViewCell: UITableViewCell, TRTrackingOptionsDelegate {
     }
     
     @IBAction func moreButtonPressed(sender: AnyObject) {
-        delegate?.moreButtonPressedAtRow(self.tag, includeBadHabit: isAVice)
+        delegate.moreButtonPressedAtRow(self.tag, includeBadHabit: isAVice)
     }
-    
-    // MARK: TRTrackingOptionsDelegate
+}
+
+extension TRTrackerTableViewCell: TRTrackingOptionsDelegate {
     func trackUrge() {
-        delegate?.trackUrgeSelectedForRow(self.tag)
+        delegate.trackUrgeSelectedForRow(self.tag) { [weak self]() -> Void in
+            self?.resetCalendarAfterTrackOccured()
+        }
     }
     
     func trackMultiple() {
-        delegate?.trackMultipleSelectedForRow(self.tag)
+        delegate.trackMultipleSelectedForRow(self.tag)
     }
-    
 }

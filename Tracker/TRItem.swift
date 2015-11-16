@@ -1,12 +1,17 @@
 import Foundation
 import Parse
 
+enum DailyGoalType: Int {
+    case Max
+    case Min
+}
+
 class TRItem: PFObject, PFSubclassing {
     
     class func parseClassName() -> String {
         return "item"
     }
-    // MARK: Properties
+
     var name: String {
         get {
             return self["name"] as! String
@@ -78,5 +83,21 @@ class TRItem: PFObject, PFSubclassing {
             self["incrementByOne"] = newValue
         }
     }
+    
+    var dailyGoalType: DailyGoalType {
+        get {
+            if let value = self["dailyGoalType"] as? Int {
+                return DailyGoalType(rawValue: value)!
+            } else {
+                return .Max
+            }
+        }
+        set {
+            let value: Int = newValue.rawValue
+            self["dailyGoalType"] = value
+        }
+    }
+    
+    var opened = false
     
 }

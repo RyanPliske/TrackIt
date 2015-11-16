@@ -4,16 +4,20 @@ import Parse
 typealias TRCreateRecordCompletion = () -> Void
 typealias TRSearchCompletion = () -> Void
 typealias TRSearchForItemCompletion = ([TRRecord]?, NSError?) -> Void
+//typealias TRTracks = [Int : Float]
+typealias TRTrack = (dayIndex: Int, count: Float)
+typealias TRTracks = [TRTrack]
+typealias TRRecordedDays = (days: [Int], dailyGoalType: DailyGoalType)
 
 class TRRecordsModel {
     
     static let sharedInstanceOfRecordsModel = TRRecordsModel(recordService: TRRecordService(), itemsModel: TRItemsModel.sharedInstanceOfItemsModel)
-    // MARK: Private Properties
+
     private let recordSortManager = TRRecordSortManager()
     private let recordService: TRRecordService
     private let itemsModel: TRItemsModel
     
-    // MARK: Public Properties
+
     var records: [TRRecord] {
         get { return self.recordSortManager.records }
     }
@@ -26,14 +30,14 @@ class TRRecordsModel {
         set { self.recordSortManager.searchMode = newValue }
     }
     
-    // MARK: Public Methods
+
     init(recordService: TRRecordService, itemsModel: TRItemsModel) {
         self.recordService = recordService
         self.itemsModel = itemsModel
         TRRecord()
     }
     
-    func createRecordUsingRow(row: Int, quantity: Float, type: TRRecordType, date: NSDate) {
+    func createRecordUsingRow(row: Int, quantity: Float, type: TRRecordType, date: NSDate, withCompletion completion: TRCreateRecordCompletion) {
         var item: String
         switch (type) {
         case .TrackAction:
@@ -50,6 +54,7 @@ class TRRecordsModel {
             case .TrackUrge:
                 weakSelf?.grabAllUrges(nil)
             }
+            completion()
         }
         
         recordService.createRecordWithItem(item, quantity: quantity, itemType: type, date: date, completion: blockCompletion)
@@ -81,12 +86,61 @@ class TRRecordsModel {
         }
     }
     
+//    func recordedDaysForItem(item: TRItem, forDate date: NSDate, withGoal goal: Int, forGoalType goalType: DailyGoalType) -> TRRecordedDays {
+//        guard let tracks = tracksForItem(item, forDate: date) else {
+//            return ([], goalType)
+//        }
+//        var failureDays = [Int]()
+//        var successDays = [Int]()
+//        switch (goalType) {
+//        case .Max:
+//            for (indexOfDay, count) in tracks {
+//                if Int(count) > goal {
+//                    failureDays.append(indexOfDay)
+//                } else {
+//                    successDays.append(indexOfDay)
+//                }
+//            }
+//        case .Min:
+//            for (indexOfDay, count) in tracks {
+//                if Int(count) < goal {
+//                    failureDays.append(indexOfDay)
+//                } else {
+//                    successDays.append(indexOfDay)
+//                }
+//            }
+//        }
+//        if goalType == DailyGoalType.Max {
+//            return (failureDays, goalType)
+//        } else {
+//            return (successDays, goalType)
+//        }
+//    }
+    
     func deleteRecordAtRow(record: TRRecord) {
         recordSortManager.removeRecord(record)
         recordService.deleteRecord(record)
     }
     
     // MARK: Private Helpers
+    private func tracksForItem(item: TRItem, forDate date: NSDate) -> TRTracks {
+        var records = recordService.readAllRecordsFromPhoneWithItemName(item.name, monthName: TRDateFormatter.monthOfDate(date), yearName: TRDateFormatter.yearOfDate(date))
+        if records.isEmpty {
+            return []
+        }
+        var tracks = TRTracks()
+        for var index = records.count - 1; index >= 0; --index {
+            let indexOfDay: Int = TRDateFormatter.dayOfDate(records[index].date!)
+            let quantitiesForDay = records.filter { TRDateFormatter.dayOfDate($0.date!) ==  indexOfDay }.map { $0.itemQuantity }
+            let sumForDay = quantitiesForDay.reduce(0, combine: +)
+            let track: TRTrack = (dayIndex: indexOfDay, count: sumForDay)
+            tracks.append(track)
+            records = records.filter { TRDateFormatter.dayOfDate($0.date!) != indexOfDay }
+            index = records.count
+        }
+        return tracks
+    }
+    
     private func grabAllTracks(completion: TRSearchCompletion?) {
         grabRecordsWithSortType(TRRecordType.TrackAction, completion: completion)
     }

@@ -96,6 +96,11 @@ class TRItemService {
         item.pinInBackgroundWithBlock(nil)
     }
     
+    func updateItem(item: TRItem, dailyGoalType: DailyGoalType) {
+        item.dailyGoalType = dailyGoalType
+        item.pinInBackgroundWithBlock(nil)
+    }
+    
     func deleteItemFromPhone(item: TRItem, completion: PFBooleanResultBlock?) {
         if let completionBlock = completion {
             item.unpinInBackgroundWithBlock(completionBlock)
