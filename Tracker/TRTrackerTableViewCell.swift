@@ -6,7 +6,7 @@ protocol TRTrackerTableViewCellDelegate: class {
     func trackUrgeSelectedForRow(row: Int, completion: TRCreateRecordCompletion)
     func trackMultipleSelectedForRow(row: Int)
     func textFieldReturnedWithTextAtRow(row: Int, text: String, completion: TRCreateRecordCompletion)
-    func recordedDaysForRow(row: Int) -> TRRecordedDays
+    func recordedMonthlyTracksForRow(row: Int) -> TRTracks
     func moreButtonPressedAtRow(row: Int, includeBadHabit: Bool)
 }
 
@@ -14,12 +14,6 @@ class TRTrackerTableViewCell: UITableViewCell, TRStatsModelDelegate {
     
     weak var delegate: TRTrackerTableViewCellDelegate!
     var dateSelectedOnJTCalendar: NSDate!
-    var moreButtonFrame: CGRect {
-        return self.moreButton.frame
-    }
-    var recordedDays: TRRecordedDays {
-        return delegate.recordedDaysForRow(self.tag)
-    }
     
     @IBOutlet private weak var itemLabel: UILabel!
     @IBOutlet private weak var itemCountLabel: UILabel!
@@ -32,6 +26,14 @@ class TRTrackerTableViewCell: UITableViewCell, TRStatsModelDelegate {
         super.layoutSubviews()
         self.layer.cornerRadius = 5.0
         statsPresenter?.statsView.frame = CGRectMake(0, TRTrackerTableViewCellSize.closedHeight, CGRectGetWidth(self.bounds), TRTrackerTableViewCellSize.openedHeight - TRTrackerTableViewCellSize.closedHeight)
+    }
+    
+    var moreButtonFrame: CGRect {
+        return self.moreButton.frame
+    }
+
+    var recordedTracksForTheMonth: TRTracks {
+        return delegate.recordedMonthlyTracksForRow(self.tag)
     }
     
     func prepareStatsView() {

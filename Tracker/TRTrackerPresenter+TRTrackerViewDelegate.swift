@@ -35,9 +35,15 @@ extension TRTrackerPresenter: TRTrackerViewDelegate {
         }
     }
     
-    func recordedDaysForRow(row: Int) -> TRRecordedDays {
+//    func recordedDaysForRow(row: Int) -> TRRecordedDays {
+//        let itemToLookUp = itemsModel.activeItems[row]
+//        return recordsModel.recordedDaysForItem(itemToLookUp, forDate: dateToTrack, withGoal: itemToLookUp.dailyGoal!, forGoalType: itemToLookUp.dailyGoalType)
+//    }
+    
+    func recordedMonthlyTracksForRow(row: Int) -> TRTracks {
         let itemToLookUp = itemsModel.activeItems[row]
-        return recordsModel.recordedDaysForItem(itemToLookUp, forDate: dateToTrack, withGoal: itemToLookUp.dailyGoal!, forGoalType: itemToLookUp.dailyGoalType)
+        
+        return []
     }
     
     func itemSelectedAtRow(row: Int) {
