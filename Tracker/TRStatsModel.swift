@@ -13,13 +13,15 @@ class TRStatsModel {
     var graphPoints: [Int] {
         var points = [Int]()
         let monthGenerator = TRMonthGenerator(trackingDate: delegate.trackingDate)
-        //TODO: User actual current week
+        let tracks = recordedTracksForTheMonth
+        print(tracks)
+        //TODO: Use actual current week
         for day in monthGenerator.week3 {
-            let filter = recordedTracksForTheMonth.filter { $0.dayIndex == day }
+            let filter = tracks.filter { $0.dayIndex == day }
             if filter.isEmpty {
                 points.append(0)
             } else {
-                points.append(filter.count)
+                points.append(Int(filter.first!.count))
             }
         }
         return points
