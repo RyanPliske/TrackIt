@@ -3,7 +3,6 @@ import Foundation
 class TRMonthGenerator {
     
     private var trackingDate: NSDate
-    private var lastDayOfFirstWeek = 1
     
     init(trackingDate: NSDate) {
         self.trackingDate = trackingDate
@@ -22,21 +21,29 @@ class TRMonthGenerator {
         let daysRange = calendar.rangeOfUnit(NSCalendarUnit.Day, inUnit: NSCalendarUnit.Month, forDate: trackingDate)
         return daysRange.length + 1
     }
+    var lastDayOfFirstWeek: Int {
+        var lastDay = 1
+        for index in 1...7 {
+            if index > weekDayIndexOfTheFirstOfThisMonth {
+                lastDay++
+            }
+        }
+        return lastDay
+    }
     var week1: [Int] {
         var week = [Int]()
         for index in 1...7 {
             if index < weekDayIndexOfTheFirstOfThisMonth {
                 week.append(0)
             } else {
-                week.append(lastDayOfFirstWeek)
-                lastDayOfFirstWeek++
+                week.append(index)
             }
         }
         return week
     }
     var week2: [Int] {
         var week = [Int]()
-        var day = lastDayOfFirstWeek
+        var day = lastDayOfFirstWeek + 1
         for _ in 1...7 {
             week.append(day)
             day++
@@ -45,7 +52,7 @@ class TRMonthGenerator {
     }
     var week3: [Int] {
         var week = [Int]()
-        var day = lastDayOfFirstWeek + 7
+        var day = lastDayOfFirstWeek + 8
         for _ in 1...7 {
             week.append(day)
             day++
@@ -54,7 +61,7 @@ class TRMonthGenerator {
     }
     var week4: [Int] {
         var week = [Int]()
-        var day = lastDayOfFirstWeek + 14
+        var day = lastDayOfFirstWeek + 15
         for _ in 1...7 {
             week.append(day)
             day++
@@ -63,7 +70,7 @@ class TRMonthGenerator {
     }
     var week5: [Int] {
         var week = [Int]()
-        var day = lastDayOfFirstWeek + 21
+        var day = lastDayOfFirstWeek + 22
         for _ in 1...7 {
             if day < lastDayOfTheMonth {
                 week.append(day)
@@ -76,7 +83,7 @@ class TRMonthGenerator {
     }
     var week6: [Int] {
         var week = [Int]()
-        var day = lastDayOfFirstWeek + 28
+        var day = lastDayOfFirstWeek + 29
         for _ in 1...7 {
             if day < lastDayOfTheMonth {
                 week.append(day)

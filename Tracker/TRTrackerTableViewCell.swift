@@ -13,7 +13,7 @@ protocol TRTrackerTableViewCellDelegate: class {
 class TRTrackerTableViewCell: UITableViewCell, TRStatsModelDelegate {
     
     weak var delegate: TRTrackerTableViewCellDelegate!
-    var dateSelectedOnJTCalendar: NSDate!
+    var dateToTrack: NSDate!
     
     @IBOutlet private weak var itemLabel: UILabel!
     @IBOutlet private weak var itemCountLabel: UILabel!
@@ -44,11 +44,15 @@ class TRTrackerTableViewCell: UITableViewCell, TRStatsModelDelegate {
         return TRItemsModel.sharedInstanceOfItemsModel.activeItems[tag].dailyGoal!
     }
     
+    var trackingDate: NSDate {
+        return dateToTrack
+    }
+    
     func prepareStatsView() {
         if statsPresenter == nil {
             statsModel = TRStatsModel(withDelegate: self)
             statsPresenter = TRStatsPresenter(withStatsModel: statsModel)
-            statsPresenter.statsView = TRStatsView(frame: CGRectZero, trackingDate: dateSelectedOnJTCalendar, delegate: statsPresenter)
+            statsPresenter.statsView = TRStatsView(frame: CGRectZero, trackingDate: dateToTrack, delegate: statsPresenter)
             addSubview(statsPresenter.statsView)
             layoutIfNeeded()
         }
@@ -88,13 +92,14 @@ class TRTrackerTableViewCell: UITableViewCell, TRStatsModelDelegate {
     func resetCalendarAfterTrackOccured() {
         let item = TRItemsModel.sharedInstanceOfItemsModel.activeItems[tag]
         if item.dailyGoal != nil {
-            let cell = statsPresenter.statsView.collectionView.cellForItemAtIndexPath(NSIndexPath(forRow: tag, inSection: 0)) as! TRCalendarCollectionViewCell
-            cell.redrawGoalSymbols()
+            if let cell = statsPresenter.statsView.collectionView.cellForItemAtIndexPath(NSIndexPath(forRow: 1, inSection: 0)) as? TRCalendarCollectionViewCell {
+                cell.redrawGoalSymbols()
+            }
         }
     }
     
     func setSelectedDateOnCalendarWith(selectedDate: NSDate) {
-        dateSelectedOnJTCalendar = selectedDate
+        dateToTrack = selectedDate
     }
     
     @IBAction func moreButtonPressed(sender: AnyObject) {

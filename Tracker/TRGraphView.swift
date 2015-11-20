@@ -10,6 +10,7 @@ protocol TRGraphViewDelegate: class {
     weak var delegate: TRGraphViewDelegate!
     
     override func drawRect(rect: CGRect) {
+        let graphPoints = delegate.graphPoints
         let recWidth = rect.width
         let recHeight = rect.height
         let cgContext = UIGraphicsGetCurrentContext()
@@ -26,7 +27,7 @@ protocol TRGraphViewDelegate: class {
         let columnXPoint = { (column:Int) -> CGFloat in
             //Calculate gap between points
             let spacer = (recWidth - margin*2 - 4) /
-                CGFloat((self.delegate.graphPoints.count - 1))
+                CGFloat((graphPoints.count - 1))
             var x:CGFloat = CGFloat(column) * spacer
             x += margin + 2
             return x
@@ -35,7 +36,7 @@ protocol TRGraphViewDelegate: class {
         let topBorder:CGFloat = 60
         let bottomBorder:CGFloat = 50
         let graphHeight = recHeight - topBorder - bottomBorder
-        let maxValue = delegate.graphPoints.maxElement()!
+        let maxValue = graphPoints.maxElement()!
         let columnYPoint = { (graphPoint:Int) -> CGFloat in
             var y:CGFloat = CGFloat(graphPoint) /
                 CGFloat(maxValue) * graphHeight
@@ -50,13 +51,13 @@ protocol TRGraphViewDelegate: class {
         let graphPath = UIBezierPath()
         //go to start of line
         graphPath.moveToPoint(CGPoint(x:columnXPoint(0),
-            y:columnYPoint(delegate.graphPoints[0])))
+            y:columnYPoint(graphPoints[0])))
         
         //add points for each item in the graphPoints array
         //at the correct (x, y) for the point
-        for i in 1..<delegate.graphPoints.count {
+        for i in 1..<graphPoints.count {
             let nextPoint = CGPoint(x:columnXPoint(i),
-                y:columnYPoint(delegate.graphPoints[i]))
+                y:columnYPoint(graphPoints[i]))
             graphPath.addLineToPoint(nextPoint)
         }
         
@@ -70,7 +71,7 @@ protocol TRGraphViewDelegate: class {
         
         //3 - add lines to the copied path to complete the clip area
         clippingPath.addLineToPoint(CGPoint(
-            x: columnXPoint(delegate.graphPoints.count - 1),
+            x: columnXPoint(graphPoints.count - 1),
             y:recHeight))
         clippingPath.addLineToPoint(CGPoint(
             x:columnXPoint(0),
@@ -93,8 +94,8 @@ protocol TRGraphViewDelegate: class {
         CGContextRestoreGState(cgContext)
         
         //draw circles
-        for i in 0..<delegate.graphPoints.count {
-            let point = CGPoint(x: columnXPoint(i) - 2.5, y: columnYPoint(delegate.graphPoints[i]) - 2.5)
+        for i in 0..<graphPoints.count {
+            let point = CGPoint(x: columnXPoint(i) - 2.5, y: columnYPoint(graphPoints[i]) - 2.5)
             let circle = UIBezierPath(ovalInRect: CGRect(origin: point, size: CGSize(width: 5.0, height: 5.0)))
             circle.fill()
         }
