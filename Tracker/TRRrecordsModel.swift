@@ -4,7 +4,6 @@ import Parse
 typealias TRCreateRecordCompletion = () -> Void
 typealias TRSearchCompletion = () -> Void
 typealias TRSearchForItemCompletion = ([TRRecord]?, NSError?) -> Void
-//typealias TRTracks = [Int : Float]
 typealias TRTrack = (dayIndex: Int, count: Float)
 typealias TRTracks = [TRTrack]
 typealias TRRecordedDays = (days: [Int], dailyGoalType: DailyGoalType)
@@ -86,44 +85,7 @@ class TRRecordsModel {
         }
     }
     
-//    func recordedDaysForItem(item: TRItem, forDate date: NSDate, withGoal goal: Int, forGoalType goalType: DailyGoalType) -> TRRecordedDays {
-//        guard let tracks = tracksForItem(item, forDate: date) else {
-//            return ([], goalType)
-//        }
-//        var failureDays = [Int]()
-//        var successDays = [Int]()
-//        switch (goalType) {
-//        case .Max:
-//            for (indexOfDay, count) in tracks {
-//                if Int(count) > goal {
-//                    failureDays.append(indexOfDay)
-//                } else {
-//                    successDays.append(indexOfDay)
-//                }
-//            }
-//        case .Min:
-//            for (indexOfDay, count) in tracks {
-//                if Int(count) < goal {
-//                    failureDays.append(indexOfDay)
-//                } else {
-//                    successDays.append(indexOfDay)
-//                }
-//            }
-//        }
-//        if goalType == DailyGoalType.Max {
-//            return (failureDays, goalType)
-//        } else {
-//            return (successDays, goalType)
-//        }
-//    }
-    
-    func deleteRecordAtRow(record: TRRecord) {
-        recordSortManager.removeRecord(record)
-        recordService.deleteRecord(record)
-    }
-    
-    // MARK: Private Helpers
-    private func tracksForItem(item: TRItem, forDate date: NSDate) -> TRTracks {
+    func tracksForItem(item: TRItem, forDate date: NSDate) -> TRTracks {
         var records = recordService.readAllRecordsFromPhoneWithItemName(item.name, monthName: TRDateFormatter.monthOfDate(date), yearName: TRDateFormatter.yearOfDate(date))
         if records.isEmpty {
             return []
@@ -141,6 +103,12 @@ class TRRecordsModel {
         return tracks
     }
     
+    func deleteRecordAtRow(record: TRRecord) {
+        recordSortManager.removeRecord(record)
+        recordService.deleteRecord(record)
+    }
+    
+    // MARK: Private Helpers
     private func grabAllTracks(completion: TRSearchCompletion?) {
         grabRecordsWithSortType(TRRecordType.TrackAction, completion: completion)
     }

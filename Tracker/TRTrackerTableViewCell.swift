@@ -36,6 +36,14 @@ class TRTrackerTableViewCell: UITableViewCell, TRStatsModelDelegate {
         return delegate.recordedMonthlyTracksForRow(self.tag)
     }
     
+    var dailyGoalType: DailyGoalType {
+        return TRItemsModel.sharedInstanceOfItemsModel.activeItems[tag].dailyGoalType
+    }
+    
+    var dailyGoal: Int {
+        return TRItemsModel.sharedInstanceOfItemsModel.activeItems[tag].dailyGoal!
+    }
+    
     func prepareStatsView() {
         if statsPresenter == nil {
             statsModel = TRStatsModel(withDelegate: self)

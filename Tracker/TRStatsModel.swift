@@ -3,6 +3,8 @@ import Foundation
 protocol TRStatsModelDelegate: class {
     var recordedTracksForTheMonth: TRTracks { get }
     var tag: Int { get }
+    var dailyGoalType: DailyGoalType { get }
+    var dailyGoal: Int { get }
 }
 
 class TRStatsModel {
@@ -18,7 +20,35 @@ class TRStatsModel {
     }
     
     var recordedDays: TRRecordedDays {
-        return (days: [1,2], dailyGoalType: DailyGoalType.Max)
+        
+        let goalType = delegate.dailyGoalType
+        let goal = delegate.dailyGoal
+        
+        var failureDays = [Int]()
+        var successDays = [Int]()
+        switch (goalType) {
+        case .Max:
+            for track in recordedTracksForTheMonth {
+                if Int(track.count) > goal {
+                    failureDays.append(track.dayIndex)
+                } else {
+                    successDays.append(track.dayIndex)
+                }
+            }
+        case .Min:
+            for track in recordedTracksForTheMonth {
+                if Int(track.count) < goal {
+                    failureDays.append(track.dayIndex)
+                } else {
+                    successDays.append(track.dayIndex)
+                }
+            }
+        }
+        if goalType == DailyGoalType.Max {
+            return (failureDays, goalType)
+        } else {
+            return (successDays, goalType)
+        }
     }
     
     var itemIndex: Int {
@@ -26,7 +56,7 @@ class TRStatsModel {
     }
     
     func getRecordedTracks() {
-        self.recordedTracksForTheMonth = delegate.recordedTracksForTheMonth
+        recordedTracksForTheMonth = delegate.recordedTracksForTheMonth
     }
     
 }
