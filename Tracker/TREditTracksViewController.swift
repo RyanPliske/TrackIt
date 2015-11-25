@@ -24,9 +24,9 @@ class TREditTracksViewController: UIViewController {
     }
     
     override func viewWillDisappear(animated: Bool) {
-        recordsModel.sortType = TRRecordType.TrackAction
-        view.endEditing(true)
         super.viewWillDisappear(animated)
+        recordsModel.sortType = TRRecordType.TrackAction
+        recordSearchBar.resignFirstResponder()
     }
     
     override func setEditing(editing: Bool, animated: Bool) {
