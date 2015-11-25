@@ -14,7 +14,6 @@ class TRStatsModel {
         var points = [Int]()
         let monthGenerator = TRMonthGenerator(trackingDate: delegate.trackingDate)
         let tracks = recordedTracksForTheMonth
-        print(tracks)
 
         for day in monthGenerator.currentWeek {
             let filter = tracks.filter { $0.dayIndex == day }

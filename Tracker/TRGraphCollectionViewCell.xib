@@ -80,6 +80,13 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average: 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4oF-j1-qn8">
+                                <rect key="frame" x="18" y="21" width="79" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -90,6 +97,7 @@
                             <constraint firstItem="JQM-uC-le1" firstAttribute="leading" secondItem="HOW-v7-qJ6" secondAttribute="leading" constant="18" id="DSl-an-Bff"/>
                             <constraint firstItem="fpb-6d-0FC" firstAttribute="bottom" secondItem="gYQ-Qe-Cxz" secondAttribute="bottom" id="ILH-7t-hNw"/>
                             <constraint firstAttribute="trailing" secondItem="1je-ah-7o3" secondAttribute="trailing" constant="6" id="JSS-7O-tWk"/>
+                            <constraint firstItem="4oF-j1-qn8" firstAttribute="top" secondItem="HOW-v7-qJ6" secondAttribute="top" constant="21" id="Ja3-6J-v0F"/>
                             <constraint firstItem="hAi-b6-Sod" firstAttribute="bottom" secondItem="VoF-fd-07k" secondAttribute="bottom" id="Jxh-2o-3gK"/>
                             <constraint firstItem="p2d-H8-ivg" firstAttribute="bottom" secondItem="fpb-6d-0FC" secondAttribute="bottom" id="LWT-OI-TBj"/>
                             <constraint firstItem="gx6-RD-bOc" firstAttribute="leading" secondItem="hAi-b6-Sod" secondAttribute="trailing" constant="39" id="OSx-8l-mA8"/>
@@ -100,6 +108,7 @@
                             <constraint firstItem="p2d-H8-ivg" firstAttribute="leading" secondItem="fpb-6d-0FC" secondAttribute="trailing" constant="36" id="fAY-mx-YNG"/>
                             <constraint firstItem="gYQ-Qe-Cxz" firstAttribute="leading" secondItem="JQM-uC-le1" secondAttribute="trailing" constant="36" id="jul-Ue-6g4"/>
                             <constraint firstItem="gYQ-Qe-Cxz" firstAttribute="bottom" secondItem="JQM-uC-le1" secondAttribute="bottom" id="kja-KR-EB3"/>
+                            <constraint firstItem="4oF-j1-qn8" firstAttribute="leading" secondItem="HOW-v7-qJ6" secondAttribute="leading" constant="18" id="nwX-7B-rj7"/>
                             <constraint firstItem="LWB-dN-9LV" firstAttribute="leading" secondItem="1je-ah-7o3" secondAttribute="leading" id="pel-pQ-7RC"/>
                             <constraint firstItem="hAi-b6-Sod" firstAttribute="leading" secondItem="VoF-fd-07k" secondAttribute="trailing" constant="38" id="rOf-EF-V9n"/>
                         </constraints>
@@ -112,6 +121,7 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                         <connections>
+                            <outlet property="averageLabel" destination="4oF-j1-qn8" id="wss-xM-cc5"/>
                             <outlet property="maxLabel" destination="1je-ah-7o3" id="bTa-uH-JDn"/>
                             <outlet property="minLabel" destination="LWB-dN-9LV" id="3I5-cu-icj"/>
                         </connections>

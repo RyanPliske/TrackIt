@@ -13,7 +13,7 @@ class TRMonthGenerator {
         return components.weekOfMonth
     }
     var currentWeek: [Int] {
-        print("Week: \(currentWeekIndex)")
+
         switch currentWeekIndex {
         case 1:
             return week1

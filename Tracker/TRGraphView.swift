@@ -10,6 +10,7 @@ protocol TRGraphViewDelegate: class {
     @IBInspectable var endColor: UIColor = UIColor.greenColor()
     @IBOutlet weak var maxLabel: UILabel!
     @IBOutlet weak var minLabel: UILabel!
+    @IBOutlet weak var averageLabel: UILabel!
     
     weak var delegate: TRGraphViewDelegate!
     
@@ -142,6 +143,10 @@ protocol TRGraphViewDelegate: class {
         } else {
             minLabel.text = ""
         }
+
+        let average: Double = round(Double(graphPoints.reduce(0, combine:+)) / Double(graphPoints.count) * 100) / 100
+        averageLabel.text = "Avg: \(average)"
+        
         for index in 1...7 {
             if let labelView = self.viewWithTag(index) as? UILabel {
                 if index == trackingDayIndex {
