@@ -7,7 +7,30 @@ class TRMonthGenerator {
     init(trackingDate: NSDate) {
         self.trackingDate = trackingDate
     }
-    
+    var currentWeekIndex: Int {
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components([.WeekOfMonth], fromDate: NSDate())
+        return components.weekOfMonth
+    }
+    var currentWeek: [Int] {
+        print("Week: \(currentWeekIndex)")
+        switch currentWeekIndex {
+        case 1:
+            return week1
+        case 2:
+            return week2
+        case 3:
+            return week3
+        case 4:
+            return week4
+        case 5:
+            return week5
+        case 6:
+            return week6
+        default:
+            return [Int]()
+        }
+    }
     var weekDayIndexOfTheFirstOfThisMonth: Int {
         let calendar = NSCalendar.currentCalendar()
         let components = calendar.components([.Day, .Year, .Month], fromDate: trackingDate)
