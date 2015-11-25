@@ -33,6 +33,7 @@ class TRAppDelegate: UIResponder, UIApplicationDelegate {
         let drawerController = MMDrawerController(centerViewController: firstNavigationController, rightDrawerViewController: secondNavigationController)
         drawerController.openDrawerGestureModeMask = [.PanningCenterView]
         drawerController.closeDrawerGestureModeMask = [.PanningCenterView, .TapCenterView, .TapNavigationBar, .PanningDrawerView]
+        drawerController.shouldStretchDrawer = false
         window!.rootViewController = drawerController
     }
 }
