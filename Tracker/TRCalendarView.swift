@@ -42,6 +42,7 @@ class TRCalendarView: UIView, TRWeekViewDelegate {
     
     func redrawGoalSymbols() {
         addGoalSymbolForDays(delegate.recordedDays)
+        layoutIfNeeded()
     }
     
     private func drawWeeks(weeksOfTheMonth: [NSArray]) {

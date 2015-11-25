@@ -12,4 +12,8 @@ class TRGraphCollectionViewCell: UICollectionViewCell {
         graphView.delegate = delegate
     }
     
+    func reset() {
+        graphView.setNeedsDisplay()
+    }
+    
 }

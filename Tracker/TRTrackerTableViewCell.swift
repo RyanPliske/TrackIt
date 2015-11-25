@@ -96,6 +96,9 @@ class TRTrackerTableViewCell: UITableViewCell, TRStatsModelDelegate {
                 cell.redrawGoalSymbols()
             }
         }
+        if let cell = statsPresenter.statsView.collectionView.cellForItemAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as? TRGraphCollectionViewCell {
+            cell.reset()
+        }
     }
     
     func setSelectedDateOnCalendarWith(selectedDate: NSDate) {
