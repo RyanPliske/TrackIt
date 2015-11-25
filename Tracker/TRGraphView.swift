@@ -7,10 +7,14 @@ protocol TRGraphViewDelegate: class {
 @IBDesignable class TRGraphView: UIView {
     @IBInspectable var startColor: UIColor = UIColor.redColor()
     @IBInspectable var endColor: UIColor = UIColor.greenColor()
+    @IBOutlet weak var maxLabel: UILabel!
+    @IBOutlet weak var minLabel: UILabel!
+    
     weak var delegate: TRGraphViewDelegate!
     
     override func drawRect(rect: CGRect) {
         let graphPoints = delegate.graphPoints
+        setupLabelsUsing(graphPoints)
         let recWidth = rect.width
         let recHeight = rect.height
         let cgContext = UIGraphicsGetCurrentContext()
@@ -124,5 +128,18 @@ protocol TRGraphViewDelegate: class {
         
         linePath.lineWidth = 1.0
         linePath.stroke()
+    }
+    
+    private func setupLabelsUsing(graphPoints: [Int]) {
+        if let max = graphPoints.maxElement() {
+            maxLabel.text = "\(max)"
+        } else {
+            maxLabel.text = ""
+        }
+        if let min = graphPoints.minElement() {
+            minLabel.text = "\(min)"
+        } else {
+            minLabel.text = ""
+        }
     }
 }
