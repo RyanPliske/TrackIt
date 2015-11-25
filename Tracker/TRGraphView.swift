@@ -2,6 +2,7 @@ import UIKit
 
 protocol TRGraphViewDelegate: class {
     var graphPoints: [Int] { get }
+    var trackingDate: NSDate! { get }
 }
 
 @IBDesignable class TRGraphView: UIView {
@@ -141,5 +142,22 @@ protocol TRGraphViewDelegate: class {
         } else {
             minLabel.text = ""
         }
+        for index in 1...7 {
+            if let labelView = self.viewWithTag(index) as? UILabel {
+                if index == trackingDayIndex {
+                    labelView.backgroundColor = UIColor.whiteColor()
+                    labelView.textColor = UIColor.blackColor()
+                } else {
+                    labelView.backgroundColor = UIColor.clearColor()
+                    labelView.textColor = UIColor.whiteColor()
+                }
+            }
+        }
+    }
+    
+    private var trackingDayIndex: Int {
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components([.Weekday], fromDate: delegate.trackingDate)
+        return components.weekday
     }
 }
