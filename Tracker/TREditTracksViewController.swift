@@ -23,6 +23,11 @@ class TREditTracksViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        editTracksTableView.reloadData()
+    }
+    
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         recordsModel.sortType = TRRecordType.TrackAction
