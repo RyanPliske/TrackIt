@@ -12,16 +12,16 @@ class TRRecordSortManager {
         if searchMode {
             switch (sortType) {
             case .TrackAction:
-                return self.searchResultsForTracks
+                return self.searchResultsForTracks.reverse()
             case .TrackUrge:
-                return self.searchResultsForUrges
+                return self.searchResultsForUrges.reverse()
             }
         } else {
             switch (sortType) {
             case .TrackAction:
-                return self.tracks
+                return self.tracks.reverse()
             case .TrackUrge:
-                return self.urges
+                return self.urges.reverse()
             }
         }
     }
