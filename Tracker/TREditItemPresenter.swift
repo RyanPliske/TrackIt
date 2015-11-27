@@ -168,7 +168,7 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
                 itemsModel.createItemWithName(text, completion: { () -> () in
                     weakSelf?.isNewItem = false
                     weakSelf?.itemRow = ((weakSelf?.itemsModel.allItems.count)! - 1)
-                    NSNotificationCenter.defaultCenter().postNotificationName("newItem", object: nil)
+                    NSNotificationCenter.defaultCenter().postNotificationName("ActiveItemsChanged", object: nil)
                 })
             }
         } else {

@@ -133,10 +133,12 @@ class TRItemsModel {
     func deleteItemAtIndex(index: Int) {
         let itemToDelete = _allItems[index]
         _allItems = _allItems.filter { $0 !== itemToDelete }
-        weak var weakSelf = self
-        itemService.deleteItemFromPhone(itemToDelete) { (success, error) -> Void in
+
+        itemService.deleteItemFromPhone(itemToDelete) { [weak self](success, error) -> Void in
             if success {
-                weakSelf?.readItemsFromPhone(nil)
+                self?.readItemsFromPhone({ () -> () in
+                    NSNotificationCenter.defaultCenter().postNotificationName("ActiveItemsChanged", object: nil)
+                })
             }
         }
     }

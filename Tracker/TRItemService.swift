@@ -94,12 +94,8 @@ class TRItemService {
         item.pinInBackgroundWithBlock(nil)
     }
     
-    func deleteItemFromPhone(item: TRItem, completion: PFBooleanResultBlock?) {
-        if let completionBlock = completion {
-            item.unpinInBackgroundWithBlock(completionBlock)
-        } else {
-            item.unpinInBackgroundWithBlock(nil)
-        }
+    func deleteItemFromPhone(item: TRItem, completion: PFBooleanResultBlock) {
+        item.unpinInBackgroundWithBlock(completion)
     }
     
     func deleteAllItemsFromPhone() {

@@ -10,8 +10,7 @@ class TRManageItemsViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Items"
-//        let addButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addItem")
-//        navigationItem.rightBarButtonItem = addButton
+        navigationItem.rightBarButtonItem = self.editButtonItem()
         itemsPresenter = TRManageItemsPresenter(itemsModel: self.itemsModel, itemsTableView: self.itemsTableView)
         itemsTableView.dataSource = itemsPresenter
         itemsTableView.delegate = self
@@ -31,6 +30,14 @@ class TRManageItemsViewController: UIViewController, UITableViewDelegate {
             }
         }
         super.prepareForSegue(segue, sender: sender)
+    }
+    
+    override func setEditing(editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        if let presenter = itemsPresenter {
+            presenter.editMode = editing
+        }
+        itemsTableView.setEditing(editing, animated: animated)
     }
     
     // MARK: UITableViewDelegate

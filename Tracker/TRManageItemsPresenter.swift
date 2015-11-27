@@ -2,6 +2,8 @@ import Foundation
 
 class TRManageItemsPresenter: NSObject, UITableViewDataSource, TRManageItemsTableViewCellDelegate {
     
+    var editMode = false
+    
     private let itemsModel: TRItemsModel
     private let itemsTableView: UITableView
     
@@ -39,11 +41,7 @@ class TRManageItemsPresenter: NSObject, UITableViewDataSource, TRManageItemsTabl
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        if indexPath.row <= TRPreloadedItems.allItems.count {
-            return false
-        } else {
-            return true
-        }
+        return editMode
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {

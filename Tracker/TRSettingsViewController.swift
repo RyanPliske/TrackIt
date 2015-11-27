@@ -17,6 +17,7 @@ class TRSettingsViewController: UIViewController, UITableViewDelegate {
         super.viewWillAppear(animated)
         settingsTableView.deselectRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), animated: false)
         settingsTableView.deselectRowAtIndexPath(NSIndexPath(forItem: 1, inSection: 0), animated: false)
+        settingsTableView.deselectRowAtIndexPath(NSIndexPath(forItem: 2, inSection: 0), animated: false)
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
