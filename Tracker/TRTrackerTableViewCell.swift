@@ -3,8 +3,6 @@ import Spring
 
 protocol TRTrackerTableViewCellDelegate: class {
     func plusButtonPressedAtRow(row: Int, completion: TRCreateRecordCompletion)
-    func trackUrgeSelectedForRow(row: Int, completion: TRCreateRecordCompletion)
-    func trackMultipleSelectedForRow(row: Int)
     func textFieldReturnedWithTextAtRow(row: Int, text: String, completion: TRCreateRecordCompletion)
     func recordedMonthlyTracksForRow(row: Int) -> TRTracks
 }
@@ -18,7 +16,6 @@ class TRTrackerTableViewCell: UITableViewCell, TRStatsModelDelegate {
     @IBOutlet private weak var itemCountLabel: UILabel!
     private var statsPresenter: TRStatsPresenter!
     private var statsModel: TRStatsModel!
-    private var isAVice = false
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -79,10 +76,6 @@ class TRTrackerTableViewCell: UITableViewCell, TRStatsModelDelegate {
         self.tag = tag
     }
     
-    func setCellAsBadHabit(isAVice: Bool) {
-        self.isAVice = isAVice
-    }
-    
     func resetCalendarAfterTrackOccured() {
         let item = TRItemsModel.sharedInstanceOfItemsModel.activeItems[tag]
         if item.dailyGoal != nil {
@@ -97,17 +90,5 @@ class TRTrackerTableViewCell: UITableViewCell, TRStatsModelDelegate {
     
     func setSelectedDateOnCalendarWith(selectedDate: NSDate) {
         dateToTrack = selectedDate
-    }
-}
-
-extension TRTrackerTableViewCell: TRTrackingOptionsDelegate {
-    func trackUrge() {
-        delegate.trackUrgeSelectedForRow(self.tag) { [weak self]() -> Void in
-            self?.resetCalendarAfterTrackOccured()
-        }
-    }
-    
-    func trackMultiple() {
-        delegate.trackMultipleSelectedForRow(self.tag)
     }
 }

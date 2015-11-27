@@ -8,22 +8,20 @@ class TRItemService {
     
     private var itemsToSave = [TRItem]()
     
-    func addItemToSaveWithItemName(name: String, isAVice: Bool, measureUnit: String?) {
+    func addItemToSaveWithItemName(name: String, measureUnit: String?) {
         let item = TRItem(className: "item")
         item.activated = true
         item.name = name
-        item.isAVice = isAVice
         if let unit = measureUnit {
             item.measurementUnit = unit
         }
         itemsToSave.append(item)
     }
     
-    func addItemToSaveWithItemName(name: String, isAVice: Bool, measureUnit: String?, incrementByOne: Bool) {
+    func addItemToSaveWithItemName(name: String, measureUnit: String?, incrementByOne: Bool) {
         let item = TRItem(className: "item")
         item.activated = true
         item.name = name
-        item.isAVice = isAVice
         item.incrementByOne = incrementByOne
         if let unit = measureUnit {
             item.measurementUnit = unit
@@ -60,11 +58,6 @@ class TRItemService {
     
     func updateItem(item: TRItem, activeStatus: Bool) {
         item.activated = activeStatus
-        item.pinInBackgroundWithBlock(nil)
-    }
-    
-    func updateItem(item: TRItem, viceStatus: Bool) {
-        item.isAVice = viceStatus
         item.pinInBackgroundWithBlock(nil)
     }
     

@@ -2,6 +2,7 @@ import Foundation
 
 protocol TRItemsModelDelegate: class {
     func itemOpenedStatusChangedAtIndex(index: Int)
+    func itemTrackByOneStatusChangedAtIndex(index: Int)
 }
 
 class TRItemsModel {
@@ -28,16 +29,16 @@ class TRItemsModel {
     
     private func preloadItemsToPhone() {
         for item in TRPreloadedItems.sinfulItems {
-            itemService.addItemToSaveWithItemName(item, isAVice: true, measureUnit: nil)
+            itemService.addItemToSaveWithItemName(item, measureUnit: nil)
         }
         for (_, items) in TRPreloadedItems.regularItems {
             let itemName = items["name"] as! String
             let itemMeasureUnit = items["unit"] as! String
             let incrementByOne = items["increment"] as! Bool
             if incrementByOne {
-                itemService.addItemToSaveWithItemName(itemName, isAVice: false, measureUnit: itemMeasureUnit)
+                itemService.addItemToSaveWithItemName(itemName, measureUnit: itemMeasureUnit)
             } else {
-                itemService.addItemToSaveWithItemName(itemName, isAVice: false, measureUnit: itemMeasureUnit, incrementByOne: false)
+                itemService.addItemToSaveWithItemName(itemName, measureUnit: itemMeasureUnit, incrementByOne: false)
             }
         }
         weak var weakSelf = self
@@ -51,7 +52,7 @@ class TRItemsModel {
     }
     
     func createItemWithName(itemName: String, completion: (()->())?) {
-        itemService.addItemToSaveWithItemName(itemName, isAVice: false, measureUnit: nil)
+        itemService.addItemToSaveWithItemName(itemName, measureUnit: nil)
         weak var weakSelf = self
         itemService.saveItems { (success, error) -> Void in
             if success {
@@ -84,21 +85,19 @@ class TRItemsModel {
         NSNotificationCenter.defaultCenter().postNotificationName("ActiveItemsChanged", object: nil)
     }
     
-    func updateItemIncrementalStatusAtIndex(index: Int) {
-        let incrementByOne = !_activeItems[index].incrementByOne
-        _activeItems[index].incrementByOne = incrementByOne
-        itemService.updateItem(self.allItems[index], incrementByOne: incrementByOne)
+    func updateItemIncrementalStatusAtIndex(index: Int, status: Bool) {
+        _allItems[index].incrementByOne = status
+        itemService.updateItem(self.allItems[index], incrementByOne: status)
+        // only update main view if item is active
+        let filter = _activeItems.filter { $0 == _allItems[index] }.first
+        if let itemToUpdate = filter {
+            delegate.itemTrackByOneStatusChangedAtIndex(_activeItems.indexOf(itemToUpdate)!)
+        }
     }
     
     func updateItemNameAtIndex(index: Int, name: String) {
         _allItems[index].name = name
         itemService.updateItem(self.allItems[index], name: name)
-    }
-    
-    func updateItemViceStatusAtIndex(index: Int, viceStatus: Bool) {
-        _allItems[index].isAVice = viceStatus
-        filterActiveItemsByVice()
-        itemService.updateItem(self.allItems[index], viceStatus: viceStatus)
     }
     
     func updateItemOpenedStatusAtIndex(index: Int) {
@@ -146,13 +145,7 @@ class TRItemsModel {
         itemService.deleteAllItemsFromPhone()
     }
     
-    private func filterActiveItemsByVice() {
-        _sinfulItems = _activeItems.filter { $0.isAVice }
-        _regularItems = _activeItems.filter { !$0.isAVice }
-    }
-    
     private func filterItemsByActivated() {
         _activeItems = _allItems.filter { $0.activated }
-        filterActiveItemsByVice()
     }
 }

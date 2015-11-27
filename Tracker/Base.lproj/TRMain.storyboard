@@ -618,14 +618,14 @@
                                             <outlet property="textField" destination="EFD-hr-51D" id="i6Z-qR-NNc"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="badHabitCell" id="567-5f-noH" customClass="TREditItemTableViewViceCell" customModule="Tracker" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="trackByOne" id="567-5f-noH" customClass="TREditItemTableViewTrackByOneCell" customModule="Tracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="208" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="567-5f-noH" id="sXW-vq-eoZ">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Is This a Bad Habit?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U8i-FI-xBK">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track By One?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U8i-FI-xBK">
                                                     <rect key="frame" x="33" y="31" width="344" height="28"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
@@ -636,7 +636,7 @@
                                                     <rect key="frame" x="301" y="29" width="51" height="31"/>
                                                     <animations/>
                                                     <connections>
-                                                        <action selector="viceSwitchPressed:" destination="567-5f-noH" eventType="valueChanged" id="uau-AX-TU9"/>
+                                                        <action selector="switchPressed:" destination="567-5f-noH" eventType="valueChanged" id="flJ-Ud-vFU"/>
                                                     </connections>
                                                 </switch>
                                             </subviews>
@@ -654,8 +654,7 @@
                                             <constraint firstAttribute="trailing" secondItem="11O-KI-d0W" secondAttribute="trailing" constant="25" id="lTf-S4-Gov"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="viceLabel" destination="U8i-FI-xBK" id="eFX-bl-oNd"/>
-                                            <outlet property="viceSwitch" destination="11O-KI-d0W" id="c5t-KZ-Bn4"/>
+                                            <outlet property="trackByOneSwitch" destination="11O-KI-d0W" id="Igx-3T-ise"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

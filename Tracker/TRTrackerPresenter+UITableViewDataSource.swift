@@ -21,7 +21,6 @@ extension TRTrackerPresenter: UITableViewDataSource {
             cell = aCell
         }
         setLabelTextWithItem(item, cell: cell)
-        cell.setCellAsBadHabit(item.isAVice)
         cell.setTagsForCellWith(indexPath.section)
         cell.delegate = trackerView
         cell.backgroundColor = TRColorGenerator.colorFor(indexPath.section)

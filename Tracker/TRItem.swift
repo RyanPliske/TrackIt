@@ -35,20 +35,6 @@ class TRItem: PFObject, PFSubclassing {
         }
     }
     
-    var isAVice: Bool {
-        get {
-            if let status = self["vice"] as? Bool {
-                return status
-            }
-            else {
-                return false
-            }
-        }
-        set(newValue) {
-            self["vice"] = newValue
-        }
-    }
-    
     var measurementUnit: String {
         get {
             if let measurementUnit = self["unit"] as? String {

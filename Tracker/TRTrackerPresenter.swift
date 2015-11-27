@@ -16,9 +16,17 @@ class TRTrackerPresenter: NSObject, TRItemsModelDelegate, TRRecordsModelDelegate
         self.trackerView.trackerTableView.dataSource = self
     }
     
+    //MARK: - TRItemsModelDelegate
+    
     func itemOpenedStatusChangedAtIndex(index: Int) {
         trackerView.itemOpenedStatusChangedAtIndex(index)
     }
+    
+    func itemTrackByOneStatusChangedAtIndex(index: Int) {
+        trackerView.trackerTableView.reloadRowsAtIndexPaths([NSIndexPath(forRow: 0, inSection: index)], withRowAnimation: .None)
+    }
+    
+    //MARK: - TRRecordsModelDelegate
     
     func recordsChangedWithName(name: String) {
         let filter = itemsModel.activeItems.filter { $0.name == name }.first!

@@ -40,9 +40,6 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
         if let thirdInputCell = editItemTableView.cellForRowAtIndexPath(NSIndexPath(forItem: cellIndex.itemGoal.rawValue, inSection: 0)) as? TREditItemTableViewInputCell {
             thirdInputCell.setTextFieldUserInteraction(true)
         }
-        if let badHabitCell = editItemTableView.cellForRowAtIndexPath(NSIndexPath(forRow: cellIndex.itemVice.rawValue, inSection: 0)) as? TREditItemTableViewViceCell {
-            badHabitCell.setViewSwitchUserInteraction(true)
-        }
     }
     
     // MARK: UITableViewDataSource
@@ -105,16 +102,11 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
                 }
             }
         case cellIndex.itemVice.rawValue:
-            cell = tableView.dequeueReusableCellWithIdentifier("badHabitCell") as! TREditItemTableViewViceCell
-            if let viceCell = cell as? TREditItemTableViewViceCell {
-                let isAVice = isNewItem ? false : itemsModel.allItems[itemRow].isAVice
-                viceCell.setViceSwitchTo(isAVice)
-                viceCell.viceSwitchDelegate = self
-                if isNewItem {
-                    viceCell.setViewSwitchUserInteraction(false)
-                } else if isPreloadedItem {
-                    viceCell.setViewSwitchUserInteraction(false)
-                }
+            cell = tableView.dequeueReusableCellWithIdentifier("trackByOne") as! TREditItemTableViewTrackByOneCell
+            if let trackByOneCell = cell as? TREditItemTableViewTrackByOneCell {
+                let trackByOne = isNewItem ? false : itemsModel.allItems[itemRow].incrementByOne
+                trackByOneCell.setSwitchTo(trackByOne)
+                trackByOneCell.trackByOneSwitchDelegate = self
             }
         default:
             cell = tableView.dequeueReusableCellWithIdentifier("userInputCell") as! TREditItemTableViewInputCell
@@ -194,10 +186,8 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
     }
     
     // MARK: TREditItemTableViewViceCellDelegate
-    func toggleSwitchChangedValueAtRow() {
-        if let badHabitCell = editItemTableView.cellForRowAtIndexPath(NSIndexPath(forRow: cellIndex.itemVice.rawValue, inSection: 0)) as? TREditItemTableViewViceCell {
-            itemsModel.updateItemViceStatusAtIndex(itemRow, viceStatus: badHabitCell.viceSwitchState)
-        }
+    func toggleSwitchChangedToValue(value: Bool) {
+        itemsModel.updateItemIncrementalStatusAtIndex(itemRow, status: value)
     }
     
 }

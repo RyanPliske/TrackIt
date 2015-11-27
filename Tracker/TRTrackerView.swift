@@ -9,7 +9,6 @@ protocol TRTrackerViewDelegate: class, TRTrackerTableViewCellDelegate {
 
 protocol TRTrackerViewObserver {
     func dateChooserWanted()
-    func dismissTrackingOptions()
 }
 
 class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
@@ -92,19 +91,6 @@ class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
             completion()
         }
         animateSavedRecordForRow(row)
-    }
-    
-    func trackUrgeSelectedForRow(row: Int, completion: TRCreateRecordCompletion) {
-        delegate.trackUrgeSelectedForRow(row) { () -> Void in
-            completion()
-        }
-        observer?.dismissTrackingOptions()
-        animateSavedRecordForRow(row)
-    }
-    
-    func trackMultipleSelectedForRow(row: Int) {
-        delegate.trackMultipleSelectedForRow(row)
-        observer?.dismissTrackingOptions()
     }
     
     func textFieldReturnedWithTextAtRow(row: Int, text: String, completion: TRCreateRecordCompletion) {

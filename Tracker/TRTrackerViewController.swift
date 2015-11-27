@@ -55,8 +55,4 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
             self.presentViewController(dateViewController, animated: true, completion: nil)
         }
     }
-    
-    func dismissTrackingOptions() {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
 }

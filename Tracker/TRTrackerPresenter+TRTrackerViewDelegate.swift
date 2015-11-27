@@ -9,13 +9,6 @@ extension TRTrackerPresenter: TRTrackerViewDelegate {
         })
     }
     
-    func trackUrgeSelectedForRow(row: Int, completion: TRCreateRecordCompletion) {
-        recordsModel.createRecordUsingRow(row, quantity: 1, type: TRRecordType.TrackUrge, date: dateToTrack, withCompletion: {
-            () in
-            completion()
-        })
-    }
-    
     func textFieldReturnedWithTextAtRow(row: Int, text: String, completion: TRCreateRecordCompletion) {
         if !text.isEmpty {
             let quantityFromTextField = Float(text)
@@ -23,15 +16,6 @@ extension TRTrackerPresenter: TRTrackerViewDelegate {
                 () in
                 completion()
             })
-        }
-    }
-    
-    func trackMultipleSelectedForRow(row: Int) {
-        itemsModel.updateItemIncrementalStatusAtIndex(row)
-        if itemsModel.activeItems[row].incrementByOne {
-            trackerView.trackerTableView.reloadSections(NSIndexSet(index: row), withRowAnimation: UITableViewRowAnimation.Left)
-        } else {
-            trackerView.trackerTableView.reloadSections(NSIndexSet(index: row), withRowAnimation: UITableViewRowAnimation.Right)
         }
     }
     
