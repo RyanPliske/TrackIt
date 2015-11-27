@@ -47,8 +47,4 @@ extension TRTrackerPresenter: TRTrackerViewDelegate {
     func itemAtRowIsOpened(row:Int) -> Bool {
         return itemsModel.activeItems[row].opened
     }
-    
-    func moreButtonPressedAtRow(row: Int, includeBadHabit: Bool) {
-        // do nothing for now, this is needed for protocol
-    }
 }

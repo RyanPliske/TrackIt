@@ -9,7 +9,6 @@ protocol TRTrackerViewDelegate: class, TRTrackerTableViewCellDelegate {
 
 protocol TRTrackerViewObserver {
     func dateChooserWanted()
-    func trackingOptionsWantedAtRow(row: Int, includeBadHabit: Bool)
     func dismissTrackingOptions()
 }
 
@@ -93,10 +92,6 @@ class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
             completion()
         }
         animateSavedRecordForRow(row)
-    }
-    
-    func moreButtonPressedAtRow(row: Int, includeBadHabit: Bool) {
-        observer?.trackingOptionsWantedAtRow(row, includeBadHabit: includeBadHabit)
     }
     
     func trackUrgeSelectedForRow(row: Int, completion: TRCreateRecordCompletion) {

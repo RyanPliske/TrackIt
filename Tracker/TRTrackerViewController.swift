@@ -56,25 +56,6 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
         }
     }
     
-    func trackingOptionsWantedAtRow(row: Int, includeBadHabit: Bool) {
-        let incrementByOne = itemsModel.activeItems[row].incrementByOne
-        let trackingOptionsTableViewController = TRTrackingOptionsTableViewController(
-            associatedItemIsAVice: includeBadHabit,
-            associatedItemIncrementsByOne: incrementByOne,
-            associatedItemRow: row)
-        trackingOptionsTableViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
-        if let popOver = trackingOptionsTableViewController.popoverPresentationController {
-            popOver.permittedArrowDirections = .Right
-            popOver.delegate = trackingOptionsTableViewController
-            if let cell = trackerView.trackerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: row)) as? TRTrackerTableViewCell {
-                popOver.sourceView = cell.contentView
-                popOver.sourceRect = cell.moreButtonFrame
-                trackingOptionsTableViewController.delegate = cell
-            }
-            self.presentViewController(trackingOptionsTableViewController, animated: true, completion: nil)
-        }
-    }
-    
     func dismissTrackingOptions() {
         self.dismissViewControllerAnimated(true, completion: nil)
     }

@@ -7,7 +7,6 @@ protocol TRTrackerTableViewCellDelegate: class {
     func trackMultipleSelectedForRow(row: Int)
     func textFieldReturnedWithTextAtRow(row: Int, text: String, completion: TRCreateRecordCompletion)
     func recordedMonthlyTracksForRow(row: Int) -> TRTracks
-    func moreButtonPressedAtRow(row: Int, includeBadHabit: Bool)
 }
 
 class TRTrackerTableViewCell: UITableViewCell, TRStatsModelDelegate {
@@ -17,7 +16,6 @@ class TRTrackerTableViewCell: UITableViewCell, TRStatsModelDelegate {
     
     @IBOutlet private weak var itemLabel: UILabel!
     @IBOutlet private weak var itemCountLabel: UILabel!
-    @IBOutlet private weak var moreButton: UIButton!
     private var statsPresenter: TRStatsPresenter!
     private var statsModel: TRStatsModel!
     private var isAVice = false
@@ -26,10 +24,6 @@ class TRTrackerTableViewCell: UITableViewCell, TRStatsModelDelegate {
         super.layoutSubviews()
         self.layer.cornerRadius = 5.0
         statsPresenter?.statsView.frame = CGRectMake(0, TRTrackerTableViewCellSize.closedHeight, CGRectGetWidth(self.bounds), TRTrackerTableViewCellSize.openedHeight - TRTrackerTableViewCellSize.closedHeight)
-    }
-    
-    var moreButtonFrame: CGRect {
-        return self.moreButton.frame
     }
 
     var recordedTracksForTheMonth: TRTracks {
@@ -103,10 +97,6 @@ class TRTrackerTableViewCell: UITableViewCell, TRStatsModelDelegate {
     
     func setSelectedDateOnCalendarWith(selectedDate: NSDate) {
         dateToTrack = selectedDate
-    }
-    
-    @IBAction func moreButtonPressed(sender: AnyObject) {
-        delegate.moreButtonPressedAtRow(self.tag, includeBadHabit: isAVice)
     }
 }
 
