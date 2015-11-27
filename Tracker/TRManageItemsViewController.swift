@@ -10,23 +10,14 @@ class TRManageItemsViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Items"
-        let addButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addItem")
-        navigationItem.rightBarButtonItem = addButton
+//        let addButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addItem")
+//        navigationItem.rightBarButtonItem = addButton
         itemsPresenter = TRManageItemsPresenter(itemsModel: self.itemsModel, itemsTableView: self.itemsTableView)
         itemsTableView.dataSource = itemsPresenter
         itemsTableView.delegate = self
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadTable", name: "newItem", object: nil)
     }
     
     override func viewWillAppear(animated: Bool) {
-        itemsTableView.reloadData()
-    }
-    
-    func addItem() {
-        performSegueWithIdentifier("showEditItemViewController", sender: nil)
-    }
-    
-    func reloadTable() {
         itemsTableView.reloadData()
     }
     

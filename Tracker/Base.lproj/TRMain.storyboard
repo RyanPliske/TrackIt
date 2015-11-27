@@ -395,6 +395,7 @@
                         <outlet property="settingsTableView" destination="jLY-zk-90h" id="woT-LD-wxu"/>
                         <segue destination="0fU-ki-PNF" kind="show" identifier="showManageItems" id="2za-By-DGz"/>
                         <segue destination="7Tx-Ke-KiD" kind="show" identifier="showEditTracks" id="mRG-uz-fcr"/>
+                        <segue destination="BZ8-nc-TKl" kind="show" identifier="showEditItemFromSettings" id="GsV-Yz-izY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xTt-HB-Sun" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -654,6 +655,7 @@
                                             <constraint firstAttribute="trailing" secondItem="11O-KI-d0W" secondAttribute="trailing" constant="25" id="lTf-S4-Gov"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="trackByOneLabel" destination="U8i-FI-xBK" id="69V-xz-u3f"/>
                                             <outlet property="trackByOneSwitch" destination="11O-KI-d0W" id="Igx-3T-ise"/>
                                         </connections>
                                     </tableViewCell>
@@ -684,4 +686,7 @@
         <image name="full__0000s_0091_config" width="25" height="25"/>
         <image name="plus-circle" width="128" height="128"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="GsV-Yz-izY"/>
+    </inferredMetricsTieBreakers>
 </document>

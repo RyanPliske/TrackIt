@@ -20,6 +20,7 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
         itemsModel.delegate = trackerPresenter
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "itemRetrievalObserved", name: "itemsRetrievedFromDB", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "itemsChanged", name: "ActiveItemsChanged", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "itemsChanged", name: "newItem", object: nil)
     }
     
     override func viewWillAppear(animated: Bool) {

@@ -10,7 +10,7 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
         case itemName = 0
         case itemUnit = 1
         case itemGoal = 3
-        case itemVice = 2
+        case incrementByOne = 2
         
         static var numberOfCells: Int {
             var count = 0
@@ -39,6 +39,10 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
         }
         if let thirdInputCell = editItemTableView.cellForRowAtIndexPath(NSIndexPath(forItem: cellIndex.itemGoal.rawValue, inSection: 0)) as? TREditItemTableViewInputCell {
             thirdInputCell.setTextFieldUserInteraction(true)
+        }
+        if let trackByOneCell = editItemTableView.cellForRowAtIndexPath(NSIndexPath(forItem: cellIndex.incrementByOne.rawValue, inSection: 0)) as? TREditItemTableViewTrackByOneCell {
+            trackByOneCell.setUserInteraction(true)
+            trackByOneCell.setSwitchTo(true)
         }
     }
     
@@ -101,12 +105,17 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
                     inputCell.setDailyGoalType(itemsModel.allItems[row].dailyGoalType)
                 }
             }
-        case cellIndex.itemVice.rawValue:
+        case cellIndex.incrementByOne.rawValue:
             cell = tableView.dequeueReusableCellWithIdentifier("trackByOne") as! TREditItemTableViewTrackByOneCell
             if let trackByOneCell = cell as? TREditItemTableViewTrackByOneCell {
                 let trackByOne = isNewItem ? false : itemsModel.allItems[itemRow].incrementByOne
                 trackByOneCell.setSwitchTo(trackByOne)
                 trackByOneCell.trackByOneSwitchDelegate = self
+                if isNewItem {
+                    trackByOneCell.setUserInteraction(false)
+                } else {
+                    trackByOneCell.setUserInteraction(true)
+                }
             }
         default:
             cell = tableView.dequeueReusableCellWithIdentifier("userInputCell") as! TREditItemTableViewInputCell
@@ -120,7 +129,7 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
     
     // MARK: UITableViewDelegate
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if indexPath.row == cellIndex.itemVice.rawValue {
+        if indexPath.row == cellIndex.incrementByOne.rawValue {
             return 60.0
         }
         else {
