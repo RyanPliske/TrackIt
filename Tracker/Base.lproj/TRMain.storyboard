@@ -26,16 +26,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="BgH-C2-Kl1">
-                                <rect key="frame" x="165" y="380" width="45" height="45"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="BgH-C2-Kl1">
+                                <rect key="frame" x="165" y="358" width="45" height="45"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="4OX-te-IEg"/>
                                     <constraint firstAttribute="height" constant="45" id="6Gr-D1-NSj"/>
                                 </constraints>
                             </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jMm-R1-hOo">
-                                <rect key="frame" x="19" y="74" width="337" height="53"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jMm-R1-hOo">
+                                <rect key="frame" x="19" y="30" width="337" height="53"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="30"/>
                                 <state key="normal" title="June 16, 1988">
@@ -45,8 +45,8 @@
                                     <action selector="todaysDateButtonPressed" destination="tsR-hK-woN" eventType="touchUpInside" id="WQs-5N-Ynb"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Record Saved" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7W2-ec-bCQ" customClass="SpringLabel" customModule="Spring">
-                                <rect key="frame" x="19" y="74" width="337" height="53"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Record Saved" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7W2-ec-bCQ" customClass="SpringLabel" customModule="Spring">
+                                <rect key="frame" x="19" y="30" width="337" height="53"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="30"/>
@@ -56,8 +56,8 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autohide" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Elt-Uh-2qj" customClass="TPKeyboardAvoidingTableView">
-                                <rect key="frame" x="16" y="137" width="343" height="530"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Elt-Uh-2qj" customClass="TPKeyboardAvoidingTableView">
+                                <rect key="frame" x="16" y="93" width="343" height="574"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -83,7 +83,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="64T-tC-Stf" customClass="SpringButton" customModule="Spring">
-                                                    <rect key="frame" x="253" y="13" width="40" height="40"/>
+                                                    <rect key="frame" x="285" y="13" width="40" height="40"/>
                                                     <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="hQN-xh-Bx9"/>
@@ -95,31 +95,14 @@
                                                         <action selector="plusButtonPressed:" destination="BHp-H0-CJH" eventType="touchUpInside" id="QVw-JK-U5L"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D7j-YL-SPF" userLabel="More Button">
-                                                    <rect key="frame" x="313" y="18" width="30" height="30"/>
-                                                    <animations/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="fz1-60-MPZ"/>
-                                                        <constraint firstAttribute="width" constant="30" id="hPa-ek-yCa"/>
-                                                    </constraints>
-                                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <state key="normal" image="more-dots">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="moreButtonPressed:" destination="BHp-H0-CJH" eventType="touchUpInside" id="j4l-4A-LMm"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                             <animations/>
                                             <constraints>
                                                 <constraint firstItem="bT1-vX-V4Z" firstAttribute="top" secondItem="Vqo-Nd-b2b" secondAttribute="topMargin" constant="14" id="0Ag-wQ-30e"/>
                                                 <constraint firstItem="yKP-wx-9w9" firstAttribute="top" secondItem="bT1-vX-V4Z" secondAttribute="top" id="F4m-0J-hrW"/>
                                                 <constraint firstItem="64T-tC-Stf" firstAttribute="top" secondItem="Vqo-Nd-b2b" secondAttribute="topMargin" constant="5" id="OK6-zU-c0B"/>
-                                                <constraint firstItem="64T-tC-Stf" firstAttribute="trailing" secondItem="D7j-YL-SPF" secondAttribute="leading" constant="-20" id="QFU-0y-QWp"/>
                                                 <constraint firstItem="bT1-vX-V4Z" firstAttribute="leading" secondItem="Vqo-Nd-b2b" secondAttribute="leadingMargin" constant="5" id="QUH-bO-FxJ"/>
-                                                <constraint firstItem="D7j-YL-SPF" firstAttribute="trailing" secondItem="Vqo-Nd-b2b" secondAttribute="trailing" id="Wnj-fs-KiN"/>
-                                                <constraint firstItem="D7j-YL-SPF" firstAttribute="top" secondItem="Vqo-Nd-b2b" secondAttribute="topMargin" constant="10" id="hFQ-Ha-Gem"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="64T-tC-Stf" secondAttribute="trailing" constant="10" id="mVy-xV-Sd1"/>
                                                 <constraint firstItem="yKP-wx-9w9" firstAttribute="leading" secondItem="bT1-vX-V4Z" secondAttribute="trailing" constant="3" id="x6x-Vv-ygi"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -128,7 +111,6 @@
                                         <connections>
                                             <outlet property="itemCountLabel" destination="yKP-wx-9w9" id="UDf-66-Agl"/>
                                             <outlet property="itemLabel" destination="bT1-vX-V4Z" id="uAj-HP-CNM"/>
-                                            <outlet property="moreButton" destination="D7j-YL-SPF" id="Oul-Hj-r7I"/>
                                             <outlet property="plusButton" destination="64T-tC-Stf" id="Ld0-iZ-imD"/>
                                         </connections>
                                     </tableViewCell>
@@ -146,25 +128,13 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wEq-Kd-zbD" userLabel="More Button">
-                                                    <rect key="frame" x="313" y="18" width="30" height="30"/>
-                                                    <animations/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="30" id="ReH-tO-mDl"/>
-                                                        <constraint firstAttribute="height" constant="30" id="fqT-F1-FEz"/>
-                                                    </constraints>
-                                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <state key="normal" image="more-dots">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="moreButtonPressed:" destination="yGo-v3-VCZ" eventType="touchUpInside" id="Swo-Le-jCd"/>
-                                                    </connections>
-                                                </button>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ePn-JR-vyd">
-                                                    <rect key="frame" x="242" y="14" width="56" height="30"/>
+                                                    <rect key="frame" x="265" y="14" width="60" height="30"/>
                                                     <animations/>
                                                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="IvY-rf-3Be"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert"/>
                                                 </textField>
@@ -181,11 +151,8 @@
                                                 <constraint firstItem="PVD-vP-Cir" firstAttribute="leading" secondItem="pm9-xE-d4s" secondAttribute="trailing" constant="3" id="AcE-i2-GgY"/>
                                                 <constraint firstItem="pm9-xE-d4s" firstAttribute="leading" secondItem="OBs-Hk-89c" secondAttribute="leadingMargin" constant="5" id="BZp-vx-5zD"/>
                                                 <constraint firstItem="PVD-vP-Cir" firstAttribute="top" secondItem="pm9-xE-d4s" secondAttribute="top" id="EKU-em-dna"/>
-                                                <constraint firstItem="ePn-JR-vyd" firstAttribute="trailing" secondItem="wEq-Kd-zbD" secondAttribute="leading" constant="-15" id="Tea-VH-2qv"/>
                                                 <constraint firstItem="ePn-JR-vyd" firstAttribute="top" secondItem="OBs-Hk-89c" secondAttribute="topMargin" constant="6" id="dSa-Jy-aFd"/>
-                                                <constraint firstItem="wEq-Kd-zbD" firstAttribute="trailing" secondItem="OBs-Hk-89c" secondAttribute="trailing" id="gqJ-Y8-iaj"/>
-                                                <constraint firstItem="wEq-Kd-zbD" firstAttribute="top" secondItem="OBs-Hk-89c" secondAttribute="topMargin" constant="10" id="lYq-WG-Ov1"/>
-                                                <constraint firstItem="ePn-JR-vyd" firstAttribute="leading" secondItem="OBs-Hk-89c" secondAttribute="centerXWithinMargins" constant="70" id="vy0-w1-V96"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ePn-JR-vyd" secondAttribute="trailing" constant="10" id="sny-Cp-vOZ"/>
                                                 <constraint firstItem="pm9-xE-d4s" firstAttribute="top" secondItem="OBs-Hk-89c" secondAttribute="topMargin" constant="14" id="xYu-7I-579"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -195,7 +162,6 @@
                                             <outlet property="itemCountLabel" destination="PVD-vP-Cir" id="lDx-ao-d9y"/>
                                             <outlet property="itemCountTextField" destination="ePn-JR-vyd" id="piA-CJ-Owf"/>
                                             <outlet property="itemLabel" destination="pm9-xE-d4s" id="yOs-rT-Ted"/>
-                                            <outlet property="moreButton" destination="wEq-Kd-zbD" id="NBc-gw-h4c"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -717,7 +683,6 @@
     </scenes>
     <resources>
         <image name="full__0000s_0091_config" width="25" height="25"/>
-        <image name="more-dots" width="64" height="64"/>
         <image name="plus-circle" width="128" height="128"/>
     </resources>
 </document>
