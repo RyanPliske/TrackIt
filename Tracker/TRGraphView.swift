@@ -16,6 +16,12 @@ protocol TRGraphViewDelegate: class {
     
     override func drawRect(rect: CGRect) {
         let graphPoints = delegate.graphPoints
+        if graphPoints == [0,0,0,0,0,0,0] {
+            self.hidden = true
+            return
+        } else {
+            self.hidden = false
+        }
         setupLabelsUsing(graphPoints)
         let recWidth = rect.width
         let recHeight = rect.height

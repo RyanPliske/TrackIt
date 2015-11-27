@@ -672,17 +672,25 @@
 				F9EAA79A1BF2AA2900F98757 /* TRStatsPresenter.swift */,
 				EF0CB4151BB5B1B500D74B83 /* TRStatsView.swift */,
 				F9448A4C1BE974B2004815F4 /* TRStatsView.xib */,
+				F95B83A31C08BA2100017251 /* StatsCollectionView */,
+			);
+			name = Stats;
+			sourceTree = "<group>";
+		};
+		F95B83A31C08BA2100017251 /* StatsCollectionView */ = {
+			isa = PBXGroup;
+			children = (
 				F9448A481BE97381004815F4 /* TRCalendarCollectionViewCell.swift */,
 				F9448A431BE9713F004815F4 /* TRCalendarCollectionViewCell.xib */,
-				F9448A4A1BE97396004815F4 /* TRGraphCollectionViewCell.swift */,
-				F9448A461BE9729C004815F4 /* TRGraphCollectionViewCell.xib */,
 				F9ED786B1BEA58F800CDA948 /* TRCalendarView.swift */,
 				F9ED786D1BEADAF800CDA948 /* TRWeekView.swift */,
 				F95D39981BEDAE6E0018018F /* TRDayLabel.swift */,
 				F99413901BEEAC66003E6D8D /* TRMonthGenerator.swift */,
+				F9448A4A1BE97396004815F4 /* TRGraphCollectionViewCell.swift */,
+				F9448A461BE9729C004815F4 /* TRGraphCollectionViewCell.xib */,
 				F9486AC31BF69DB6003CB056 /* TRGraphView.swift */,
 			);
-			name = Stats;
+			name = StatsCollectionView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
