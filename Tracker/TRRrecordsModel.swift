@@ -8,9 +8,14 @@ typealias TRTrack = (dayIndex: Int, count: Float)
 typealias TRTracks = [TRTrack]
 typealias TRRecordedDays = (days: [Int], dailyGoalType: DailyGoalType)
 
+protocol TRRecordsModelDelegate: class {
+    func recordsChangedWithName(name: String)
+}
+
 class TRRecordsModel {
     
     static let sharedInstanceOfRecordsModel = TRRecordsModel(recordService: TRRecordService(), itemsModel: TRItemsModel.sharedInstanceOfItemsModel)
+    weak var delegate: TRRecordsModelDelegate!
 
     private let recordSortManager = TRRecordSortManager()
     private let recordService: TRRecordService
@@ -106,6 +111,7 @@ class TRRecordsModel {
     func deleteRecordAtRow(record: TRRecord) {
         recordSortManager.removeRecord(record)
         recordService.deleteRecord(record)
+        delegate.recordsChangedWithName(record.itemName!)
     }
     
     // MARK: Private Helpers

@@ -7,7 +7,7 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
     @IBOutlet private weak var trackerView: TRTrackerView!
     private var trackerPresenter: TRTrackerPresenter!
     private var recordService = TRRecordService()
-    private lazy var recordsModel = TRRecordsModel.sharedInstanceOfRecordsModel
+    private var recordsModel = TRRecordsModel.sharedInstanceOfRecordsModel
     private lazy var itemsModel = TRItemsModel.sharedInstanceOfItemsModel
     @IBOutlet weak var activityMonitor: UIActivityIndicatorView!
     
