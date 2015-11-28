@@ -28,18 +28,17 @@ class TRItemsModel {
     }
     
     private func preloadItemsToPhone() {
+        var itemCount = 0
         for item in TRPreloadedItems.sinfulItems {
-            itemService.addItemToSaveWithItemName(item, measureUnit: nil)
+            itemCount++
+            itemService.addItemToSaveWithItemName(item, measureUnit: nil, incrementByOne: true, index: itemCount)
         }
         for (_, items) in TRPreloadedItems.regularItems {
+            itemCount++
             let itemName = items["name"] as! String
             let itemMeasureUnit = items["unit"] as! String
             let incrementByOne = items["increment"] as! Bool
-            if incrementByOne {
-                itemService.addItemToSaveWithItemName(itemName, measureUnit: itemMeasureUnit)
-            } else {
-                itemService.addItemToSaveWithItemName(itemName, measureUnit: itemMeasureUnit, incrementByOne: false)
-            }
+            itemService.addItemToSaveWithItemName(itemName, measureUnit: itemMeasureUnit, incrementByOne: incrementByOne, index: itemCount)
         }
         weak var weakSelf = self
         itemService.saveItems { (success, error) -> Void in
@@ -52,7 +51,7 @@ class TRItemsModel {
     }
     
     func createItemWithName(itemName: String, completion: (()->())?) {
-        itemService.addItemToSaveWithItemName(itemName, measureUnit: nil)
+        itemService.addItemToSaveWithItemName(itemName, measureUnit: nil, incrementByOne: true, index: _allItems.count - 1)
         weak var weakSelf = self
         itemService.saveItems { (success, error) -> Void in
             if success {
@@ -70,6 +69,7 @@ class TRItemsModel {
                 weakSelf?.preloadItemsToPhone()
             } else {
                 weakSelf?._allItems = items
+                weakSelf?.orderAllItems()
                 weakSelf?.filterItemsByActivated()
                 if let completionBlock = completion {
                     completionBlock()
@@ -82,7 +82,6 @@ class TRItemsModel {
         _allItems[index].activated = activeStatus
         filterItemsByActivated()
         itemService.updateItem(self.allItems[index], activeStatus: activeStatus)
-        NSNotificationCenter.defaultCenter().postNotificationName("ActiveItemsChanged", object: nil)
     }
     
     func updateItemIncrementalStatusAtIndex(index: Int, status: Bool) {
@@ -130,15 +129,25 @@ class TRItemsModel {
         itemService.updateItem(itemToUpdate, dailyGoalType: goalType)
     }
     
+    func exchangeItemAtIndex(sourceIndex: Int, withItemAtIndex newIndex: Int) {
+        let tempItem = _allItems[sourceIndex]
+        
+        _allItems[sourceIndex] = _allItems[newIndex]
+        _allItems[sourceIndex].index = newIndex
+        
+        _allItems[newIndex] = tempItem
+        _allItems[newIndex].index = sourceIndex
+        
+        filterItemsByActivated()
+    }
+    
     func deleteItemAtIndex(index: Int) {
         let itemToDelete = _allItems[index]
         _allItems = _allItems.filter { $0 !== itemToDelete }
 
         itemService.deleteItemFromPhone(itemToDelete) { [weak self](success, error) -> Void in
             if success {
-                self?.readItemsFromPhone({ () -> () in
-                    NSNotificationCenter.defaultCenter().postNotificationName("ActiveItemsChanged", object: nil)
-                })
+                self?.readItemsFromPhone(nil)
             }
         }
     }
@@ -149,5 +158,10 @@ class TRItemsModel {
     
     private func filterItemsByActivated() {
         _activeItems = _allItems.filter { $0.activated }
+        NSNotificationCenter.defaultCenter().postNotificationName("ActiveItemsChanged", object: nil)
+    }
+    
+    private func orderAllItems() {
+        _allItems = _allItems.sort { $0.0.index < $0.1.index }
     }
 }

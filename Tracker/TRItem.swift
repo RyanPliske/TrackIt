@@ -84,6 +84,16 @@ class TRItem: PFObject, PFSubclassing {
         }
     }
     
+    var index: Int {
+        get {
+            return self["index"] as! Int
+        }
+        set {
+            self["index"] = newValue
+            self.pinInBackground()
+        }
+    }
+    
     var opened = false
     
 }

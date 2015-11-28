@@ -46,6 +46,14 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
         }
     }
     
+    func fuckingResignFirstResponder() {
+        for cells in editItemTableView.visibleCells {
+            if let cell = cells as? TREditItemTableViewInputCell {
+                cell.textField.resignFirstResponder()
+            }
+        }
+    }
+    
     // MARK: UITableViewDataSource
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
