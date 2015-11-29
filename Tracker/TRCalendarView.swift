@@ -5,6 +5,7 @@ protocol TRCalendarViewDelegate: class {
 }
 
 class TRCalendarView: UIView, TRWeekViewDelegate {
+    
 
     var trackingDate: NSDate!
     var currentDayIndex: Int {
@@ -14,10 +15,14 @@ class TRCalendarView: UIView, TRWeekViewDelegate {
     private let titleView = TRCalendarTitleForWeekView()
     private var weekViews = [TRWeekView]()
     private weak var delegate: TRCalendarViewDelegate!
+    private var startColor: UIColor!
+    private var endColor: UIColor!
     
-    init(trackingDate: NSDate, withDelegate delegate: TRCalendarViewDelegate) {
+    init(trackingDate: NSDate, withDelegate delegate: TRCalendarViewDelegate, startColor: UIColor, endColor: UIColor) {
         self.delegate = delegate
         self.trackingDate = trackingDate
+        self.startColor = startColor
+        self.endColor = endColor
         super.init(frame: CGRectZero)
         
         addSubview(titleView)
@@ -38,7 +43,6 @@ class TRCalendarView: UIView, TRWeekViewDelegate {
         let weekHeight = CGRectGetHeight(self.bounds) / 7
         let weekWidth = CGRectGetWidth(self.bounds)
         
-        //layout titles
         titleView.frame = CGRectMake(0, y, weekWidth, weekHeight)
         y += weekHeight
         
@@ -46,6 +50,13 @@ class TRCalendarView: UIView, TRWeekViewDelegate {
             weekView.frame = CGRectMake(0, y, weekWidth, weekHeight)
             y += weekHeight
         }
+    }
+    
+    override func drawRect(rect: CGRect) {
+        let colors = [startColor.CGColor, endColor.CGColor]
+        let colorLocations:[CGFloat] = [0.0, 1.0]
+        let cgGradient = CGGradientCreateWithColors(CGColorSpaceCreateDeviceRGB(), colors, colorLocations)
+        CGContextDrawLinearGradient(UIGraphicsGetCurrentContext(), cgGradient, CGPoint.zero, CGPoint(x: 0, y: CGRectGetHeight(bounds)), CGGradientDrawingOptions.DrawsBeforeStartLocation)
     }
     
     func redrawGoalSymbols() {

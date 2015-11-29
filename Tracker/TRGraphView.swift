@@ -6,13 +6,16 @@ protocol TRGraphViewDelegate: class {
 }
 
 @IBDesignable class TRGraphView: UIView {
-    @IBInspectable var startColor: UIColor = UIColor.redColor()
-    @IBInspectable var endColor: UIColor = UIColor.greenColor()
+    
     @IBOutlet weak var maxLabel: UILabel!
     @IBOutlet weak var minLabel: UILabel!
     @IBOutlet weak var averageLabel: UILabel!
     
+    var startColor: UIColor!
+    var endColor: UIColor!
     weak var delegate: TRGraphViewDelegate!
+    
+    
     
     override func drawRect(rect: CGRect) {
         let graphPoints = delegate.graphPoints

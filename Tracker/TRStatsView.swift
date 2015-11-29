@@ -71,13 +71,13 @@ class TRStatsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateF
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         if indexPath.row == 0 {
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier("GraphViewCell", forIndexPath: indexPath) as! TRGraphCollectionViewCell
-            cell.setStartColor(TRColorGenerator.colorFor(delegate.itemIndex))
+            cell.set(TRColorGenerator.colorFor(delegate.itemIndex), endColor: TRColorGenerator.darkColorFor(delegate.itemIndex))
             cell.setDelegate(self)
             return cell
         } else {
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CalendarViewCell", forIndexPath: indexPath) as! TRCalendarCollectionViewCell
             cell.delegate = self
-            cell.setupWith(trackingDate)
+            cell.setupWith(trackingDate, startColor: TRColorGenerator.colorFor(delegate.itemIndex), endColor: TRColorGenerator.darkColorFor(delegate.itemIndex))
             return cell
         }
     }

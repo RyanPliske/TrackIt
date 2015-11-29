@@ -19,8 +19,8 @@ class TRCalendarCollectionViewCell: UICollectionViewCell, TRCalendarViewDelegate
         return delegate.recordedDays
     }
     
-    func setupWith(trackingDate: NSDate) {
-        calendarView = TRCalendarView(trackingDate: trackingDate, withDelegate: self)
+    func setupWith(trackingDate: NSDate, startColor: UIColor, endColor: UIColor) {
+        calendarView = TRCalendarView(trackingDate: trackingDate, withDelegate: self, startColor: startColor, endColor: endColor)
         contentView.addSubview(calendarView)
     }
     
