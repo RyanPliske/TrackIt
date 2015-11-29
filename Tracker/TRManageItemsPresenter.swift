@@ -44,10 +44,24 @@ class TRManageItemsPresenter: NSObject, UITableViewDataSource, TRManageItemsTabl
         return editMode
     }
     
+    func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return editMode
+    }
+    
+    func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
+        itemsModel.exchangeItemAtIndex(sourceIndexPath.row, withItemAtIndex: destinationIndexPath.row)
+        tableView.reloadData()
+    }
+    
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
+            CATransaction.begin()
+            CATransaction.setCompletionBlock({ () -> Void in
+                tableView.reloadData()
+            })
             itemsModel.deleteItemAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            CATransaction.commit()
         }
     }
     

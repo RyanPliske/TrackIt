@@ -30,15 +30,15 @@ class TRItemsModel {
     private func preloadItemsToPhone() {
         var itemCount = 0
         for item in TRPreloadedItems.sinfulItems {
-            itemCount++
             itemService.addItemToSaveWithItemName(item, measureUnit: nil, incrementByOne: true, index: itemCount)
+            itemCount++
         }
         for (_, items) in TRPreloadedItems.regularItems {
-            itemCount++
             let itemName = items["name"] as! String
             let itemMeasureUnit = items["unit"] as! String
             let incrementByOne = items["increment"] as! Bool
             itemService.addItemToSaveWithItemName(itemName, measureUnit: itemMeasureUnit, incrementByOne: incrementByOne, index: itemCount)
+            itemCount++
         }
         weak var weakSelf = self
         itemService.saveItems { (success, error) -> Void in
@@ -52,10 +52,9 @@ class TRItemsModel {
     
     func createItemWithName(itemName: String, completion: (()->())?) {
         itemService.addItemToSaveWithItemName(itemName, measureUnit: nil, incrementByOne: true, index: _allItems.count - 1)
-        weak var weakSelf = self
-        itemService.saveItems { (success, error) -> Void in
+        itemService.saveItems { [weak self](success, error) -> Void in
             if success {
-                weakSelf?.readItemsFromPhone(completion)
+                self?.readItemsFromPhone(completion)
             }
         }
     }
@@ -131,12 +130,10 @@ class TRItemsModel {
     
     func exchangeItemAtIndex(sourceIndex: Int, withItemAtIndex newIndex: Int) {
         let tempItem = _allItems[sourceIndex]
-        
-        _allItems[sourceIndex] = _allItems[newIndex]
-        _allItems[sourceIndex].index = newIndex
-        
-        _allItems[newIndex] = tempItem
-        _allItems[newIndex].index = sourceIndex
+        _allItems.removeAtIndex(sourceIndex)
+        _allItems.insert(tempItem, atIndex: newIndex)
+        updateIndexes()
+        print(_allItems)
         
         filterItemsByActivated()
     }
@@ -144,6 +141,7 @@ class TRItemsModel {
     func deleteItemAtIndex(index: Int) {
         let itemToDelete = _allItems[index]
         _allItems = _allItems.filter { $0 !== itemToDelete }
+        updateIndexes()
 
         itemService.deleteItemFromPhone(itemToDelete) { [weak self](success, error) -> Void in
             if success {
@@ -163,5 +161,13 @@ class TRItemsModel {
     
     private func orderAllItems() {
         _allItems = _allItems.sort { $0.0.index < $0.1.index }
+    }
+    
+    private func updateIndexes() {
+        var count = 0
+        for item in _allItems {
+            item.index = count
+            count++
+        }
     }
 }
