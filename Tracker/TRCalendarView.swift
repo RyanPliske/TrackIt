@@ -11,6 +11,7 @@ class TRCalendarView: UIView, TRWeekViewDelegate {
         return TRDateFormatter.dayOfDate(NSDate())
     }
     
+    private let titleView = TRCalendarTitleForWeekView()
     private var weekViews = [TRWeekView]()
     private weak var delegate: TRCalendarViewDelegate!
     
@@ -18,6 +19,9 @@ class TRCalendarView: UIView, TRWeekViewDelegate {
         self.delegate = delegate
         self.trackingDate = trackingDate
         super.init(frame: CGRectZero)
+        
+        addSubview(titleView)
+        
         let monthGenerator = TRMonthGenerator(trackingDate: trackingDate)
         let weeksOfTheMonth = [monthGenerator.week1, monthGenerator.week2, monthGenerator.week3, monthGenerator.week4, monthGenerator.week5, monthGenerator.week6]
         drawWeeks(weeksOfTheMonth)
@@ -31,8 +35,12 @@ class TRCalendarView: UIView, TRWeekViewDelegate {
     override func layoutSubviews() {
         super.layoutSubviews()
         var y: CGFloat = 0
-        let weekHeight = CGRectGetHeight(self.bounds) / 6
+        let weekHeight = CGRectGetHeight(self.bounds) / 7
         let weekWidth = CGRectGetWidth(self.bounds)
+        
+        //layout titles
+        titleView.frame = CGRectMake(0, y, weekWidth, weekHeight)
+        y += weekHeight
         
         for weekView in weekViews {
             weekView.frame = CGRectMake(0, y, weekWidth, weekHeight)
