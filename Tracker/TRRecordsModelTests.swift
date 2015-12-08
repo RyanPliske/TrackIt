@@ -14,7 +14,8 @@ class TRRecordsModelTests: XCTestCase {
     
     func testWhencreateRecordUsingRowIsCalled_ThenCreateRecordWithItemIsCalledOnTheRecordService() {
         XCTAssertFalse(mockRecordService.createRecordCalled)
-        testObject.createRecordUsingRow(0, quantity: 1.0, type: .TrackAction, date: NSDate())
+        testObject.createRecordUsingRow(0, quantity: 1.0, type: .TrackAction, date: NSDate()) { () -> Void in
+        }
         XCTAssertTrue(mockRecordService.createRecordCalled)
     }
     
@@ -27,12 +28,8 @@ class TRRecordsModelTests: XCTestCase {
         let itemDate = NSDate()
         let expectedItemDate = TRDateFormatter.descriptionForDate(itemDate)
         
-        testObject.createRecordUsingRow(
-            row,
-            quantity: expectedItemQuantity,
-            type: itemType,
-            date: itemDate
-        )
+        testObject.createRecordUsingRow(row, quantity: expectedItemQuantity, type: itemType, date: itemDate) { () -> Void in
+        }
         
         XCTAssertEqual(expectedItemName, mockRecordService.createdRecord?.itemName)
         XCTAssertEqual(expectedItemQuantity, mockRecordService.createdRecord?.itemQuantity)

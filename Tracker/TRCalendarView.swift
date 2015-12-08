@@ -9,7 +9,7 @@ class TRCalendarView: UIView, TRWeekViewDelegate {
 
     var trackingDate: NSDate!
     var currentDayIndex: Int {
-        return TRDateFormatter.dayOfDate(NSDate())
+        return TRDateFormatter.dayOfDate(trackingDate)
     }
     
     private let titleView = TRCalendarTitleForWeekView()

@@ -9,7 +9,7 @@ class TRMonthGenerator {
     }
     var currentWeekIndex: Int {
         let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components([.WeekOfMonth], fromDate: NSDate())
+        let components = calendar.components([.WeekOfMonth], fromDate: trackingDate)
         return components.weekOfMonth
     }
     var currentWeek: [Int] {
@@ -30,6 +30,11 @@ class TRMonthGenerator {
         default:
             return [Int]()
         }
+    }
+    var currentDay: Int {
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components([.Day], fromDate: trackingDate)
+        return components.day
     }
     var weekDayIndexOfTheFirstOfThisMonth: Int {
         let calendar = NSCalendar.currentCalendar()
@@ -53,13 +58,17 @@ class TRMonthGenerator {
         }
         return lastDay
     }
+    //TODO: will want the actual last months
     var week1: [Int] {
         var week = [Int]()
+        var day = 1
         for index in 1...7 {
             if index < weekDayIndexOfTheFirstOfThisMonth {
+                // Don't want to actually do this
                 week.append(0)
             } else {
-                week.append(index)
+                week.append(day)
+                day++
             }
         }
         return week

@@ -5,7 +5,6 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
     private let itemsModel: TRItemsModel
     private var itemRow: Int!
     private var isNewItem = false
-    private var isPreloadedItem = false
     private enum cellIndex: Int {
         case itemName = 0
         case itemUnit = 1
@@ -25,8 +24,6 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
         self.itemsModel = itemsModel
         if self.itemRow == nil {
             self.isNewItem = true
-        } else {
-            self.isPreloadedItem = self.itemRow <= TRPreloadedItems.allItems.count ? true : false
         }
         super.init()
         self.editItemTableView.dataSource = self
@@ -77,7 +74,7 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
                 inputCell.cellDelegate = self
                 if isNewItem {
                     inputCell.setTextFieldAsFirstResponder()
-                } else if isPreloadedItem {
+                } else {
                     inputCell.setTextFieldUserInteraction(false)
                 }
             }
@@ -90,8 +87,6 @@ class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate,
                 inputCell.setTextFieldTagWith(indexPath.row)
                 inputCell.cellDelegate = self
                 if isNewItem {
-                    inputCell.setTextFieldUserInteraction(false)
-                } else if isPreloadedItem {
                     inputCell.setTextFieldUserInteraction(false)
                 }
             }
