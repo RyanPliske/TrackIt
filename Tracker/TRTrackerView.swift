@@ -8,7 +8,7 @@ protocol TRTrackerViewDelegate: class, TRTrackerTableViewCellDelegate {
 }
 
 protocol TRTrackerViewObserver {
-    func dateChooserWanted()
+
 }
 
 class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
@@ -28,10 +28,6 @@ class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
         super.awakeFromNib()
         setTodaysDateButtonLabelWithText(TRDateFormatter.descriptionForToday)
         trackerTableView.showsVerticalScrollIndicator = false
-    }
-    
-    @IBAction func todaysDateButtonPressed() {
-        observer?.dateChooserWanted()
     }
     
     func setTodaysDateButtonLabelWithText(text: String) {

@@ -8,11 +8,11 @@ class TRCalendarCollectionViewCell: UICollectionViewCell, TRCalendarViewDelegate
 
     weak var delegate: TRCalendarCollectionViewCellDelegate!
     
-    private var calendarView: TRCalendarView!
+    private var monthView: TRMonthView!
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        calendarView.frame = self.bounds
+        monthView.frame = self.bounds
     }
     
     var recordedDays: TRRecordedDays {
@@ -20,11 +20,11 @@ class TRCalendarCollectionViewCell: UICollectionViewCell, TRCalendarViewDelegate
     }
     
     func setupWith(trackingDate: NSDate, startColor: UIColor, endColor: UIColor) {
-        calendarView = TRCalendarView(trackingDate: trackingDate, withDelegate: self, startColor: startColor, endColor: endColor)
-        contentView.addSubview(calendarView)
+        monthView = TRMonthView(trackingDate: trackingDate, withDelegate: self, startColor: startColor, endColor: endColor)
+        contentView.addSubview(monthView)
     }
     
     func redrawGoalSymbols() {
-        calendarView.redrawGoalSymbols()
+        monthView.redrawGoalSymbols()
     }
 }

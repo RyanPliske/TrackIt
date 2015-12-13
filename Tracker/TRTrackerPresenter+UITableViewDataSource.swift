@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 extension TRTrackerPresenter: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

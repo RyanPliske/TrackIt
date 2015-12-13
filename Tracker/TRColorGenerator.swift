@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 class TRColorGenerator {
     class func colorFor(row: Int) -> UIColor {

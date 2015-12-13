@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 import Spring
 
 protocol TRTrackerTableViewCellDelegate: class {

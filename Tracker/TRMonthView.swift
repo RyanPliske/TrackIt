@@ -4,7 +4,7 @@ protocol TRCalendarViewDelegate: class {
     var recordedDays: TRRecordedDays { get }
 }
 
-class TRCalendarView: UIView, TRWeekViewDelegate {
+class TRMonthView: UIView, TRWeekViewDelegate {
     
 
     var trackingDate: NSDate!

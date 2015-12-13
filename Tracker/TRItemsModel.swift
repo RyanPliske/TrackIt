@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 protocol TRItemsModelDelegate: class {
     func itemOpenedStatusChangedAtIndex(index: Int)

@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 class TRTrackerPresenter: NSObject, TRItemsModelDelegate, TRRecordsModelDelegate {
     let trackerView: TRTrackerView

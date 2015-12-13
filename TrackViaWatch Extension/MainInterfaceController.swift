@@ -7,7 +7,7 @@
 //
 
 import WatchKit
-import Foundation
+import UIKit
 
 @available(iOS 8.2, *)
 class MainInterfaceController: WKInterfaceController {

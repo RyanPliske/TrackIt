@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 extension UIColor {
     class func TRBabyBlue() -> UIColor {

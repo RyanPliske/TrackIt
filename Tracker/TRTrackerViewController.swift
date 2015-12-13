@@ -42,17 +42,4 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
         mm_drawerController.toggleDrawerSide(MMDrawerSide.Right, animated: true, completion: nil)
     }
     
-    // MARK: TRTrackerViewObserver
-    func dateChooserWanted() {
-        let dateViewController = TRChooseableDateViewController(dateToSelect: trackerPresenter.dateToTrack)
-        dateViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
-        dateViewController.dateObserver = self.trackerPresenter
-        if let popOver = dateViewController.popoverPresentationController {
-            popOver.permittedArrowDirections = UIPopoverArrowDirection.Up
-            popOver.delegate = dateViewController
-            popOver.sourceView = self.trackerView
-            popOver.sourceRect = self.trackerView.todaysDateButton.frame
-            self.presentViewController(dateViewController, animated: true, completion: nil)
-        }
-    }
 }

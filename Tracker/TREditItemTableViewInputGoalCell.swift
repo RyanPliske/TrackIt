@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 protocol TREditItemTableViewInputGoalCellDelegate: class {
     func dailyGoalTypeChangedAtRow(row: Int, goalType: DailyGoalType)

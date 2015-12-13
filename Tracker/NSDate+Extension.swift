@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 extension NSDate {
     func isFromSameMonthAs(otherDate: NSDate) -> Bool {

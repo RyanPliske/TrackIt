@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 struct TRCurrentDate {
     static var thisMonth: Int {

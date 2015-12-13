@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 extension TRTrackerView: UITableViewDelegate {
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

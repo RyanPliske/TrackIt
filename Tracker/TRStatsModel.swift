@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 protocol TRStatsModelDelegate: class {
     var recordedTracksForTheMonth: TRTracks { get }
@@ -17,9 +17,9 @@ class TRStatsModel {
         
         for day in monthGenerator.currentWeek {
             let filter = tracks.filter { $0.dayIndex == day }
-            if day > monthGenerator.currentDay {
-                continue
-            }
+//            if day > monthGenerator.currentDay {
+//                continue
+//            }
             if filter.isEmpty {
                 points.append(0)
             } else {

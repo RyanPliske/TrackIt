@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 class TREditItemPresenter: NSObject, UITableViewDataSource, UITableViewDelegate, TREditItemTableViewInputCellDelegate, TREditItemTableViewViceCellDelegate {
     private let editItemTableView: UITableView

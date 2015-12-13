@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 struct TRPreloadedItems {
     static var regularItems: [Int : Dictionary<String, NSObject>] = [

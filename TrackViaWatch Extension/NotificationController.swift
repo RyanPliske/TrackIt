@@ -7,7 +7,7 @@
 //
 
 import WatchKit
-import Foundation
+import UIKit
 
 
 class NotificationController: WKUserNotificationInterfaceController {

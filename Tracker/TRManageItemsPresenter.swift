@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 class TRManageItemsPresenter: NSObject, UITableViewDataSource, TRManageItemsTableViewCellDelegate {
     
