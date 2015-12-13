@@ -1,12 +1,9 @@
 import UIKit
 
-class TRMonthGenerator {
+class TRMonthModel {
     
-    private var trackingDate: NSDate
+    let trackingDate = NSDate()
     
-    init(trackingDate: NSDate) {
-        self.trackingDate = trackingDate
-    }
     var currentWeekIndex: Int {
         let calendar = NSCalendar.currentCalendar()
         let components = calendar.components([.WeekOfMonth], fromDate: trackingDate)

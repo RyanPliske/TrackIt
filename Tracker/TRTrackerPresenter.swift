@@ -5,7 +5,6 @@ class TRTrackerPresenter: NSObject, TRItemsModelDelegate, TRRecordsModelDelegate
     let recordsModel: TRRecordsModel
     lazy var itemsModel = TRItemsModel.sharedInstanceOfItemsModel
     var dateToTrack = NSDate()
-    var trackingType : TRRecordType = .TrackAction
 
     init(view: TRTrackerView, model: TRRecordsModel) {
         trackerView = view

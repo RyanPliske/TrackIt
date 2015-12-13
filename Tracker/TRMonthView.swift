@@ -6,34 +6,35 @@ protocol TRCalendarViewDelegate: class {
 
 class TRMonthView: UIView, TRWeekViewDelegate {
     
-
-    var trackingDate: NSDate!
+    let trackingDate = NSDate()
+    weak var delegate: TRCalendarViewDelegate!
     var currentDayIndex: Int {
         return TRDateFormatter.dayOfDate(trackingDate)
     }
     
     private let titleView = TRCalendarTitleForWeekView()
     private var weekViews = [TRWeekView]()
-    private weak var delegate: TRCalendarViewDelegate!
-    private var startColor: UIColor!
-    private var endColor: UIColor!
+    private var startColor: UIColor
+    private var endColor: UIColor
     
-    init(trackingDate: NSDate, withDelegate delegate: TRCalendarViewDelegate, startColor: UIColor, endColor: UIColor) {
-        self.delegate = delegate
-        self.trackingDate = trackingDate
+    init(startColor: UIColor, endColor: UIColor) {
         self.startColor = startColor
         self.endColor = endColor
         super.init(frame: CGRectZero)
         
         addSubview(titleView)
         
-        let monthGenerator = TRMonthGenerator(trackingDate: trackingDate)
-        let weeksOfTheMonth = [monthGenerator.week1, monthGenerator.week2, monthGenerator.week3, monthGenerator.week4, monthGenerator.week5, monthGenerator.week6]
+//        let monthGenerator = TRMonthGenerator(trackingDate: trackingDate)
+//        let weeksOfTheMonth = [monthGenerator.week1, monthGenerator.week2, monthGenerator.week3, monthGenerator.week4, monthGenerator.week5, monthGenerator.week6]
+        let weeksOfTheMonth = [[1,2]]
         drawWeeks(weeksOfTheMonth)
         addGoalSymbolForDays(delegate.recordedDays)
     }
     
+    // Shouldn't have to use this method
     required init?(coder aDecoder: NSCoder) {
+        startColor = UIColor.redColor()
+        endColor = UIColor.greenColor()
         super.init(coder: aDecoder)
     }
     

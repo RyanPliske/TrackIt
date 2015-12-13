@@ -48,15 +48,6 @@ class TRRecord: PFObject, PFSubclassing {
         }
     }
     
-    var itemType: String? {
-        get {
-            return self[itemTypeReference] as? String
-        }
-        set(newValue) {
-            self[itemTypeReference] = newValue
-        }
-    }
-    
     var dateDescription: String {
         get {
             if let date = self[itemDateDescription] as? String {

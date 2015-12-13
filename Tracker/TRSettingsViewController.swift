@@ -26,7 +26,7 @@ class TRSettingsViewController: UIViewController, UITableViewDelegate {
         } else if indexPath.row == 1 {
             self.performSegueWithIdentifier("showEditItemFromSettings", sender: nil)
         } else if indexPath.row == 2 {
-            self.performSegueWithIdentifier("showEditTracks", sender: self)
+//            self.performSegueWithIdentifier("showEditTracks", sender: self)
         }
     }
 

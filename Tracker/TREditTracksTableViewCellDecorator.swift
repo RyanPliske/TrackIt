@@ -7,18 +7,11 @@ class TREditTracksTableViewCellDecorator {
             let item = model.records[indexPath.row].itemName
             let count = model.records[indexPath.row].itemQuantity
             let dateDescription = model.records[indexPath.row].dateDescription
-            
-            switch (model.sortType) {
-            case .TrackAction:
-                cell.setItemLabelTextWith(item! + ":")
-                if count % 1 == 0 {
-                    cell.setCountLabelTextWith((Int(count).description))
-                } else {
-                    cell.setCountLabelTextWith(count.description)
-                }
-            case .TrackUrge:
-                cell.setItemLabelTextWith(item!)
-                cell.setCountLabelTextWith("")
+            cell.setItemLabelTextWith(item! + ":")
+            if count % 1 == 0 {
+                cell.setCountLabelTextWith((Int(count).description))
+            } else {
+                cell.setCountLabelTextWith(count.description)
             }
             cell.setDateLabelTextWith(dateDescription)
         }

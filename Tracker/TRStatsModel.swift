@@ -5,14 +5,13 @@ protocol TRStatsModelDelegate: class {
     var tag: Int { get }
     var dailyGoalType: DailyGoalType { get }
     var dailyGoal: Int { get }
-    var trackingDate: NSDate { get }
 }
 
 class TRStatsModel {
     
     var graphPoints: [Int] {
         var points = [Int]()
-        let monthGenerator = TRMonthGenerator(trackingDate: delegate.trackingDate)
+        let monthGenerator = TRMonthModel()
         let tracks = recordedTracksForTheMonth
         
         for day in monthGenerator.currentWeek {

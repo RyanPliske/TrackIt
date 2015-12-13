@@ -30,7 +30,6 @@ class TREditTracksViewController: UIViewController {
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        recordsModel.sortType = TRRecordType.TrackAction
         recordSearchBar.resignFirstResponder()
     }
     
@@ -54,11 +53,9 @@ class TREditTracksViewController: UIViewController {
     
     @IBAction func segmentControlPressed(sender: AnyObject) {
         if (itemTypeSegmentedControl.selectedSegmentIndex == 0) {
-            recordsModel.sortType = TRRecordType.TrackAction
-            editTracksTableView.reloadData()
+
         } else {
-            recordsModel.sortType = TRRecordType.TrackUrge
-            editTracksTableView.reloadData()
+
         }
     }
     

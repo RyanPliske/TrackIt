@@ -15,7 +15,7 @@ class MockRecordService: TRRecordService {
         return record
     }
     
-    override func readAllRecordsFromPhoneWithSortType(sortType: TRRecordType, completion: PFQueryArrayResultBlock) {
+    override func readAllRecordsFromPhoneWithSortType(completion: PFQueryArrayResultBlock) {
         let record = MockRecord(className: "record")
         var records = [MockRecord]()
         records.append(record)
