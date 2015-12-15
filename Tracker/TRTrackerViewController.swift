@@ -4,17 +4,18 @@ import MMDrawerController
 
 class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
     
+    var recordsModel: TRRecordsModel!
+    var itemsModel: TRItemsModel!
+    
     @IBOutlet private weak var trackerView: TRTrackerView!
     private var trackerPresenter: TRTrackerPresenter!
     private var recordService = TRRecordService()
-    private var recordsModel = TRRecordsModel.sharedInstanceOfRecordsModel
-    private lazy var itemsModel = TRItemsModel.sharedInstanceOfItemsModel
-    @IBOutlet weak var activityMonitor: UIActivityIndicatorView!
+    @IBOutlet private weak var activityMonitor: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         recordsModel.readAllRecords(nil)
-        trackerPresenter = TRTrackerPresenter(view: trackerView, model: recordsModel)
+        trackerPresenter = TRTrackerPresenter(view: trackerView, recordsModel: recordsModel, itemsModel: itemsModel)
         activityMonitor.startAnimating()
         trackerView.observer = self
         itemsModel.delegate = trackerPresenter
@@ -27,6 +28,8 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
         trackerView.trackerTableView.reloadData()
     }
     
+    //MARK: NSNotificationCenter
+    
     func itemsChanged() {
         trackerView.trackerTableView.reloadData()
     }
@@ -37,6 +40,8 @@ class TRTrackerViewController: UIViewController, TRTrackerViewObserver {
         trackerView.trackerTableView.reloadData()
 
     }
+    
+    //MARK: Actions
     
     @IBAction func settingsButtonPressed(sender: AnyObject) {
         mm_drawerController.toggleDrawerSide(MMDrawerSide.Right, animated: true, completion: nil)

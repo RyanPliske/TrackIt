@@ -2,6 +2,8 @@ import UIKit
 
 class TRSettingsViewController: UIViewController, UITableViewDelegate {
     
+    var recordsModel: TRRecordsModel!
+    var itemsModel: TRItemsModel!
     var settingsPresenter: TRSettingsPresenter?
     @IBOutlet weak var settingsTableView: UITableView!
 
@@ -24,10 +26,15 @@ class TRSettingsViewController: UIViewController, UITableViewDelegate {
         if indexPath.row == 0 {
             self.performSegueWithIdentifier("showManageItems", sender: self)
         } else if indexPath.row == 1 {
-            self.performSegueWithIdentifier("showEditItemFromSettings", sender: nil)
+            self.performSegueWithIdentifier("showEditItemFromSettings", sender: self)
         } else if indexPath.row == 2 {
 //            self.performSegueWithIdentifier("showEditTracks", sender: self)
         }
+    }
+    
+    //TODO: Pass the needed models to the appropriate View Controller
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        super.prepareForSegue(segue, sender: sender)
     }
 
 }

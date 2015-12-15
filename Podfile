@@ -7,7 +7,7 @@ target 'Tracker' do
     pod 'Crashlytics'
     pod 'TPKeyboardAvoiding'
     pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift2'
-    pod 'MMDrawerController', '~> 0.5.7'
+    pod 'MMDrawerController'
 end
 
 target 'TrackerTests' do

@@ -1,6 +1,6 @@
 import UIKit
 
-class TRMonthModel {
+class TRMonthGenerator {
     
     let trackingDate = NSDate()
     

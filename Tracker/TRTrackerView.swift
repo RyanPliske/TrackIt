@@ -11,7 +11,7 @@ protocol TRTrackerViewObserver {
 
 }
 
-class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
+class TRTrackerView: UIView, TRTrackerTableViewCellDelegate, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var todaysDateButton: UIButton!
     @IBOutlet weak var recordSavedLabel: SpringLabel!
     @IBOutlet weak var trackerTableView: TPKeyboardAvoidingTableView! {
@@ -100,5 +100,76 @@ class TRTrackerView: UIView, TRTrackerTableViewCellDelegate {
         return delegate.recordedMonthlyTracksForRow(row)
     }
     
+    // MARK: UITableViewDataSource
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+//        return itemsModel.activeItems.count
+        return 21
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        let item = itemsModel.activeItems[indexPath.section]
+//        var cell: TRTrackerTableViewCell
+//        if item.incrementByOne {
+//            cell = tableView.dequeueReusableCellWithIdentifier("itemWithPlusButton") as! TRTrackerTableViewCellWithPlusButton
+//        } else {
+//            let aCell = tableView.dequeueReusableCellWithIdentifier("itemWithTextField") as! TRTrackerTableViewCellWithTextField
+//            let placeHolder = item.measurementUnit == "none" ? item.name : item.measurementUnit
+//            aCell.setTextFieldPlaceHolder(placeHolder)
+//            cell = aCell
+//        }
+//        setLabelTextWithItem(item, cell: cell)
+//        cell.setTagsForCellWith(indexPath.section)
+//        cell.delegate = trackerView
+//        cell.backgroundColor = TRColorGenerator.colorFor(indexPath.section)
+//        cell.setSelectedDateOnCalendarWith(dateToTrack)
+//        if item.opened {
+//            cell.destroyStatsView()
+//            cell.prepareStatsView()
+//        } else {
+//            cell.destroyStatsView()
+//        }
+//        return cell
+        return tableView.dequeueReusableCellWithIdentifier("itemWithPlusButton") as! TRTrackerTableViewCellWithPlusButton
+    }
+    
+//    private func setLabelTextWithItem(item: TRItem, cell: TRTrackerTableViewCell) {
+//        cell.setItemNameLabelTextWith(item.name + ":")
+//        recordsModel.searchRecordsForItem(item.name, dateDescription: TRDateFormatter.descriptionForDate(dateToTrack)) { (records, error) -> Void in
+//            if let returnedRecords = records {
+//                let itemCounts: [Float] = returnedRecords.map { $0.itemQuantity }
+//                let itemCountSum: Float = itemCounts.reduce(0) { $0 + $1 }
+//                cell.setItemLabelCountWith(itemCountSum)
+//            }
+//        }
+//    }
+    
+    // MARK: UITableViewDelegate
+    
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 20.0
+    }
+    
+    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.sizeToFit()
+        view.backgroundColor = UIColor.clearColor()
+        return view
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if delegate.itemAtRowIsOpened(indexPath.section) {
+            return TRTrackerTableViewCellSize.openedHeight
+        }
+        return TRTrackerTableViewCellSize.closedHeight
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        delegate.itemSelectedAtRow(indexPath.section)
+    }
     
 }

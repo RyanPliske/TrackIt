@@ -11,7 +11,7 @@ class TRStatsModel {
     
     var graphPoints: [Int] {
         var points = [Int]()
-        let monthGenerator = TRMonthModel()
+        let monthGenerator = TRMonthGenerator()
         let tracks = recordedTracksForTheMonth
         
         for day in monthGenerator.currentWeek {

@@ -67,8 +67,9 @@ class TRRecordsModel {
         }
     }
     
-    func tracksForItem(item: TRItem, forDate date: NSDate) -> TRTracks {
-        var records = recordService.readAllRecordsFromPhoneWithItemName(item.name, monthName: TRDateFormatter.monthOfDate(date), yearName: TRDateFormatter.yearOfDate(date))
+    func tracksForItem(item: TRItem) -> TRTracks {
+        let today = NSDate()
+        var records = recordService.readAllRecordsFromPhoneWithItemName(item.name, monthName: TRDateFormatter.monthOfDate(today), yearName: TRDateFormatter.yearOfDate(today))
         if records.isEmpty {
             return []
         }

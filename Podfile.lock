@@ -1,30 +1,29 @@
 PODS:
-  - Bolts/Tasks (1.4.0)
-  - Crashlytics (3.3.4)
-  - Fabric (1.5.5):
-    - Fabric/Base (= 1.5.5)
-  - Fabric/Base (1.5.5)
-  - MMDrawerController (0.5.7):
-    - MMDrawerController/Core (= 0.5.7)
-    - MMDrawerController/MMDrawerBarButtonItem (= 0.5.7)
-    - MMDrawerController/MMDrawerVisualStates (= 0.5.7)
-    - MMDrawerController/Subclass (= 0.5.7)
-  - MMDrawerController/Core (0.5.7)
-  - MMDrawerController/MMDrawerBarButtonItem (0.5.7):
+  - Bolts/Tasks (1.5.0)
+  - Crashlytics (3.4.1):
+    - Fabric (~> 1.6.0)
+  - Fabric (1.6.1)
+  - MMDrawerController (0.6.0):
+    - MMDrawerController/Core (= 0.6.0)
+    - MMDrawerController/MMDrawerBarButtonItem (= 0.6.0)
+    - MMDrawerController/MMDrawerVisualStates (= 0.6.0)
+    - MMDrawerController/Subclass (= 0.6.0)
+  - MMDrawerController/Core (0.6.0)
+  - MMDrawerController/MMDrawerBarButtonItem (0.6.0):
     - MMDrawerController/Core
-  - MMDrawerController/MMDrawerVisualStates (0.5.7):
+  - MMDrawerController/MMDrawerVisualStates (0.6.0):
     - MMDrawerController/Core
-  - MMDrawerController/Subclass (0.5.7):
+  - MMDrawerController/Subclass (0.6.0):
     - MMDrawerController/Core
-  - Parse (1.9.1):
-    - Bolts/Tasks (>= 1.4.0)
+  - Parse (1.11.0):
+    - Bolts/Tasks (~> 1.5)
   - Spring (1.0.3)
-  - TPKeyboardAvoiding (1.2.10)
+  - TPKeyboardAvoiding (1.2.11)
 
 DEPENDENCIES:
   - Crashlytics
   - Fabric
-  - MMDrawerController (~> 0.5.7)
+  - MMDrawerController (~> 0.6.0)
   - Parse
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift2`)
   - TPKeyboardAvoiding
@@ -40,12 +39,12 @@ CHECKOUT OPTIONS:
     :git: https://github.com/MengTo/Spring.git
 
 SPEC CHECKSUMS:
-  Bolts: 0e9bce58b9b9f5e8a7a4d47b16d2fabec289072b
-  Crashlytics: 41c082440d2e14da444186fff65e79c0b4b35d4c
-  Fabric: 190bf1a6eb65f7500de1347d027d2e59a7e53db1
-  MMDrawerController: 7a4cf8e25596bf2434e03ce50d22a8608ddee6a1
-  Parse: 54a965c8c19a6dde90284ab654dbcc77ef8c001b
+  Bolts: 722ab9a4f8b50fc4ed1b9998a5a7a2b3f16d80b4
+  Crashlytics: 41574a245bc6ae10c55d57f385ebd2004e5bee05
+  Fabric: bf0ceb04e7c924090efc5f8c55e4fbcca189e0a0
+  MMDrawerController: e3a54a5570388463ad3b36975251575b50c4e1a0
+  Parse: 886af46a0a677402f6374bb97ac212e795f70afe
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
-  TPKeyboardAvoiding: 614ebec846ec28b83d548769297fa5fb56468904
+  TPKeyboardAvoiding: e5ce146b313de063957bfa75a13f1e9b0ff18ab7
 
 COCOAPODS: 0.39.0
