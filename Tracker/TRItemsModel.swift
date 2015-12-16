@@ -7,7 +7,6 @@ protocol TRItemsModelDelegate: class {
 
 class TRItemsModel {
     
-    static let sharedInstanceOfItemsModel = TRItemsModel(itemService: TRItemService())
     var allItems: [TRItem] { return self._allItems }
     private var _allItems = [TRItem]()
     var activeItems: [TRItem] { return self._activeItems }

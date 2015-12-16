@@ -34,7 +34,12 @@ class TRSettingsViewController: UIViewController, UITableViewDelegate {
     
     //TODO: Pass the needed models to the appropriate View Controller
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        super.prepareForSegue(segue, sender: sender)
+        if let editTracksVC = segue.destinationViewController as? TREditTracksViewController {
+            editTracksVC.itemsModel = itemsModel
+            editTracksVC.recordsModel = recordsModel
+        } else if let editItemVC = segue.destinationViewController as? TREditItemViewController {
+            editItemVC.itemsModel = itemsModel
+        }
     }
 
 }

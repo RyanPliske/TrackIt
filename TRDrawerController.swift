@@ -3,10 +3,13 @@ import MMDrawerController
 
 class TRDrawerController: MMDrawerController {
     
-    private var recordsModel = TRRecordsModel.sharedInstanceOfRecordsModel
-    private var itemsModel = TRItemsModel.sharedInstanceOfItemsModel
+    private let recordsModel: TRRecordsModel
+    private let itemsModel: TRItemsModel
     
     init() {
+        itemsModel = TRItemsModel(itemService: TRItemService())
+        recordsModel = TRRecordsModel(recordService: TRRecordService(), itemsModel: itemsModel)
+        
         let centerViewController = UIStoryboard(name: "TRMain", bundle: nil).instantiateViewControllerWithIdentifier("TRTrackerViewController") as! TRTrackerViewController
         centerViewController.recordsModel = recordsModel
         centerViewController.itemsModel = itemsModel
@@ -24,6 +27,8 @@ class TRDrawerController: MMDrawerController {
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        itemsModel = TRItemsModel(itemService: TRItemService())
+        recordsModel = TRRecordsModel(recordService: TRRecordService(), itemsModel: itemsModel)
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 

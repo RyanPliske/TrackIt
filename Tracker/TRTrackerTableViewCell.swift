@@ -28,11 +28,15 @@ class TRTrackerTableViewCell: UITableViewCell, TRStatsModelDelegate {
     }
     
     var dailyGoalType: DailyGoalType {
-        return TRItemsModel.sharedInstanceOfItemsModel.activeItems[tag].dailyGoalType
+        //TODO: Fix This
+//        return TRItemsModel.sharedInstanceOfItemsModel.activeItems[tag].dailyGoalType
+        return DailyGoalType.Max
     }
     
     var dailyGoal: Int {
-        return TRItemsModel.sharedInstanceOfItemsModel.activeItems[tag].dailyGoal!
+        //TODO: Fix This
+//        return TRItemsModel.sharedInstanceOfItemsModel.activeItems[tag].dailyGoal!
+        return 1
     }
     
     var trackingDate: NSDate {
@@ -77,15 +81,16 @@ class TRTrackerTableViewCell: UITableViewCell, TRStatsModelDelegate {
     }
     
     func resetCalendarAfterTrackOccured() {
-        let item = TRItemsModel.sharedInstanceOfItemsModel.activeItems[tag]
-        if item.dailyGoal != nil {
-            if let cell = statsPresenter.statsView.collectionView.cellForItemAtIndexPath(NSIndexPath(forRow: 1, inSection: 0)) as? TRCalendarCollectionViewCell {
-                cell.redrawGoalSymbols()
-            }
-        }
-        if let cell = statsPresenter.statsView.collectionView.cellForItemAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as? TRGraphCollectionViewCell {
-            cell.reset()
-        }
+        //TODO: Fix This
+//        let item = TRItemsModel.sharedInstanceOfItemsModel.activeItems[tag]
+//        if item.dailyGoal != nil {
+//            if let cell = statsPresenter.statsView.collectionView.cellForItemAtIndexPath(NSIndexPath(forRow: 1, inSection: 0)) as? TRCalendarCollectionViewCell {
+//                cell.redrawGoalSymbols()
+//            }
+//        }
+//        if let cell = statsPresenter.statsView.collectionView.cellForItemAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as? TRGraphCollectionViewCell {
+//            cell.reset()
+//        }
     }
     
     func setSelectedDateOnCalendarWith(selectedDate: NSDate) {

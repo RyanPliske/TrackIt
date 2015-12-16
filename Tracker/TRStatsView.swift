@@ -51,10 +51,11 @@ class TRStatsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateF
     }
     
     var numberOfPages: Int {
-        let item = TRItemsModel.sharedInstanceOfItemsModel.activeItems[delegate.itemIndex]
-        if let _ = item.dailyGoal {
-            return 2
-        }
+        //TODO: Need to change this
+//        let item = TRItemsModel.sharedInstanceOfItemsModel.activeItems[delegate.itemIndex]
+//        if let _ = item.dailyGoal {
+//            return 2
+//        }
         return 1
     }
     

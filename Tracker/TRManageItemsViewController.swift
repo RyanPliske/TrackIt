@@ -3,7 +3,8 @@ import UIKit
 class TRManageItemsViewController: UIViewController, UITableViewDelegate {
     
     @IBOutlet weak var itemsTableView: UITableView!
-    private let itemsModel = TRItemsModel.sharedInstanceOfItemsModel
+    var itemsModel: TRItemsModel!
+    
     private var itemsPresenter: TRManageItemsPresenter?
     private var selectedRow: Int?
     private var editButton: UIBarButtonItem {

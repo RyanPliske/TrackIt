@@ -1,8 +1,10 @@
 import UIKit
 
 class TREditTracksViewController: UIViewController {
-    lazy var recordsModel = TRRecordsModel.sharedInstanceOfRecordsModel
-    lazy var itemsModel = TRItemsModel.sharedInstanceOfItemsModel
+
+    var recordsModel: TRRecordsModel!
+    var itemsModel: TRItemsModel!
+    
     @IBOutlet weak var editTracksTableView: TREditTracksTableView!
     @IBOutlet weak var itemTypeSegmentedControl: UISegmentedControl!
     @IBOutlet weak var recordSearchBar: UISearchBar!

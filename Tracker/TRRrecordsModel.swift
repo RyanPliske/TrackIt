@@ -14,7 +14,6 @@ protocol TRRecordsModelDelegate: class {
 
 class TRRecordsModel {
     
-    static let sharedInstanceOfRecordsModel = TRRecordsModel(recordService: TRRecordService(), itemsModel: TRItemsModel.sharedInstanceOfItemsModel)
     weak var delegate: TRRecordsModelDelegate!
 
     var records: [TRRecord] {
