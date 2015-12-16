@@ -33,6 +33,7 @@ class TRManageItemsViewController: UIViewController, UITableViewDelegate {
             if let editItemViewController = segue.destinationViewController as? TREditItemViewController {
                 if let row = selectedRow {
                     editItemViewController.itemRowToPopulateWith = row
+                    editItemViewController.itemsModel = itemsModel
                 }
                 selectedRow = nil
             }

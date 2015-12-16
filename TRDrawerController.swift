@@ -3,8 +3,8 @@ import MMDrawerController
 
 class TRDrawerController: MMDrawerController {
     
-    private let recordsModel: TRRecordsModel
-    private let itemsModel: TRItemsModel
+    private var recordsModel: TRRecordsModel!
+    private var itemsModel: TRItemsModel!
     
     init() {
         itemsModel = TRItemsModel(itemService: TRItemService())
@@ -17,7 +17,7 @@ class TRDrawerController: MMDrawerController {
         
         let rightViewController = UIStoryboard(name: "TRMain", bundle: nil).instantiateViewControllerWithIdentifier("TRSettingsViewController") as! TRSettingsViewController
         rightViewController.recordsModel = recordsModel
-        centerViewController.itemsModel = itemsModel
+        rightViewController.itemsModel = itemsModel
         let secondNavigationController = TRNavigationController(rootViewController: rightViewController)
         
         super.init(centerViewController: firstNavigationController, leftDrawerViewController: nil, rightDrawerViewController: secondNavigationController)
@@ -27,8 +27,6 @@ class TRDrawerController: MMDrawerController {
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
-        itemsModel = TRItemsModel(itemService: TRItemService())
-        recordsModel = TRRecordsModel(recordService: TRRecordService(), itemsModel: itemsModel)
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 

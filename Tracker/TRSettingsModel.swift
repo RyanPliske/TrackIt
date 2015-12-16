@@ -1,5 +1,5 @@
 import UIKit
 
 struct TRSettingsModel {
-    static let settings = ["Manage Items", "New Item"]
+    static let settings = ["Manage Items", "New Item", "Edit Tracks"]
 }

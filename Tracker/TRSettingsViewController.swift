@@ -28,17 +28,18 @@ class TRSettingsViewController: UIViewController, UITableViewDelegate {
         } else if indexPath.row == 1 {
             self.performSegueWithIdentifier("showEditItemFromSettings", sender: self)
         } else if indexPath.row == 2 {
-//            self.performSegueWithIdentifier("showEditTracks", sender: self)
+            self.performSegueWithIdentifier("showEditTracks", sender: self)
         }
     }
     
-    //TODO: Pass the needed models to the appropriate View Controller
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let editTracksVC = segue.destinationViewController as? TREditTracksViewController {
-            editTracksVC.itemsModel = itemsModel
-            editTracksVC.recordsModel = recordsModel
+        if let manageItemsVC = segue.destinationViewController as? TRManageItemsViewController {
+            manageItemsVC.itemsModel = itemsModel
         } else if let editItemVC = segue.destinationViewController as? TREditItemViewController {
             editItemVC.itemsModel = itemsModel
+        } else if let editTracksVC = segue.destinationViewController as? TREditTracksViewController {
+            editTracksVC.itemsModel = itemsModel
+            editTracksVC.recordsModel = recordsModel
         }
     }
 
